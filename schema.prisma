@@ -10,3 +10,37 @@ generator client {
   provider = "prisma-client-js"
   output   = "node_modules/.prisma/client"
 }
+
+model Content {
+  id                   String    @id @default(cuid())
+  name                 String    @default("")
+  subHeader            String    @default("")
+  text                 Json      @default("[{\"type\":\"paragraph\",\"children\":[{\"text\":\"\"}]}]")
+  from_Section_content Section[] @relation("Section_content")
+}
+
+model Section {
+  id            String    @id @default(cuid())
+  name          String    @default("")
+  page          String    @default("")
+  header        String    @default("")
+  subHeader     String    @default("")
+  content       Content[] @relation("Section_content")
+  file_filesize Int?
+  file_mode     String?
+  file_filename String?
+  cta           String    @default("")
+}
+
+model NavLink {
+  id                String   @id @default(cuid())
+  label             String   @default("")
+  from_NavBar_links NavBar[] @relation("NavBar_links")
+}
+
+model NavBar {
+  id    String    @id @default(cuid())
+  logo  String    @default("")
+  label String    @default("")
+  links NavLink[] @relation("NavBar_links")
+}
