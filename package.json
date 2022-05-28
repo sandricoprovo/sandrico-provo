@@ -13,5 +13,8 @@
     },
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "dependencies": {
+        "@keystone-6/core": "^1.1.1"
     }
 }
