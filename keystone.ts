@@ -1,9 +1,10 @@
+import "dotenv/config";
 import { config } from "@keystone-6/core";
 
 export default config({
     db: {
         provider: "postgresql",
-        url: "postgresql://sprovo:raps114110.@localhost:5432/portfolio?schema=public"
+        url: process.env.DB_CONNECTION_STRING,
     },
     lists: {}
 });
