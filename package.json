@@ -1,0 +1,17 @@
+{
+    "name": "sandricoprovo",
+    "version": "1.0.0",
+    "description": "Personal site for me!",
+    "author": "Sandrico Provo",
+    "homepage": "https://sandricoprovo.dev",
+    "keywords": [
+        "sandricoprovo"
+    ],
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/sandricoprovo/sandrico-provo.git"
+    },
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    }
+}
