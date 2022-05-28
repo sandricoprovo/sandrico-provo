@@ -12,6 +12,10 @@
         "url": "git+https://github.com/sandricoprovo/sandrico-provo.git"
     },
     "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1"
+        "keystone": "npx keystone dev"
+    },
+    "dependencies": {
+        "@keystone-6/core": "^1.1.1",
+        "dotenv": "^16.0.1"
     }
 }
