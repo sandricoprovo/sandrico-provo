@@ -1,12 +1,19 @@
 import 'dotenv/config';
-import { config } from '@keystone-6/core';
+import { config, ListSchemaConfig } from '@keystone-6/core';
 
-import { lists } from './keystoneList';
+import { schema } from './schema';
 
 export default config({
     db: {
         provider: 'postgresql',
         url: process.env.DB_CONNECTION_STRING,
     },
-    lists,
+    lists: schema as ListSchemaConfig,
+    images: {
+        upload: 'cloud',
+        local: {
+            storagePath: './client/public/images',
+            baseUrl: '/images',
+        },
+    },
 });
