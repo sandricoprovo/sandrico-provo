@@ -10,3 +10,108 @@ generator client {
   provider = "prisma-client-js"
   output   = "node_modules/.prisma/client"
 }
+
+model Admin {
+  id       String  @id @default(cuid())
+  name     String  @default("")
+  email    String  @unique @default("")
+  password String?
+  isAdmin  Boolean @default(false)
+}
+
+model User {
+  id                   String    @id @default(cuid())
+  name                 String    @default("")
+  title                String    @default("")
+  resume               File?     @relation("User_resume", fields: [resumeId], references: [id])
+  resumeId             String?   @map("resume")
+  links                Link[]    @relation("User_links")
+  from_Project_creator Project[] @relation("Project_creator")
+  from_Post_creator    Post[]    @relation("Post_creator")
+
+  @@index([resumeId])
+}
+
+model File {
+  id                 String    @id @default(cuid())
+  name               String    @default("")
+  file_filesize      Int?
+  file_mode          String?
+  file_filename      String?
+  from_User_resume   User[]    @relation("User_resume")
+  from_Section_files Section[] @relation("Section_files")
+}
+
+model Link {
+  id                 String    @id @default(cuid())
+  name               String    @default("")
+  platform           String?
+  link               String    @default("")
+  from_User_links    User[]    @relation("User_links")
+  from_Project_links Project[] @relation("Project_links")
+  from_Post_link     Post[]    @relation("Post_link")
+}
+
+model Project {
+  id              String  @id @default(cuid())
+  name            String  @default("")
+  content         Json    @default("[{\"type\":\"paragraph\",\"children\":[{\"text\":\"\"}]}]")
+  creator         User[]  @relation("Project_creator")
+  image_filesize  Int?
+  image_extension String?
+  image_width     Int?
+  image_height    Int?
+  image_mode      String?
+  image_id        String?
+  links           Link[]  @relation("Project_links")
+}
+
+model Post {
+  id          String          @id @default(cuid())
+  title       String          @default("")
+  status      PostStatusType?
+  content     Json            @default("[{\"type\":\"paragraph\",\"children\":[{\"text\":\"\"}]}]")
+  publishDate DateTime?
+  creator     User?           @relation("Post_creator", fields: [creatorId], references: [id])
+  creatorId   String?         @map("creator")
+  link        Link[]          @relation("Post_link")
+
+  @@index([creatorId])
+}
+
+model Content {
+  id                   String    @id @default(cuid())
+  name                 String    @default("")
+  subHeader            String    @default("")
+  text                 Json      @default("[{\"type\":\"paragraph\",\"children\":[{\"text\":\"\"}]}]")
+  from_Section_content Section[] @relation("Section_content")
+}
+
+model Section {
+  id        String    @id @default(cuid())
+  name      String    @default("")
+  page      String    @default("")
+  header    String    @default("")
+  subHeader String    @default("")
+  content   Content[] @relation("Section_content")
+  files     File[]    @relation("Section_files")
+  cta       String    @default("")
+}
+
+model NavLink {
+  id                String   @id @default(cuid())
+  label             String   @default("")
+  from_NavBar_links NavBar[] @relation("NavBar_links")
+}
+
+model NavBar {
+  id    String    @id @default(cuid())
+  logo  String    @default("")
+  label String    @default("")
+  links NavLink[] @relation("NavBar_links")
+}
+
+enum PostStatusType {
+  draft
+  published
+}
