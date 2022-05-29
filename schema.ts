@@ -6,10 +6,22 @@ import {
     image,
     select,
     timestamp,
+    password,
+    checkbox,
 } from '@keystone-6/core/fields';
 import { document } from '@keystone-6/fields-document';
 
+const Admin = list({
+    fields: {
+        name: text({ validation: { isRequired: true } }),
+        email: text({ isIndexed: 'unique', validation: { isRequired: true } }),
+        password: password(),
+        isAdmin: checkbox(),
+    },
+});
+
 export const schema = {
+    Admin,
     User: list({
         description: 'A user/author of content.',
         fields: {
