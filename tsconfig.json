@@ -5,9 +5,15 @@
         "allowJs": true,
         "esModuleInterop": true,
         "forceConsistentCasingInFileNames": true,
-        "skipLibCheck": true
+        "skipLibCheck": true,
+        "jsx": "preserve",
     },
+    "include": [
+        "next-env.d.ts",
+        "**/*.ts",
+        "**/*.tsx"
+    ],
     "exclude": [
-        "./node_modules",
+        "node_modules"
     ]
 }

@@ -12,13 +12,21 @@
         "url": "git+https://github.com/sandricoprovo/sandrico-provo.git"
     },
     "scripts": {
-        "keystone": "npx keystone dev"
+        "keystone": "npx keystone dev",
+        "dev": "next dev",
+        "build": "next build",
+        "start": "next start",
+        "lint": "next lint"
     },
     "dependencies": {
         "@keystone-6/auth": "^2.0.0",
         "@keystone-6/core": "^1.1.1",
         "@keystone-6/fields-document": "^2.0.1",
-        "dotenv": "^16.0.1"
+        "dotenv": "^16.0.1",
+        "next": "^12.1.6",
+        "react": "^17.0.2",
+        "react-dom": "^17.0.2",
+        "styled-components": "^5.3.5"
     },
     "devDependencies": {
         "@babel/core": "^7.18.2",
