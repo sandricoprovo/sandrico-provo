@@ -13,6 +13,7 @@
     },
     "scripts": {
         "keystone": "npx keystone dev",
+        "postinstall": "keystone postinstall",
         "dev": "next dev",
         "build": "next build",
         "start": "next start",
