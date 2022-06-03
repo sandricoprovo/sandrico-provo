@@ -1,5 +1,7 @@
+import { HeaderContainer } from './styles';
+
 function Header() {
-    return <header>Header</header>;
+    return <HeaderContainer>Header</HeaderContainer>;
 }
 
 export default Header;

@@ -60,6 +60,7 @@ const GlobalStyle = createGlobalStyle`
         --font-primary: "Poppins";
         --font-primary-sb: "Poppins-SemiBold";
         --font-secondary: "Montserrat";
+        --font-fallback: --apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
         --font-text-lh: 180%;
         --font-scale-ratio: 1.414;
         --font-base: 1rem;
@@ -80,132 +81,155 @@ const GlobalStyle = createGlobalStyle`
             1rem * (var(--font-scale-ratio) * var(--font-scale-ratio) * var(--font-scale-ratio) * var(--font-scale-ratio)) * var(--font-scale-ratio) * var(--font-scale-ratio)
         ); // 7.992rem
 
+        --font-montserrat-50: var(--font-max)/var(--font-text-lh) var(--font-secondary), var(--font-fallback);
+        --font-montserrat-40: var(--font-xxxl)/var(--font-text-lh) var(--font-secondary), var(--font-fallback);
+        --font-montserrat-30: var(--font-xxl)/var(--font-text-lh) var(--font-secondary), var(--font-fallback);
+        --font-montserrat-20: var(--font-xl)/var(--font-text-lh) var(--font-secondary), var(--font-fallback);
+        --font-montserrat-10: var(--font-lg)/var(--font-text-lh) var(--font-secondary), var(--font-fallback);
+
+        --font-poppins-60: var(--font-xxl)/var(--font-text-lh) var(--font-primary), var(--font-fallback);
+        --font-poppins-50: var(--font-xl)/var(--font-text-lh) var(--font-primary), var(--font-fallback);
+        --font-poppins-40: var(--font-lg)/var(--font-text-lh) var(--font-primary), var(--font-fallback);
+        --font-poppins-30: var(--font-md)/var(--font-text-lh) var(--font-primary), var(--font-fallback);
+        --font-poppins-20: var(--font-sm)/var(--font-text-lh) var(--font-primary), var(--font-fallback);
+        --font-poppins-10: var(--font-xm)/var(--font-text-lh) var(--font-primary), var(--font-fallback);
+
+        --font-poppinsSb-60: var(--font-xxl)/var(--font-text-lh) var(--font-primary-sb), var(--font-fallback);
+        --font-poppinsSb-50: var(--font-xl)/var(--font-text-lh) var(--font-primary-sb), var(--font-fallback);
+        --font-poppinsSb-40: var(--font-lg)/var(--font-text-lh) var(--font-primary-sb), var(--font-fallback);
+        --font-poppinsSb-30: var(--font-md)/var(--font-text-lh) var(--font-primary-sb), var(--font-fallback);
+        --font-poppinsSb-20: var(--font-sm)/var(--font-text-lh) var(--font-primary-sb), var(--font-fallback);
+        --font-poppinsSb-10: var(--font-xm)/var(--font-text-lh) var(--font-primary-sb);
+
         // Spacing
         --space-base: 24px;
         --space-sm: calc(var(--baseline)/2);
         --space-md: var(--baseline);
         --space-lg: calc(var(--baseline)*2);
         --space-xl: calc(var(--baseline)*3);
-
-    }
-
-    // Text Utils
-    .text-style-montserrat-127-88-px-7-993-rem {
-    	font-size:7.992rem;
-    	font-family:"Montserrat";
-    	font-weight:900;
-    	font-style:normal;
-    	text-decoration:none;
-    }
-
-    .text-style-montserrat-90-44-px-5-653-rem {
-    	font-size:5.653rem;
-    	font-family:"Montserrat";
-    	font-weight:900;
-    	font-style:normal;
-    	text-decoration:none;
-    }
-
-    .text-style-montserrat-63-96-px-3-998-rem {
-    	font-size:3.997rem;
-    	font-family:"Montserrat";
-    	font-weight:900;
-    	font-style:normal;
-    	text-decoration:none;
-    }
-
-    .text-style-montserrat-45-23-px-2-827-rem {
-    	font-size:2.827rem;
-    	font-family:"Montserrat";
-    	font-weight:900;
-    	font-style:normal;
-    	text-decoration:none;
-    }
-
-    .text-style-montserrat-31-99-px-1-999-rem {
-    	font-size:1.999rem;
-    	font-family:"Montserrat";
-    	font-weight:900;
-    	font-style:normal;
-    	text-decoration:none;
-    }
-
-    .text-style-poppins-regular-90-44-px-5-653-rem {
-    	font-size:5.653rem;
-    	font-family:"Poppins";
-    	font-weight:normal;
-    	font-style:normal;
-    	text-decoration:none;
-    }
-
-    .text-style-poppins-regular-45-23-px-2-827-rem {
-    	font-size:2.827rem;
-    	font-family:"Poppins";
-    	font-weight:normal;
-    	font-style:normal;
-    	text-decoration:none;
-    }
-
-    .text-style-poppins-regular-31-99-px-1-999-rem {
-    	font-size:1.999rem;
-    	font-family:"Poppins";
-    	font-weight:normal;
-    	font-style:normal;
-    	text-decoration:none;
-    }
-
-    .text-style-poppins-regular-22-62-px-1-414-rem {
-    	font-size:1.414rem;
-    	font-family:"Poppins";
-    	font-weight:normal;
-    	font-style:normal;
-    	text-decoration:none;
-    }
-
-    .text-style-poppins-regular-16-px-1-rem {
-    	font-size:1rem;
-    	font-family:"Poppins";
-    	font-weight:normal;
-    	font-style:normal;
-    	line-height:180%;
-    	text-decoration:none;
-    }
-
-    .text-style-poppins-regular-11-32-px-0-707-rem {
-    	font-size:0.707rem;
-    	font-family:"Poppins";
-    	font-weight:normal;
-    	font-style:normal;
-    	text-decoration:none;
-    }
-
-    .text-style-poppins-regular-8-px-0-5-rem {
-    	font-size:0.5rem;
-    	font-family:"Poppins";
-    	font-weight:normal;
-    	font-style:normal;
-    	text-decoration:none;
-    }
-
-    .text-style-poppins-semi-bold-45-23-px-2-827-rem {
-    	font-size:2.827rem;
-    	font-family:"Poppins";
-    	font-weight:bolder;
-    	font-style:normal;
-    	text-decoration:none;
-    }
-
-    .text-style-poppins-semi-bold-31-99-px-1-999-rem {
-    	font-size:1.999rem;
-    	font-family:"Poppins";
-    	font-weight:bolder;
-    	font-style:normal;
-    	text-decoration:none;
     }
 
     .theme--light {
         --clr-text: var(--clr-black-60);
     }
+
+    .theme--dark {
+        --clr-text: var(--clr-white-60);
+    }
 `;
 
 export default GlobalStyle;
+
+// Text Utils
+//    .text-style-poppins-regular-45-23-px-2-827-rem {
+//     font-size:2.827rem;
+//     font-family:"Poppins";
+//     font-weight:normal;
+//     font-style:normal;
+//     text-decoration:none;
+// }
+
+// .text-style-poppins-regular-31-99-px-1-999-rem {
+//     font-size:1.999rem;
+//     font-family:"Poppins";
+//     font-weight:normal;
+//     font-style:normal;
+//     text-decoration:none;
+// }
+
+// .text-style-poppins-regular-22-62-px-1-414-rem {
+//     font-size:1.414rem;
+//     font-family:"Poppins";
+//     font-weight:normal;
+//     font-style:normal;
+//     text-decoration:none;
+// }
+
+// .text-style-poppins-regular-16-px-1-rem {
+//     font-size:1rem;
+//     font-family:"Poppins";
+//     font-weight:normal;
+//     font-style:normal;
+//     line-height:180%;
+//     text-decoration:none;
+// }
+
+// .text-style-poppins-regular-11-32-px-0-707-rem {
+//     font-size:0.707rem;
+//     font-family:"Poppins";
+//     font-weight:normal;
+//     font-style:normal;
+//     text-decoration:none;
+// }
+
+// .text-style-poppins-regular-8-px-0-5-rem {
+//     font-size:0.5rem;
+//     font-family:"Poppins";
+//     font-weight:normal;
+//     font-style:normal;
+//     text-decoration:none;
+// }
+
+// .text-style-poppins-semi-bold-45-23-px-2-827-rem {
+//     font-size:2.827rem;
+//     font-family:"Poppins";
+//     font-weight:bolder;
+//     font-style:normal;
+//     text-decoration:none;
+// }
+
+// .text-style-poppins-semi-bold-31-99-px-1-999-rem {
+//     font-size:1.999rem;
+//     font-family:"Poppins";
+//     font-weight:bolder;
+//     font-style:normal;
+//     text-decoration:none;
+// }
+
+// .text-style-poppins-regular-90-44-px-5-653-rem {
+//     font-size:5.653rem;
+//     font-family:"Poppins";
+//     font-weight:normal;
+//     font-style:normal;
+//     text-decoration:none;
+// }
+
+// .text-style-montserrat-127-88-px-7-993-rem {
+//     font-size:7.992rem;
+//     font-family:"Montserrat";
+//     font-weight:900;
+//     font-style:normal;
+//     text-decoration:none;
+// }
+
+// .text-style-montserrat-90-44-px-5-653-rem {
+//     font-size:5.653rem;
+//     font-family:"Montserrat";
+//     font-weight:900;
+//     font-style:normal;
+//     text-decoration:none;
+// }
+
+// .text-style-montserrat-63-96-px-3-998-rem {
+//     font-size:3.997rem;
+//     font-family:"Montserrat";
+//     font-weight:900;
+//     font-style:normal;
+//     text-decoration:none;
+// }
+
+// .text-style-montserrat-45-23-px-2-827-rem {
+//     font-size:2.827rem;
+//     font-family:"Montserrat";
+//     font-weight:900;
+//     font-style:normal;
+//     text-decoration:none;
+// }
+
+// .text-style-montserrat-31-99-px-1-999-rem {
+//     font-size:1.999rem;
+//     font-family:"Montserrat";
+//     font-weight:900;
+//     font-style:normal;
+//     text-decoration:none;
+// }

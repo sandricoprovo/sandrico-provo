@@ -1,9 +1,7 @@
 import { LayoutContainer } from './styles';
 
 function Layout({ children }) {
-    return (
-        <LayoutContainer className="theme--light">{children}</LayoutContainer>
-    );
+    return <LayoutContainer>{children}</LayoutContainer>;
 }
 
 export default Layout;

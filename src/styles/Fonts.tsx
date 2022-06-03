@@ -1,21 +1,11 @@
 import { createGlobalStyle } from 'styled-components';
 
-import poppinsRegTtf from '../../public/fonts/Poppins-Regular.ttf';
-import poppinsRegWoff from '../../public/fonts/Poppins-Regular.woff';
-import poppinsRegWoff2 from '../../public/fonts/Poppins-Regular.woff2';
-import poppinsSemiBoldTtf from '../../public/fonts/Poppins-SemiBold.ttf';
-import poppinsSemiBoldWoff from '../../public/fonts/Poppins-SemiBold.woff';
-import poppinsSemiBoldWoff2 from '../../public/fonts/Poppins-SemiBold.woff2';
-import montserratBlackTtf from '../../public/fonts/Montserrat-Black.ttf';
-import montserratBlackWoff from '../../public/fonts/Montserrat-Black.woff';
-import montserratBlackWoff2 from '../../public/fonts/Montserrat-Black.woff2';
-
 const Fonts = createGlobalStyle`
     @font-face {
         font-family: 'Poppins';
-        src: url(${poppinsRegWoff2}) format('woff2'),
-            url(${poppinsRegWoff}) format('woff'),
-            url(${poppinsRegTtf}) format('truetype');
+        src: local("Poppins"), url('/fonts/Poppins-Regular.woff2') format('woff2'),
+            url('/fonts/Poppins-Regular.woff') format('woff'),
+            url('/fonts/Poppins-Regular.ttf') format('truetype');
         font-weight: normal;
         font-style: normal;
         font-display: swap;
@@ -23,9 +13,9 @@ const Fonts = createGlobalStyle`
 
     @font-face {
         font-family: 'Poppins-SemiBold';
-        src: url(${poppinsSemiBoldWoff2}) format('woff2'),
-            url(${poppinsSemiBoldWoff}) format('woff'),
-            url(${poppinsSemiBoldTtf}) format('truetype');
+        src: local("Poppins-SemiBold"), url('/fonts/Poppins-SemiBold.woff2') format('woff2'),
+            url('/fonts/Poppins-SemiBold.woff') format('woff'),
+            url('/fonts/Poppins-SemiBold.ttf') format('truetype');
         font-weight: 600;
         font-style: normal;
         font-display: swap;
@@ -33,9 +23,9 @@ const Fonts = createGlobalStyle`
 
     @font-face {
         font-family: 'Montserrat';
-        src: url(${montserratBlackWoff2}) format('woff2'),
-            url(${montserratBlackWoff}) format('woff'),
-            url(${montserratBlackTtf}) format('truetype');
+        src: local('Montserrat'), url('/fonts/Montserrat-Black.woff2') format('woff2'),
+            url('/fonts/Montserrat-Black.woff') format('woff'),
+            url('/fonts/Montserrat-Black.ttf') format('truetype');
         font-weight: 900;
         font-style: normal;
         font-display: swap;
