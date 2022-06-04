@@ -20,7 +20,7 @@ export const LogoText = styled.p`
         height: 10%;
         width: 100%;
         z-index: -10;
-        transition: background-color 300ms var(--underline-bezier) 200ms,
+        transition: background-color 300ms var(--underline-bezier) 50ms,
             width 300ms var(--underline-bezier);
     }
 
@@ -31,6 +31,5 @@ export const LogoText = styled.p`
 
     &:active::before {
         width: 136%;
-        background-color: var(--clr-pastelblue-60);
     }
 `;
