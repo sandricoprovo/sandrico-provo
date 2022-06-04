@@ -1,6 +1,6 @@
 import { createGlobalStyle } from 'styled-components';
 
-const GlobalStyle = createGlobalStyle`
+export const GlobalStyle = createGlobalStyle`
     :root {
         // Base Colors
         --clr-white-60: hsla(0,0%,100%,1);
@@ -52,9 +52,6 @@ const GlobalStyle = createGlobalStyle`
     	--clr-black-90: hsla(0,0%,6%,1);
     	--clr-black-100: hsla(0,0%,3%,1);
     	--clr-black-110: hsla(0,0%,2%,1);
-        // Color Assignments
-        --clr-text: var(--clr-black-60);
-        --clr-text-faded: var(--clr-black-30);
 
         // Type Scale
         --font-primary: "Poppins";
@@ -87,149 +84,45 @@ const GlobalStyle = createGlobalStyle`
         --font-montserrat-20: var(--font-xl)/var(--font-text-lh) var(--font-secondary), var(--font-fallback);
         --font-montserrat-10: var(--font-lg)/var(--font-text-lh) var(--font-secondary), var(--font-fallback);
 
-        --font-poppins-60: var(--font-xxl)/var(--font-text-lh) var(--font-primary), var(--font-fallback);
-        --font-poppins-50: var(--font-xl)/var(--font-text-lh) var(--font-primary), var(--font-fallback);
-        --font-poppins-40: var(--font-lg)/var(--font-text-lh) var(--font-primary), var(--font-fallback);
-        --font-poppins-30: var(--font-md)/var(--font-text-lh) var(--font-primary), var(--font-fallback);
+        --font-poppins-70: var(--font-xxl)/var(--font-text-lh) var(--font-primary), var(--font-fallback);
+        --font-poppins-60: var(--font-xl)/var(--font-text-lh) var(--font-primary), var(--font-fallback);
+        --font-poppins-50: var(--font-lg)/var(--font-text-lh) var(--font-primary), var(--font-fallback);
+        --font-poppins-40: var(--font-md)/var(--font-text-lh) var(--font-primary), var(--font-fallback);
+        --font-poppins-30: var(--font-base)/var(--font-text-lh) var(--font-primary), var(--font-fallback);
         --font-poppins-20: var(--font-sm)/var(--font-text-lh) var(--font-primary), var(--font-fallback);
         --font-poppins-10: var(--font-xm)/var(--font-text-lh) var(--font-primary), var(--font-fallback);
 
-        --font-poppinsSb-60: var(--font-xxl)/var(--font-text-lh) var(--font-primary-sb), var(--font-fallback);
-        --font-poppinsSb-50: var(--font-xl)/var(--font-text-lh) var(--font-primary-sb), var(--font-fallback);
-        --font-poppinsSb-40: var(--font-lg)/var(--font-text-lh) var(--font-primary-sb), var(--font-fallback);
-        --font-poppinsSb-30: var(--font-md)/var(--font-text-lh) var(--font-primary-sb), var(--font-fallback);
+        --font-poppinsSb-70: var(--font-xxl)/var(--font-text-lh) var(--font-primary-sb), var(--font-fallback);
+        --font-poppinsSb-60: var(--font-xl)/var(--font-text-lh) var(--font-primary-sb), var(--font-fallback);
+        --font-poppinsSb-50: var(--font-lg)/var(--font-text-lh) var(--font-primary-sb), var(--font-fallback);
+        --font-poppinsSb-40: var(--font-md)/var(--font-text-lh) var(--font-primary-sb), var(--font-fallback);
+        --font-poppinsSb-30: var(--font-base)/var(--font-text-lh) var(--font-primary-sb), var(--font-fallback);
         --font-poppinsSb-20: var(--font-sm)/var(--font-text-lh) var(--font-primary-sb), var(--font-fallback);
         --font-poppinsSb-10: var(--font-xm)/var(--font-text-lh) var(--font-primary-sb);
 
         // Spacing
-        --space-base: 24px;
-        --space-sm: calc(var(--baseline)/2);
-        --space-md: var(--baseline);
-        --space-lg: calc(var(--baseline)*2);
-        --space-xl: calc(var(--baseline)*3);
+        --space-base: 32px;
+        --space-xm: calc(var(--space-base)/2);
+        --space-sm: calc(var(--space-base)/2);
+        --space-md: var(--space-base);
+        --space-lg: calc(var(--space-base)*2);
+        --space-xl: calc(var(--space-base)*3);
+
+        // Elevation
+
+        // Animation
+        --underline-bezier: cubic-bezier(0.18, 0.89, 0.32, 1.27);
     }
 
     .theme--light {
         --clr-text: var(--clr-black-60);
+        --clr-text-faded: var(--clr-black-30);
+        --clr-hover: var(--clr-pastelblue-60);
     }
 
     .theme--dark {
         --clr-text: var(--clr-white-60);
+        --clr-text-faded: var(--clr-black-30);
+        --clr-hover: var(--clr-pastelblue-60);
     }
 `;
-
-export default GlobalStyle;
-
-// Text Utils
-//    .text-style-poppins-regular-45-23-px-2-827-rem {
-//     font-size:2.827rem;
-//     font-family:"Poppins";
-//     font-weight:normal;
-//     font-style:normal;
-//     text-decoration:none;
-// }
-
-// .text-style-poppins-regular-31-99-px-1-999-rem {
-//     font-size:1.999rem;
-//     font-family:"Poppins";
-//     font-weight:normal;
-//     font-style:normal;
-//     text-decoration:none;
-// }
-
-// .text-style-poppins-regular-22-62-px-1-414-rem {
-//     font-size:1.414rem;
-//     font-family:"Poppins";
-//     font-weight:normal;
-//     font-style:normal;
-//     text-decoration:none;
-// }
-
-// .text-style-poppins-regular-16-px-1-rem {
-//     font-size:1rem;
-//     font-family:"Poppins";
-//     font-weight:normal;
-//     font-style:normal;
-//     line-height:180%;
-//     text-decoration:none;
-// }
-
-// .text-style-poppins-regular-11-32-px-0-707-rem {
-//     font-size:0.707rem;
-//     font-family:"Poppins";
-//     font-weight:normal;
-//     font-style:normal;
-//     text-decoration:none;
-// }
-
-// .text-style-poppins-regular-8-px-0-5-rem {
-//     font-size:0.5rem;
-//     font-family:"Poppins";
-//     font-weight:normal;
-//     font-style:normal;
-//     text-decoration:none;
-// }
-
-// .text-style-poppins-semi-bold-45-23-px-2-827-rem {
-//     font-size:2.827rem;
-//     font-family:"Poppins";
-//     font-weight:bolder;
-//     font-style:normal;
-//     text-decoration:none;
-// }
-
-// .text-style-poppins-semi-bold-31-99-px-1-999-rem {
-//     font-size:1.999rem;
-//     font-family:"Poppins";
-//     font-weight:bolder;
-//     font-style:normal;
-//     text-decoration:none;
-// }
-
-// .text-style-poppins-regular-90-44-px-5-653-rem {
-//     font-size:5.653rem;
-//     font-family:"Poppins";
-//     font-weight:normal;
-//     font-style:normal;
-//     text-decoration:none;
-// }
-
-// .text-style-montserrat-127-88-px-7-993-rem {
-//     font-size:7.992rem;
-//     font-family:"Montserrat";
-//     font-weight:900;
-//     font-style:normal;
-//     text-decoration:none;
-// }
-
-// .text-style-montserrat-90-44-px-5-653-rem {
-//     font-size:5.653rem;
-//     font-family:"Montserrat";
-//     font-weight:900;
-//     font-style:normal;
-//     text-decoration:none;
-// }
-
-// .text-style-montserrat-63-96-px-3-998-rem {
-//     font-size:3.997rem;
-//     font-family:"Montserrat";
-//     font-weight:900;
-//     font-style:normal;
-//     text-decoration:none;
-// }
-
-// .text-style-montserrat-45-23-px-2-827-rem {
-//     font-size:2.827rem;
-//     font-family:"Montserrat";
-//     font-weight:900;
-//     font-style:normal;
-//     text-decoration:none;
-// }
-
-// .text-style-montserrat-31-99-px-1-999-rem {
-//     font-size:1.999rem;
-//     font-family:"Montserrat";
-//     font-weight:900;
-//     font-style:normal;
-//     text-decoration:none;
-// }

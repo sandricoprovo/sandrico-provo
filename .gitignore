@@ -18,6 +18,8 @@ bower_components
 db
 .env
 .env_prod
+mock/
+.snippets.*
 
 *.sublime*
 
