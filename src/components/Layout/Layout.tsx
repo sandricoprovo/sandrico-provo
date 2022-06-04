@@ -1,11 +1,19 @@
+import { ReactNode } from 'react';
+
 import { Reset } from '../../styles/Reset';
 import { Fonts } from '../../styles/Fonts';
 import { GlobalStyle } from '../../styles/GlobalStyles';
 import Header from '../Header/Header';
+import { PageProps } from '../../types';
 
 import { LayoutContainer } from './styles';
 
-function Layout({ children }) {
+interface LayoutProps {
+    children: ReactNode;
+    pageProps: PageProps;
+}
+
+function Layout({ children, pageProps }: LayoutProps) {
     // TODO: import theme change hook here and pass to header
 
     return (
@@ -14,7 +22,7 @@ function Layout({ children }) {
             <Fonts />
             <GlobalStyle />
             <LayoutContainer className="theme--light">
-                <Header />
+                <Header header={pageProps.header} />
                 {children}
             </LayoutContainer>
         </>

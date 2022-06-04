@@ -1,13 +1,15 @@
 import Link from 'next/link';
 
-import mockLinks from '../../../mock/navlinks';
-
 import { NavBarContainer, NavLink } from './styles';
 
-function NavBar() {
+interface NavBarProps {
+    links: { label: string }[];
+}
+
+function NavBar({ links }: NavBarProps) {
     return (
         <NavBarContainer>
-            {mockLinks.map((link) => (
+            {links.map((link) => (
                 <Link key={link.label} href={link.label}>
                     <NavLink>{link.label}</NavLink>
                 </Link>
