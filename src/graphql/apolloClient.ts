@@ -9,5 +9,10 @@ export const apolloClient = new ApolloClient({
                 : process.env.GRAPHQL_API_ENDPOINT,
         credentials: 'same-origin',
     }),
+    defaultOptions: {
+        watchQuery: {
+            pollInterval: 604800,
+        },
+    },
     cache: new InMemoryCache(),
 });

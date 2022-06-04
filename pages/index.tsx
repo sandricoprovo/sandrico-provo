@@ -1,11 +1,11 @@
 import React from 'react';
-import { GetServerSideProps } from 'next';
+import { GetStaticProps } from 'next';
 
 import { apolloClient } from '../src/graphql/apolloClient';
 import { GET_NAV_BAR } from '../src/graphql/queries/GET_NAV_BARS';
 import { Payload, Header } from '../src/types';
 
-export const getServerSideProps: GetServerSideProps = async () => {
+export const getStaticProps: GetStaticProps = async () => {
     const { data }: Payload<'navBars', Header[]> = await apolloClient.query({
         query: GET_NAV_BAR,
         variables: { header: 'Header' },
