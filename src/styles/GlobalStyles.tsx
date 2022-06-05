@@ -59,49 +59,52 @@ export const GlobalStyle = createGlobalStyle`
         --font-secondary: "Montserrat";
         --font-fallback: --apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
         --font-text-lh: 180%;
-        --font-scale-ratio: 1.414;
         --font-base: 1rem;
-        --font-xs: calc(1rem / (var(--font-scale-ratio) * var(--font-scale-ratio))); // 0.5rem
-        --font-sm: calc(1rem / var(--font-scale-ratio)); // 0.707rem
-        --font-md: calc(1rem * var(--font-scale-ratio)); // 1.414rem
-        --font-lg: calc(1rem * (var(--font-scale-ratio) * var(--font-scale-ratio))); // 1.999rem
-        --font-xl: calc(
-            1rem * (var(--font-scale-ratio) * var(--font-scale-ratio) * var(--font-scale-ratio))
-        ); // 2.827rem
-        --font-xxl: calc(
-            1rem * (var(--font-scale-ratio) * var(--font-scale-ratio) * var(--font-scale-ratio) * var(--font-scale-ratio))
-        ); // 3.998rem
-        --font-xxxl: calc(
-            1rem * (var(--font-scale-ratio) * var(--font-scale-ratio) * var(--font-scale-ratio) * var(--font-scale-ratio)) * var(--font-scale-ratio)
-        ); // 5.653rem
-        --font-max: calc(
-            1rem * (var(--font-scale-ratio) * var(--font-scale-ratio) * var(--font-scale-ratio) * var(--font-scale-ratio)) * var(--font-scale-ratio) * var(--font-scale-ratio)
-        ); // 7.992rem
-
+        --font-scale-ratio: 1.333;
+        // Raw Type Scale
+        --scale-xs: calc(0.707 / var(--font-scale-ratio));
+        --scale-sm: calc(1 / var(--font-scale-ratio));
+        --scale-base: calc(var(--scale-sm) * var(--font-scale-ratio));
+        --scale-md: calc(var(--scale-base) * var(--font-scale-ratio));
+        --scale-lg: calc(var(--scale-md) * var(--font-scale-ratio));
+        --scale-xl: calc(var(--scale-lg) * var(--font-scale-ratio));
+        --scale-xxl: calc(var(--scale-xl) * var(--font-scale-ratio));
+        --scale-xxxl: calc(var(--scale-xxl) * var(--font-scale-ratio));
+        --scale-max: calc(var(--scale-xxxl) * var(--font-scale-ratio));
+        // Clamped / Responsive Type Scale
+        --font-xs: clamp(var(--scale-xs) * 0.25, 12vw + 1rem, var(--scale-xs) * 1rem);
+        --font-sm: clamp(var(--scale-sm) * 0.25, 12vw + 1rem, var(--scale-sm) * 1rem);
+        --font-md: clamp(var(--scale-md) * 0.25, 12vw + 1rem, var(--scale-md) * 1rem);
+        --font-lg: clamp(var(--scale-lg) * 0.25 * 1rem, 12vw + 1rem, var(--scale-lg) * 1rem);
+        --font-xl: clamp(var(--scale-xl) * 0.25, 12vw + 1rem, var(--scale-xl) * 1rem);
+        --font-xxl: clamp(var(--scale-xxl) * 0.25, 12vw + 1rem, var(--scale-xxl) * 1rem);
+        --font-xxxl: clamp(var(--scale-xxxl) * 0.25, 12vw + 1rem, var(--scale-xxxl) * 1rem);
+        --font-max: clamp(var(--scale-max) * 0.25, 12vw + 1rem, var(--scale-max) * 1rem);
+        // Montserrat
         --font-montserrat-50: var(--font-max)/var(--font-text-lh) var(--font-secondary), var(--font-fallback);
         --font-montserrat-40: var(--font-xxxl)/var(--font-text-lh) var(--font-secondary), var(--font-fallback);
         --font-montserrat-30: var(--font-xxl)/var(--font-text-lh) var(--font-secondary), var(--font-fallback);
         --font-montserrat-20: var(--font-xl)/var(--font-text-lh) var(--font-secondary), var(--font-fallback);
         --font-montserrat-10: var(--font-lg)/var(--font-text-lh) var(--font-secondary), var(--font-fallback);
-
+        // Poppins
         --font-poppins-70: var(--font-xxl)/var(--font-text-lh) var(--font-primary), var(--font-fallback);
         --font-poppins-60: var(--font-xl)/var(--font-text-lh) var(--font-primary), var(--font-fallback);
         --font-poppins-50: var(--font-lg)/var(--font-text-lh) var(--font-primary), var(--font-fallback);
         --font-poppins-40: var(--font-md)/var(--font-text-lh) var(--font-primary), var(--font-fallback);
         --font-poppins-30: var(--font-base)/var(--font-text-lh) var(--font-primary), var(--font-fallback);
         --font-poppins-20: var(--font-sm)/var(--font-text-lh) var(--font-primary), var(--font-fallback);
-        --font-poppins-10: var(--font-xm)/var(--font-text-lh) var(--font-primary), var(--font-fallback);
-
+        --font-poppins-10: var(--font-xs)/var(--font-text-lh) var(--font-primary), var(--font-fallback);
+        // Poppins SemiBold
         --font-poppinsSb-70: var(--font-xxl)/var(--font-text-lh) var(--font-primary-sb), var(--font-fallback);
         --font-poppinsSb-60: var(--font-xl)/var(--font-text-lh) var(--font-primary-sb), var(--font-fallback);
         --font-poppinsSb-50: var(--font-lg)/var(--font-text-lh) var(--font-primary-sb), var(--font-fallback);
         --font-poppinsSb-40: var(--font-md)/var(--font-text-lh) var(--font-primary-sb), var(--font-fallback);
         --font-poppinsSb-30: var(--font-base)/var(--font-text-lh) var(--font-primary-sb), var(--font-fallback);
         --font-poppinsSb-20: var(--font-sm)/var(--font-text-lh) var(--font-primary-sb), var(--font-fallback);
-        --font-poppinsSb-10: var(--font-xm)/var(--font-text-lh) var(--font-primary-sb);
+        --font-poppinsSb-10: var(--font-xs)/var(--font-text-lh) var(--font-primary-sb);
 
         // Spacing
-        --space-base: 32px;
+        --space-base: 0.64rem;
         --space-xm: calc(var(--space-base)/2);
         --space-sm: calc(var(--space-base)/2);
         --space-md: var(--space-base);
@@ -113,6 +116,12 @@ export const GlobalStyle = createGlobalStyle`
         // Animation
         --underline-bezier: cubic-bezier(0.18, 0.89, 0.32, 1.27);
         --fadeUp-bezier: cubic-bezier(0.68, -0.55, 0.27, 1.55);
+
+        // Media Queries
+        @media (min-width: 500px) {
+            --space-base: 2rem;
+            --font-scale-ratio: 1.414;
+        }
     }
 
     .theme--light {
