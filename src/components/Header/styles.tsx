@@ -1,5 +1,7 @@
 import styled from 'styled-components';
 
+import { slideUpFadeIn } from '../../styles/animations';
+
 export const HeaderContainer = styled.header`
     padding: var(--space-base) var(--space-lg);
     display: flex;
@@ -12,9 +14,9 @@ export const LogoText = styled.p`
     color: var(--clr-text);
     position: relative;
     opacity: 0;
-    animation: logoFadeUp 700ms var(--fadeUp-bezier);
+    animation: ${slideUpFadeIn} 700ms var(--fadeUp-bezier);
     animation-fill-mode: forwards;
-    animation-delay: 100ms;
+    animation-delay: 50ms;
     transition: opacity 600ms var(--fadeUp-bezier);
 
     &:before {
@@ -36,15 +38,5 @@ export const LogoText = styled.p`
 
     &:active::before {
         width: 136%;
-    }
-
-    @keyframes logoFadeUp {
-        0% {
-            transform: translateY(50%);
-        }
-        100% {
-            opacity: 1;
-            transform: translateY(0);
-        }
     }
 `;

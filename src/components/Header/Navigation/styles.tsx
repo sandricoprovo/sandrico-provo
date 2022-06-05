@@ -1,5 +1,7 @@
 import styled from 'styled-components';
 
+import { slideUpFadeIn } from '../../../styles/animations';
+
 export const NavBarContainer = styled.nav`
     min-width: 370px;
     display: flex;
@@ -16,7 +18,7 @@ export const NavLink = styled.a<{ animationDelay: number }>`
     color: var(--clr-text);
     position: relative;
     opacity: 0;
-    animation: linkFadeUp 700ms var(--fadeUp-bezier);
+    animation: ${slideUpFadeIn} 700ms var(--fadeUp-bezier);
     animation-fill-mode: forwards;
     animation-delay: ${({ animationDelay }) =>
         animationDelay ? `${animationDelay}ms` : 300};
@@ -45,15 +47,5 @@ export const NavLink = styled.a<{ animationDelay: number }>`
     &:focus::before {
         width: 120%;
         transition: width 400ms var(--underline-bezier);
-    }
-
-    @keyframes linkFadeUp {
-        0% {
-            transform: translateY(50%);
-        }
-        100% {
-            opacity: 1;
-            transform: translateY(0);
-        }
     }
 `;
