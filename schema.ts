@@ -28,7 +28,11 @@ export const schema = {
             name: text({ validation: { isRequired: true } }),
             title: text({ validation: { isRequired: true } }),
             resume: relationship({ ref: 'File', many: false, label: 'Resume' }),
-            links: relationship({ ref: 'Link', many: true, label: 'Links' }),
+            links: relationship({
+                ref: 'ExternalLink',
+                many: true,
+                label: 'Links',
+            }),
         },
     }),
     File: list({
@@ -92,7 +96,11 @@ export const schema = {
             content: document({ formatting: true, links: true }),
             publishDate: timestamp(),
             creator: relationship({ ref: 'User', many: false }),
-            link: relationship({ ref: 'Link', many: true, label: 'Links' }),
+            link: relationship({
+                ref: 'ExternalLink',
+                many: true,
+                label: 'Links',
+            }),
         },
     }),
     Content: list({
