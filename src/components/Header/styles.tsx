@@ -11,6 +11,11 @@ export const LogoText = styled.p`
     font: var(--font-montserrat-10);
     color: var(--clr-text);
     position: relative;
+    opacity: 0;
+    animation: logoFadeUp 700ms var(--fadeUp-bezier);
+    animation-fill-mode: forwards;
+    animation-delay: 100ms;
+    transition: opacity 600ms var(--fadeUp-bezier);
 
     &:before {
         content: '';
@@ -31,5 +36,15 @@ export const LogoText = styled.p`
 
     &:active::before {
         width: 136%;
+    }
+
+    @keyframes logoFadeUp {
+        0% {
+            transform: translateY(50%);
+        }
+        100% {
+            opacity: 1;
+            transform: translateY(0);
+        }
     }
 `;

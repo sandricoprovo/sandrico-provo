@@ -8,13 +8,19 @@ export const NavBarContainer = styled.nav`
     gap: var(--space-xl);
 `;
 
-export const NavLink = styled.a`
+export const NavLink = styled.a<{ animationDelay: number }>`
     text-decoration: none;
     padding: var(--space-xs) var(--space-sm);
     cursor: pointer;
     font: var(--font-poppins-30);
     color: var(--clr-text);
     position: relative;
+    opacity: 0;
+    animation: linkFadeUp 700ms var(--fadeUp-bezier);
+    animation-fill-mode: forwards;
+    animation-delay: ${({ animationDelay }) =>
+        animationDelay ? `${animationDelay}ms` : 300};
+    transition: opacity 600ms var(--fadeUp-bezier);
 
     &:before {
         content: '';
@@ -35,8 +41,19 @@ export const NavLink = styled.a`
         transition: width 400ms var(--underline-bezier);
     }
 
-    &:active::before {
+    &:active::before,
+    &:focus::before {
         width: 120%;
         transition: width 400ms var(--underline-bezier);
+    }
+
+    @keyframes linkFadeUp {
+        0% {
+            transform: translateY(50%);
+        }
+        100% {
+            opacity: 1;
+            transform: translateY(0);
+        }
     }
 `;

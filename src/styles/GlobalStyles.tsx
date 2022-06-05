@@ -112,6 +112,7 @@ export const GlobalStyle = createGlobalStyle`
 
         // Animation
         --underline-bezier: cubic-bezier(0.18, 0.89, 0.32, 1.27);
+        --fadeUp-bezier: cubic-bezier(0.68, -0.55, 0.27, 1.55);
     }
 
     .theme--light {
