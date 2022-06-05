@@ -120,12 +120,12 @@ type User {
   title: String
   resume: File
   links(
-    where: LinkWhereInput! = {}
-    orderBy: [LinkOrderByInput!]! = []
+    where: ExternalLinkWhereInput! = {}
+    orderBy: [ExternalLinkOrderByInput!]! = []
     take: Int
     skip: Int! = 0
-  ): [Link!]
-  linksCount(where: LinkWhereInput! = {}): Int
+  ): [ExternalLink!]
+  linksCount(where: ExternalLinkWhereInput! = {}): Int
 }
 
 input UserWhereUniqueInput {
@@ -140,13 +140,13 @@ input UserWhereInput {
   name: StringFilter
   title: StringFilter
   resume: FileWhereInput
-  links: LinkManyRelationFilter
+  links: ExternalLinkManyRelationFilter
 }
 
-input LinkManyRelationFilter {
-  every: LinkWhereInput
-  some: LinkWhereInput
-  none: LinkWhereInput
+input ExternalLinkManyRelationFilter {
+  every: ExternalLinkWhereInput
+  some: ExternalLinkWhereInput
+  none: ExternalLinkWhereInput
 }
 
 input UserOrderByInput {
@@ -159,7 +159,7 @@ input UserUpdateInput {
   name: String
   title: String
   resume: FileRelateToOneForUpdateInput
-  links: LinkRelateToManyForUpdateInput
+  links: ExternalLinkRelateToManyForUpdateInput
 }
 
 input FileRelateToOneForUpdateInput {
@@ -168,11 +168,11 @@ input FileRelateToOneForUpdateInput {
   disconnect: Boolean
 }
 
-input LinkRelateToManyForUpdateInput {
-  disconnect: [LinkWhereUniqueInput!]
-  set: [LinkWhereUniqueInput!]
-  create: [LinkCreateInput!]
-  connect: [LinkWhereUniqueInput!]
+input ExternalLinkRelateToManyForUpdateInput {
+  disconnect: [ExternalLinkWhereUniqueInput!]
+  set: [ExternalLinkWhereUniqueInput!]
+  create: [ExternalLinkCreateInput!]
+  connect: [ExternalLinkWhereUniqueInput!]
 }
 
 input UserUpdateArgs {
@@ -184,7 +184,7 @@ input UserCreateInput {
   name: String
   title: String
   resume: FileRelateToOneForCreateInput
-  links: LinkRelateToManyForCreateInput
+  links: ExternalLinkRelateToManyForCreateInput
 }
 
 input FileRelateToOneForCreateInput {
@@ -192,9 +192,9 @@ input FileRelateToOneForCreateInput {
   connect: FileWhereUniqueInput
 }
 
-input LinkRelateToManyForCreateInput {
-  create: [LinkCreateInput!]
-  connect: [LinkWhereUniqueInput!]
+input ExternalLinkRelateToManyForCreateInput {
+  create: [ExternalLinkCreateInput!]
+  connect: [ExternalLinkWhereUniqueInput!]
 }
 
 type File {
@@ -266,21 +266,21 @@ input FileCreateInput {
   file: FileFieldInput
 }
 
-type Link {
+type ExternalLink {
   id: ID!
   name: String
   platform: String
   link: String
 }
 
-input LinkWhereUniqueInput {
+input ExternalLinkWhereUniqueInput {
   id: ID
 }
 
-input LinkWhereInput {
-  AND: [LinkWhereInput!]
-  OR: [LinkWhereInput!]
-  NOT: [LinkWhereInput!]
+input ExternalLinkWhereInput {
+  AND: [ExternalLinkWhereInput!]
+  OR: [ExternalLinkWhereInput!]
+  NOT: [ExternalLinkWhereInput!]
   id: IDFilter
   name: StringFilter
   platform: StringNullableFilter
@@ -316,25 +316,25 @@ input NestedStringNullableFilter {
   not: NestedStringNullableFilter
 }
 
-input LinkOrderByInput {
+input ExternalLinkOrderByInput {
   id: OrderDirection
   name: OrderDirection
   platform: OrderDirection
   link: OrderDirection
 }
 
-input LinkUpdateInput {
+input ExternalLinkUpdateInput {
   name: String
   platform: String
   link: String
 }
 
-input LinkUpdateArgs {
-  where: LinkWhereUniqueInput!
-  data: LinkUpdateInput!
+input ExternalLinkUpdateArgs {
+  where: ExternalLinkWhereUniqueInput!
+  data: ExternalLinkUpdateInput!
 }
 
-input LinkCreateInput {
+input ExternalLinkCreateInput {
   name: String
   platform: String
   link: String
@@ -351,14 +351,15 @@ type Project {
     skip: Int! = 0
   ): [User!]
   creatorCount(where: UserWhereInput! = {}): Int
+  techStack: String
   image: ImageFieldOutput
   links(
-    where: LinkWhereInput! = {}
-    orderBy: [LinkOrderByInput!]! = []
+    where: ExternalLinkWhereInput! = {}
+    orderBy: [ExternalLinkOrderByInput!]! = []
     take: Int
     skip: Int! = 0
-  ): [Link!]
-  linksCount(where: LinkWhereInput! = {}): Int
+  ): [ExternalLink!]
+  linksCount(where: ExternalLinkWhereInput! = {}): Int
 }
 
 type Project_content_Document {
@@ -413,7 +414,8 @@ input ProjectWhereInput {
   id: IDFilter
   name: StringFilter
   creator: UserManyRelationFilter
-  links: LinkManyRelationFilter
+  techStack: StringFilter
+  links: ExternalLinkManyRelationFilter
 }
 
 input UserManyRelationFilter {
@@ -425,14 +427,16 @@ input UserManyRelationFilter {
 input ProjectOrderByInput {
   id: OrderDirection
   name: OrderDirection
+  techStack: OrderDirection
 }
 
 input ProjectUpdateInput {
   name: String
   content: JSON
   creator: UserRelateToManyForUpdateInput
+  techStack: String
   image: ImageFieldInput
-  links: LinkRelateToManyForUpdateInput
+  links: ExternalLinkRelateToManyForUpdateInput
 }
 
 input UserRelateToManyForUpdateInput {
@@ -456,8 +460,9 @@ input ProjectCreateInput {
   name: String
   content: JSON
   creator: UserRelateToManyForCreateInput
+  techStack: String
   image: ImageFieldInput
-  links: LinkRelateToManyForCreateInput
+  links: ExternalLinkRelateToManyForCreateInput
 }
 
 input UserRelateToManyForCreateInput {
@@ -473,12 +478,12 @@ type Post {
   publishDate: DateTime
   creator: User
   link(
-    where: LinkWhereInput! = {}
-    orderBy: [LinkOrderByInput!]! = []
+    where: ExternalLinkWhereInput! = {}
+    orderBy: [ExternalLinkOrderByInput!]! = []
     take: Int
     skip: Int! = 0
-  ): [Link!]
-  linkCount(where: LinkWhereInput! = {}): Int
+  ): [ExternalLink!]
+  linkCount(where: ExternalLinkWhereInput! = {}): Int
 }
 
 enum PostStatusType {
@@ -506,7 +511,7 @@ input PostWhereInput {
   status: PostStatusTypeNullableFilter
   publishDate: DateTimeNullableFilter
   creator: UserWhereInput
-  link: LinkManyRelationFilter
+  link: ExternalLinkManyRelationFilter
 }
 
 input PostStatusTypeNullableFilter {
@@ -540,7 +545,7 @@ input PostUpdateInput {
   content: JSON
   publishDate: DateTime
   creator: UserRelateToOneForUpdateInput
-  link: LinkRelateToManyForUpdateInput
+  link: ExternalLinkRelateToManyForUpdateInput
 }
 
 input UserRelateToOneForUpdateInput {
@@ -560,7 +565,7 @@ input PostCreateInput {
   content: JSON
   publishDate: DateTime
   creator: UserRelateToOneForCreateInput
-  link: LinkRelateToManyForCreateInput
+  link: ExternalLinkRelateToManyForCreateInput
 }
 
 input UserRelateToOneForCreateInput {
@@ -726,107 +731,107 @@ input FileRelateToManyForCreateInput {
   connect: [FileWhereUniqueInput!]
 }
 
-type NavLink {
+type NavigationLink {
   id: ID!
   label: String
 }
 
-input NavLinkWhereUniqueInput {
+input NavigationLinkWhereUniqueInput {
   id: ID
 }
 
-input NavLinkWhereInput {
-  AND: [NavLinkWhereInput!]
-  OR: [NavLinkWhereInput!]
-  NOT: [NavLinkWhereInput!]
+input NavigationLinkWhereInput {
+  AND: [NavigationLinkWhereInput!]
+  OR: [NavigationLinkWhereInput!]
+  NOT: [NavigationLinkWhereInput!]
   id: IDFilter
   label: StringFilter
 }
 
-input NavLinkOrderByInput {
+input NavigationLinkOrderByInput {
   id: OrderDirection
   label: OrderDirection
 }
 
-input NavLinkUpdateInput {
+input NavigationLinkUpdateInput {
   label: String
 }
 
-input NavLinkUpdateArgs {
-  where: NavLinkWhereUniqueInput!
-  data: NavLinkUpdateInput!
+input NavigationLinkUpdateArgs {
+  where: NavigationLinkWhereUniqueInput!
+  data: NavigationLinkUpdateInput!
 }
 
-input NavLinkCreateInput {
+input NavigationLinkCreateInput {
   label: String
 }
 
-type NavBar {
+type Header {
   id: ID!
   logo: String
   label: String
   links(
-    where: NavLinkWhereInput! = {}
-    orderBy: [NavLinkOrderByInput!]! = []
+    where: NavigationLinkWhereInput! = {}
+    orderBy: [NavigationLinkOrderByInput!]! = []
     take: Int
     skip: Int! = 0
-  ): [NavLink!]
-  linksCount(where: NavLinkWhereInput! = {}): Int
+  ): [NavigationLink!]
+  linksCount(where: NavigationLinkWhereInput! = {}): Int
 }
 
-input NavBarWhereUniqueInput {
+input HeaderWhereUniqueInput {
   id: ID
 }
 
-input NavBarWhereInput {
-  AND: [NavBarWhereInput!]
-  OR: [NavBarWhereInput!]
-  NOT: [NavBarWhereInput!]
+input HeaderWhereInput {
+  AND: [HeaderWhereInput!]
+  OR: [HeaderWhereInput!]
+  NOT: [HeaderWhereInput!]
   id: IDFilter
   logo: StringFilter
   label: StringFilter
-  links: NavLinkManyRelationFilter
+  links: NavigationLinkManyRelationFilter
 }
 
-input NavLinkManyRelationFilter {
-  every: NavLinkWhereInput
-  some: NavLinkWhereInput
-  none: NavLinkWhereInput
+input NavigationLinkManyRelationFilter {
+  every: NavigationLinkWhereInput
+  some: NavigationLinkWhereInput
+  none: NavigationLinkWhereInput
 }
 
-input NavBarOrderByInput {
+input HeaderOrderByInput {
   id: OrderDirection
   logo: OrderDirection
   label: OrderDirection
 }
 
-input NavBarUpdateInput {
+input HeaderUpdateInput {
   logo: String
   label: String
-  links: NavLinkRelateToManyForUpdateInput
+  links: NavigationLinkRelateToManyForUpdateInput
 }
 
-input NavLinkRelateToManyForUpdateInput {
-  disconnect: [NavLinkWhereUniqueInput!]
-  set: [NavLinkWhereUniqueInput!]
-  create: [NavLinkCreateInput!]
-  connect: [NavLinkWhereUniqueInput!]
+input NavigationLinkRelateToManyForUpdateInput {
+  disconnect: [NavigationLinkWhereUniqueInput!]
+  set: [NavigationLinkWhereUniqueInput!]
+  create: [NavigationLinkCreateInput!]
+  connect: [NavigationLinkWhereUniqueInput!]
 }
 
-input NavBarUpdateArgs {
-  where: NavBarWhereUniqueInput!
-  data: NavBarUpdateInput!
+input HeaderUpdateArgs {
+  where: HeaderWhereUniqueInput!
+  data: HeaderUpdateInput!
 }
 
-input NavBarCreateInput {
+input HeaderCreateInput {
   logo: String
   label: String
-  links: NavLinkRelateToManyForCreateInput
+  links: NavigationLinkRelateToManyForCreateInput
 }
 
-input NavLinkRelateToManyForCreateInput {
-  create: [NavLinkCreateInput!]
-  connect: [NavLinkWhereUniqueInput!]
+input NavigationLinkRelateToManyForCreateInput {
+  create: [NavigationLinkCreateInput!]
+  connect: [NavigationLinkWhereUniqueInput!]
 }
 
 """
@@ -856,12 +861,15 @@ type Mutation {
   updateFiles(data: [FileUpdateArgs!]!): [File]
   deleteFile(where: FileWhereUniqueInput!): File
   deleteFiles(where: [FileWhereUniqueInput!]!): [File]
-  createLink(data: LinkCreateInput!): Link
-  createLinks(data: [LinkCreateInput!]!): [Link]
-  updateLink(where: LinkWhereUniqueInput!, data: LinkUpdateInput!): Link
-  updateLinks(data: [LinkUpdateArgs!]!): [Link]
-  deleteLink(where: LinkWhereUniqueInput!): Link
-  deleteLinks(where: [LinkWhereUniqueInput!]!): [Link]
+  createExternalLink(data: ExternalLinkCreateInput!): ExternalLink
+  createExternalLinks(data: [ExternalLinkCreateInput!]!): [ExternalLink]
+  updateExternalLink(
+    where: ExternalLinkWhereUniqueInput!
+    data: ExternalLinkUpdateInput!
+  ): ExternalLink
+  updateExternalLinks(data: [ExternalLinkUpdateArgs!]!): [ExternalLink]
+  deleteExternalLink(where: ExternalLinkWhereUniqueInput!): ExternalLink
+  deleteExternalLinks(where: [ExternalLinkWhereUniqueInput!]!): [ExternalLink]
   createProject(data: ProjectCreateInput!): Project
   createProjects(data: [ProjectCreateInput!]!): [Project]
   updateProject(
@@ -895,21 +903,23 @@ type Mutation {
   updateSections(data: [SectionUpdateArgs!]!): [Section]
   deleteSection(where: SectionWhereUniqueInput!): Section
   deleteSections(where: [SectionWhereUniqueInput!]!): [Section]
-  createNavLink(data: NavLinkCreateInput!): NavLink
-  createNavLinks(data: [NavLinkCreateInput!]!): [NavLink]
-  updateNavLink(
-    where: NavLinkWhereUniqueInput!
-    data: NavLinkUpdateInput!
-  ): NavLink
-  updateNavLinks(data: [NavLinkUpdateArgs!]!): [NavLink]
-  deleteNavLink(where: NavLinkWhereUniqueInput!): NavLink
-  deleteNavLinks(where: [NavLinkWhereUniqueInput!]!): [NavLink]
-  createNavBar(data: NavBarCreateInput!): NavBar
-  createNavBars(data: [NavBarCreateInput!]!): [NavBar]
-  updateNavBar(where: NavBarWhereUniqueInput!, data: NavBarUpdateInput!): NavBar
-  updateNavBars(data: [NavBarUpdateArgs!]!): [NavBar]
-  deleteNavBar(where: NavBarWhereUniqueInput!): NavBar
-  deleteNavBars(where: [NavBarWhereUniqueInput!]!): [NavBar]
+  createNavigationLink(data: NavigationLinkCreateInput!): NavigationLink
+  createNavigationLinks(data: [NavigationLinkCreateInput!]!): [NavigationLink]
+  updateNavigationLink(
+    where: NavigationLinkWhereUniqueInput!
+    data: NavigationLinkUpdateInput!
+  ): NavigationLink
+  updateNavigationLinks(data: [NavigationLinkUpdateArgs!]!): [NavigationLink]
+  deleteNavigationLink(where: NavigationLinkWhereUniqueInput!): NavigationLink
+  deleteNavigationLinks(
+    where: [NavigationLinkWhereUniqueInput!]!
+  ): [NavigationLink]
+  createHeader(data: HeaderCreateInput!): Header
+  createHeaders(data: [HeaderCreateInput!]!): [Header]
+  updateHeader(where: HeaderWhereUniqueInput!, data: HeaderUpdateInput!): Header
+  updateHeaders(data: [HeaderUpdateArgs!]!): [Header]
+  deleteHeader(where: HeaderWhereUniqueInput!): Header
+  deleteHeaders(where: [HeaderWhereUniqueInput!]!): [Header]
   endSession: Boolean!
   authenticateAdminWithPassword(
     email: String!
@@ -955,14 +965,14 @@ type Query {
   ): [File!]
   file(where: FileWhereUniqueInput!): File
   filesCount(where: FileWhereInput! = {}): Int
-  links(
-    where: LinkWhereInput! = {}
-    orderBy: [LinkOrderByInput!]! = []
+  externalLinks(
+    where: ExternalLinkWhereInput! = {}
+    orderBy: [ExternalLinkOrderByInput!]! = []
     take: Int
     skip: Int! = 0
-  ): [Link!]
-  link(where: LinkWhereUniqueInput!): Link
-  linksCount(where: LinkWhereInput! = {}): Int
+  ): [ExternalLink!]
+  externalLink(where: ExternalLinkWhereUniqueInput!): ExternalLink
+  externalLinksCount(where: ExternalLinkWhereInput! = {}): Int
   projects(
     where: ProjectWhereInput! = {}
     orderBy: [ProjectOrderByInput!]! = []
@@ -995,22 +1005,22 @@ type Query {
   ): [Section!]
   section(where: SectionWhereUniqueInput!): Section
   sectionsCount(where: SectionWhereInput! = {}): Int
-  navLinks(
-    where: NavLinkWhereInput! = {}
-    orderBy: [NavLinkOrderByInput!]! = []
+  navigationLinks(
+    where: NavigationLinkWhereInput! = {}
+    orderBy: [NavigationLinkOrderByInput!]! = []
     take: Int
     skip: Int! = 0
-  ): [NavLink!]
-  navLink(where: NavLinkWhereUniqueInput!): NavLink
-  navLinksCount(where: NavLinkWhereInput! = {}): Int
-  navBars(
-    where: NavBarWhereInput! = {}
-    orderBy: [NavBarOrderByInput!]! = []
+  ): [NavigationLink!]
+  navigationLink(where: NavigationLinkWhereUniqueInput!): NavigationLink
+  navigationLinksCount(where: NavigationLinkWhereInput! = {}): Int
+  headers(
+    where: HeaderWhereInput! = {}
+    orderBy: [HeaderOrderByInput!]! = []
     take: Int
     skip: Int! = 0
-  ): [NavBar!]
-  navBar(where: NavBarWhereUniqueInput!): NavBar
-  navBarsCount(where: NavBarWhereInput! = {}): Int
+  ): [Header!]
+  header(where: HeaderWhereUniqueInput!): Header
+  headersCount(where: HeaderWhereInput! = {}): Int
   keystone: KeystoneMeta!
   authenticatedItem: AuthenticatedItem
 }

@@ -2,26 +2,26 @@ import React from 'react';
 import { GetStaticProps } from 'next';
 
 import { apolloClient } from '../src/graphql/apolloClient';
-import { GET_NAV_BAR } from '../src/graphql/queries/GET_NAV_BARS';
+import { GET_HEADER } from '../src/graphql/queries/GET_HEADERS';
 import { Payload, Header } from '../src/types';
 
 export const getStaticProps: GetStaticProps = async () => {
-    const { data }: Payload<'navBars', Header[]> = await apolloClient.query({
-        query: GET_NAV_BAR,
+    const { data }: Payload<'headers', Header[]> = await apolloClient.query({
+        query: GET_HEADER,
         variables: { header: 'Header' },
     });
 
-    if (data.navBars.length === 1) {
+    if (data.headers.length === 1) {
         return {
             props: {
-                header: data.navBars[0] ?? null,
+                header: data.headers[0] ?? null,
             },
         };
     }
 
     return {
         props: {
-            headers: data.navBars ?? null,
+            headers: data.headers ?? null,
         },
     };
 };

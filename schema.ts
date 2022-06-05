@@ -28,7 +28,11 @@ export const schema = {
             name: text({ validation: { isRequired: true } }),
             title: text({ validation: { isRequired: true } }),
             resume: relationship({ ref: 'File', many: false, label: 'Resume' }),
-            links: relationship({ ref: 'Link', many: true, label: 'Links' }),
+            links: relationship({
+                ref: 'ExternalLink',
+                many: true,
+                label: 'Links',
+            }),
         },
     }),
     File: list({
@@ -38,7 +42,7 @@ export const schema = {
             file: file({ label: 'File' }),
         },
     }),
-    Link: list({
+    ExternalLink: list({
         description: 'A link to target an external location.',
         fields: {
             name: text({ validation: { isRequired: true } }),
@@ -67,10 +71,15 @@ export const schema = {
             creator: relationship({
                 ref: 'User',
                 many: true,
-                label: 'Creator',
+                label: 'Creator(s)',
             }),
+            techStack: text({ validation: { isRequired: true } }),
             image: image({ label: 'Image' }),
-            links: relationship({ ref: 'Link', many: true, label: 'Links' }),
+            links: relationship({
+                ref: 'ExternalLink',
+                many: true,
+                label: 'Links',
+            }),
         },
     }),
     Post: list({
@@ -87,7 +96,11 @@ export const schema = {
             content: document({ formatting: true, links: true }),
             publishDate: timestamp(),
             creator: relationship({ ref: 'User', many: false }),
-            link: relationship({ ref: 'Link', many: true, label: 'Links' }),
+            link: relationship({
+                ref: 'ExternalLink',
+                many: true,
+                label: 'Links',
+            }),
         },
     }),
     Content: list({
@@ -114,18 +127,19 @@ export const schema = {
             cta: text({ label: 'CTA' }),
         },
     }),
-    NavLink: list({
+    NavigationLink: list({
         description: 'A label for a navigation link.',
         fields: {
             label: text({ validation: { isRequired: true } }),
         },
     }),
-    NavBar: list({
-        description: 'A collection of navigation links and logo(s).',
+    Header: list({
+        description:
+            'A header is a collection of navigation links and logo(s).',
         fields: {
             logo: text({ validation: { isRequired: true } }),
             label: text({ validation: { isRequired: true } }),
-            links: relationship({ ref: 'NavLink', many: true }),
+            links: relationship({ ref: 'NavigationLink', many: true }),
         },
     }),
 };

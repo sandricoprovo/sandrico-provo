@@ -15,6 +15,7 @@ const session = statelessSessions({
     secret: process.env.KEYSTONE_SESSION_SECRET,
 });
 
+// Update config to support file uploads https://keystonejs.com/docs/apis/config#storage
 export default withAuth(
     config({
         db: {
