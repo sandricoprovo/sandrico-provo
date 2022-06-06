@@ -1,6 +1,6 @@
 import Link from 'next/link';
 
-import { NavBarContainer, NavLink } from './styles';
+import { NavBarContainer, NavList, NavListItem, NavLink } from './styles';
 
 interface NavBarProps {
     links: { label: string }[];
@@ -9,17 +9,22 @@ interface NavBarProps {
 function NavBar({ links }: NavBarProps) {
     return (
         <NavBarContainer>
-            {links.map((link, index) => {
-                // animationDelay = base * (delay multiplier * (index + index normalizer))
-                const animationDelay = 300 * (0.5 * (index + 1));
-                return (
-                    <Link key={link.label} href={link.label}>
-                        <NavLink animationDelay={animationDelay}>
-                            {link.label}
-                        </NavLink>
-                    </Link>
-                );
-            })}
+            <NavList>
+                {links.map((link, index) => {
+                    // animationDelay = base * (delay multiplier * (index + index normalizer))
+                    const animationDelay = 300 * (0.5 * (index + 1));
+                    return (
+                        <NavListItem
+                            key={link.label}
+                            animationDelay={animationDelay}
+                        >
+                            <Link href={link.label}>
+                                <NavLink>{link.label}</NavLink>
+                            </Link>
+                        </NavListItem>
+                    );
+                })}
+            </NavList>
         </NavBarContainer>
     );
 }
