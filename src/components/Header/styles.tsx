@@ -10,6 +10,7 @@ export const HeaderContainer = styled.header`
 
 export const LogoText = styled.p`
     cursor: pointer;
+    background-color: transparent;
     font: var(--font-montserrat-10);
     color: var(--clr-text);
     position: relative;
@@ -38,5 +39,6 @@ export const LogoText = styled.p`
 
     &:active::before {
         width: 136%;
+        background-color: var(--clr-pastelblue-60);
     }
 `;

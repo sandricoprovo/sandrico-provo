@@ -3,7 +3,6 @@ import styled from 'styled-components';
 import { slideUpFadeIn } from '../../../styles/animations';
 
 export const NavBarContainer = styled.nav`
-    min-width: 370px;
     display: flex;
     justify-content: flex-end;
     align-items: center;
@@ -14,9 +13,32 @@ export const NavList = styled.ul`
     justify-content: flex-end;
     align-items: center;
     gap: var(--space-xl);
+    font: var(--font-poppins-40);
+
+    @media (max-width: 500px) {
+        background-color: var(--clr-background);
+        background-color: red;
+        padding-top: var(--space-xxl);
+        padding-bottom: calc(var(--space-base) * 7);
+        position: absolute;
+        bottom: 0px;
+        z-index: 100;
+        width: 100%;
+        height: calc(100vh - 71px);
+        bottom: 0;
+        flex-direction: column;
+        align-items: flex-end;
+        opacity: 0;
+        animation: ${slideUpFadeIn} 400ms var(--drawerFadeIn);
+        animation-fill-mode: forwards;
+        animation-delay: 300;
+        transition: opacity 600ms var(--drawerFadeIn);
+    }
 `;
 
-export const NavListItem = styled.li<{ animationDelay: number }>`
+export const NavListItem = styled.li<{
+    animationDelay: number;
+}>`
     list-style: none;
     position: relative;
     opacity: 0;
@@ -57,5 +79,59 @@ export const NavLink = styled.a`
     &:focus::before {
         width: 120%;
         transition: width 400ms var(--underline-bezier);
+    }
+
+    @media (max-width: 500px) {
+        font: var(--font-montserrat-30);
+    }
+`;
+
+export const MenuBtn = styled.div`
+    height: 32px;
+    width: 56px;
+    padding: 4px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    flex-direction: column;
+    gap: 6px;
+    opacity: 0;
+    animation: ${slideUpFadeIn} 700ms var(--fadeUp-bezier);
+    animation-fill-mode: forwards;
+    animation-delay: 300ms;
+    transition: opacity 600ms var(--fadeUp-bezier);
+
+    & > span {
+        display: block;
+        width: 80%;
+        height: 4px;
+        transition: width 400ms var(--underline-bezier);
+    }
+
+    & > span:nth-of-type(1),
+    & > span:nth-of-type(2),
+    & > span:nth-of-type(3) {
+        background-color: var(--clr-text);
+    }
+
+    &:hover,
+    &:focus {
+        & > span:nth-of-type(2) {
+            background-color: var(--clr-text);
+            width: 48%;
+        }
+
+        & > span:nth-of-type(3) {
+            background-color: var(--clr-text);
+            width: 32%;
+        }
+    }
+
+    &:active {
+        & > span:nth-of-type(3) {
+            background-color: var(--clr-text);
+            width: 80%;
+        }
     }
 `;

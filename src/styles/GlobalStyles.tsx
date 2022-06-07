@@ -60,7 +60,7 @@ export const GlobalStyle = createGlobalStyle`
         --font-fallback: --apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
         --font-text-lh: 180%;
         --font-base: 1rem;
-        --font-scale-ratio: 1.333;
+        --font-scale-ratio: 1.414;
         // Raw Type Scale
         --scale-xs: calc(0.707 / var(--font-scale-ratio));
         --scale-sm: calc(1 / var(--font-scale-ratio));
@@ -72,14 +72,14 @@ export const GlobalStyle = createGlobalStyle`
         --scale-xxxl: calc(var(--scale-xxl) * var(--font-scale-ratio));
         --scale-max: calc(var(--scale-xxxl) * var(--font-scale-ratio));
         // Clamped / Responsive Type Scale
-        --font-xs: clamp(var(--scale-xs) * 0.25, 12vw + 1rem, var(--scale-xs) * 1rem);
-        --font-sm: clamp(var(--scale-sm) * 0.25, 12vw + 1rem, var(--scale-sm) * 1rem);
-        --font-md: clamp(var(--scale-md) * 0.25, 12vw + 1rem, var(--scale-md) * 1rem);
+        --font-xs: clamp(var(--scale-xs) * 0.25 * 1rem, 12vw + 1rem, var(--scale-xs) * 1rem);
+        --font-sm: clamp(var(--scale-sm) * 0.25 * 1rem, 12vw + 1rem, var(--scale-sm) * 1rem);
+        --font-md: clamp(var(--scale-md) * 0.25 * 1rem, 12vw + 1rem, var(--scale-md) * 1rem);
         --font-lg: clamp(var(--scale-lg) * 0.25 * 1rem, 12vw + 1rem, var(--scale-lg) * 1rem);
-        --font-xl: clamp(var(--scale-xl) * 0.25, 12vw + 1rem, var(--scale-xl) * 1rem);
-        --font-xxl: clamp(var(--scale-xxl) * 0.25, 12vw + 1rem, var(--scale-xxl) * 1rem);
-        --font-xxxl: clamp(var(--scale-xxxl) * 0.25, 12vw + 1rem, var(--scale-xxxl) * 1rem);
-        --font-max: clamp(var(--scale-max) * 0.25, 12vw + 1rem, var(--scale-max) * 1rem);
+        --font-xl: clamp(var(--scale-xl) * 0.25 * 1rem, 12vw + 1rem, var(--scale-xl) * 1rem);
+        --font-xxl: clamp(var(--scale-xxl) * 0.25 * 1rem, 12vw + 1rem, var(--scale-xxl) * 1rem);
+        --font-xxxl: clamp(var(--scale-xxxl) * 0.25 * 1rem, 12vw + 1rem, var(--scale-xxxl) * 1rem);
+        --font-max: clamp(var(--scale-max) * 0.25 * 1rem, 12vw + 1rem, var(--scale-max) * 1rem);
         // Montserrat
         --font-montserrat-50: var(--font-max)/var(--font-text-lh) var(--font-secondary), var(--font-fallback);
         --font-montserrat-40: var(--font-xxxl)/var(--font-text-lh) var(--font-secondary), var(--font-fallback);
@@ -104,23 +104,26 @@ export const GlobalStyle = createGlobalStyle`
         --font-poppinsSb-10: var(--font-xs)/var(--font-text-lh) var(--font-primary-sb);
 
         // Spacing
-        --space-base: 0.64rem;
-        --space-xm: calc(var(--space-base)/2);
-        --space-sm: calc(var(--space-base)/2);
+        --space-base: 2rem;
+        --space-xm: calc(var(--space-base) / 2);
+        --space-sm: calc(var(--space-base) / 2);
         --space-md: var(--space-base);
-        --space-lg: calc(var(--space-base)*2);
-        --space-xl: calc(var(--space-base)*3);
+        --space-lg: calc(var(--space-base) * 2);
+        --space-xl: calc(var(--space-base) * 3);
+        --space-xxl: calc(var(--space-base) * 4);
+        --space-xxxl: calc(var(--space-base) * 5);
 
         // Elevation
 
         // Animation
         --underline-bezier: cubic-bezier(0.18, 0.89, 0.32, 1.27);
         --fadeUp-bezier: cubic-bezier(0.68, -0.55, 0.27, 1.55);
+        --drawerFadeIn: cubic-bezier(0.55, 0.08, 0.68, 0.53);
 
         // Media Queries
-        @media (min-width: 500px) {
-            --space-base: 2rem;
-            --font-scale-ratio: 1.414;
+        @media (max-width: 500px) {
+            --space-base: 0.64rem;
+            --font-scale-ratio: 1.333;
         }
     }
 
@@ -128,11 +131,13 @@ export const GlobalStyle = createGlobalStyle`
         --clr-text: var(--clr-black-60);
         --clr-text-faded: var(--clr-black-30);
         --clr-hover: var(--clr-pastelblue-60);
+        --clr-background: var(--clr-white-60);
     }
 
     .theme--dark {
         --clr-text: var(--clr-white-60);
         --clr-text-faded: var(--clr-black-30);
         --clr-hover: var(--clr-pastelblue-60);
+        --clr-background: var(--clr-black-60)
     }
 `;

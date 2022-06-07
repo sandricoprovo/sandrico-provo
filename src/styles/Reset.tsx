@@ -355,4 +355,15 @@ export const Reset = createGlobalStyle`
         margin: 0;
         box-sizing: border-box;
     }
+
+    html {
+        min-height: -webkit-fill-available;
+    }
+
+    body {
+        height: 100vh;
+        min-height: -webkit-fill-available;
+        width: 100vw;
+        overflow-y: auto;
+    }
 `;
