@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { motion } from 'framer-motion';
 
 import { slideUpFadeIn } from '../../../styles/animations';
 
@@ -8,7 +9,7 @@ export const NavBarContainer = styled.nav`
     align-items: center;
 `;
 
-export const NavList = styled.ul`
+export const NavList = styled(motion.ul)`
     display: flex;
     justify-content: flex-end;
     align-items: center;
@@ -17,7 +18,6 @@ export const NavList = styled.ul`
 
     @media (max-width: 500px) {
         background-color: var(--clr-background);
-        background-color: red;
         padding-top: var(--space-xxl);
         padding-bottom: calc(var(--space-base) * 7);
         position: absolute;
@@ -28,25 +28,12 @@ export const NavList = styled.ul`
         bottom: 0;
         flex-direction: column;
         align-items: flex-end;
-        opacity: 0;
-        animation: ${slideUpFadeIn} 400ms var(--drawerFadeIn);
-        animation-fill-mode: forwards;
-        animation-delay: 300;
-        transition: opacity 600ms var(--drawerFadeIn);
     }
 `;
 
-export const NavListItem = styled.li<{
-    animationDelay: number;
-}>`
+export const NavListItem = styled(motion.li)`
     list-style: none;
     position: relative;
-    opacity: 0;
-    animation: ${slideUpFadeIn} 700ms var(--fadeUp-bezier);
-    animation-fill-mode: forwards;
-    animation-delay: ${({ animationDelay }) =>
-        animationDelay ? `${animationDelay}ms` : 300};
-    transition: opacity 600ms var(--fadeUp-bezier);
 `;
 
 export const NavLink = styled.a`

@@ -1,4 +1,5 @@
 import { ReactNode } from 'react';
+import { AnimatePresence } from 'framer-motion';
 
 import { Reset } from '../../styles/Reset';
 import { Fonts } from '../../styles/Fonts';
@@ -21,10 +22,12 @@ function Layout({ children, pageProps }: LayoutProps) {
             <Reset />
             <Fonts />
             <GlobalStyle />
-            <LayoutContainer className="theme--light">
-                <Header header={pageProps.header} />
-                {children}
-            </LayoutContainer>
+            <AnimatePresence>
+                <LayoutContainer className="theme--light">
+                    <Header header={pageProps.header} />
+                    {children}
+                </LayoutContainer>
+            </AnimatePresence>
         </>
     );
 }
