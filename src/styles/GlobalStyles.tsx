@@ -54,58 +54,33 @@ export const GlobalStyle = createGlobalStyle`
     	--clr-black-110: hsla(0,0%,2%,1);
 
         // Type Scale
-        --font-primary: "Poppins";
-        --font-primary-sb: "Poppins-SemiBold";
-        --font-secondary: "Montserrat";
-        --font-fallback: --apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-        --font-text-lh: 180%;
+        --fallback-fonts: --apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        --font-primary: "Poppins", var(--fallback-fonts);
+        --font-primary-sb: "Poppins-SemiBold", var(--fallback-fonts);
+        --font-secondary: "Montserrat", var(--fallback-fonts);
         --font-base: 1rem;
-        --font-scale-ratio: 1.414;
-        --scale-min-multiplier: 0.9;
-        // Raw Type Scale
-        --scale-xs: calc(0.707 / var(--font-scale-ratio));
-        --scale-sm: calc(1 / var(--font-scale-ratio));
-        --scale-base: calc(var(--scale-sm) * var(--font-scale-ratio));
-        --scale-md: calc(var(--scale-base) * var(--font-scale-ratio));
-        --scale-lg: calc(var(--scale-md) * var(--font-scale-ratio));
-        --scale-xl: calc(var(--scale-lg) * var(--font-scale-ratio));
-        --scale-xxl: calc(var(--scale-xl) * var(--font-scale-ratio));
-        --scale-xxxl: calc(var(--scale-xxl) * var(--font-scale-ratio));
-        --scale-max: calc(var(--scale-xxxl) * var(--font-scale-ratio));
-        // Clamped / Responsive Type Scale
-        --font-xs: clamp(var(--scale-xs) * var(--scale-min-multiplier) * 1rem, 12vw + 1rem, var(--scale-xs) * 1rem);
-        --font-sm: clamp(var(--scale-sm) * var(--scale-min-multiplier) * 1rem, 12vw + 1rem, var(--scale-sm) * 1rem);
-        --font-md: clamp(var(--scale-md) * var(--scale-min-multiplier) * 1rem, 12vw + 1rem, var(--scale-md) * 1rem);
-        --font-lg: clamp(var(--scale-lg) * var(--scale-min-multiplier) * 1rem, 12vw + 1rem, var(--scale-lg) * 1rem);
-        --font-xl: clamp(var(--scale-xl) * var(--scale-min-multiplier) * 1rem, 12vw + 1rem, var(--scale-xl) * 1rem);
-        --font-xxl: clamp(var(--scale-xxl) * var(--scale-min-multiplier) * 1rem, 12vw + 1rem, var(--scale-xxl) * 1rem);
-
-        --font-xxxl: clamp(var(--scale-xxxl) * var(--scale-min-multiplier) * 1rem, 4vw + 1rem, var(--scale-xxxl) * 1rem);
-        /* --font-xxxl: clamp(1.25rem, 8vw + 1rem, 5rem); */
-/*  */
-        --font-max: clamp(var(--scale-max) * var(--scale-min-multiplier)  * 1rem, 12vw + 1rem, var(--scale-max) * 1rem);
-        // Montserrat
-        --font-montserrat-50: var(--font-max)/var(--font-text-lh) var(--font-secondary), var(--font-fallback);
-        --font-montserrat-40: var(--font-xxxl)/var(--font-text-lh) var(--font-secondary), var(--font-fallback);
-        --font-montserrat-30: var(--font-xxl)/var(--font-text-lh) var(--font-secondary), var(--font-fallback);
-        --font-montserrat-20: var(--font-xl)/var(--font-text-lh) var(--font-secondary), var(--font-fallback);
-        --font-montserrat-10: var(--font-lg)/var(--font-text-lh) var(--font-secondary), var(--font-fallback);
-        // Poppins
-        --font-poppins-70: var(--font-xxl)/var(--font-text-lh) var(--font-primary), var(--font-fallback);
-        --font-poppins-60: var(--font-xl)/var(--font-text-lh) var(--font-primary), var(--font-fallback);
-        --font-poppins-50: var(--font-lg)/var(--font-text-lh) var(--font-primary), var(--font-fallback);
-        --font-poppins-40: var(--font-md)/var(--font-text-lh) var(--font-primary), var(--font-fallback);
-        --font-poppins-30: var(--font-base)/var(--font-text-lh) var(--font-primary), var(--font-fallback);
-        --font-poppins-20: var(--font-sm)/var(--font-text-lh) var(--font-primary), var(--font-fallback);
-        --font-poppins-10: var(--font-xs)/var(--font-text-lh) var(--font-primary), var(--font-fallback);
-        // Poppins SemiBold
-        --font-poppinsSb-70: var(--font-xxl)/var(--font-text-lh) var(--font-primary-sb), var(--font-fallback);
-        --font-poppinsSb-60: var(--font-xl)/var(--font-text-lh) var(--font-primary-sb), var(--font-fallback);
-        --font-poppinsSb-50: var(--font-lg)/var(--font-text-lh) var(--font-primary-sb), var(--font-fallback);
-        --font-poppinsSb-40: var(--font-md)/var(--font-text-lh) var(--font-primary-sb), var(--font-fallback);
-        --font-poppinsSb-30: var(--font-base)/var(--font-text-lh) var(--font-primary-sb), var(--font-fallback);
-        --font-poppinsSb-20: var(--font-sm)/var(--font-text-lh) var(--font-primary-sb), var(--font-fallback);
-        --font-poppinsSb-10: var(--font-xs)/var(--font-text-lh) var(--font-primary-sb);
+        --font-scale: 1.414;
+        --font-min-scaler: 0.8;
+        // Base Font Sizes
+        --scale-400: var(--font-base);
+        --scale-300: var(--scale-400) / var(--font-scale);
+        --scale-200: var(--scale-300) / var(--font-scale);
+        --scale-500: var(--scale-400) * var(--font-scale);
+        --scale-600: var(--scale-500) * var(--font-scale);
+        --scale-700: var(--scale-600) * var(--font-scale);
+        --scale-800: var(--scale-700) * var(--font-scale);
+        --scale-900: var(--scale-800) * var(--font-scale);
+        --scale-max: var(--scale-900) * var(--font-scale);
+        // Clamped font sizes
+        --font-200: clamp(var(--scale-200) * var(--font-min-scaler), 12vw + 1rem, var(--scale-200));
+        --font-300: clamp(var(--scale-300) * var(--font-min-scaler), 12vw + 1rem, var(--scale-300));
+        --font-400: clamp(var(--scale-400) * var(--font-min-scaler), 12vw + 1rem, var(--scale-400));
+        --font-500: clamp(var(--scale-500) * var(--font-min-scaler), 12vw + 1rem, var(--scale-500));
+        --font-600: clamp(var(--scale-600) * var(--font-min-scaler), 12vw + 1rem, var(--scale-600));
+        --font-700: clamp(var(--scale-700) * var(--font-min-scaler), 12vw + 1rem, var(--scale-700));
+        --font-800: clamp(var(--scale-800) * var(--font-min-scaler), 12vw + 1rem, var(--scale-800));
+        --font-900: clamp(var(--scale-900) * var(--font-min-scaler), 12vw + 1rem, var(--scale-900));
+        --font-max: clamp(var(--scale-max) * var(--font-min-scaler), 12vw + 1rem, var(--scale-max));
 
         // Spacing
         --max-page-width: 1970px;

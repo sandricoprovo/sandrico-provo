@@ -14,7 +14,9 @@ export const NavList = styled(motion.ul)`
     justify-content: flex-end;
     align-items: center;
     gap: var(--space-xl);
-    font: var(--font-poppins-40);
+    font-family: var(--font-secondary);
+    font-size: var(--font-700);
+    line-height: 160%;
 
     @media (max-width: 500px) {
         background-color: var(--clr-background);
@@ -38,17 +40,17 @@ export const NavListItem = styled(motion.li)`
 
 export const NavLink = styled.a`
     text-decoration: none;
-    padding: var(--space-xs) var(--space-sm);
     cursor: pointer;
-    font: var(--font-poppins-30);
+    font-family: var(--font-primary);
+    font-size: var(--font-400);
     color: var(--clr-text);
 
     &:before {
         content: '';
         position: absolute;
         background-color: var(--clr-text);
-        bottom: 2px;
-        height: 10%;
+        top: 58px;
+        height: 4px;
         width: 0px;
         z-index: -10;
         transition: width 400ms var(--underline-bezier);
@@ -69,7 +71,8 @@ export const NavLink = styled.a`
     }
 
     @media (max-width: 500px) {
-        font: var(--font-montserrat-30);
+        font-family: var(--font-secondary);
+        font-size: var(--font-700);
     }
 `;
 
