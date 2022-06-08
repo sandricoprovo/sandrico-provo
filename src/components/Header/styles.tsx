@@ -3,8 +3,11 @@ import { motion } from 'framer-motion';
 
 export const HeaderContainer = styled.header`
     padding: var(--space-base) var(--space-lg);
+    grid-row: 1 / 1;
+    width: 100%;
     display: flex;
     justify-content: space-between;
+    align-items: center;
 `;
 
 export const LogoText = styled(motion.p)`
