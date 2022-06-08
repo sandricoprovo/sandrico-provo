@@ -14,7 +14,7 @@ export const LogoText = styled(motion.p)`
     cursor: pointer;
     background-color: transparent;
     font-family: var(--font-secondary);
-    font-size: var(--font-500);
+    font-size: var(--font-600);
     color: var(--clr-text);
     position: relative;
 
@@ -22,7 +22,7 @@ export const LogoText = styled(motion.p)`
         content: '';
         position: absolute;
         background-color: var(--clr-text);
-        top: 24px;
+        top: 32px;
         height: 4px;
         width: 100%;
         z-index: -10;

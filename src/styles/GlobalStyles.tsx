@@ -60,7 +60,7 @@ export const GlobalStyle = createGlobalStyle`
         --font-secondary: "Montserrat", var(--fallback-fonts);
         --font-base: 1rem;
         --font-scale: 1.414;
-        --font-min-scaler: 0.8;
+        --font-min-scaler: 0.75;
         // Base Font Sizes
         --scale-400: var(--font-base);
         --scale-300: var(--scale-400) / var(--font-scale);
