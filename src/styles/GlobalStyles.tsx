@@ -61,6 +61,7 @@ export const GlobalStyle = createGlobalStyle`
         --font-text-lh: 180%;
         --font-base: 1rem;
         --font-scale-ratio: 1.414;
+        --scale-min-multiplier: 0.9;
         // Raw Type Scale
         --scale-xs: calc(0.707 / var(--font-scale-ratio));
         --scale-sm: calc(1 / var(--font-scale-ratio));
@@ -72,14 +73,17 @@ export const GlobalStyle = createGlobalStyle`
         --scale-xxxl: calc(var(--scale-xxl) * var(--font-scale-ratio));
         --scale-max: calc(var(--scale-xxxl) * var(--font-scale-ratio));
         // Clamped / Responsive Type Scale
-        --font-xs: clamp(var(--scale-xs) * 0.25 * 1rem, 12vw + 1rem, var(--scale-xs) * 1rem);
-        --font-sm: clamp(var(--scale-sm) * 0.25 * 1rem, 12vw + 1rem, var(--scale-sm) * 1rem);
-        --font-md: clamp(var(--scale-md) * 0.25 * 1rem, 12vw + 1rem, var(--scale-md) * 1rem);
-        --font-lg: clamp(var(--scale-lg) * 0.25 * 1rem, 12vw + 1rem, var(--scale-lg) * 1rem);
-        --font-xl: clamp(var(--scale-xl) * 0.25 * 1rem, 12vw + 1rem, var(--scale-xl) * 1rem);
-        --font-xxl: clamp(var(--scale-xxl) * 0.25 * 1rem, 12vw + 1rem, var(--scale-xxl) * 1rem);
-        --font-xxxl: clamp(var(--scale-xxxl) * 0.25 * 1rem, 12vw + 1rem, var(--scale-xxxl) * 1rem);
-        --font-max: clamp(var(--scale-max) * 0.25 * 1rem, 12vw + 1rem, var(--scale-max) * 1rem);
+        --font-xs: clamp(var(--scale-xs) * var(--scale-min-multiplier) * 1rem, 12vw + 1rem, var(--scale-xs) * 1rem);
+        --font-sm: clamp(var(--scale-sm) * var(--scale-min-multiplier) * 1rem, 12vw + 1rem, var(--scale-sm) * 1rem);
+        --font-md: clamp(var(--scale-md) * var(--scale-min-multiplier) * 1rem, 12vw + 1rem, var(--scale-md) * 1rem);
+        --font-lg: clamp(var(--scale-lg) * var(--scale-min-multiplier) * 1rem, 12vw + 1rem, var(--scale-lg) * 1rem);
+        --font-xl: clamp(var(--scale-xl) * var(--scale-min-multiplier) * 1rem, 12vw + 1rem, var(--scale-xl) * 1rem);
+        --font-xxl: clamp(var(--scale-xxl) * var(--scale-min-multiplier) * 1rem, 12vw + 1rem, var(--scale-xxl) * 1rem);
+
+        --font-xxxl: clamp(var(--scale-xxxl) * var(--scale-min-multiplier) * 1rem, 4vw + 1rem, var(--scale-xxxl) * 1rem);
+        /* --font-xxxl: clamp(1.25rem, 8vw + 1rem, 5rem); */
+/*  */
+        --font-max: clamp(var(--scale-max) * var(--scale-min-multiplier)  * 1rem, 12vw + 1rem, var(--scale-max) * 1rem);
         // Montserrat
         --font-montserrat-50: var(--font-max)/var(--font-text-lh) var(--font-secondary), var(--font-fallback);
         --font-montserrat-40: var(--font-xxxl)/var(--font-text-lh) var(--font-secondary), var(--font-fallback);
@@ -104,6 +108,7 @@ export const GlobalStyle = createGlobalStyle`
         --font-poppinsSb-10: var(--font-xs)/var(--font-text-lh) var(--font-primary-sb);
 
         // Spacing
+        --max-page-width: 1970px;
         --space-base: 2rem;
         --space-xm: calc(var(--space-base) / 2);
         --space-sm: calc(var(--space-base) / 2);
@@ -121,9 +126,8 @@ export const GlobalStyle = createGlobalStyle`
         --drawerFadeIn: cubic-bezier(0.55, 0.08, 0.68, 0.53);
 
         // Media Queries
-        @media (max-width: 500px) {
+        @media (max-width: 700px) {
             --space-base: 0.64rem;
-            --font-scale-ratio: 1.333;
         }
     }
 
