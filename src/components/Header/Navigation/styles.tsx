@@ -1,8 +1,6 @@
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
 
-import { slideUpFadeIn } from '../../../styles/animations';
-
 export const NavBarContainer = styled.nav`
     display: flex;
     justify-content: flex-end;
@@ -76,7 +74,7 @@ export const NavLink = styled.a`
     }
 `;
 
-export const MenuBtn = styled.div`
+export const MenuBtn = styled(motion.div)`
     height: 32px;
     width: 56px;
     padding: 4px;
@@ -86,11 +84,6 @@ export const MenuBtn = styled.div`
     align-items: flex-end;
     flex-direction: column;
     gap: 6px;
-    opacity: 0;
-    animation: ${slideUpFadeIn} 700ms var(--fadeUp-bezier);
-    animation-fill-mode: forwards;
-    animation-delay: 300ms;
-    transition: opacity 600ms var(--fadeUp-bezier);
 
     & > span {
         display: block;

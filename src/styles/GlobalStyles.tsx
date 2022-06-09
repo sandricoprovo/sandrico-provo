@@ -85,7 +85,7 @@ export const GlobalStyle = createGlobalStyle`
         // Spacing
         --max-page-width: 1970px;
         --space-base: 2rem;
-        --space-xm: calc(var(--space-base) / 2);
+        --space-xs: calc(var(--space-base) / 2);
         --space-sm: calc(var(--space-base) / 2);
         --space-md: var(--space-base);
         --space-lg: calc(var(--space-base) * 2);

@@ -7,7 +7,7 @@ export const LayoutContainer = styled.div`
     height: 100vh;
     margin: 0 auto;
     display: grid;
-    grid-template-rows: 100px 1fr 10vh;
+    grid-template-rows: 100px 1fr 4vh;
     align-items: flex-start;
 
     @supports (-webkit-touch-callout: none) {
