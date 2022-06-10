@@ -11,6 +11,16 @@ export interface IconProps extends HTMLMotionProps<any> {
 
 type MotionIcon = ForwardRefComponent<HTMLOrSVGElement, HTMLMotionProps<any>>;
 
+const iconVariant = {
+    initial: { y: 0 },
+    animate: {
+        y: ['0%', '-25%', '-15%'],
+        transition: {
+            duration: 0.4,
+        },
+    },
+};
+
 function withIconStyles(Icon: MotionIcon) {
     // Extends the Icon to use custom HOC styling & props.
     const StyledIcon = styled(Icon)<IconProps>`
@@ -24,8 +34,11 @@ function withIconStyles(Icon: MotionIcon) {
     const IconWithStyles: React.FC<IconProps> = (props) => (
         <StyledIcon
             ref={props.ref}
-            whileHover={{ scale: 1.2 }}
-            whileTap={{ scale: 1.4 }}
+            variants={iconVariant}
+            initial="initial"
+            whileHover="animate"
+            // initial={{ y: 0 }}
+            // whileHover={{ y: ['-20%', '-10%'] }}
             {...props}
         />
     );

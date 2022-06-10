@@ -12,7 +12,7 @@ export const HeroSection = styled.section`
 export const HeroHeader = styled(motion.h1)`
     word-break: break-word;
     font-family: var(--font-secondary);
-    font-size: var(--font-900);
+    font-size: var(--font-max);
     line-height: 120%;
     letter-spacing: 2px;
     margin: auto 0;
@@ -56,7 +56,7 @@ export const HeroSubHeader = styled(motion.h2)`
 `;
 
 export const ContentSection = styled.section`
-    border: 2px solid red;
+    /* border: 2px solid red; */
 `;
 
 export const SectionHeader = styled(motion.h3)`
@@ -65,7 +65,6 @@ export const SectionHeader = styled(motion.h3)`
 `;
 
 export const ProjectsContainer = styled.div`
-    border: 2px solid black;
     padding: var(--space-lg);
     display: grid;
     gap: 8px;

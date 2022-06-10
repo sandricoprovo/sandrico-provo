@@ -1,13 +1,17 @@
 import styled from 'styled-components';
 
 const PageContainer = styled.main`
-    padding: var(--space-md) var(--space-lg);
+    padding: var(--space-xxl) var(--space-lg);
     width: 100%;
     height: 100%;
     grid-row: 2 / 2;
-    gap: var(--space-lg);
+    gap: var(--space-xxxl);
     display: flex;
     flex-direction: column;
+
+    @media (max-width: 575px) {
+        padding: var(--space-md) var(--space-lg);
+    }
 `;
 
 export default PageContainer;

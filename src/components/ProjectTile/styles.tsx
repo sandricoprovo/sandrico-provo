@@ -23,7 +23,7 @@ export const ProjectTileContainer = styled(motion.div)`
 
 export const ProjectTileHeader = styled.div`
     padding: 0 var(--space-sm);
-    padding-top: var(--space-sm);
+    padding-top: var(--space-md);
     display: flex;
     flex-wrap: wrap;
     gap: 4px;
