@@ -3,6 +3,8 @@
         "sandricoprovo/typescript"
     ],
     "rules": {
-        "react/destructuring-assignment": 0
+        "react/destructuring-assignment": 0,
+        "react/function-component-definition": 0,
+        "react/display-name": 0
     }
 }
