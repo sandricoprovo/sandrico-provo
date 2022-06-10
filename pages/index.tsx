@@ -16,6 +16,7 @@ import {
     SectionHeader,
     ProjectsContainer,
 } from '../src/components/HomePage/styles';
+import ProjectTile from '../src/components/ProjectTile/ProjectTile';
 
 export const getStaticProps: GetStaticProps = async () => {
     const { data }: Payload<'headers', Header[]> = await apolloClient.query({
@@ -87,7 +88,11 @@ function HomePage() {
             </HeroSection>
             <ContentSection>
                 <SectionHeader>Projects</SectionHeader>
-                <ProjectsContainer>TEST</ProjectsContainer>
+                <ProjectsContainer>
+                    <ProjectTile />
+                    <ProjectTile />
+                    <ProjectTile />
+                </ProjectsContainer>
             </ContentSection>
         </Page>
     );

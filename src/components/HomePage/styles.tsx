@@ -5,7 +5,6 @@ export const HeroSection = styled.section`
     height: 100%;
     min-height: 600px;
     margin-bottom: var(--space-xl);
-    display: flex;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(375px, 1fr));
 `;
@@ -19,7 +18,7 @@ export const HeroHeader = styled(motion.h1)`
     margin: auto 0;
 
     @media (max-width: 700px) {
-        font-size: var(--font-max);
+        font-size: calc(var(--font-max) * 1.15);
         --space-base: 0.64rem;
     }
 `;
@@ -67,4 +66,13 @@ export const SectionHeader = styled(motion.h3)`
 
 export const ProjectsContainer = styled.div`
     border: 2px solid black;
+    padding: var(--space-lg);
+    display: grid;
+    gap: 8px;
+    grid-template-columns: repeat(auto-fit, minmax(375px, 1fr));
+    grid-template-rows: repeat(auto-fit, minmax(400px, 1fr));
+
+    @media (max-width: 575px) {
+        padding-top: var(--space-xxl);
+    }
 `;

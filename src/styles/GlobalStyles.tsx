@@ -4,6 +4,7 @@ export const GlobalStyle = createGlobalStyle`
     :root {
         // Base Colors
         --clr-white-60: hsla(0,0%,100%,1);
+        --clr-white-75: hsla(0,0%,95%,1);
         --clr-white-70: hsla(0,0%,83%,1);
         --clr-white-80: hsla(0,0%,66%,1);
         --clr-white-90: hsla(0,0%,50%,1);
@@ -65,6 +66,7 @@ export const GlobalStyle = createGlobalStyle`
         --scale-400: var(--font-base);
         --scale-300: var(--scale-400) / var(--font-scale);
         --scale-200: var(--scale-300) / var(--font-scale);
+        --scale-100: var(--scale-200) / var(--font-scale);
         --scale-500: var(--scale-400) * var(--font-scale);
         --scale-600: var(--scale-500) * var(--font-scale);
         --scale-700: var(--scale-600) * var(--font-scale);
@@ -72,6 +74,7 @@ export const GlobalStyle = createGlobalStyle`
         --scale-900: var(--scale-800) * var(--font-scale);
         --scale-max: var(--scale-900) * var(--font-scale);
         // Clamped font sizes
+        --font-100: clamp(var(--scale-100) * var(--font-min-scaler), 12vw + 1rem, var(--scale-100));
         --font-200: clamp(var(--scale-200) * var(--font-min-scaler), 12vw + 1rem, var(--scale-200));
         --font-300: clamp(var(--scale-300) * var(--font-min-scaler), 12vw + 1rem, var(--scale-300));
         --font-400: clamp(var(--scale-400) * var(--font-min-scaler), 12vw + 1rem, var(--scale-400));
@@ -84,6 +87,7 @@ export const GlobalStyle = createGlobalStyle`
 
         // Spacing
         --max-page-width: 1970px;
+        --icon-size: 1.75rem;
         --space-base: 2rem;
         --space-xs: calc(var(--space-base) / 2);
         --space-sm: calc(var(--space-base) / 2);
@@ -94,6 +98,25 @@ export const GlobalStyle = createGlobalStyle`
         --space-xxxl: calc(var(--space-base) * 5);
 
         // Elevation
+        --shadow-color: 0deg 0% 0%;
+        --shadow-elevation-low:
+        0px -0.9px 1.4px hsl(var(--shadow-color) / 0),
+        0px -1.4px 2.1px hsl(var(--shadow-color) / 0.12),
+        0px -2.7px 4.1px hsl(var(--shadow-color) / 0.25);
+      --shadow-elevation-medium:
+        0px -0.9px 1.4px hsl(var(--shadow-color) / 0),
+        0px -3.4px 5.1px hsl(var(--shadow-color) / 0.1),
+        0.1px -6.7px 10.1px hsl(var(--shadow-color) / 0.19),
+        0.1px -13.4px 20.1px hsl(var(--shadow-color) / 0.29);
+      --shadow-elevation-high:
+        0px -0.9px 1.4px hsl(var(--shadow-color) / 0),
+        0.1px -5.3px 8px hsl(var(--shadow-color) / 0.04),
+        0.1px -9.1px 13.7px hsl(var(--shadow-color) / 0.09),
+        0.1px -13.1px 19.7px hsl(var(--shadow-color) / 0.13),
+        0.2px -18.1px 27.2px hsl(var(--shadow-color) / 0.18),
+        0.3px -25px 37.5px hsl(var(--shadow-color) / 0.22),
+        0.4px -34.5px 51.8px hsl(var(--shadow-color) / 0.27),
+        0.5px -47.5px 71.3px hsl(var(--shadow-color) / 0.31);
 
         // Animation
         --underline-bezier: cubic-bezier(0.18, 0.89, 0.32, 1.27);
@@ -111,6 +134,9 @@ export const GlobalStyle = createGlobalStyle`
         --clr-text-faded: var(--clr-black-30);
         --clr-hover: var(--clr-pastelblue-60);
         --clr-background: var(--clr-white-60);
+        --clr-tile-bkg: var(--clr-black-70);
+        --clr-pill-bkg: var(--clr-white-60);
+        --clr-icon: var(--clr-white-60);
     }
 
     .theme--dark {
