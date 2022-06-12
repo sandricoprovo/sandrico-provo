@@ -9,6 +9,9 @@ const PageContainer = styled.main`
     display: flex;
     flex-direction: column;
 
+    @media (max-width: 1440px) {
+        padding: var(--space-xs) var(--space-lg);
+    }
     @media (max-width: 575px) {
         padding: var(--space-md) var(--space-lg);
     }

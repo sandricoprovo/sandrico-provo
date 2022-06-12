@@ -6,7 +6,6 @@ export const HeroSection = styled.section`
     min-height: 600px;
     margin-bottom: var(--space-xl);
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(375px, 1fr));
 `;
 
 export const HeroHeader = styled(motion.h1)`
@@ -39,10 +38,12 @@ export const HeroText = styled(motion.p)`
 
 export const HeroImageContainer = styled.div`
     border: 2px solid blue;
+    margin-bottom: var(--space-sm);
     width: 100%;
-    height: 40%;
+    height: 100%;
     min-width: 375px;
-    min-height: 120px;
+    max-width: 800px;
+    min-height: 175px;
 `;
 
 export const HeroSubHeader = styled(motion.h2)`
@@ -50,7 +51,6 @@ export const HeroSubHeader = styled(motion.h2)`
     font-size: var(--font-800);
     word-wrap: break-word;
     text-align: right;
-    padding-top: var(--space-lg);
     max-width: 375px;
     line-height: 118%;
 `;
@@ -67,7 +67,7 @@ export const SectionHeader = styled(motion.h3)`
 export const ProjectsContainer = styled.div`
     padding: var(--space-lg);
     display: grid;
-    gap: 8px;
+    gap: 2rem;
     grid-template-columns: repeat(auto-fit, minmax(375px, 1fr));
     grid-template-rows: repeat(auto-fit, minmax(400px, 1fr));
 

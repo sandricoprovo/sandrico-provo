@@ -37,8 +37,6 @@ function withIconStyles(Icon: MotionIcon) {
             variants={iconVariant}
             initial="initial"
             whileHover="animate"
-            // initial={{ y: 0 }}
-            // whileHover={{ y: ['-20%', '-10%'] }}
             {...props}
         />
     );

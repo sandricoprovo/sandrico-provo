@@ -96,32 +96,49 @@ export const GlobalStyle = createGlobalStyle`
         --space-xl: calc(var(--space-base) * 3);
         --space-xxl: calc(var(--space-base) * 4);
         --space-xxxl: calc(var(--space-base) * 5);
+        --tile-padding: 1rem;
+        --tile-border-radius: 20px;
 
         // Elevation
-        --shadow-color: 0deg 0% 0%;
-        --shadow-elevation-low:
-        0px -0.9px 1.4px hsl(var(--shadow-color) / 0),
-        0px -1.4px 2.1px hsl(var(--shadow-color) / 0.12),
-        0px -2.7px 4.1px hsl(var(--shadow-color) / 0.25);
-      --shadow-elevation-medium:
-        0px -0.9px 1.4px hsl(var(--shadow-color) / 0),
-        0px -3.4px 5.1px hsl(var(--shadow-color) / 0.1),
-        0.1px -6.7px 10.1px hsl(var(--shadow-color) / 0.19),
-        0.1px -13.4px 20.1px hsl(var(--shadow-color) / 0.29);
-      --shadow-elevation-high:
-        0px -0.9px 1.4px hsl(var(--shadow-color) / 0),
-        0.1px -5.3px 8px hsl(var(--shadow-color) / 0.04),
-        0.1px -9.1px 13.7px hsl(var(--shadow-color) / 0.09),
-        0.1px -13.1px 19.7px hsl(var(--shadow-color) / 0.13),
-        0.2px -18.1px 27.2px hsl(var(--shadow-color) / 0.18),
-        0.3px -25px 37.5px hsl(var(--shadow-color) / 0.22),
-        0.4px -34.5px 51.8px hsl(var(--shadow-color) / 0.27),
-        0.5px -47.5px 71.3px hsl(var(--shadow-color) / 0.31);
+        --shadow-below-color: 0deg 0% 0%;
+        --shadow-below-100:
+            0px -0.9px 1.4px hsl(var(--shadow-below-color) / 0),
+            0px -1.4px 2.1px hsl(var(--shadow-below-color) / 0.12),
+            0px -2.7px 4.1px hsl(var(--shadow-below-color) / 0.25);
+        --shadow-below-200:
+            0px -0.9px 1.4px hsl(var(--shadow-below-color) / 0),
+            0px -3.4px 5.1px hsl(var(--shadow-below-color) / 0.1),
+            0.1px -6.7px 10.1px hsl(var(--shadow-below-color) / 0.19),
+            0.1px -13.4px 20.1px hsl(var(--shadow-below-color) / 0.29);
+        --shadow-below-300:
+            0px -0.9px 1.4px hsl(var(--shadow-below-color) / 0),
+            0.1px -5.3px 8px hsl(var(--shadow-below-color) / 0.04),
+            0.1px -9.1px 13.7px hsl(var(--shadow-below-color) / 0.09),
+            0.1px -13.1px 19.7px hsl(var(--shadow-below-color) / 0.13),
+            0.2px -18.1px 27.2px hsl(var(--shadow-below-color) / 0.18),
+            0.3px -25px 37.5px hsl(var(--shadow-below-color) / 0.22),
+            0.4px -34.5px 51.8px hsl(var(--shadow-below-color) / 0.27),
+            0.5px -47.5px 71.3px hsl(var(--shadow-below-color) / 0.31);
+        --shadow-tr-color: 0deg 0% 70%;
+        --shadow-tr-100:
+            0.5px 0.7px 0.9px hsl(var(--shadow-tr-color) / 0.47),
+            1.7px 2.3px 3px -2.9px hsl(var(--shadow-tr-color) / 0.41);
+        --shadow-tr-200:
+            0.5px 0.7px 0.9px hsl(var(--shadow-tr-color) / 0.44),
+            2.1px 2.9px 3.8px -1.4px hsl(var(--shadow-tr-color) / 0.4),
+            8.5px 11.7px 15.4px -2.9px hsl(var(--shadow-tr-color) / 0.36);
+        --shadow-tr-300:
+            0.5px 0.7px 0.9px hsl(var(--shadow-tr-color) / 0.49),
+            3.3px 4.5px 5.9px -0.7px hsl(var(--shadow-tr-color) / 0.47),
+            8.1px 11.2px 14.7px -1.4px hsl(var(--shadow-tr-color) / 0.44),
+            18.5px 25.4px 33.5px -2.2px hsl(var(--shadow-tr-color) / 0.41),
+            38px 52.2px 68.8px -2.9px hsl(var(--shadow-tr-color) / 0.38);
 
         // Animation
         --underline-bezier: cubic-bezier(0.18, 0.89, 0.32, 1.27);
         --fadeUp-bezier: cubic-bezier(0.68, -0.55, 0.27, 1.55);
         --drawerFadeIn: cubic-bezier(0.55, 0.08, 0.68, 0.53);
+        --scaleIn-bezier: cubic-bezier(0.77,0,0.18,1);
 
         // Media Queries
         @media (max-width: 700px) {
@@ -134,9 +151,9 @@ export const GlobalStyle = createGlobalStyle`
         --clr-text-faded: var(--clr-black-30);
         --clr-hover: var(--clr-pastelblue-60);
         --clr-background: var(--clr-white-60);
-        --clr-tile-bkg: var(--clr-black-70);
+        --clr-tile-bkg: var(--clr-white-60);
         --clr-pill-bkg: var(--clr-white-60);
-        --clr-icon: var(--clr-white-60);
+        --clr-icon: var(--clr-text);
     }
 
     .theme--dark {
