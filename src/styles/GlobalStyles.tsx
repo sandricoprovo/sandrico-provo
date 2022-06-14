@@ -4,8 +4,8 @@ export const GlobalStyle = createGlobalStyle`
     :root {
         // Base Colors
         --clr-white-60: hsla(0,0%,100%,1);
-        --clr-white-75: hsla(0,0%,95%,1);
-        --clr-white-70: hsla(0,0%,83%,1);
+        --clr-white-65: hsla(0,0%,95%,1);
+        --clr-white-75: hsla(0,0%,80%,1);
         --clr-white-80: hsla(0,0%,66%,1);
         --clr-white-90: hsla(0,0%,50%,1);
         --clr-white-100: hsla(0,0%,33%,1);
@@ -160,7 +160,7 @@ export const GlobalStyle = createGlobalStyle`
     /* .theme--dark {
     } */
 
-    html, body {
-        background-color: var(--clr-background);
+    html {
+        background-color: hsla(0,0%,83%,1);
     }
 `;

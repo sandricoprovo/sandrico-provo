@@ -1,4 +1,4 @@
-import { ReactNode } from 'react';
+import { ReactNode, useEffect } from 'react';
 import { AnimatePresence } from 'framer-motion';
 
 import { Reset } from '../../styles/Reset';
@@ -17,13 +17,18 @@ interface LayoutProps {
 function Layout({ children, pageProps }: LayoutProps) {
     // TODO: import theme change hook here and pass to header
 
+    useEffect(() => {
+        // Adds layout theme class to body on load.
+        document.querySelector('body').classList.add('theme--light');
+    }, []);
+
     return (
         <>
             <Fonts />
             <GlobalStyle />
             <Reset />
             <AnimatePresence>
-                <LayoutContainer className="theme--light">
+                <LayoutContainer>
                     <Header header={pageProps.header} />
                     {children}
                 </LayoutContainer>

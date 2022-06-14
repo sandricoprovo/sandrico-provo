@@ -14,21 +14,35 @@ export const NavList = styled(motion.ul)`
     align-items: center;
     gap: var(--space-xl);
     font-family: var(--font-secondary);
+    font-size: var(--font-400);
+    line-height: 160%;
+`;
+
+export const MobileNavList = styled(motion.div)`
+    position: absolute;
+    height: calc(100% - 80px);
+    font-family: var(--font-secondary);
     font-size: var(--font-700);
     line-height: 160%;
+    padding: 0 var(--space-lg) calc(var(--space-base) * 7) var(--space-lg);
+    width: 100%;
+    left: 0;
+    bottom: 0;
+    /* background-color: var(--clr-background); */
+    background-color: var(--clr-white-75);
+    z-index: -1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-end;
+    gap: var(--space-xl);
 
-    /* @media (max-width: 500px) {
-        position: absolute;
-        background-color: var(--clr-background);
-        padding-top: var(--space-xxl);
-        padding-bottom: calc(var(--space-base) * 7);
-        z-index: 100;
-        top: 71px;
-        width: 100%;
-        height: 100vh;
-        flex-direction: column;
-        align-items: flex-end;
-    } */
+    @media (max-width: 500px) {
+        & > li > a {
+            font-family: var(--font-secondary);
+            font-size: var(--font-700);
+        }
+    }
 `;
 
 export const NavListItem = styled(motion.li)`
@@ -66,11 +80,6 @@ export const NavLink = styled.a`
     &:focus::before {
         width: 120%;
         transition: width 400ms var(--underline-bezier);
-    }
-
-    @media (max-width: 500px) {
-        font-family: var(--font-secondary);
-        font-size: var(--font-700);
     }
 `;
 

@@ -11,7 +11,7 @@ export const HeroSection = styled.section`
 
 export const HeroHeader = styled(motion.h1)`
     word-break: break-word;
-    width: 50%;
+    width: 80%;
     font-family: var(--font-secondary);
     font-size: var(--font-max);
     line-height: 120%;
@@ -20,11 +20,10 @@ export const HeroHeader = styled(motion.h1)`
 
     @media (max-width: 975px) {
         width: 100%;
-        font-size: var(--font-900);
+        font-size: var(--font-max);
     }
 
     @media (max-width: 700px) {
-        font-size: calc(var(--font-max) / 1.025);
         --space-base: 0.64rem;
     }
 `;
@@ -48,7 +47,7 @@ export const HeroImageContainer = styled.div`
     margin-bottom: var(--space-sm);
     width: 100%;
     height: 100%;
-    min-width: 350px;
+    min-width: 300px;
     max-width: 800px;
     min-height: 175px;
 `;
