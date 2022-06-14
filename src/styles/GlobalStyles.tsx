@@ -155,6 +155,10 @@ export const GlobalStyle = createGlobalStyle`
         --clr-tile-bkg: var(--clr-white-60);
         --clr-pill-bkg: var(--clr-white-60);
         --clr-icon: var(--clr-text);
+        --clr-footer: var(--clr-pastelblue-50);
+        --clr-cta: var(--clr-yellow-70);
+        --clr-cta-hover: var(--clr-yellow-60);
+        --clr-cta-active: var(--clr-yellow-80);
     }
 
     /* .theme--dark {

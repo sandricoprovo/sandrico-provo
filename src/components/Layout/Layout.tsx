@@ -4,8 +4,9 @@ import { AnimatePresence } from 'framer-motion';
 import { Reset } from '../../styles/Reset';
 import { Fonts } from '../../styles/Fonts';
 import { GlobalStyle } from '../../styles/GlobalStyles';
-import Header from '../Header/Header';
 import { PageProps } from '../../types';
+import Header from '../Header/Header';
+import Footer from '../Footer/Footer';
 
 import { LayoutContainer } from './styles';
 
@@ -31,6 +32,7 @@ function Layout({ children, pageProps }: LayoutProps) {
                 <LayoutContainer>
                     <Header header={pageProps.header} />
                     {children}
+                    <Footer />
                 </LayoutContainer>
             </AnimatePresence>
         </>

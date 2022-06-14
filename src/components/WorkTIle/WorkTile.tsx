@@ -16,8 +16,6 @@ const lineIconVariant = {
 };
 
 function WorkTile() {
-    console.log('');
-
     return (
         <WorkTileContainer>
             <WorkLocation>REDspace Inc.</WorkLocation>
