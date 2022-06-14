@@ -28,7 +28,6 @@ export const MobileNavList = styled(motion.div)`
     width: 100%;
     left: 0;
     bottom: 0;
-    /* background-color: var(--clr-background); */
     background-color: var(--clr-white-75);
     z-index: -1;
     display: flex;
