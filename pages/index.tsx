@@ -16,6 +16,7 @@ import {
     SectionHeader,
     ProjectsContainer,
     WorkContainer,
+    AboutMeContent,
 } from '../src/components/HomePage/styles';
 import ProjectTile from '../src/components/ProjectTile/ProjectTile';
 import WorkTile from '../src/components/WorkTIle/WorkTile';
@@ -49,6 +50,7 @@ const textVariants = {
 function HomePage() {
     return (
         <Page>
+            {/* Hero */}
             <HeroSection>
                 <HeroHeader
                     variants={textVariants}
@@ -103,6 +105,35 @@ function HomePage() {
                 <WorkContainer>
                     <WorkTile />
                 </WorkContainer>
+            </ContentSection>
+            {/* About Me */}
+            <ContentSection>
+                <SectionHeader>About Me</SectionHeader>
+                <AboutMeContent>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+                    seddo eiusmod tempor incididunt ut labore et dolore magna
+                    aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+                    ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                    Duis aute irure dolor in reprehenderit in voluptate velit
+                    esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
+                    occaecat cupidatat non proident, sunt in culpa qui officia
+                    deserunt mollit anim id est laborum. Lorem ipsum dolor sit
+                    amet, consectetur adipiscing elit, seddo eiusmod tempor
+                    incididunt ut labore et dolore magna aliqua. Ut enim ad
+                    minim veniam, quis nostrud exercitation ullamco laboris nisi
+                    ut aliquip ex ea commodo consequat. Duis aute irure dolor in
+                    reprehenderit in voluptate velit esse cillum dolore eu
+                    fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+                    proident, sunt in culpa qui officia deserunt mollit anim id
+                    est laborum. Lorem ipsum dolor sit amet, consectetur
+                    adipiscing elit, seddo eiusmod tempor incididunt ut labore
+                    et dolore magna aliqua. Ut enim ad minim veniam, quis
+                    nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+                    commodo consequat. Duis aute irure dolor in reprehenderit in
+                    voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+                    Excepteur sint occaecat cupidatat non proident, sunt in
+                    culpa qui officia deserunt mollit anim id est laborum.
+                </AboutMeContent>
             </ContentSection>
         </Page>
     );

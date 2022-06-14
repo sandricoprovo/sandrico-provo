@@ -99,3 +99,12 @@ export const WorkContainer = styled.div`
     grid-template-columns: repeat(auto-fit, 300px);
     gap: var(--space-lg);
 `;
+
+export const AboutMeContent = styled.p`
+    padding: var(--space-lg);
+    width: 100%;
+    max-width: 100ch;
+    font-family: var(--font-primary);
+    font-size: var(--font-400);
+    line-height: 180%;
+`;
