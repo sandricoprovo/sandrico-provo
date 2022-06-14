@@ -24,6 +24,7 @@
         "@keystone-6/auth": "^2.0.0",
         "@keystone-6/core": "^1.1.1",
         "@keystone-6/fields-document": "^2.0.1",
+        "@tabler/icons": "^1.68.0",
         "@types/styled-components": "^5.1.25",
         "dotenv": "^16.0.1",
         "framer-motion": "^6.3.10",
