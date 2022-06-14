@@ -6,24 +6,18 @@ export const HeroSection = styled.section`
     min-height: 600px;
     margin-bottom: var(--space-xl);
     display: grid;
-    gap: 4vh;
+    gap: 12vh;
 `;
 
 export const HeroHeader = styled(motion.h1)`
-    word-break: break-word;
     font-family: var(--font-secondary);
-    font-size: var(--font-max);
+    font-size: var(--font-900);
     line-height: 120%;
     letter-spacing: 2px;
     margin: auto 0;
 
-    @media (max-width: 975px) {
-        width: 100%;
-        font-size: var(--font-max);
-    }
-
-    @media (max-width: 700px) {
-        --space-base: 0.64rem;
+    @media (max-width: 575px) {
+        font-size: var(--font-800);
     }
 `;
 
@@ -56,7 +50,7 @@ export const HeroSubHeader = styled(motion.h2)`
     font-size: var(--font-800);
     word-wrap: break-word;
     text-align: right;
-    max-width: 350;
+    max-width: 350px;
     line-height: 118%;
 `;
 

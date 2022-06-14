@@ -60,19 +60,33 @@ function HomePage() {
         <Page>
             {/* Hero */}
             <HeroSection>
-                <HeroHeader
-                    variants={textVariants}
-                    initial="initial"
-                    animate="animate"
-                    transition={{
-                        duration: 0.8,
-                        delay: 0.7,
-                        ease: [0.08, 0.82, 0.17, 1],
-                    }}
-                >
-                    {/* SOFTWARE DEVELOPER */}
-                    Great Software. Here.
-                </HeroHeader>
+                <div>
+                    {' '}
+                    <HeroHeader
+                        variants={textVariants}
+                        initial="initial"
+                        animate="animate"
+                        transition={{
+                            duration: 0.8,
+                            delay: 0.7,
+                            ease: [0.08, 0.82, 0.17, 1],
+                        }}
+                    >
+                        Great Software.
+                    </HeroHeader>
+                    <HeroHeader
+                        variants={textVariants}
+                        initial="initial"
+                        animate="animate"
+                        transition={{
+                            duration: 0.8,
+                            delay: 2,
+                            ease: [0.08, 0.82, 0.17, 1],
+                        }}
+                    >
+                        Here.
+                    </HeroHeader>
+                </div>
                 <HeroContent>
                     <HeroText
                         initial={{ opacity: 0, x: '-50%' }}
