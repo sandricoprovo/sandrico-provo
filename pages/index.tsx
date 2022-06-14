@@ -1,5 +1,6 @@
-import React from 'react';
+import { useRef, useEffect } from 'react';
 import { GetStaticProps } from 'next';
+import { useAnimation } from 'framer-motion';
 
 import { apolloClient } from '../src/graphql/apolloClient';
 import { GET_HEADER } from '../src/graphql/queries/GET_HEADERS';
@@ -28,6 +29,8 @@ import {
     LinkedInIcon,
     TwitterIcon,
 } from '../src/components/Icons';
+import { useInView } from '../src/hooks/useInView';
+import { useWindowSize } from '../src/hooks/useWindowSize';
 
 export const getStaticProps: GetStaticProps = async () => {
     const { data }: Payload<'headers', Header[]> = await apolloClient.query({
@@ -56,12 +59,44 @@ const textVariants = {
 };
 
 function HomePage() {
+    const rootRef = useRef<HTMLDivElement>(null);
+    const { isMobileWidth } = useWindowSize();
+    const { isInView: isProjectsInView } = useInView<HTMLDivElement>({
+        ref: rootRef,
+        threshold: isMobileWidth ? 5 : 30,
+        rootMargin: isMobileWidth ? '0px' : '64px',
+        freezeOnceVisible: true,
+    });
+    const projectsAnimation = useAnimation();
+
+    useEffect(() => {
+        if (isProjectsInView) {
+            projectsAnimation.start({
+                y: '0%',
+                opacity: 1,
+                transition: {
+                    duration: 0.7,
+                    ease: [0.08, 0.82, 0.17, 1],
+                },
+            });
+        } else {
+            projectsAnimation.start({
+                y: '5%',
+                opacity: 0,
+                transition: {
+                    duration: 0.7,
+                    ease: [0.08, 0.82, 0.17, 1],
+                },
+            });
+        }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [isProjectsInView]);
+
     return (
         <Page>
             {/* Hero */}
             <HeroSection>
                 <div>
-                    {' '}
                     <HeroHeader
                         variants={textVariants}
                         initial="initial"
@@ -116,7 +151,7 @@ function HomePage() {
             {/* Projects */}
             <ContentSection>
                 <SectionHeader>Projects</SectionHeader>
-                <ProjectsContainer>
+                <ProjectsContainer ref={rootRef} animate={projectsAnimation}>
                     <ProjectTile />
                     <ProjectTile />
                     <ProjectTile />

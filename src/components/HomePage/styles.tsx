@@ -71,7 +71,7 @@ export const SectionHeader = styled(motion.h3)`
     font-size: var(--font-800);
 `;
 
-export const ProjectsContainer = styled.div`
+export const ProjectsContainer = styled(motion.div)`
     padding: var(--space-lg);
     display: grid;
     gap: 2rem;
