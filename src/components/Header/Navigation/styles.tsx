@@ -5,6 +5,7 @@ export const NavBarContainer = styled.nav`
     display: flex;
     justify-content: flex-end;
     align-items: center;
+    width: 100%;
 `;
 
 export const NavList = styled(motion.ul)`
@@ -16,19 +17,18 @@ export const NavList = styled(motion.ul)`
     font-size: var(--font-700);
     line-height: 160%;
 
-    @media (max-width: 500px) {
+    /* @media (max-width: 500px) {
+        position: absolute;
         background-color: var(--clr-background);
         padding-top: var(--space-xxl);
         padding-bottom: calc(var(--space-base) * 7);
-        position: absolute;
-        bottom: 0px;
         z-index: 100;
+        top: 71px;
         width: 100%;
-        height: calc(100vh - 71px);
-        bottom: 0;
+        height: 100vh;
         flex-direction: column;
         align-items: flex-end;
-    }
+    } */
 `;
 
 export const NavListItem = styled(motion.li)`

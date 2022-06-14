@@ -151,7 +151,7 @@ export const GlobalStyle = createGlobalStyle`
         --clr-text: var(--clr-black-60);
         --clr-text-faded: var(--clr-black-30);
         --clr-hover: var(--clr-pastelblue-60);
-        --clr-background: var(--clr-white-60);
+        --clr-background: var(--clr-white-70);
         --clr-tile-bkg: var(--clr-white-60);
         --clr-pill-bkg: var(--clr-white-60);
         --clr-icon: var(--clr-text);
@@ -159,4 +159,8 @@ export const GlobalStyle = createGlobalStyle`
 
     /* .theme--dark {
     } */
+
+    html, body {
+        background-color: var(--clr-background);
+    }
 `;

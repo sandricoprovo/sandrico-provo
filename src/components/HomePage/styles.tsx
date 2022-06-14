@@ -12,7 +12,6 @@ export const HeroSection = styled.section`
 export const HeroHeader = styled(motion.h1)`
     word-break: break-word;
     width: 50%;
-    min-width: 420px;
     font-family: var(--font-secondary);
     font-size: var(--font-max);
     line-height: 120%;
@@ -25,7 +24,7 @@ export const HeroHeader = styled(motion.h1)`
     }
 
     @media (max-width: 700px) {
-        font-size: calc(var(--font-max) * 1.15);
+        font-size: calc(var(--font-max) / 1.025);
         --space-base: 0.64rem;
     }
 `;
@@ -49,7 +48,7 @@ export const HeroImageContainer = styled.div`
     margin-bottom: var(--space-sm);
     width: 100%;
     height: 100%;
-    min-width: 375px;
+    min-width: 350px;
     max-width: 800px;
     min-height: 175px;
 `;
@@ -59,12 +58,11 @@ export const HeroSubHeader = styled(motion.h2)`
     font-size: var(--font-800);
     word-wrap: break-word;
     text-align: right;
-    max-width: 375px;
+    max-width: 350;
     line-height: 118%;
 `;
 
 export const ContentSection = styled.section`
-    /* border: 2px solid red; */
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -85,8 +83,8 @@ export const ProjectsContainer = styled.div`
     padding: var(--space-lg);
     display: grid;
     gap: 2rem;
-    grid-template-columns: repeat(auto-fit, minmax(375px, 1fr));
-    grid-template-rows: repeat(auto-fit, minmax(400px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-rows: repeat(auto-fit, minmax(300px, 1fr));
 
     @media (max-width: 575px) {
         padding-top: var(--space-xxl);
@@ -99,6 +97,6 @@ export const WorkContainer = styled.div`
     display: grid;
     justify-content: flex-start;
     align-items: center;
-    grid-template-columns: repeat(auto-fit, 375px);
+    grid-template-columns: repeat(auto-fit, 300px);
     gap: var(--space-lg);
 `;

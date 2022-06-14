@@ -19,9 +19,9 @@ function Layout({ children, pageProps }: LayoutProps) {
 
     return (
         <>
-            <Reset />
             <Fonts />
             <GlobalStyle />
+            <Reset />
             <AnimatePresence>
                 <LayoutContainer className="theme--light">
                     <Header header={pageProps.header} />

@@ -2,6 +2,7 @@ import styled from 'styled-components';
 import { motion } from 'framer-motion';
 
 export const HeaderContainer = styled.header`
+    background-color: var(--clr-background);
     padding: var(--space-base) var(--space-lg);
     grid-row: 1 / 1;
     height: 100%;
