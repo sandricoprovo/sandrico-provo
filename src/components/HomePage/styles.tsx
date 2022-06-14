@@ -65,6 +65,15 @@ export const HeroSubHeader = styled(motion.h2)`
 
 export const ContentSection = styled.section`
     /* border: 2px solid red; */
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: var(--space-sm);
+
+    @media (max-width: 575px) {
+        gap: var(--space-xl);
+    }
 `;
 
 export const SectionHeader = styled(motion.h3)`
@@ -84,8 +93,12 @@ export const ProjectsContainer = styled.div`
     }
 `;
 
-export const ExperienceContainer = styled.div`
-    padding: var(--space-lg) 0;
-    border: 2px solid black;
+export const WorkContainer = styled.div`
+    padding: var(--space-lg);
     width: 100%;
+    display: grid;
+    justify-content: flex-start;
+    align-items: center;
+    grid-template-columns: repeat(auto-fit, 375px);
+    gap: var(--space-lg);
 `;

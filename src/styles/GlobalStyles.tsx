@@ -147,6 +147,7 @@ export const GlobalStyle = createGlobalStyle`
     }
 
     .theme--light {
+        --clr-main: var(--clr-pastelblue-60);
         --clr-text: var(--clr-black-60);
         --clr-text-faded: var(--clr-black-30);
         --clr-hover: var(--clr-pastelblue-60);
@@ -156,10 +157,6 @@ export const GlobalStyle = createGlobalStyle`
         --clr-icon: var(--clr-text);
     }
 
-    .theme--dark {
-        --clr-text: var(--clr-white-60);
-        --clr-text-faded: var(--clr-black-30);
-        --clr-hover: var(--clr-pastelblue-60);
-        --clr-background: var(--clr-black-60)
-    }
+    /* .theme--dark {
+    } */
 `;

@@ -15,8 +15,10 @@ import {
     ContentSection,
     SectionHeader,
     ProjectsContainer,
+    WorkContainer,
 } from '../src/components/HomePage/styles';
 import ProjectTile from '../src/components/ProjectTile/ProjectTile';
+import WorkTile from '../src/components/WorkTIle/WorkTile';
 
 export const getStaticProps: GetStaticProps = async () => {
     const { data }: Payload<'headers', Header[]> = await apolloClient.query({
@@ -86,6 +88,7 @@ function HomePage() {
                     </HeroSubHeader>
                 </HeroContent>
             </HeroSection>
+            {/* Projects */}
             <ContentSection>
                 <SectionHeader>Projects</SectionHeader>
                 <ProjectsContainer>
@@ -93,6 +96,13 @@ function HomePage() {
                     <ProjectTile />
                     <ProjectTile />
                 </ProjectsContainer>
+            </ContentSection>
+            {/* Experience */}
+            <ContentSection>
+                <SectionHeader>Experience</SectionHeader>
+                <WorkContainer>
+                    <WorkTile />
+                </WorkContainer>
             </ContentSection>
         </Page>
     );

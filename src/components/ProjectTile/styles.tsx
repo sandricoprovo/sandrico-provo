@@ -22,7 +22,6 @@ export const ProjectTileContainer = styled(motion.div)`
     }
 `;
 
-// TODO: Use this a tile image container than zoom it in on hover
 export const ProjectTileImage = styled(motion.div)<{ background: string }>`
     position: absolute;
     border-radius: var(--tile-border-radius);
@@ -30,7 +29,7 @@ export const ProjectTileImage = styled(motion.div)<{ background: string }>`
     height: 100%;
     z-index: 5;
     border-radius: var(--tile-border-radius);
-    background-color: var(--clr-tile-bkg);
+    background-color: var(--clr-tile-bkg); // Fallback if no image
     background-image: ${({ background }) =>
         !background ? 'none' : `url(${background})`};
     background-size: cover;
