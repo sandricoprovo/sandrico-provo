@@ -100,6 +100,21 @@ export const WorkContainer = styled.div`
     gap: var(--space-lg);
 `;
 
+export const WorkSectionHeader = styled.div`
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: var(--space-lg);
+`;
+
+export const WorkIconsContainer = styled.div`
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: var(--space-base);
+`;
+
 export const AboutMeContent = styled.p`
     padding: var(--space-lg);
     width: 100%;

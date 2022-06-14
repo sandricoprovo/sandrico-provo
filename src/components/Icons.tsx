@@ -7,6 +7,7 @@ import {
     IconFile,
     IconCopyright,
     IconLine,
+    IconBrandLinkedin,
 } from '@tabler/icons';
 
 import withIconStyles from './HOCs/withIconStyles';
@@ -18,6 +19,7 @@ export const YouTubeIcon = withIconStyles(withIconMotions(IconBrandYoutube));
 export const FileIcon = withIconStyles(withIconMotions(IconFile));
 export const CopyRightIcon = withIconStyles(withIconMotions(IconCopyright));
 export const LineIcon = withIconStyles(withIconMotions(IconLine));
+export const LinkedInIcon = withIconStyles(withIconMotions(IconBrandLinkedin));
 export const ArrowRightIcon = withIconStyles(
     withIconMotions(IconArrowNarrowRight)
 );

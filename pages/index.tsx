@@ -16,10 +16,18 @@ import {
     SectionHeader,
     ProjectsContainer,
     WorkContainer,
+    WorkSectionHeader,
+    WorkIconsContainer,
     AboutMeContent,
 } from '../src/components/HomePage/styles';
 import ProjectTile from '../src/components/ProjectTile/ProjectTile';
 import WorkTile from '../src/components/WorkTIle/WorkTile';
+import {
+    FileIcon,
+    GitHubIcon,
+    LinkedInIcon,
+    TwitterIcon,
+} from '../src/components/Icons';
 
 export const getStaticProps: GetStaticProps = async () => {
     const { data }: Payload<'headers', Header[]> = await apolloClient.query({
@@ -101,7 +109,15 @@ function HomePage() {
             </ContentSection>
             {/* Experience */}
             <ContentSection>
-                <SectionHeader>Experience</SectionHeader>
+                <WorkSectionHeader>
+                    <SectionHeader>Experience</SectionHeader>
+                    <WorkIconsContainer>
+                        <GitHubIcon href="https://sandricoprovo.dev" />
+                        <LinkedInIcon href="https://sandricoprovo.dev" />
+                        <TwitterIcon href="https://sandricoprovo.dev" />
+                        <FileIcon href="https://sandricoprovo.dev" />
+                    </WorkIconsContainer>
+                </WorkSectionHeader>
                 <WorkContainer>
                     <WorkTile />
                 </WorkContainer>
