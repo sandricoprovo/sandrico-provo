@@ -11,7 +11,6 @@ export const HeroSection = styled.section`
 
 export const HeroHeader = styled(motion.h1)`
     word-break: break-word;
-    width: 80%;
     font-family: var(--font-secondary);
     font-size: var(--font-max);
     line-height: 120%;

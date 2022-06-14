@@ -7,7 +7,6 @@ export const ProjectTileContainer = styled(motion.div)`
     transition: background-color 100ms ease-in-out;
     overflow: hidden;
     box-shadow: var(--shadow-tr-300);
-    border-radius: var(--tile-border-radius);
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
@@ -24,11 +23,9 @@ export const ProjectTileContainer = styled(motion.div)`
 
 export const ProjectTileImage = styled(motion.div)<{ background: string }>`
     position: absolute;
-    border-radius: var(--tile-border-radius);
     width: 100%;
     height: 100%;
     z-index: 5;
-    border-radius: var(--tile-border-radius);
     background-color: var(--clr-tile-bkg); // Fallback if no image
     background-image: ${({ background }) =>
         !background ? 'none' : `url(${background})`};
@@ -39,7 +36,6 @@ export const ProjectTileImage = styled(motion.div)<{ background: string }>`
 
 export const ProjectTileOverlay = styled(motion.div)`
     position: absolute;
-    border-radius: 20px;
     width: 100%;
     height: 100%;
     background-color: rgba(15, 15, 15, 0.88);
@@ -62,7 +58,6 @@ export const ProjectDetails = styled.div`
     background-color: var(--clr-tile-bkg);
     box-shadow: var(--shadow-elevation-high);
     padding: var(--tile-padding);
-    border-radius: 0 0 20px 20px;
     z-index: 30;
     display: flex;
     flex-direction: column;
@@ -89,7 +84,6 @@ export const ProjectTitle = styled.h4`
 export const StackPill = styled.p`
     --pill-padding: 0.25rem;
     padding-right: var(--pill-padding);
-    border-radius: 16px;
     line-height: 140%;
     color: var(--clr-text);
     font-family: var(--font-primary);

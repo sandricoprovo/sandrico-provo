@@ -70,7 +70,8 @@ function HomePage() {
                         ease: [0.08, 0.82, 0.17, 1],
                     }}
                 >
-                    SOFTWARE DEVELOPER
+                    {/* SOFTWARE DEVELOPER */}
+                    Great Software. Here.
                 </HeroHeader>
                 <HeroContent>
                     <HeroText
