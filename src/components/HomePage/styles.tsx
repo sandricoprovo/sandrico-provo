@@ -6,15 +6,23 @@ export const HeroSection = styled.section`
     min-height: 600px;
     margin-bottom: var(--space-xl);
     display: grid;
+    gap: 4vh;
 `;
 
 export const HeroHeader = styled(motion.h1)`
     word-break: break-word;
+    width: 50%;
+    min-width: 420px;
     font-family: var(--font-secondary);
     font-size: var(--font-max);
     line-height: 120%;
     letter-spacing: 2px;
     margin: auto 0;
+
+    @media (max-width: 975px) {
+        width: 100%;
+        font-size: var(--font-900);
+    }
 
     @media (max-width: 700px) {
         font-size: calc(var(--font-max) * 1.15);
@@ -74,4 +82,10 @@ export const ProjectsContainer = styled.div`
     @media (max-width: 575px) {
         padding-top: var(--space-xxl);
     }
+`;
+
+export const ExperienceContainer = styled.div`
+    padding: var(--space-lg) 0;
+    border: 2px solid black;
+    width: 100%;
 `;
