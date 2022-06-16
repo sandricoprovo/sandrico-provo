@@ -13,22 +13,56 @@ export default class MyDocument extends Document {
         ctx: DocumentContext
     ): Promise<DocumentInitialProps> {
         const sheet = new ServerStyleSheet();
-        const initialProps = await Document.getInitialProps(ctx);
-        return {
-            ...initialProps,
-            styles: [
-                <>
-                    {initialProps.styles}
-                    {sheet.getStyleElement()}
-                </>,
-            ],
-        };
+        const originalRenderPage = ctx.renderPage;
+
+        try {
+            ctx.renderPage = () =>
+                originalRenderPage({
+                    enhanceApp: (App) => (props) =>
+                        sheet.collectStyles(<App {...props} />),
+                });
+
+            const initialProps = await Document.getInitialProps(ctx);
+            return {
+                ...initialProps,
+                styles: [
+                    <>
+                        {initialProps.styles}
+                        {sheet.getStyleElement()}
+                    </>,
+                ],
+            };
+        } finally {
+            sheet.seal();
+        }
     }
 
     render(): JSX.Element {
         return (
             <Html lang="en-CA">
-                <Head />
+                <Head>
+                    <link
+                        rel="preload"
+                        href="/fonts/Poppins-Regular.woff2"
+                        as="font"
+                        type="font/woff2"
+                        crossOrigin="anonymous"
+                    />
+                    <link
+                        rel="preload"
+                        href="/fonts/Poppins-SemiBold.woff2"
+                        as="font"
+                        type="font/woff2"
+                        crossOrigin="anonymous"
+                    />
+                    <link
+                        rel="preload"
+                        href="/fonts/Montserrat-Black.woff2"
+                        as="font"
+                        type="font/woff2"
+                        crossOrigin="anonymous"
+                    />
+                </Head>
                 <body>
                     <Main />
                     <NextScript />

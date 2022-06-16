@@ -1,6 +1,9 @@
 import { createGlobalStyle } from 'styled-components';
 
-export const GlobalStyle = createGlobalStyle`
+import { Reset } from './Reset';
+
+export const GlobalStyles = createGlobalStyle`
+    ${Reset}
     :root {
         // Base Colors
         --clr-white-60: hsla(0,0%,100%,1);
@@ -159,6 +162,10 @@ export const GlobalStyle = createGlobalStyle`
         --clr-cta: var(--clr-yellow-70);
         --clr-cta-hover: var(--clr-yellow-60);
         --clr-cta-active: var(--clr-yellow-80);
+    }
+
+    html {
+        scroll-behavior: smooth;
     }
 
     /* .theme--dark {
