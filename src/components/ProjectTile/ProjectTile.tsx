@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Variants } from 'framer-motion';
+import Image from 'next/image';
 
 import mockTileImage from '../../../public/images/city.jpeg';
 import mockStackList from '../../mock/mockStackList';
@@ -81,10 +82,20 @@ function ProjectTile({ variants }: ProjectTileProps) {
         setDescription(truncatedDescription);
     }, []);
 
+    console.log({ mockTileImage });
+
     return (
         // Add background img to top lvl div below
         <ProjectTileContainer variants={variants}>
-            <ProjectTileImage background={mockTileImage.src} />
+            <ProjectTileImage>
+                <Image
+                    src={mockTileImage}
+                    layout="responsive"
+                    placeholder="blur"
+                    blurDataURL={`${mockTileImage.blurDataURL}`}
+                />
+            </ProjectTileImage>
+            {/* <ProjectTileImage background={mockTileImage.src} /> */}
             <ProjectTileOverlay
                 variants={overlayVariant}
                 initial="initial"

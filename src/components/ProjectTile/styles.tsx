@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 export const ProjectTileContainer = styled(motion.div)`
     position: relative;
     min-height: 600px;
+    max-width: 500px;
     overflow: hidden;
     box-shadow: var(--shadow-tr-300);
     display: flex;
@@ -20,16 +21,12 @@ export const ProjectTileContainer = styled(motion.div)`
     }
 `;
 
-export const ProjectTileImage = styled(motion.div)<{ background: string }>`
+export const ProjectTileImage = styled(motion.div)`
     position: absolute;
     width: 100%;
     height: 100%;
     z-index: 5;
     background-color: var(--clr-tile-bkg); // Fallback if no image
-    background-image: ${({ background }) =>
-        !background ? 'none' : `url(${background})`};
-    background-size: cover;
-    background-repeat: no-repeat;
     transition: transform 400ms var(--scaleIn-bezier);
 `;
 

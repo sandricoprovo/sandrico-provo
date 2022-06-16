@@ -53,7 +53,8 @@ export const getStaticProps: GetStaticProps = async () => {
 };
 
 const textVariants = {
-    initial: { opacity: 0, y: '50%' },
+    // initial: { opacity: 0, y: '50%' },
+    initial: { opacity: 0, y: 50 },
     animate: { opacity: 1, y: 0 },
 };
 
@@ -64,7 +65,7 @@ const sectionContainerVariants = {
     animate: {
         opacity: 1,
         transition: {
-            delay: 0.2,
+            delay: 0.1,
             staggerChildren: 0.5,
             delayChildren: 0.3,
         },
@@ -72,10 +73,12 @@ const sectionContainerVariants = {
 };
 
 const sectionChildVariants = {
-    initial: { opacity: 0, y: '20%' },
+    // initial: { opacity: 0, y: '20%' },
+    initial: { opacity: 0, y: 20 },
     animate: {
         opacity: 1,
-        y: '0%',
+        // y: '0%',
+        y: 0,
         transition: {
             ease: [0.6, 0.01, -0.05, 0.95],
             duration: 1.2,
@@ -93,13 +96,13 @@ function HomePage() {
     const { isMobileWidth } = useWindowSize();
     const { isInView: isProjectsInView } = useInView<HTMLDivElement>({
         ref: projectsContainerRef,
-        threshold: isMobileWidth ? 5 : 70,
+        threshold: isMobileWidth ? 5 : 60,
         rootMargin: isMobileWidth ? '41px' : '64px',
         freezeOnceVisible: true,
     });
     const { isInView: isWorkXpInView } = useInView<HTMLDivElement>({
         ref: workContainerRef,
-        threshold: isMobileWidth ? 5 : 70,
+        threshold: isMobileWidth ? 5 : 50,
         rootMargin: isMobileWidth ? '41px' : '64px',
         freezeOnceVisible: true,
     });
@@ -142,7 +145,8 @@ function HomePage() {
                 </div>
                 <HeroContent>
                     <HeroText
-                        initial={{ opacity: 0, x: '-50%' }}
+                        // initial={{ opacity: 0, x: '-50%' }}
+                        initial={{ opacity: 0, x: 50 }}
                         animate={{ opacity: 1, x: 0 }}
                         transition={{
                             duration: 1,
@@ -154,7 +158,8 @@ function HomePage() {
                     </HeroText>
                     <HeroImageContainer>IMAGE</HeroImageContainer>
                     <HeroSubHeader
-                        initial={{ opacity: 0, y: '-50%' }}
+                        // initial={{ opacity: 0, y: '-50%' }}
+                        initial={{ opacity: 0, y: 50 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{
                             duration: 0.8,
