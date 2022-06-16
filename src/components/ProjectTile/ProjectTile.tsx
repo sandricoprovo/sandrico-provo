@@ -82,8 +82,6 @@ function ProjectTile({ variants }: ProjectTileProps) {
         setDescription(truncatedDescription);
     }, []);
 
-    console.log({ mockTileImage });
-
     return (
         // Add background img to top lvl div below
         <ProjectTileContainer variants={variants}>

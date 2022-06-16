@@ -182,15 +182,12 @@ function HomePage() {
                         initial="initial"
                         animate={isProjectsInView ? 'animate' : 'initial'}
                     >
-                        {[1, 2, 3].map((tile, index) => {
-                            console.log('here');
-                            return (
-                                <ProjectTile
-                                    key={`projecttile_${index}`}
-                                    variants={sectionChildVariants}
-                                />
-                            );
-                        })}
+                        {[1, 2, 3].map((tile, index) => (
+                            <ProjectTile
+                                key={`projecttile_${index}`}
+                                variants={sectionChildVariants}
+                            />
+                        ))}
                     </ProjectsContainer>
                 )}
             </ContentSection>
