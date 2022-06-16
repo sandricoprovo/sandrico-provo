@@ -24,6 +24,7 @@ export const MobileNavList = styled(motion.div)`
     right: 0;
     left: 0;
     bottom: 0;
+    padding: 0 var(--space-lg);
     height: calc(100% - 80px); // Fallback
     height: -moz-available;
     height: -webkit-fill-available;
@@ -33,7 +34,7 @@ export const MobileNavList = styled(motion.div)`
     line-height: 160%;
     width: 100%;
     background-color: var(--clr-white-75);
-    z-index: -1;
+    z-index: 100;
     display: flex;
     flex-direction: column;
     justify-content: flex-end;

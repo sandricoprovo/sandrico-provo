@@ -5,18 +5,37 @@ import Link from 'next/link';
 import { MobileNavList, NavListItem, NavLink } from './styles';
 
 const mobileNavVariant = {
-    initial: { opacity: 0, y: '50%', zIndex: -1 },
+    initial: { y: '100vh' },
     animate: {
-        opacity: 1,
-        y: 0,
-        zIndex: 100,
+        y: '0',
+        transition: {
+            when: 'beforeChildren',
+            duration: 0.4,
+            delay: 0.1,
+            ease: [0.08, 0.82, 0.17, 1],
+            staggerChildren: 0.35,
+        },
+    },
+    exit: {
+        y: '100vh',
         transition: {
             duration: 0.4,
-            delay: 0.4,
+            delay: 0.1,
             ease: [0.08, 0.82, 0.17, 1],
         },
     },
-    exit: { opacity: 0, zIndex: -1 },
+};
+
+const navItemVariants = {
+    initial: { opacity: 0, y: '50%' },
+    animate: {
+        opacity: 1,
+        y: 0,
+        transition: {
+            duration: 0.35,
+            ease: [0.08, 0.82, 0.17, 1],
+        },
+    },
 };
 
 interface MobileNavProps {
@@ -38,31 +57,26 @@ function MobileNav({ links, isMobile, isNavOpen }: MobileNavProps) {
 
     return (
         <AnimatePresence>
-            <MobileNavList
-                variants={mobileNavVariant}
-                key="mobileNav"
-                initial="initial"
-                animate={!showNav ? 'initial' : 'animate'}
-                exit="exit"
-            >
-                {links.map((link, index) => (
-                    <NavListItem
-                        key={link.label}
-                        initial={{ opacity: 0, y: '50%' }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{
-                            duration: 0.35,
-                            delay: (index + 1) * 0.4,
-                            ease: [0.08, 0.82, 0.17, 1],
-                        }}
-                        exit={{ opacity: 0, y: '50%' }}
-                    >
-                        <Link href={link.label}>
-                            <NavLink>{link.label}</NavLink>
-                        </Link>
-                    </NavListItem>
-                ))}
-            </MobileNavList>
+            {showNav && (
+                <MobileNavList
+                    variants={mobileNavVariant}
+                    key="mobileNav"
+                    initial="initial"
+                    animate={!showNav ? 'initial' : 'animate'}
+                    exit="exit"
+                >
+                    {links.map((link) => (
+                        <NavListItem
+                            key={link.label}
+                            variants={navItemVariants}
+                        >
+                            <Link href={link.label}>
+                                <NavLink>{link.label}</NavLink>
+                            </Link>
+                        </NavListItem>
+                    ))}
+                </MobileNavList>
+            )}
         </AnimatePresence>
     );
 }

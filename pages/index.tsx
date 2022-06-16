@@ -66,6 +66,7 @@ const sectionContainerVariants = {
         transition: {
             delay: 0.2,
             staggerChildren: 0.5,
+            delayChildren: 0.3,
         },
     },
 };
@@ -92,19 +93,19 @@ function HomePage() {
     const { isMobileWidth } = useWindowSize();
     const { isInView: isProjectsInView } = useInView<HTMLDivElement>({
         ref: projectsContainerRef,
-        threshold: isMobileWidth ? 5 : 30,
+        threshold: isMobileWidth ? 5 : 70,
         rootMargin: isMobileWidth ? '41px' : '64px',
         freezeOnceVisible: true,
     });
     const { isInView: isWorkXpInView } = useInView<HTMLDivElement>({
         ref: workContainerRef,
-        threshold: isMobileWidth ? 5 : 30,
+        threshold: isMobileWidth ? 5 : 70,
         rootMargin: isMobileWidth ? '41px' : '64px',
         freezeOnceVisible: true,
     });
     const { isInView: isAboutMeInView } = useInView<HTMLParagraphElement>({
         ref: aboutContainerRef,
-        threshold: isMobileWidth ? 5 : 50,
+        threshold: isMobileWidth ? 5 : 90,
         rootMargin: isMobileWidth ? '41px' : '64px',
         freezeOnceVisible: true,
     });
@@ -167,27 +168,33 @@ function HomePage() {
             </HeroSection>
             {/* Projects */}
             <ContentSection>
-                <SectionHeader>Projects</SectionHeader>
-                <ProjectsContainer
-                    ref={projectsContainerRef}
-                    variants={sectionContainerVariants}
-                    initial="initial"
-                    animate={isProjectsInView ? 'animate' : 'initial'}
-                >
-                    {isProjectsInView
-                        ? [1, 2, 3].map((tile, index) => (
-                              <ProjectTile
-                                  key={`projecttile_${index}`}
-                                  variants={sectionChildVariants}
-                              />
-                          ))
-                        : null}
-                </ProjectsContainer>
+                <SectionHeader ref={projectsContainerRef}>
+                    Projects
+                </SectionHeader>
+                {isProjectsInView && (
+                    <ProjectsContainer
+                        variants={sectionContainerVariants}
+                        initial="initial"
+                        animate={isProjectsInView ? 'animate' : 'initial'}
+                    >
+                        {[1, 2, 3].map((tile, index) => {
+                            console.log('here');
+                            return (
+                                <ProjectTile
+                                    key={`projecttile_${index}`}
+                                    variants={sectionChildVariants}
+                                />
+                            );
+                        })}
+                    </ProjectsContainer>
+                )}
             </ContentSection>
             {/* Experience */}
             <ContentSection>
                 <WorkSectionHeader>
-                    <SectionHeader>Experience</SectionHeader>
+                    <SectionHeader ref={workContainerRef}>
+                        Experience
+                    </SectionHeader>
                     <WorkIconsContainer>
                         <GitHubIcon href="https://sandricoprovo.dev" />
                         <LinkedInIcon href="https://sandricoprovo.dev" />
@@ -195,27 +202,25 @@ function HomePage() {
                         <FileIcon href="https://sandricoprovo.dev" />
                     </WorkIconsContainer>
                 </WorkSectionHeader>
-                <WorkContainer
-                    ref={workContainerRef}
-                    variants={sectionContainerVariants}
-                    initial="initial"
-                    animate={isWorkXpInView ? 'animate' : 'initial'}
-                >
-                    {isWorkXpInView ? (
+                {isWorkXpInView && (
+                    <WorkContainer
+                        variants={sectionContainerVariants}
+                        initial="initial"
+                        animate={isWorkXpInView ? 'animate' : 'initial'}
+                    >
                         <WorkTile variants={sectionChildVariants} />
-                    ) : null}
-                </WorkContainer>
+                    </WorkContainer>
+                )}
             </ContentSection>
             {/* About Me */}
             <ContentSection>
-                <SectionHeader>About Me</SectionHeader>
+                <SectionHeader ref={aboutContainerRef}>About Me</SectionHeader>
                 <AboutMeContent
-                    ref={aboutContainerRef}
                     variants={sectionContainerVariants}
                     initial="initial"
                     animate={isAboutMeInView ? 'animate' : 'initial'}
                 >
-                    {isAboutMeInView ? `${TEST_ABOUT_ME}` : null}
+                    {TEST_ABOUT_ME}
                 </AboutMeContent>
             </ContentSection>
         </Page>
