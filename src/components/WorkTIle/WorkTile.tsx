@@ -1,3 +1,5 @@
+import { Variants } from 'framer-motion';
+
 import { LineIcon } from '../Icons';
 
 import {
@@ -15,11 +17,13 @@ const lineIconVariant = {
     },
 };
 
-function WorkTile() {
-    console.log('');
+interface WorkTileProps {
+    variants: Variants;
+}
 
+function WorkTile({ variants }: WorkTileProps) {
     return (
-        <WorkTileContainer>
+        <WorkTileContainer variants={variants}>
             <WorkLocation>REDspace Inc.</WorkLocation>
             <WorkTimeLine>
                 <TimeLineTile>

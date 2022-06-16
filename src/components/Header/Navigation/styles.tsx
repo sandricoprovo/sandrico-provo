@@ -19,17 +19,22 @@ export const NavList = styled(motion.ul)`
 `;
 
 export const MobileNavList = styled(motion.div)`
-    position: absolute;
-    height: calc(100% - 80px);
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    padding: 0 var(--space-lg);
+    height: calc(100% - 80px); // Fallback
+    height: -moz-available;
+    height: -webkit-fill-available;
+    height: fill-available;
     font-family: var(--font-secondary);
     font-size: var(--font-700);
     line-height: 160%;
-    padding: 0 var(--space-lg) calc(var(--space-base) * 7) var(--space-lg);
     width: 100%;
-    left: 0;
-    bottom: 0;
     background-color: var(--clr-white-75);
-    z-index: -1;
+    z-index: 100;
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
@@ -92,6 +97,7 @@ export const MenuBtn = styled(motion.div)`
     align-items: flex-end;
     flex-direction: column;
     gap: 6px;
+    z-index: 200;
 
     & > span {
         display: block;

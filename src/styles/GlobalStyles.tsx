@@ -1,6 +1,9 @@
 import { createGlobalStyle } from 'styled-components';
 
-export const GlobalStyle = createGlobalStyle`
+import { Reset } from './Reset';
+
+export const GlobalStyles = createGlobalStyle`
+    ${Reset}
     :root {
         // Base Colors
         --clr-white-60: hsla(0,0%,100%,1);
@@ -151,16 +154,20 @@ export const GlobalStyle = createGlobalStyle`
         --clr-text: var(--clr-black-60);
         --clr-text-faded: var(--clr-black-30);
         --clr-hover: var(--clr-pastelblue-60);
-        --clr-background: var(--clr-white-70);
+        --clr-background: var(--clr-white-60);
         --clr-tile-bkg: var(--clr-white-60);
         --clr-pill-bkg: var(--clr-white-60);
         --clr-icon: var(--clr-text);
+        --clr-footer: var(--clr-pastelblue-50);
+        --clr-cta: var(--clr-yellow-70);
+        --clr-cta-hover: var(--clr-yellow-60);
+        --clr-cta-active: var(--clr-yellow-80);
+    }
+
+    html {
+        scroll-behavior: smooth;
     }
 
     /* .theme--dark {
     } */
-
-    html {
-        background-color: hsla(0,0%,83%,1);
-    }
 `;

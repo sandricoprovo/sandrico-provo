@@ -6,25 +6,18 @@ export const HeroSection = styled.section`
     min-height: 600px;
     margin-bottom: var(--space-xl);
     display: grid;
-    gap: 4vh;
+    gap: 12vh;
 `;
 
 export const HeroHeader = styled(motion.h1)`
-    word-break: break-word;
-    width: 80%;
     font-family: var(--font-secondary);
-    font-size: var(--font-max);
+    font-size: var(--font-900);
     line-height: 120%;
     letter-spacing: 2px;
     margin: auto 0;
 
-    @media (max-width: 975px) {
-        width: 100%;
-        font-size: var(--font-max);
-    }
-
-    @media (max-width: 700px) {
-        --space-base: 0.64rem;
+    @media (max-width: 575px) {
+        font-size: var(--font-800);
     }
 `;
 
@@ -55,9 +48,10 @@ export const HeroImageContainer = styled.div`
 export const HeroSubHeader = styled(motion.h2)`
     font-family: var(--font-primary);
     font-size: var(--font-800);
+    font-weight: 400;
     word-wrap: break-word;
     text-align: right;
-    max-width: 350;
+    max-width: 350px;
     line-height: 118%;
 `;
 
@@ -66,31 +60,30 @@ export const ContentSection = styled.section`
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    gap: var(--space-sm);
 
     @media (max-width: 575px) {
         gap: var(--space-xl);
     }
 `;
 
-export const SectionHeader = styled(motion.h3)`
+export const SectionHeader = styled.h3`
     font-family: var(--font-primary);
     font-size: var(--font-800);
+    font-weight: 400;
 `;
 
-export const ProjectsContainer = styled.div`
+export const ProjectsContainer = styled(motion.div)`
     padding: var(--space-lg);
     display: grid;
-    gap: 2rem;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    grid-template-rows: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 3rem;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
 
     @media (max-width: 575px) {
         padding-top: var(--space-xxl);
     }
 `;
 
-export const WorkContainer = styled.div`
+export const WorkContainer = styled(motion.div)`
     padding: var(--space-lg);
     width: 100%;
     display: grid;
@@ -115,7 +108,7 @@ export const WorkIconsContainer = styled.div`
     gap: var(--space-base);
 `;
 
-export const AboutMeContent = styled.p`
+export const AboutMeContent = styled(motion.p)`
     padding: var(--space-lg);
     width: 100%;
     max-width: 100ch;
