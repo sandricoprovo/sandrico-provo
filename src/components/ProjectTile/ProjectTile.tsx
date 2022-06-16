@@ -1,4 +1,5 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { Variants } from 'framer-motion';
 
 import mockTileImage from '../../../public/images/city.jpeg';
 import mockStackList from '../../mock/mockStackList';
@@ -39,7 +40,7 @@ const descriptionVariant = {
     initial: { opacity: 1, y: '40%' },
     animate: {
         opacity: 1,
-        y: 0,
+        y: '0%',
         transition: {
             duration: 0.7,
             delay: DESCRIPTION_DELAY / 1000,
@@ -48,13 +49,15 @@ const descriptionVariant = {
     },
 };
 
-function ProjectTile() {
+interface ProjectTileProps {
+    variants: Variants;
+}
+
+function ProjectTile({ variants }: ProjectTileProps) {
     const [showDescription, setShowDescription] = useToggle(false);
     const mockDescription =
         'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.';
-    const [description, setDescription] = useState<string>(
-        truncateText(mockDescription, mockDescription.length)
-    );
+    const [description, setDescription] = useState<string>('');
 
     async function getDescription() {
         if (showDescription) {
@@ -70,9 +73,17 @@ function ProjectTile() {
         }
     }
 
+    useEffect(() => {
+        const truncatedDescription = truncateText(
+            mockDescription,
+            mockDescription.length
+        );
+        setDescription(truncatedDescription);
+    }, []);
+
     return (
         // Add background img to top lvl div below
-        <ProjectTileContainer>
+        <ProjectTileContainer variants={variants}>
             <ProjectTileImage background={mockTileImage.src} />
             <ProjectTileOverlay
                 variants={overlayVariant}

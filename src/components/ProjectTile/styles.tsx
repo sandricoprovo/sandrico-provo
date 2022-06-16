@@ -4,7 +4,6 @@ import { motion } from 'framer-motion';
 export const ProjectTileContainer = styled(motion.div)`
     position: relative;
     min-height: 600px;
-    transition: background-color 100ms ease-in-out;
     overflow: hidden;
     box-shadow: var(--shadow-tr-300);
     display: flex;
@@ -67,6 +66,7 @@ export const ProjectDetails = styled.div`
 `;
 
 export const ProjectTileHeader = styled.div`
+    width: 100%;
     display: flex;
     flex-wrap: wrap;
     gap: 8px;

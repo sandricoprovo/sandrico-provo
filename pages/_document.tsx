@@ -39,7 +39,7 @@ export default class MyDocument extends Document {
 
     render(): JSX.Element {
         return (
-            <Html lang="en-CA">
+            <Html lang="en-CA" style={{ scrollBehavior: 'smooth' }}>
                 <Head>
                     <link
                         rel="preload"

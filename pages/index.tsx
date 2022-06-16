@@ -1,6 +1,5 @@
-import { useRef, useEffect } from 'react';
+import { useRef } from 'react';
 import { GetStaticProps } from 'next';
-import { useAnimation } from 'framer-motion';
 
 import { apolloClient } from '../src/graphql/apolloClient';
 import { GET_HEADER } from '../src/graphql/queries/GET_HEADERS';
@@ -58,39 +57,57 @@ const textVariants = {
     animate: { opacity: 1, y: 0 },
 };
 
+const sectionContainerVariants = {
+    initial: {
+        opacity: 0,
+    },
+    animate: {
+        opacity: 1,
+        transition: {
+            delay: 0.2,
+            staggerChildren: 0.5,
+        },
+    },
+};
+
+const sectionChildVariants = {
+    initial: { opacity: 0, y: '20%' },
+    animate: {
+        opacity: 1,
+        y: '0%',
+        transition: {
+            ease: [0.6, 0.01, -0.05, 0.95],
+            duration: 1.2,
+        },
+    },
+};
+
+const TEST_ABOUT_ME =
+    'Lorem ipsum dolor sit amet, consectetur adipiscing elit, seddo eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, seddo eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, seddo eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.';
+
 function HomePage() {
-    const rootRef = useRef<HTMLDivElement>(null);
+    const projectsContainerRef = useRef<HTMLDivElement>(null);
+    const workContainerRef = useRef<HTMLDivElement>(null);
+    const aboutContainerRef = useRef<HTMLParagraphElement>(null);
     const { isMobileWidth } = useWindowSize();
     const { isInView: isProjectsInView } = useInView<HTMLDivElement>({
-        ref: rootRef,
+        ref: projectsContainerRef,
         threshold: isMobileWidth ? 5 : 30,
-        rootMargin: isMobileWidth ? '0px' : '64px',
+        rootMargin: isMobileWidth ? '41px' : '64px',
         freezeOnceVisible: true,
     });
-    const projectsAnimation = useAnimation();
-
-    useEffect(() => {
-        if (isProjectsInView) {
-            projectsAnimation.start({
-                y: '0%',
-                opacity: 1,
-                transition: {
-                    duration: 0.7,
-                    ease: [0.08, 0.82, 0.17, 1],
-                },
-            });
-        } else {
-            projectsAnimation.start({
-                y: '5%',
-                opacity: 0,
-                transition: {
-                    duration: 0.7,
-                    ease: [0.08, 0.82, 0.17, 1],
-                },
-            });
-        }
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [isProjectsInView]);
+    const { isInView: isWorkXpInView } = useInView<HTMLDivElement>({
+        ref: workContainerRef,
+        threshold: isMobileWidth ? 5 : 30,
+        rootMargin: isMobileWidth ? '41px' : '64px',
+        freezeOnceVisible: true,
+    });
+    const { isInView: isAboutMeInView } = useInView<HTMLParagraphElement>({
+        ref: aboutContainerRef,
+        threshold: isMobileWidth ? 5 : 50,
+        rootMargin: isMobileWidth ? '41px' : '64px',
+        freezeOnceVisible: true,
+    });
 
     return (
         <Page>
@@ -128,7 +145,7 @@ function HomePage() {
                         animate={{ opacity: 1, x: 0 }}
                         transition={{
                             duration: 1,
-                            delay: 1.2,
+                            delay: 2.2,
                             ease: [0.08, 0.82, 0.17, 1],
                         }}
                     >
@@ -140,7 +157,7 @@ function HomePage() {
                         animate={{ opacity: 1, y: 0 }}
                         transition={{
                             duration: 0.8,
-                            delay: 0.2,
+                            delay: 1.2,
                             ease: [0.08, 0.82, 0.17, 1],
                         }}
                     >
@@ -151,10 +168,20 @@ function HomePage() {
             {/* Projects */}
             <ContentSection>
                 <SectionHeader>Projects</SectionHeader>
-                <ProjectsContainer ref={rootRef} animate={projectsAnimation}>
-                    <ProjectTile />
-                    <ProjectTile />
-                    <ProjectTile />
+                <ProjectsContainer
+                    ref={projectsContainerRef}
+                    variants={sectionContainerVariants}
+                    initial="initial"
+                    animate={isProjectsInView ? 'animate' : 'initial'}
+                >
+                    {isProjectsInView
+                        ? [1, 2, 3].map((tile, index) => (
+                              <ProjectTile
+                                  key={`projecttile_${index}`}
+                                  variants={sectionChildVariants}
+                              />
+                          ))
+                        : null}
                 </ProjectsContainer>
             </ContentSection>
             {/* Experience */}
@@ -168,37 +195,27 @@ function HomePage() {
                         <FileIcon href="https://sandricoprovo.dev" />
                     </WorkIconsContainer>
                 </WorkSectionHeader>
-                <WorkContainer>
-                    <WorkTile />
+                <WorkContainer
+                    ref={workContainerRef}
+                    variants={sectionContainerVariants}
+                    initial="initial"
+                    animate={isWorkXpInView ? 'animate' : 'initial'}
+                >
+                    {isWorkXpInView ? (
+                        <WorkTile variants={sectionChildVariants} />
+                    ) : null}
                 </WorkContainer>
             </ContentSection>
             {/* About Me */}
             <ContentSection>
                 <SectionHeader>About Me</SectionHeader>
-                <AboutMeContent>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                    seddo eiusmod tempor incididunt ut labore et dolore magna
-                    aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-                    ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                    Duis aute irure dolor in reprehenderit in voluptate velit
-                    esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
-                    occaecat cupidatat non proident, sunt in culpa qui officia
-                    deserunt mollit anim id est laborum. Lorem ipsum dolor sit
-                    amet, consectetur adipiscing elit, seddo eiusmod tempor
-                    incididunt ut labore et dolore magna aliqua. Ut enim ad
-                    minim veniam, quis nostrud exercitation ullamco laboris nisi
-                    ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-                    reprehenderit in voluptate velit esse cillum dolore eu
-                    fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-                    proident, sunt in culpa qui officia deserunt mollit anim id
-                    est laborum. Lorem ipsum dolor sit amet, consectetur
-                    adipiscing elit, seddo eiusmod tempor incididunt ut labore
-                    et dolore magna aliqua. Ut enim ad minim veniam, quis
-                    nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-                    commodo consequat. Duis aute irure dolor in reprehenderit in
-                    voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-                    Excepteur sint occaecat cupidatat non proident, sunt in
-                    culpa qui officia deserunt mollit anim id est laborum.
+                <AboutMeContent
+                    ref={aboutContainerRef}
+                    variants={sectionContainerVariants}
+                    initial="initial"
+                    animate={isAboutMeInView ? 'animate' : 'initial'}
+                >
+                    {isAboutMeInView ? `${TEST_ABOUT_ME}` : null}
                 </AboutMeContent>
             </ContentSection>
         </Page>

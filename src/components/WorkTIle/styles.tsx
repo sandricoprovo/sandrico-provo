@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
 
-export const WorkTileContainer = styled.div`
+export const WorkTileContainer = styled(motion.div)`
     position: relative;
     margin-bottom: var(--space-lg);
     display: flex;

@@ -49,8 +49,7 @@ export function useInView<T extends Element>({
         return () => {
             observer.unobserve(rootElement);
         };
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [isObserverFrozen]);
+    }, [isObserverFrozen, ref, rootMargin, threshold]);
 
     return { isInView };
 }
