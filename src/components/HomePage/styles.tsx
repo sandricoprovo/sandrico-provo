@@ -85,7 +85,7 @@ export const ProjectsContainer = styled(motion.div)`
     padding: var(--space-lg);
     display: grid;
     gap: 3rem;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
 
     @media (max-width: 575px) {
         padding-top: var(--space-xxl);

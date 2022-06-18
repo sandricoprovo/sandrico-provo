@@ -29,7 +29,6 @@ import {
     TwitterIcon,
 } from '../src/components/Icons';
 import { useInView } from '../src/hooks/useInView';
-import { useWindowSize } from '../src/hooks/useWindowSize';
 
 export const getStaticProps: GetStaticProps = async () => {
     const { data }: Payload<'headers', Header[]> = await apolloClient.query({
@@ -90,23 +89,22 @@ function HomePage() {
     const projectsContainerRef = useRef<HTMLDivElement>(null);
     const workContainerRef = useRef<HTMLDivElement>(null);
     const aboutContainerRef = useRef<HTMLParagraphElement>(null);
-    const { isMobileWidth } = useWindowSize();
     const { isInView: isProjectsInView } = useInView<HTMLDivElement>({
         ref: projectsContainerRef,
-        threshold: isMobileWidth ? 5 : 60,
-        rootMargin: isMobileWidth ? '41px' : '64px',
+        threshold: 100,
+        rootMargin: '0px',
         freezeOnceVisible: true,
     });
     const { isInView: isWorkXpInView } = useInView<HTMLDivElement>({
         ref: workContainerRef,
-        threshold: isMobileWidth ? 5 : 50,
-        rootMargin: isMobileWidth ? '41px' : '64px',
+        threshold: 100,
+        rootMargin: '0px',
         freezeOnceVisible: true,
     });
     const { isInView: isAboutMeInView } = useInView<HTMLParagraphElement>({
         ref: aboutContainerRef,
-        threshold: isMobileWidth ? 5 : 90,
-        rootMargin: isMobileWidth ? '41px' : '64px',
+        threshold: 100,
+        rootMargin: '0px',
         freezeOnceVisible: true,
     });
 
