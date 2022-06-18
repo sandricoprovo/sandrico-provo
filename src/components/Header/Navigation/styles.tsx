@@ -39,7 +39,7 @@ export const MobileNavList = styled(motion.div)`
     flex-direction: column;
     justify-content: flex-end;
     align-items: flex-end;
-    gap: var(--space-md);
+    overflow: hidden;
 
     & > li > a,
     & > div > p {
@@ -57,10 +57,12 @@ export const MobileNavList = styled(motion.div)`
 export const NavListItem = styled(motion.li)`
     list-style: none;
     position: relative;
+    overflow: hidden;
 `;
 
-export const NavLink = styled.a`
+export const NavLink = styled(motion.a)<{ open: boolean }>`
     text-decoration: none;
+    display: block;
     cursor: pointer;
     font-family: var(--font-primary);
     font-size: var(--font-400);
@@ -69,26 +71,21 @@ export const NavLink = styled.a`
     &:before {
         content: '';
         position: absolute;
+        width: 100%;
+        height: 2px;
+        bottom: 0px;
+        left: 0;
+        z-index: -1;
+        transform: translateY(4px);
         background-color: var(--clr-text);
-        top: 58px;
-        height: 4px;
-        width: 0px;
-        z-index: -10;
-        transition: width 400ms var(--underline-bezier);
+        background-color: ${({ open }) =>
+            open ? 'var(--clr-pastelblue-50)' : 'var(--clr-text)'};
+        transition: transform 400ms var(--underline-bezier),
+            width 400ms var(--underline-bezier);
     }
 
     &:hover::before {
-        content: '';
-        position: absolute;
-        background-color: var(--clr-text);
-        width: 100%;
-        transition: width 400ms var(--underline-bezier);
-    }
-
-    &:active::before,
-    &:focus::before {
-        width: 120%;
-        transition: width 400ms var(--underline-bezier);
+        transform: translateY(0px);
     }
 `;
 
@@ -156,9 +153,10 @@ export const MobileNavContent = styled.div`
     }
 `;
 
-export const ActiveNavLink = styled.a`
+export const ActiveNavLink = styled(motion.a)`
     position: relative;
     text-decoration: none;
+    display: block;
     cursor: pointer;
     font-family: var(--font-primary);
     font-size: var(--font-400);

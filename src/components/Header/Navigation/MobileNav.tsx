@@ -19,7 +19,7 @@ const mobileNavVariant = {
             when: 'beforeChildren',
             duration: 0.4,
             delay: 0.1,
-            ease: [0.08, 0.82, 0.17, 1],
+            ease: [0.65, 0, 0.35, 1],
             staggerChildren: 0.35,
         },
     },
@@ -28,20 +28,14 @@ const mobileNavVariant = {
         transition: {
             duration: 0.4,
             delay: 0.1,
-            ease: [0.08, 0.82, 0.17, 1],
+            ease: [0.65, 0, 0.35, 1],
         },
     },
 };
 
-const navItemVariants = {
-    initial: { opacity: 0, y: '50%' },
-    animate: {
-        opacity: 1,
-        y: 0,
-        transition: {
-            duration: 0.35,
-            ease: [0.08, 0.82, 0.17, 1],
-        },
+const navLinkVariant = {
+    initial: {
+        y: 100,
     },
 };
 
@@ -69,6 +63,16 @@ function MobileNav({ links, isMobile, isNavOpen }: MobileNavProps) {
     }, []);
     // TEST
 
+    function calcNavLinkAnimate(position: number) {
+        return {
+            y: 0,
+            transition: {
+                delay: position * 0.4,
+                duration: 1,
+            },
+        };
+    }
+
     return (
         <AnimatePresence>
             {showNav && (
@@ -79,7 +83,7 @@ function MobileNav({ links, isMobile, isNavOpen }: MobileNavProps) {
                     animate={!showNav ? 'initial' : 'animate'}
                     exit="exit"
                 >
-                    {links.map((link) => {
+                    {links.map((link, index) => {
                         const linkHref =
                             link.label === 'Home'
                                 ? '/'
@@ -89,17 +93,21 @@ function MobileNav({ links, isMobile, isNavOpen }: MobileNavProps) {
                             router.pathname.includes(linkHref);
 
                         return (
-                            <NavListItem
-                                key={link.label}
-                                variants={navItemVariants}
-                            >
+                            <NavListItem key={link.label}>
                                 <Link href={linkHref}>
                                     {!isCurrentPage ? (
-                                        <NavLink>
+                                        <NavLink
+                                            open={showNav}
+                                            initial={navLinkVariant.initial}
+                                            animate={calcNavLinkAnimate(index)}
+                                        >
                                             {link.label.toUpperCase()}
                                         </NavLink>
                                     ) : (
-                                        <ActiveNavLink>
+                                        <ActiveNavLink
+                                            initial={navLinkVariant.initial}
+                                            animate={calcNavLinkAnimate(index)}
+                                        >
                                             {link.label.toUpperCase()}
                                         </ActiveNavLink>
                                     )}
