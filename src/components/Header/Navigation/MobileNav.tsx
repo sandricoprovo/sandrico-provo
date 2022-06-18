@@ -63,6 +63,12 @@ function MobileNav({ links, isMobile, isNavOpen }: MobileNavProps) {
         setShowNav(false);
     }, [isMobile, isNavOpen]);
 
+    // TEST
+    useEffect(() => {
+        links.unshift({ label: 'Home' });
+    }, []);
+    // TEST
+
     return (
         <AnimatePresence>
             {showNav && (

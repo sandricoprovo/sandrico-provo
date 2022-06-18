@@ -47,6 +47,7 @@ export default function Header({ header }: HeaderProps) {
         <HeaderContainer>
             <Link href="/">
                 <LogoText
+                    open={isNavOpen}
                     initial={{ opacity: 0, y: '50%' }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{

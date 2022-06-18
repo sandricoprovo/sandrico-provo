@@ -33,13 +33,18 @@ export const MobileNavList = styled(motion.div)`
     font-size: var(--font-700);
     line-height: 160%;
     width: 100%;
-    background-color: var(--clr-white-75);
+    background-color: var(--clr-pastelblue-80);
     z-index: 100;
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
     align-items: flex-end;
-    gap: var(--space-xl);
+    gap: var(--space-md);
+
+    & > li > a,
+    & > div > p {
+        color: var(--clr-white-60);
+    }
 
     @media (max-width: 500px) {
         & > li > a {
@@ -87,7 +92,7 @@ export const NavLink = styled.a`
     }
 `;
 
-export const MenuBtn = styled(motion.div)`
+export const MenuBtn = styled(motion.div)<{ open: boolean }>`
     height: 32px;
     width: 56px;
     padding: 4px;
@@ -103,31 +108,31 @@ export const MenuBtn = styled(motion.div)`
         display: block;
         width: 80%;
         height: 4px;
-        transition: width 400ms var(--underline-bezier);
+        transition: width 400ms var(--underline-bezier),
+            background-color 400ms 200ms var(--underline-bezier);
     }
 
     & > span:nth-of-type(1),
     & > span:nth-of-type(2),
     & > span:nth-of-type(3) {
         background-color: var(--clr-text);
+        background-color: ${({ open }) =>
+            open ? 'var(--clr-white-60)' : 'var(--clr-text)'};
     }
 
     &:hover,
     &:focus {
         & > span:nth-of-type(2) {
-            background-color: var(--clr-text);
             width: 48%;
         }
 
         & > span:nth-of-type(3) {
-            background-color: var(--clr-text);
             width: 32%;
         }
     }
 
     &:active {
         & > span:nth-of-type(3) {
-            background-color: var(--clr-text);
             width: 80%;
         }
     }
@@ -137,9 +142,9 @@ export const MobileNavContent = styled.div`
     font-family: var(--font-primary);
     font-size: var(--font-400);
     line-height: 180%;
-    color: var(--clr-text);
     font-weight: 600;
     width: 64%;
+    margin-block-start: var(--space-xxl);
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
@@ -157,9 +162,7 @@ export const ActiveNavLink = styled.a`
     cursor: pointer;
     font-family: var(--font-primary);
     font-size: var(--font-400);
-    padding-inline: 1rem;
-    color: var(--clr-text);
-    animation: colorChangeAnimate 400ms 2s ease-in-out forwards;
+    padding-inline: var(--space-lg);
 
     &::before {
         content: '';
@@ -168,24 +171,15 @@ export const ActiveNavLink = styled.a`
         left: 0;
         width: 100%;
         height: 8px;
-        opacity: 0;
+        opacity: 1;
         z-index: -1;
-        background-color: black;
-        animation: activeLinkAnimate 400ms 2s ease-in-out forwards;
-    }
-
-    @keyframes colorChangeAnimate {
-        0% {
-            color: var(--clr-text);
-        }
-        100% {
-            color: var(--clr-white-60);
-        }
+        background-color: var(--clr-pastelblue-50);
+        animation: activeLinkAnimate 700ms 550ms var(--fadeUp-bezier) forwards;
     }
 
     @keyframes activeLinkAnimate {
         0% {
-            opacity: 0;
+            opacity: 1;
             height: 8px;
         }
         100% {
