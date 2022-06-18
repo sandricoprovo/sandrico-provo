@@ -132,3 +132,65 @@ export const MenuBtn = styled(motion.div)`
         }
     }
 `;
+
+export const MobileNavContent = styled.div`
+    font-family: var(--font-primary);
+    font-size: var(--font-400);
+    line-height: 180%;
+    color: var(--clr-text);
+    font-weight: 600;
+    width: 64%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-end;
+    gap: var(--space-xl);
+
+    & > p {
+        text-align: end;
+    }
+`;
+
+export const ActiveNavLink = styled.a`
+    position: relative;
+    text-decoration: none;
+    cursor: pointer;
+    font-family: var(--font-primary);
+    font-size: var(--font-400);
+    padding-inline: 1rem;
+    color: var(--clr-text);
+    animation: colorChangeAnimate 400ms 2s ease-in-out forwards;
+
+    &::before {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 8px;
+        opacity: 0;
+        z-index: -1;
+        background-color: black;
+        animation: activeLinkAnimate 400ms 2s ease-in-out forwards;
+    }
+
+    @keyframes colorChangeAnimate {
+        0% {
+            color: var(--clr-text);
+        }
+        100% {
+            color: var(--clr-white-60);
+        }
+    }
+
+    @keyframes activeLinkAnimate {
+        0% {
+            opacity: 0;
+            height: 8px;
+        }
+        100% {
+            opacity: 1;
+            height: 100%;
+        }
+    }
+`;

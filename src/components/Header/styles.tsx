@@ -18,6 +18,7 @@ export const LogoText = styled(motion.p)`
     font-size: var(--font-600);
     color: var(--clr-text);
     position: relative;
+    z-index: 110;
 
     &:before {
         content: '';

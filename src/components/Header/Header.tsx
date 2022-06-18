@@ -63,9 +63,6 @@ export default function Header({ header }: HeaderProps) {
                 toggleMobileNav={toggleNavMenu}
                 links={header?.links || defaultHeader.links}
             />
-            {/* {isMobile && isNavOpen ? (
-                <MobileNav links={header?.links || defaultHeader.links} />
-            ) : null} */}
             <MobileNav
                 isMobile={isMobile}
                 isNavOpen={isNavOpen}

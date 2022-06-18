@@ -1,8 +1,15 @@
 import { useEffect, useState } from 'react';
 import { AnimatePresence } from 'framer-motion';
 import Link from 'next/link';
+import { useRouter } from 'next/router';
 
-import { MobileNavList, NavListItem, NavLink } from './styles';
+import {
+    MobileNavList,
+    NavListItem,
+    NavLink,
+    MobileNavContent,
+    ActiveNavLink,
+} from './styles';
 
 const mobileNavVariant = {
     initial: { y: '100vh' },
@@ -46,6 +53,7 @@ interface MobileNavProps {
 
 function MobileNav({ links, isMobile, isNavOpen }: MobileNavProps) {
     const [showNav, setShowNav] = useState<boolean>(false);
+    const router = useRouter();
 
     useEffect(() => {
         if (isMobile && isNavOpen) {
@@ -65,16 +73,38 @@ function MobileNav({ links, isMobile, isNavOpen }: MobileNavProps) {
                     animate={!showNav ? 'initial' : 'animate'}
                     exit="exit"
                 >
-                    {links.map((link) => (
-                        <NavListItem
-                            key={link.label}
-                            variants={navItemVariants}
-                        >
-                            <Link href={link.label}>
-                                <NavLink>{link.label}</NavLink>
-                            </Link>
-                        </NavListItem>
-                    ))}
+                    {links.map((link) => {
+                        const linkHref =
+                            link.label === 'Home'
+                                ? '/'
+                                : link.label.toLowerCase();
+
+                        const isCurrentPage =
+                            router.pathname.includes(linkHref);
+
+                        return (
+                            <NavListItem
+                                key={link.label}
+                                variants={navItemVariants}
+                            >
+                                <Link href={linkHref}>
+                                    {!isCurrentPage ? (
+                                        <NavLink>
+                                            {link.label.toUpperCase()}
+                                        </NavLink>
+                                    ) : (
+                                        <ActiveNavLink>
+                                            {link.label.toUpperCase()}
+                                        </ActiveNavLink>
+                                    )}
+                                </Link>
+                            </NavListItem>
+                        );
+                    })}
+                    <MobileNavContent>
+                        <p>Based in Halifax Nova Scotia Canada</p>
+                        <p>Currently a Software Developer at REDspace</p>
+                    </MobileNavContent>
                 </MobileNavList>
             )}
         </AnimatePresence>
