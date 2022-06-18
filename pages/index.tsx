@@ -88,7 +88,7 @@ function HomePage() {
     const aboutContainerRef = useRef<HTMLParagraphElement>(null);
     const { isInView: isProjectsInView } = useInView<HTMLDivElement>({
         ref: projectsContainerRef,
-        threshold: 100,
+        threshold: 60,
         rootMargin: '0px',
         freezeOnceVisible: true,
     });
@@ -154,20 +154,16 @@ function HomePage() {
             </HeroSection>
             {/* Projects */}
             <ContentSection>
-                <SectionHeader ref={projectsContainerRef}>
-                    Projects
-                </SectionHeader>
-                {isProjectsInView && (
-                    <ProjectsContainer
-                        variants={sectionContainerVariants}
-                        initial="initial"
-                        animate={isProjectsInView ? 'animate' : 'initial'}
-                    >
-                        {[1].map((tile, index) => (
-                            <ProjectTile key={`projecttile_${index}`} />
+                <SectionHeader>Projects</SectionHeader>
+                <ProjectsContainer ref={projectsContainerRef}>
+                    {isProjectsInView &&
+                        [1].map((tile, index) => (
+                            <ProjectTile
+                                key={`projecttile_${index}`}
+                                isProjectsInView={isProjectsInView}
+                            />
                         ))}
-                    </ProjectsContainer>
-                )}
+                </ProjectsContainer>
             </ContentSection>
             {/* Experience */}
             <ContentSection>

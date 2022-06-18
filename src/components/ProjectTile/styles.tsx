@@ -11,7 +11,6 @@ export const ProjectContainer = styled(motion.section)`
 `;
 
 export const ProjectInfo = styled(motion.div)`
-    background-color: var(--clr-white-60);
     padding: var(--space-md);
     padding: var(--space-base) var(--space-lg);
     color: var(--clr-text);
@@ -27,7 +26,7 @@ export const ProjectInfo = styled(motion.div)`
 
     @media screen and (max-width: 975px) {
         --clr-text: white;
-        background-color: hsla(0, 0%, 00%, 0.4);
+        background-color: var(--clr-black-110-a40);
         width: 100%;
     }
 `;
@@ -57,7 +56,7 @@ export const ProjectStackItem = styled.p`
     z-index: 100;
 `;
 
-export const ProjectDescriptionContainer = styled.div`
+export const ProjectDescriptionContainer = styled(motion.div)`
     background-color: var(--clr-pastelblue-10);
     position: absolute;
     padding: var(--space-base) var(--space-lg);
@@ -93,6 +92,13 @@ export const ProjectImage = styled(motion.div)`
     width: 60%;
     height: 100%;
     z-index: 1;
+    transition: transform 400ms var(--scaleIn-bezier);
+
+    @media screen and (hover: hover) {
+        &:hover {
+            transform: scale(1.1);
+        }
+    }
 
     @media screen and (max-width: 975px) {
         left: 0%;
@@ -106,8 +112,8 @@ export const ProjectIcons = styled(motion.div)`
     border-radius: 10px;
     padding: 0.55rem 1rem;
     position: absolute;
-    top: -24px;
-    right: -2vw;
+    top: -18px;
+    right: -1.5vw;
     z-index: 100;
     display: flex;
     justify-content: space-between;

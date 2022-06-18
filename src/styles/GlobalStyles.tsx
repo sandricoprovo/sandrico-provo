@@ -56,6 +56,7 @@ export const GlobalStyles = createGlobalStyle`
     	--clr-black-90: hsla(0,0%,6%,1);
     	--clr-black-100: hsla(0,0%,3%,1);
     	--clr-black-110: hsla(0,0%,2%,1);
+    	--clr-black-110-a40: hsla(0, 0%, 00%, 0.4);
 
         // Type Scale
         --fallback-fonts: --apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
