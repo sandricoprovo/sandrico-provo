@@ -57,12 +57,6 @@ function MobileNav({ links, isMobile, isNavOpen }: MobileNavProps) {
         setShowNav(false);
     }, [isMobile, isNavOpen]);
 
-    // TEST
-    useEffect(() => {
-        links.unshift({ label: 'Home' });
-    }, []);
-    // TEST
-
     function calcNavLinkAnimate(position: number) {
         return {
             y: 0,
