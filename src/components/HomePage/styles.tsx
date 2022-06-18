@@ -84,17 +84,10 @@ export const SectionHeader = styled.h3`
 `;
 
 export const ProjectsContainer = styled(motion.div)`
-    padding: 6rem var(--space-lg);
-    display: flex;
-    flex-wrap: nowrap;
-    overflow-x: auto;
-    width: 88vw;
-    max-width: 1440px;
-    gap: 6rem;
-
-    @media (max-width: 575px) {
-        padding-top: var(--space-xxl);
-    }
+    height: 88vh;
+    min-height: 600px;
+    max-height: 800px;
+    padding: var(--space-lg) 2vw;
 `;
 
 export const WorkContainer = styled(motion.div)`

@@ -1,122 +1,116 @@
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
 
-export const ProjectTileContainer = styled(motion.div)`
+export const ProjectContainer = styled(motion.section)`
     position: relative;
-    min-height: 600px;
-    max-width: 500px;
-    width: 100%;
-    overflow: hidden;
-    box-shadow: var(--shadow-td-300);
-    flex: 0 0 auto;
+    box-shadow: var(--shadow-tr-300);
+    height: 100%;
     display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-
-    // Scopes hover events to only devices that can have a hover
-    @media (hover: hover) {
-        &:hover {
-            & > div:first-child {
-                transform: scale(1.2);
-            }
-        }
-    }
+    justify-content: flex-start;
+    align-items: flex-end;
 `;
 
-export const ProjectTileImage = styled(motion.div)`
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    z-index: 5;
-    background-color: var(--clr-tile-bkg); // Fallback if no image
-    transition: transform 400ms var(--scaleIn-bezier);
-`;
-
-export const ProjectTileOverlay = styled(motion.div)`
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(15, 15, 15, 0.88);
-    z-index: 5;
-`;
-
-export const ProjectDescription = styled(motion.p)`
-    --clr-text: var(--clr-white-60);
-    z-index: 20;
-    padding: 0 var(--tile-padding);
-    margin-bottom: var(--tile-padding);
-    font-family: var(--font-primary);
-    font-size: var(--font-400);
+export const ProjectInfo = styled(motion.div)`
+    background-color: var(--clr-white-60);
+    padding: var(--space-md);
+    padding: var(--space-base) var(--space-lg);
     color: var(--clr-text);
-    line-height: 160%;
-    background-color: transparent;
-`;
-
-export const ProjectDetails = styled.div`
-    background-color: var(--clr-tile-bkg);
-    box-shadow: var(--shadow-elevation-high);
-    padding: var(--tile-padding);
-    z-index: 30;
+    width: 40%;
+    height: 100%;
+    z-index: 100;
+    transition: color 200ms ease-in-out;
+    position: relative;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-    gap: 1.25rem;
-`;
+    justify-content: flex-start;
+    gap: 1rem;
 
-export const ProjectTileHeader = styled.div`
-    width: 100%;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
+    @media screen and (max-width: 975px) {
+        --clr-text: white;
+        background-color: hsla(0, 0%, 00%, 0.4);
+        width: 100%;
+    }
 `;
 
 export const ProjectTitle = styled.h4`
     font-family: var(--font-secondary);
-    font-size: var(--font-600);
-    color: var(--clr-text);
+    font-size: var(--font-700);
+    position: relative;
+    font-style: italic;
+    font-weight: 900;
     line-height: 120%;
+`;
+
+export const ProjectStack = styled.div`
     width: 100%;
-    flex-grow: 1;
-`;
-
-export const StackPill = styled.p`
-    --pill-padding: 0.25rem;
-    padding-right: var(--pill-padding);
-    line-height: 140%;
-    color: var(--clr-text);
-    font-family: var(--font-primary);
-    font-size: var(--font-200);
-
-    @media (max-width: 575px) {
-        font-size: var(--font-300);
-    }
-`;
-
-export const ProjectBottomBar = styled.div`
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-end;
-    gap: var(--tile-padding);
-`;
-
-export const ProjectIcons = styled.div`
     display: flex;
     justify-content: flex-start;
+    flex-wrap: wrap;
     align-items: center;
-    width: 80%;
+    z-index: 100;
     gap: 1rem;
 `;
 
-export const DetailsToggle = styled(motion.button)`
-    background-color: transparent;
-    padding: var(--space-sm) 0 0 var(--space-sm);
-    color: var(--clr-text);
-    border: none;
-    cursor: pointer;
-    font-family: var(--font-secondary);
+export const ProjectStackItem = styled.p`
+    font-family: var(--font-primary);
     font-size: var(--font-400);
-    position: relative;
-    line-height: 180%;
+    z-index: 100;
+`;
+
+export const ProjectDescriptionContainer = styled.div`
+    background-color: var(--clr-pastelblue-10);
+    position: absolute;
+    padding: var(--space-base) var(--space-lg);
+    bottom: 0%;
+    left: 0;
+    z-index: 100;
+    width: 70%;
+    min-height: 150px;
+
+    & > p {
+        font-family: var(--font-primary);
+        font-size: var(--font-400);
+        font-weight: 400;
+        line-height: 180%;
+    }
+
+    @media screen and (max-width: 975px) {
+        width: 100%;
+    }
+
+    @media screen and (max-width: 575px) {
+        & > p {
+            font-size: calc(var(--font-400) * 0.9);
+        }
+    }
+`;
+
+export const ProjectImage = styled(motion.div)`
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+    left: 40%;
+    width: 60%;
+    height: 100%;
+    z-index: 1;
+
+    @media screen and (max-width: 975px) {
+        left: 0%;
+        width: 100%;
+    }
+`;
+
+export const ProjectIcons = styled(motion.div)`
+    background-color: var(--clr-pastelblue-10);
+    box-shadow: var(--shadow-td-300);
+    border-radius: 10px;
+    padding: 0.55rem 1rem;
+    position: absolute;
+    top: -24px;
+    right: -2vw;
+    z-index: 100;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
 `;

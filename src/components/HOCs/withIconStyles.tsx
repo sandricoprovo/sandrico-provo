@@ -14,9 +14,9 @@ export interface IconProps extends HTMLMotionProps<any> {
 type MotionIcon = ForwardRefComponent<HTMLOrSVGElement, HTMLMotionProps<any>>;
 
 const iconVariant = {
-    initial: { y: 0 },
+    initial: { y: '0%' },
     animate: {
-        y: ['0%', '-25%', '-15%'],
+        y: ['0%', '-25%', '0%'],
         transition: {
             duration: 0.4,
         },
