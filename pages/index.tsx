@@ -53,7 +53,6 @@ export const getStaticProps: GetStaticProps = async () => {
 };
 
 const textVariants = {
-    // initial: { opacity: 0, y: '50%' },
     initial: { opacity: 0, y: 50 },
     animate: { opacity: 1, y: 0 },
 };
@@ -73,11 +72,9 @@ const sectionContainerVariants = {
 };
 
 const sectionChildVariants = {
-    // initial: { opacity: 0, y: '20%' },
     initial: { opacity: 0, y: 20 },
     animate: {
         opacity: 1,
-        // y: '0%',
         y: 0,
         transition: {
             ease: [0.6, 0.01, -0.05, 0.95],
