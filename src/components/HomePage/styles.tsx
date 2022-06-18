@@ -5,8 +5,13 @@ export const HeroSection = styled.section`
     height: 100%;
     min-height: 600px;
     margin-bottom: var(--space-xl);
-    display: grid;
-    gap: 12vh;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xxl);
+
+    @media (max-width: 575px) {
+        gap: var(--space-xl);
+    }
 `;
 
 export const HeroHeader = styled(motion.h1)`
@@ -17,7 +22,7 @@ export const HeroHeader = styled(motion.h1)`
     margin: auto 0;
 
     @media (max-width: 575px) {
-        font-size: var(--font-800);
+        font-size: var(--font-700);
     }
 `;
 
@@ -27,32 +32,36 @@ export const HeroContent = styled.div`
     flex-direction: column;
     justify-content: flex-end;
     align-items: flex-end;
+    gap: 1rem;
 `;
 
 export const HeroText = styled(motion.p)`
     font-family: var(--font-primary);
     font-size: var(--font-400);
     line-height: 180%;
+    max-width: 520px;
 `;
 
-export const HeroImageContainer = styled.div`
+export const HeroImageContainer = styled(motion.div)`
     border: 2px solid blue;
-    margin-bottom: var(--space-sm);
     width: 100%;
     height: 100%;
     min-width: 300px;
     max-width: 800px;
     min-height: 175px;
+    max-height: 300px;
 `;
 
 export const HeroSubHeader = styled(motion.h2)`
     font-family: var(--font-primary);
     font-size: var(--font-800);
     font-weight: 400;
-    word-wrap: break-word;
     text-align: right;
-    max-width: 350px;
-    line-height: 118%;
+    line-height: 120%;
+
+    @media (max-width: 575px) {
+        font-size: var(--font-600);
+    }
 `;
 
 export const ContentSection = styled.section`

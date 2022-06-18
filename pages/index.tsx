@@ -125,47 +125,34 @@ function HomePage() {
                             ease: [0.08, 0.82, 0.17, 1],
                         }}
                     >
-                        Great Software.
+                        SOFTWARE <br /> DEVELOPER
                     </HeroHeader>
-                    <HeroHeader
-                        variants={textVariants}
-                        initial="initial"
-                        animate="animate"
-                        transition={{
-                            duration: 0.8,
-                            delay: 2,
-                            ease: [0.08, 0.82, 0.17, 1],
-                        }}
-                    >
-                        Here.
-                    </HeroHeader>
-                </div>
-                <HeroContent>
                     <HeroText
-                        // initial={{ opacity: 0, x: '-50%' }}
                         initial={{ opacity: 0, x: 50 }}
                         animate={{ opacity: 1, x: 0 }}
                         transition={{
                             duration: 1,
-                            delay: 2.2,
-                            ease: [0.08, 0.82, 0.17, 1],
-                        }}
-                    >
-                        Build. Colab. Create.
-                    </HeroText>
-                    <HeroImageContainer>IMAGE</HeroImageContainer>
-                    <HeroSubHeader
-                        // initial={{ opacity: 0, y: '-50%' }}
-                        initial={{ opacity: 0, y: 50 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{
-                            duration: 0.8,
                             delay: 1.2,
                             ease: [0.08, 0.82, 0.17, 1],
                         }}
                     >
-                        SANDRICO PROVO
-                    </HeroSubHeader>
+                        I strive to build experiences that are data-driven &
+                        aesthetically pleasing.
+                    </HeroText>
+                </div>
+                <HeroContent>
+                    <HeroImageContainer
+                        initial={{ opacity: 0, x: -50 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{
+                            duration: 1,
+                            delay: 1.2,
+                            ease: [0.08, 0.82, 0.17, 1],
+                        }}
+                    >
+                        IMAGE
+                    </HeroImageContainer>
+                    <HeroSubHeader>SANDRICO PROVO</HeroSubHeader>
                 </HeroContent>
             </HeroSection>
             {/* Projects */}
