@@ -4,12 +4,6 @@ import { AnimatePresence } from 'framer-motion';
 import MenuBtn from './MenuBtn';
 import { NavBarContainer, NavList, NavListItem, NavLink } from './styles';
 
-interface NavBarProps {
-    links: { label: string }[];
-    showMobileNav: boolean;
-    toggleMobileNav: () => void;
-}
-
 const navBarVariant = {
     hidden: { opacity: 0, y: '50%' },
     shown: {
@@ -22,6 +16,12 @@ const navBarVariant = {
         },
     },
 };
+
+interface NavBarProps {
+    links: { label: string }[];
+    showMobileNav: boolean;
+    toggleMobileNav: () => void;
+}
 
 function NavBar({ links, showMobileNav, toggleMobileNav }: NavBarProps) {
     return (

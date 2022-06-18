@@ -47,6 +47,7 @@ export default function Header({ header }: HeaderProps) {
         <HeaderContainer>
             <Link href="/">
                 <LogoText
+                    open={isNavOpen}
                     initial={{ opacity: 0, y: '50%' }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{
@@ -63,9 +64,6 @@ export default function Header({ header }: HeaderProps) {
                 toggleMobileNav={toggleNavMenu}
                 links={header?.links || defaultHeader.links}
             />
-            {/* {isMobile && isNavOpen ? (
-                <MobileNav links={header?.links || defaultHeader.links} />
-            ) : null} */}
             <MobileNav
                 isMobile={isMobile}
                 isNavOpen={isNavOpen}
