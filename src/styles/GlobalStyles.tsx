@@ -136,6 +136,25 @@ export const GlobalStyles = createGlobalStyle`
             8.1px 11.2px 14.7px -1.4px hsl(var(--shadow-tr-color) / 0.44),
             18.5px 25.4px 33.5px -2.2px hsl(var(--shadow-tr-color) / 0.41),
             38px 52.2px 68.8px -2.9px hsl(var(--shadow-tr-color) / 0.38);
+        --shadow-td-color: 0deg 0% 0%;
+        --shadow-td-100:
+          0px 0.1px 0.1px hsl(var(--shadow-td-color) / 0.1),
+          0px 0.2px 0.2px -1.2px hsl(var(--shadow-td-color) / 0.1),
+          0px 0.5px 0.6px -2.5px hsl(var(--shadow-td-color) / 0.1);
+        --shadow-td-200:
+          0px 0.1px 0.1px hsl(var(--shadow-td-color) / 0.11),
+          0px 0.4px 0.5px -0.8px hsl(var(--shadow-td-color) / 0.11),
+          0px 0.9px 1px -1.7px hsl(var(--shadow-td-color) / 0.11),
+          0.1px 2.3px 2.6px -2.5px hsl(var(--shadow-td-color) / 0.11);
+        --shadow-td-300:
+          0px 0.1px 0.1px hsl(var(--shadow-td-color) / 0.1),
+          0px 0.7px 0.8px -0.4px hsl(var(--shadow-td-color) / 0.1),
+          0.1px 1.2px 1.4px -0.7px hsl(var(--shadow-td-color) / 0.1),
+          0.1px 2px 2.3px -1.1px hsl(var(--shadow-td-color) / 0.1),
+          0.1px 3.2px 3.6px -1.4px hsl(var(--shadow-td-color) / 0.1),
+          0.2px 5.1px 5.7px -1.8px hsl(var(--shadow-td-color) / 0.1),
+          0.3px 7.7px 8.7px -2.1px hsl(var(--shadow-td-color) / 0.1),
+          0.5px 11.3px 12.7px -2.5px hsl(var(--shadow-td-color) / 0.1);
 
         // Animation
         --underline-bezier: cubic-bezier(0.18, 0.89, 0.32, 1.27);

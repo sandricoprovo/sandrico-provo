@@ -82,10 +82,13 @@ export const SectionHeader = styled.h3`
 `;
 
 export const ProjectsContainer = styled(motion.div)`
-    padding: var(--space-lg);
-    display: grid;
-    gap: 3rem;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    padding: 6rem var(--space-lg);
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    width: 88vw;
+    max-width: 1440px;
+    gap: 6rem;
 
     @media (max-width: 575px) {
         padding-top: var(--space-xxl);

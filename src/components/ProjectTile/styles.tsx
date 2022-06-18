@@ -5,8 +5,10 @@ export const ProjectTileContainer = styled(motion.div)`
     position: relative;
     min-height: 600px;
     max-width: 500px;
+    width: 100%;
     overflow: hidden;
-    box-shadow: var(--shadow-tr-300);
+    box-shadow: var(--shadow-td-300);
+    flex: 0 0 auto;
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
