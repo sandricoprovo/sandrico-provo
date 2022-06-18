@@ -7,19 +7,21 @@ export const HeroSection = styled.section`
     margin-bottom: var(--space-xl);
     display: flex;
     flex-direction: column;
-    gap: var(--space-xxl);
+    gap: var(--space-xl);
 
     @media (max-width: 575px) {
-        gap: var(--space-xl);
+        gap: var(--space-xxxl);
     }
 `;
 
 export const HeroHeader = styled(motion.h1)`
     font-family: var(--font-secondary);
     font-size: var(--font-900);
+    font-weight: 900;
+    margin-block-end: var(--space-sm);
     line-height: 120%;
     letter-spacing: 2px;
-    margin: auto 0;
+    font-style: italic;
 
     @media (max-width: 575px) {
         font-size: var(--font-700);
@@ -39,7 +41,7 @@ export const HeroText = styled(motion.p)`
     font-family: var(--font-primary);
     font-size: var(--font-400);
     line-height: 180%;
-    max-width: 520px;
+    max-width: 550px;
 `;
 
 export const HeroImageContainer = styled(motion.div)`
@@ -126,5 +128,6 @@ export const AboutMeContent = styled(motion.p)`
     max-width: 100ch;
     font-family: var(--font-primary);
     font-size: var(--font-400);
+    font-weight: 400;
     line-height: 180%;
 `;
