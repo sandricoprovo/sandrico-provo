@@ -7,6 +7,7 @@ const PageContainer = styled.main`
     height: 100%;
     grid-row: 2 / 2;
     gap: var(--space-xxxl);
+    gap: 10rem;
     display: flex;
     flex-direction: column;
 

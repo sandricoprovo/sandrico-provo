@@ -7,19 +7,21 @@ export const HeroSection = styled.section`
     margin-bottom: var(--space-xl);
     display: flex;
     flex-direction: column;
-    gap: var(--space-xxl);
+    gap: var(--space-xl);
 
     @media (max-width: 575px) {
-        gap: var(--space-xl);
+        gap: var(--space-xxxl);
     }
 `;
 
 export const HeroHeader = styled(motion.h1)`
     font-family: var(--font-secondary);
     font-size: var(--font-900);
+    font-weight: 900;
+    margin-block-end: var(--space-sm);
     line-height: 120%;
     letter-spacing: 2px;
-    margin: auto 0;
+    font-style: italic;
 
     @media (max-width: 575px) {
         font-size: var(--font-700);
@@ -39,7 +41,7 @@ export const HeroText = styled(motion.p)`
     font-family: var(--font-primary);
     font-size: var(--font-400);
     line-height: 180%;
-    max-width: 520px;
+    max-width: 550px;
 `;
 
 export const HeroImageContainer = styled(motion.div)`
@@ -82,10 +84,13 @@ export const SectionHeader = styled.h3`
 `;
 
 export const ProjectsContainer = styled(motion.div)`
-    padding: var(--space-lg);
-    display: grid;
-    gap: 3rem;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    padding: 6rem var(--space-lg);
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    width: 88vw;
+    max-width: 1440px;
+    gap: 6rem;
 
     @media (max-width: 575px) {
         padding-top: var(--space-xxl);
@@ -123,5 +128,6 @@ export const AboutMeContent = styled(motion.p)`
     max-width: 100ch;
     font-family: var(--font-primary);
     font-size: var(--font-400);
+    font-weight: 400;
     line-height: 180%;
 `;

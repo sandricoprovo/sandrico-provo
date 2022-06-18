@@ -131,14 +131,13 @@ export const Reset = css`
     }
 
     html {
-        min-height: -webkit-fill-available;
+        height: -webkit-fill-available;
         scroll-behavior: smooth;
     }
 
     body {
-        height: 100vh;
-        min-height: -webkit-fill-available;
-        width: 100vw;
+        height: 100%;
+        height: -webkit-fill-available;
         overflow-y: auto;
     }
 `;
