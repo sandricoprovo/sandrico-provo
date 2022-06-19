@@ -178,6 +178,7 @@ export const GlobalStyles = createGlobalStyle`
         --clr-tile-bkg: var(--clr-white-60);
         --clr-pill-bkg: var(--clr-white-60);
         --clr-icon: var(--clr-text);
+        --clr-icon-disabled: var(--clr-black-40);
         --clr-footer: var(--clr-pastelblue-50);
         --clr-cta: var(--clr-yellow-70);
         --clr-cta-hover: var(--clr-yellow-60);

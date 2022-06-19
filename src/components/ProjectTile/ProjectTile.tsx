@@ -1,10 +1,12 @@
-import { useState, useEffect, useRef } from 'react';
-import { Variants } from 'framer-motion';
 import Image from 'next/image';
 
-import { useInView } from '../../hooks/useInView';
 import mockTileImage from '../../../public/images/city.jpeg';
-import { GitHubIcon, ExternalLinkIcon } from '../Icons';
+import {
+    GitHubIcon,
+    ExternalLinkIcon,
+    ArrowRightIcon,
+    ArrowLeftIcon,
+} from '../Icons';
 
 import {
     ProjectContainer,
@@ -15,30 +17,38 @@ import {
     ProjectImage,
     ProjectDescriptionContainer,
     ProjectIcons,
+    ProjectIconsSeparator,
 } from './styles';
 
 interface ProjectTileProps {
     isProjectsInView: boolean;
+    paginationState: {
+        isFirstProject: boolean;
+        isLastProject: boolean;
+    };
+    toggleNextProject: () => void;
+    togglePreviousProject: () => void;
 }
 
-function ProjectTile({ isProjectsInView }: ProjectTileProps) {
-    console.log({ isProjectsInView });
-
+function ProjectTile({
+    isProjectsInView,
+    paginationState,
+    toggleNextProject,
+    togglePreviousProject,
+}: ProjectTileProps) {
     return (
         isProjectsInView && (
             <ProjectContainer>
                 <ProjectInfo
                     initial={{
-                        y: 400,
                         opacity: 0,
                     }}
                     animate={{
-                        y: 0,
                         opacity: 1,
                     }}
                     transition={{
                         duration: 1.2,
-                        delay: 0.8,
+                        delay: 1.5,
                         ease: [0.08, 0.82, 0.17, 1],
                     }}
                 >
@@ -94,28 +104,38 @@ function ProjectTile({ isProjectsInView }: ProjectTileProps) {
                 >
                     <Image
                         src={mockTileImage}
-                        layout="responsive"
+                        layout="fill"
+                        objectFit="cover"
                         placeholder="blur"
                         blurDataURL={`${mockTileImage.blurDataURL}`}
                     />
                 </ProjectImage>
                 <ProjectIcons
                     initial={{
-                        y: -400,
+                        x: 400,
                         opacity: 0,
                     }}
                     animate={{
-                        y: 0,
+                        x: 0,
                         opacity: 1,
                     }}
                     transition={{
-                        duration: 0.4,
+                        duration: 0.55,
                         delay: 1.3,
                         ease: [0.08, 0.82, 0.17, 1],
                     }}
                 >
                     <GitHubIcon href="https://sandricoprovo.dev" />
                     <ExternalLinkIcon href="https://sandricoprovo.dev" />
+                    <ProjectIconsSeparator />
+                    <ArrowLeftIcon
+                        onClick={togglePreviousProject}
+                        disabled={paginationState.isFirstProject}
+                    />
+                    <ArrowRightIcon
+                        onClick={toggleNextProject}
+                        disabled={paginationState.isLastProject}
+                    />
                 </ProjectIcons>
             </ProjectContainer>
         )

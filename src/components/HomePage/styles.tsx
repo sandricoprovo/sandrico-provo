@@ -84,6 +84,7 @@ export const SectionHeader = styled.h3`
 `;
 
 export const ProjectsContainer = styled(motion.div)`
+    position: relative;
     height: 88vh;
     min-height: 600px;
     max-height: 800px;

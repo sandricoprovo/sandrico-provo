@@ -1,5 +1,6 @@
-import { useRef } from 'react';
+import { useRef, useState } from 'react';
 import { GetStaticProps } from 'next';
+import { AnimatePresence } from 'framer-motion';
 
 import { apolloClient } from '../src/graphql/apolloClient';
 import { GET_HEADER } from '../src/graphql/queries/GET_HEADERS';
@@ -82,7 +83,14 @@ const sectionChildVariants = {
     },
 };
 
+const projectsLists = [
+    { index: 0, label: 'TEST-1' },
+    { index: 1, label: 'TEST_2' },
+    { index: 2, label: 'TEST_3' },
+];
+
 function HomePage() {
+    const [featuredProject, setFeaturedProject] = useState(projectsLists[0]);
     const projectsContainerRef = useRef<HTMLDivElement>(null);
     const workContainerRef = useRef<HTMLDivElement>(null);
     const aboutContainerRef = useRef<HTMLParagraphElement>(null);
@@ -104,6 +112,20 @@ function HomePage() {
         rootMargin: '0px',
         freezeOnceVisible: true,
     });
+
+    function handleNextProject() {
+        console.log('Switching to next Project...');
+        const nextProject = projectsLists[featuredProject.index + 1];
+        if (!nextProject) return; // TODO: Disable next btn
+        setFeaturedProject(nextProject);
+    }
+
+    function handlePreviousProject() {
+        console.log('Switching to Previous Project...');
+        const previousProject = projectsLists[featuredProject.index - 1];
+        if (!previousProject) return; // TODO: Disable prev btn
+        setFeaturedProject(previousProject);
+    }
 
     return (
         <Page>
@@ -156,13 +178,22 @@ function HomePage() {
             <ContentSection>
                 <SectionHeader>Projects</SectionHeader>
                 <ProjectsContainer ref={projectsContainerRef}>
-                    {isProjectsInView &&
-                        [1].map((tile, index) => (
+                    <AnimatePresence>
+                        {isProjectsInView && (
                             <ProjectTile
-                                key={`projecttile_${index}`}
+                                key={featuredProject.label}
                                 isProjectsInView={isProjectsInView}
+                                paginationState={{
+                                    isFirstProject: featuredProject.index === 0,
+                                    isLastProject:
+                                        featuredProject.index ===
+                                        projectsLists.length - 1,
+                                }}
+                                toggleNextProject={handleNextProject}
+                                togglePreviousProject={handlePreviousProject}
                             />
-                        ))}
+                        )}
+                    </AnimatePresence>
                 </ProjectsContainer>
             </ContentSection>
             {/* Experience */}

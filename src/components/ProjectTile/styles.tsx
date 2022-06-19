@@ -94,12 +94,6 @@ export const ProjectImage = styled(motion.div)`
     z-index: 1;
     transition: transform 400ms var(--scaleIn-bezier);
 
-    @media screen and (hover: hover) {
-        &:hover {
-            transform: scale(1.1);
-        }
-    }
-
     @media screen and (max-width: 975px) {
         left: 0%;
         width: 100%;
@@ -112,11 +106,17 @@ export const ProjectIcons = styled(motion.div)`
     border-radius: 10px;
     padding: 0.55rem 1rem;
     position: absolute;
-    top: -18px;
+    top: -32px;
     right: -1.5vw;
     z-index: 100;
     display: flex;
     justify-content: space-between;
     align-items: center;
     gap: 1rem;
+`;
+
+export const ProjectIconsSeparator = styled.div`
+    width: 2px;
+    height: 16px;
+    background-color: var(--clr-icon);
 `;
