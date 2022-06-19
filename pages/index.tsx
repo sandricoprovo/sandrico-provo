@@ -178,7 +178,7 @@ function HomePage() {
             <ContentSection>
                 <SectionHeader>Projects</SectionHeader>
                 <ProjectsContainer ref={projectsContainerRef}>
-                    <AnimatePresence>
+                    <AnimatePresence exitBeforeEnter>
                         {isProjectsInView && (
                             <ProjectTile
                                 key={featuredProject.label}

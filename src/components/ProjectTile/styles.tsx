@@ -54,6 +54,7 @@ export const ProjectStackItem = styled.p`
     font-family: var(--font-primary);
     font-size: var(--font-400);
     z-index: 100;
+    overflow: hidden;
 `;
 
 export const ProjectDescriptionContainer = styled(motion.div)`
@@ -106,8 +107,8 @@ export const ProjectIcons = styled(motion.div)`
     border-radius: 10px;
     padding: 0.55rem 1rem;
     position: absolute;
-    top: -32px;
-    right: -1.5vw;
+    top: -40px;
+    right: -16px;
     z-index: 100;
     display: flex;
     justify-content: space-between;

@@ -6,6 +6,8 @@ import {
     ExternalLinkIcon,
     ArrowRightIcon,
     ArrowLeftIcon,
+    ChevronRightIcon,
+    ChevronLeftIcon,
 } from '../Icons';
 
 import {
@@ -30,6 +32,8 @@ interface ProjectTileProps {
     togglePreviousProject: () => void;
 }
 
+const AP_DELAY = 0.5;
+
 function ProjectTile({
     isProjectsInView,
     paginationState,
@@ -47,9 +51,12 @@ function ProjectTile({
                         opacity: 1,
                     }}
                     transition={{
-                        duration: 1.2,
-                        delay: 1.5,
+                        duration: 0.3,
+                        delay: 1.5 - AP_DELAY,
                         ease: [0.08, 0.82, 0.17, 1],
+                    }}
+                    exit={{
+                        opacity: 0,
                     }}
                 >
                     <ProjectTitle>ESlint + Prettier Config</ProjectTitle>
@@ -73,9 +80,13 @@ function ProjectTile({
                         opacity: 1,
                     }}
                     transition={{
-                        duration: 1.2,
-                        delay: 1,
+                        duration: 0.8,
+                        delay: 1 - AP_DELAY,
                         ease: [0.08, 0.82, 0.17, 1],
+                    }}
+                    exit={{
+                        x: -400,
+                        opacity: 0,
                     }}
                 >
                     <p>
@@ -98,8 +109,11 @@ function ProjectTile({
                     }}
                     transition={{
                         duration: 0.6,
-                        delay: 0.15,
+                        delay: 0.05,
                         ease: [0.08, 0.82, 0.17, 1],
+                    }}
+                    exit={{
+                        opacity: 0,
                     }}
                 >
                     <Image
@@ -120,20 +134,30 @@ function ProjectTile({
                         opacity: 1,
                     }}
                     transition={{
-                        duration: 0.55,
-                        delay: 1.3,
+                        duration: 0.475,
+                        delay: 1.3 - AP_DELAY,
                         ease: [0.08, 0.82, 0.17, 1],
+                    }}
+                    exit={{
+                        x: 400,
+                        opacity: 0,
                     }}
                 >
                     <GitHubIcon href="https://sandricoprovo.dev" />
                     <ExternalLinkIcon href="https://sandricoprovo.dev" />
                     <ProjectIconsSeparator />
+                    <ChevronLeftIcon
+                        disabled={paginationState.isFirstProject}
+                    />
                     <ArrowLeftIcon
                         onClick={togglePreviousProject}
                         disabled={paginationState.isFirstProject}
                     />
                     <ArrowRightIcon
                         onClick={toggleNextProject}
+                        disabled={paginationState.isLastProject}
+                    />
+                    <ChevronRightIcon
                         disabled={paginationState.isLastProject}
                     />
                 </ProjectIcons>
