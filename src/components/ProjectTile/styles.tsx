@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 export const ProjectContainer = styled(motion.section)`
     position: relative;
     box-shadow: var(--shadow-tr-300);
-    min-height: 500px;
+    min-height: 600px;
     height: 100%;
     display: flex;
     justify-content: flex-start;
@@ -22,7 +22,7 @@ export const ProjectInfo = styled(motion.div)`
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    gap: 1rem;
+    gap: 2rem;
 
     font-family: var(--font-secondary);
     font-size: var(--font-700);
@@ -52,7 +52,7 @@ export const ProjectStack = styled.div`
     display: flex;
     justify-content: flex-start;
     flex-wrap: wrap;
-    align-items: center;
+    align-items: flex-start;
     z-index: 100;
     gap: 1rem;
 `;
@@ -61,7 +61,8 @@ export const ProjectStackItem = styled.p`
     font-family: var(--font-primary);
     font-size: var(--font-400);
     z-index: 100;
-    overflow: hidden;
+    padding: 0;
+    line-height: 40%;
 `;
 
 export const ProjectDescriptionContainer = styled(motion.div)`

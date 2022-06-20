@@ -7,6 +7,7 @@ import { GitHubIcon, ExternalLinkIcon } from '../Icons';
 import {
     ProjectContainer,
     ProjectInfo,
+    ProjectTitle,
     ProjectStack,
     ProjectStackItem,
     ProjectImage,
@@ -40,19 +41,21 @@ function ProjectTile({ isProjectsInView }: ProjectTileProps) {
                         opacity: 0,
                     }}
                 >
-                    <WaveFadeInText
-                        text="ESlint + Prettier Config"
-                        replay
-                        delay={1}
-                    />
+                    <ProjectTitle>ESlint + Prettier Config</ProjectTitle>
                     <ProjectStack>
-                        {['React', 'NextJS', 'TypeScript', 'KeystoneJS'].map(
-                            (stackTech) => (
-                                <ProjectStackItem key={stackTech}>
-                                    {stackTech}
-                                </ProjectStackItem>
-                            )
-                        )}
+                        {[
+                            'React',
+                            'NextJS',
+                            'TypeScript',
+                            'KeystoneJS',
+                            'Git',
+                            'Git',
+                            'Git',
+                        ].map((stackTech) => (
+                            <ProjectStackItem key={stackTech}>
+                                {stackTech}
+                            </ProjectStackItem>
+                        ))}
                     </ProjectStack>
                 </ProjectInfo>
                 <ProjectDescriptionContainer
