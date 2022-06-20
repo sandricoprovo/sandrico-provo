@@ -1,14 +1,7 @@
 import Image from 'next/image';
 
 import mockTileImage from '../../../public/images/city.jpeg';
-import {
-    GitHubIcon,
-    ExternalLinkIcon,
-    ArrowRightIcon,
-    ArrowLeftIcon,
-    ChevronRightIcon,
-    ChevronLeftIcon,
-} from '../Icons';
+import { GitHubIcon, ExternalLinkIcon } from '../Icons';
 
 import {
     ProjectContainer,
@@ -19,27 +12,15 @@ import {
     ProjectImage,
     ProjectDescriptionContainer,
     ProjectIcons,
-    ProjectIconsSeparator,
 } from './styles';
 
 interface ProjectTileProps {
     isProjectsInView: boolean;
-    paginationState: {
-        isFirstProject: boolean;
-        isLastProject: boolean;
-    };
-    toggleNextProject: () => void;
-    togglePreviousProject: () => void;
 }
 
 const AP_DELAY = 0.5;
 
-function ProjectTile({
-    isProjectsInView,
-    paginationState,
-    toggleNextProject,
-    togglePreviousProject,
-}: ProjectTileProps) {
+function ProjectTile({ isProjectsInView }: ProjectTileProps) {
     return (
         isProjectsInView && (
             <ProjectContainer>
@@ -126,40 +107,25 @@ function ProjectTile({
                 </ProjectImage>
                 <ProjectIcons
                     initial={{
-                        x: 400,
+                        scale: 0,
                         opacity: 0,
                     }}
                     animate={{
-                        x: 0,
+                        scale: 1,
                         opacity: 1,
                     }}
                     transition={{
-                        duration: 0.475,
+                        duration: 0.35,
                         delay: 1.3 - AP_DELAY,
                         ease: [0.08, 0.82, 0.17, 1],
                     }}
                     exit={{
-                        x: 400,
+                        scale: 0,
                         opacity: 0,
                     }}
                 >
                     <GitHubIcon href="https://sandricoprovo.dev" />
                     <ExternalLinkIcon href="https://sandricoprovo.dev" />
-                    <ProjectIconsSeparator />
-                    <ChevronLeftIcon
-                        disabled={paginationState.isFirstProject}
-                    />
-                    <ArrowLeftIcon
-                        onClick={togglePreviousProject}
-                        disabled={paginationState.isFirstProject}
-                    />
-                    <ArrowRightIcon
-                        onClick={toggleNextProject}
-                        disabled={paginationState.isLastProject}
-                    />
-                    <ChevronRightIcon
-                        disabled={paginationState.isLastProject}
-                    />
                 </ProjectIcons>
             </ProjectContainer>
         )

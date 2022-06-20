@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 export const ProjectContainer = styled(motion.section)`
     position: relative;
     box-shadow: var(--shadow-tr-300);
+    min-height: 500px;
     height: 100%;
     display: flex;
     justify-content: flex-start;
@@ -107,8 +108,8 @@ export const ProjectIcons = styled(motion.div)`
     border-radius: 10px;
     padding: 0.55rem 1rem;
     position: absolute;
-    top: -40px;
-    right: -16px;
+    top: -24px;
+    right: 0px;
     z-index: 100;
     display: flex;
     justify-content: space-between;

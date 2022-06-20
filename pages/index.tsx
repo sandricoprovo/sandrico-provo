@@ -2,6 +2,16 @@ import { useRef, useState } from 'react';
 import { GetStaticProps } from 'next';
 import { AnimatePresence } from 'framer-motion';
 
+import {
+    GitHubIcon,
+    FileIcon,
+    LinkedInIcon,
+    TwitterIcon,
+    ChevronLeftIcon,
+    ChevronRightIcon,
+    ArrowLeftIcon,
+    ArrowRightIcon,
+} from '../src/components/Icons';
 import { apolloClient } from '../src/graphql/apolloClient';
 import { GET_HEADER } from '../src/graphql/queries/GET_HEADERS';
 import { Payload, Header } from '../src/types';
@@ -16,19 +26,14 @@ import {
     ContentSection,
     SectionHeader,
     ProjectsContainer,
+    ProjectPagination,
     WorkContainer,
-    WorkSectionHeader,
+    SectionHeaderContainer,
     WorkIconsContainer,
     AboutMeContent,
 } from '../src/components/HomePage/styles';
 import ProjectTile from '../src/components/ProjectTile/ProjectTile';
 import WorkTile from '../src/components/WorkTIle/WorkTile';
-import {
-    FileIcon,
-    GitHubIcon,
-    LinkedInIcon,
-    TwitterIcon,
-} from '../src/components/Icons';
 import { useInView } from '../src/hooks/useInView';
 
 export const getStaticProps: GetStaticProps = async () => {
@@ -83,6 +88,8 @@ const sectionChildVariants = {
     },
 };
 
+const AP_DELAY = 0.5;
+
 const projectsLists = [
     { index: 0, label: 'TEST-1' },
     { index: 1, label: 'TEST_2' },
@@ -113,17 +120,23 @@ function HomePage() {
         freezeOnceVisible: true,
     });
 
+    function handleGotoProject(index: number) {
+        const selectedProject = projectsLists[index];
+        if (!selectedProject) return;
+        setFeaturedProject(selectedProject);
+    }
+
     function handleNextProject() {
         console.log('Switching to next Project...');
         const nextProject = projectsLists[featuredProject.index + 1];
-        if (!nextProject) return; // TODO: Disable next btn
+        if (!nextProject) return;
         setFeaturedProject(nextProject);
     }
 
     function handlePreviousProject() {
         console.log('Switching to Previous Project...');
         const previousProject = projectsLists[featuredProject.index - 1];
-        if (!previousProject) return; // TODO: Disable prev btn
+        if (!previousProject) return;
         setFeaturedProject(previousProject);
     }
 
@@ -176,21 +189,59 @@ function HomePage() {
             </HeroSection>
             {/* Projects */}
             <ContentSection>
-                <SectionHeader>Projects</SectionHeader>
+                <SectionHeaderContainer>
+                    <SectionHeader>Projects</SectionHeader>
+                    <ProjectPagination
+                        initial={{
+                            x: 400,
+                            opacity: 0,
+                        }}
+                        animate={{
+                            x: 0,
+                            opacity: 1,
+                        }}
+                        transition={{
+                            duration: 0.475,
+                            delay: 1.3 - AP_DELAY,
+                            ease: [0.08, 0.82, 0.17, 1],
+                        }}
+                        exit={{
+                            x: 400,
+                            opacity: 0,
+                        }}
+                    >
+                        <ChevronLeftIcon
+                            disabled={featuredProject.index === 0}
+                            onClick={() => handleGotoProject(0)}
+                        />
+                        <ArrowLeftIcon
+                            onClick={handlePreviousProject}
+                            disabled={featuredProject.index === 0}
+                        />
+                        <ArrowRightIcon
+                            onClick={handleNextProject}
+                            disabled={
+                                featuredProject.index ===
+                                projectsLists.length - 1
+                            }
+                        />
+                        <ChevronRightIcon
+                            disabled={
+                                featuredProject.index ===
+                                projectsLists.length - 1
+                            }
+                            onClick={() =>
+                                handleGotoProject(projectsLists.length - 1)
+                            }
+                        />
+                    </ProjectPagination>
+                </SectionHeaderContainer>
                 <ProjectsContainer ref={projectsContainerRef}>
                     <AnimatePresence exitBeforeEnter>
                         {isProjectsInView && (
                             <ProjectTile
                                 key={featuredProject.label}
                                 isProjectsInView={isProjectsInView}
-                                paginationState={{
-                                    isFirstProject: featuredProject.index === 0,
-                                    isLastProject:
-                                        featuredProject.index ===
-                                        projectsLists.length - 1,
-                                }}
-                                toggleNextProject={handleNextProject}
-                                togglePreviousProject={handlePreviousProject}
                             />
                         )}
                     </AnimatePresence>
@@ -198,7 +249,7 @@ function HomePage() {
             </ContentSection>
             {/* Experience */}
             <ContentSection>
-                <WorkSectionHeader>
+                <SectionHeaderContainer>
                     <SectionHeader ref={workContainerRef}>
                         Experience
                     </SectionHeader>
@@ -208,7 +259,7 @@ function HomePage() {
                         <TwitterIcon href="https://sandricoprovo.dev" />
                         <FileIcon href="https://sandricoprovo.dev" />
                     </WorkIconsContainer>
-                </WorkSectionHeader>
+                </SectionHeaderContainer>
                 {isWorkXpInView && (
                     <WorkContainer
                         variants={sectionContainerVariants}
