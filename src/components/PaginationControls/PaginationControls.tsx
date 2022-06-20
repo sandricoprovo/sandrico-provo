@@ -5,7 +5,7 @@ import {
     ArrowRightIcon,
 } from '../Icons';
 
-import { ProjectPagination } from './styles';
+import { PaginationContainer, PaginationPosition } from './styles';
 
 const paginationVariants = {
     initial: {
@@ -31,6 +31,8 @@ interface PaginationControlProps {
     state: {
         isStartInList: boolean;
         isLastInList: boolean;
+        currentPosition: number;
+        total: number;
     };
     handlers: {
         moveToNext: () => void;
@@ -41,11 +43,11 @@ interface PaginationControlProps {
 }
 
 function PaginationControls({
-    state: { isLastInList, isStartInList },
+    state: { isLastInList, isStartInList, currentPosition, total },
     handlers: { moveToEnd, moveToNext, moveToPrevious, moveToStart },
 }: PaginationControlProps) {
     return (
-        <ProjectPagination
+        <PaginationContainer
             variants={paginationVariants}
             initial="initial"
             animate="animate"
@@ -53,9 +55,10 @@ function PaginationControls({
         >
             <ChevronLeftIcon disabled={isStartInList} onClick={moveToStart} />
             <ArrowLeftIcon disabled={isStartInList} onClick={moveToPrevious} />
+            <PaginationPosition>{`${currentPosition} / ${total}`}</PaginationPosition>
             <ArrowRightIcon disabled={isLastInList} onClick={moveToNext} />
             <ChevronRightIcon disabled={isLastInList} onClick={moveToEnd} />
-        </ProjectPagination>
+        </PaginationContainer>
     );
 }
 

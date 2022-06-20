@@ -191,6 +191,8 @@ function HomePage() {
                             isLastInList:
                                 featuredProject.index ===
                                 projectsLists.length - 1,
+                            currentPosition: featuredProject.index + 1,
+                            total: projectsLists.length,
                         }}
                         handlers={{
                             moveToNext,
