@@ -7,7 +7,7 @@ export const HeroSection = styled.section`
     margin-bottom: var(--space-xl);
     display: flex;
     flex-direction: column;
-    gap: var(--space-xl);
+    gap: var(--space-lg);
 
     @media (max-width: 575px) {
         gap: var(--space-xxxl);
@@ -34,7 +34,6 @@ export const HeroContent = styled.div`
     flex-direction: column;
     justify-content: flex-end;
     align-items: flex-end;
-    gap: 1rem;
 `;
 
 export const HeroText = styled(motion.p)`

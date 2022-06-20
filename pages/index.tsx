@@ -12,6 +12,7 @@ import { apolloClient } from '../src/graphql/apolloClient';
 import { GET_HEADER } from '../src/graphql/queries/GET_HEADERS';
 import { Payload, Header } from '../src/types';
 import Page from '../src/components/Page';
+import WaveFadeInText from '../src/components/WaveFadeInText';
 import {
     HeroSection,
     HeroHeader,
@@ -85,6 +86,8 @@ const sectionChildVariants = {
     },
 };
 
+const DELAY_HERO = 1.2;
+
 const projectsLists = [
     { index: 0, label: 'TEST-1' },
     { index: 1, label: 'TEST_2' },
@@ -151,7 +154,7 @@ function HomePage() {
                         animate="animate"
                         transition={{
                             duration: 0.8,
-                            delay: 0.7,
+                            delay: 0.7 + DELAY_HERO,
                             ease: [0.08, 0.82, 0.17, 1],
                         }}
                     >
@@ -162,7 +165,7 @@ function HomePage() {
                         animate={{ opacity: 1, x: 0 }}
                         transition={{
                             duration: 1,
-                            delay: 1.2,
+                            delay: 1.2 + DELAY_HERO,
                             ease: [0.08, 0.82, 0.17, 1],
                         }}
                     >
@@ -178,13 +181,19 @@ function HomePage() {
                         animate={{ opacity: 1, x: 0 }}
                         transition={{
                             duration: 1,
-                            delay: 1.2,
+                            delay: 1.2 + DELAY_HERO,
                             ease: [0.08, 0.82, 0.17, 1],
                         }}
                     >
                         IMAGE
                     </HeroImageContainer>
-                    <HeroSubHeader>SANDRICO PROVO</HeroSubHeader>
+                    <HeroSubHeader>
+                        <WaveFadeInText
+                            text="SANDRICO PROVO"
+                            replay
+                            duration={0.1}
+                        />
+                    </HeroSubHeader>
                 </HeroContent>
             </HeroSection>
             {/* Projects */}

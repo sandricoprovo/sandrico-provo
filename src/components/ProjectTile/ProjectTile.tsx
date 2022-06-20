@@ -1,6 +1,5 @@
 import Image from 'next/image';
 
-import WaveFadeInText from '../WaveFadeInText';
 import mockTileImage from '../../../public/images/city.jpeg';
 import { GitHubIcon, ExternalLinkIcon } from '../Icons';
 
