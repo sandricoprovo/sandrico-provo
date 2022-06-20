@@ -1,12 +1,12 @@
 import Image from 'next/image';
 
+import WaveFadeInText from '../WaveFadeInText';
 import mockTileImage from '../../../public/images/city.jpeg';
 import { GitHubIcon, ExternalLinkIcon } from '../Icons';
 
 import {
     ProjectContainer,
     ProjectInfo,
-    ProjectTitle,
     ProjectStack,
     ProjectStackItem,
     ProjectImage,
@@ -40,7 +40,11 @@ function ProjectTile({ isProjectsInView }: ProjectTileProps) {
                         opacity: 0,
                     }}
                 >
-                    <ProjectTitle>ESlint + Prettier Config</ProjectTitle>
+                    <WaveFadeInText
+                        text="ESlint + Prettier Config"
+                        replay
+                        delay={1}
+                    />
                     <ProjectStack>
                         {['React', 'NextJS', 'TypeScript', 'KeystoneJS'].map(
                             (stackTech) => (

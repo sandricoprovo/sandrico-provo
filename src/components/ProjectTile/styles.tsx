@@ -13,7 +13,7 @@ export const ProjectContainer = styled(motion.section)`
 
 export const ProjectInfo = styled(motion.div)`
     padding: var(--space-md);
-    padding: var(--space-base) var(--space-lg);
+    padding: var(--space-base) var(--space-md) 0 var(--space-lg);
     color: var(--clr-text);
     width: 40%;
     height: 100%;
@@ -23,6 +23,13 @@ export const ProjectInfo = styled(motion.div)`
     flex-direction: column;
     justify-content: flex-start;
     gap: 1rem;
+
+    font-family: var(--font-secondary);
+    font-size: var(--font-700);
+    position: relative;
+    font-style: italic;
+    font-weight: 900;
+    line-height: 120%;
 
     @media screen and (max-width: 975px) {
         --clr-text: white;
