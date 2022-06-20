@@ -7,7 +7,7 @@ export const HeroSection = styled.section`
     margin-bottom: var(--space-xl);
     display: flex;
     flex-direction: column;
-    gap: var(--space-xl);
+    gap: var(--space-lg);
 
     @media (max-width: 575px) {
         gap: var(--space-xxxl);
@@ -34,7 +34,6 @@ export const HeroContent = styled.div`
     flex-direction: column;
     justify-content: flex-end;
     align-items: flex-end;
-    gap: 1rem;
 `;
 
 export const HeroText = styled(motion.p)`
@@ -84,17 +83,7 @@ export const SectionHeader = styled.h3`
 `;
 
 export const ProjectsContainer = styled(motion.div)`
-    padding: 6rem var(--space-lg);
-    display: flex;
-    flex-wrap: nowrap;
-    overflow-x: auto;
-    width: 88vw;
-    max-width: 1440px;
-    gap: 6rem;
-
-    @media (max-width: 575px) {
-        padding-top: var(--space-xxl);
-    }
+    padding-top: 4rem;
 `;
 
 export const WorkContainer = styled(motion.div)`
@@ -107,7 +96,7 @@ export const WorkContainer = styled(motion.div)`
     gap: var(--space-lg);
 `;
 
-export const WorkSectionHeader = styled.div`
+export const SectionHeaderContainer = styled.div`
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;

@@ -56,6 +56,7 @@ export const GlobalStyles = createGlobalStyle`
     	--clr-black-90: hsla(0,0%,6%,1);
     	--clr-black-100: hsla(0,0%,3%,1);
     	--clr-black-110: hsla(0,0%,2%,1);
+    	--clr-black-110-a70: hsla(0, 0%, 00%, 0.7);
 
         // Type Scale
         --fallback-fonts: --apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
@@ -177,6 +178,7 @@ export const GlobalStyles = createGlobalStyle`
         --clr-tile-bkg: var(--clr-white-60);
         --clr-pill-bkg: var(--clr-white-60);
         --clr-icon: var(--clr-text);
+        --clr-icon-disabled: var( --clr-white-100);
         --clr-footer: var(--clr-pastelblue-50);
         --clr-cta: var(--clr-yellow-70);
         --clr-cta-hover: var(--clr-yellow-60);

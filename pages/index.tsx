@@ -1,10 +1,18 @@
-import { useRef } from 'react';
+import { useRef, useState } from 'react';
 import { GetStaticProps } from 'next';
+import { AnimatePresence } from 'framer-motion';
 
+import {
+    GitHubIcon,
+    FileIcon,
+    LinkedInIcon,
+    TwitterIcon,
+} from '../src/components/Icons';
 import { apolloClient } from '../src/graphql/apolloClient';
 import { GET_HEADER } from '../src/graphql/queries/GET_HEADERS';
 import { Payload, Header } from '../src/types';
 import Page from '../src/components/Page';
+import WaveFadeInText from '../src/components/WaveFadeInText';
 import {
     HeroSection,
     HeroHeader,
@@ -16,19 +24,15 @@ import {
     SectionHeader,
     ProjectsContainer,
     WorkContainer,
-    WorkSectionHeader,
+    SectionHeaderContainer,
     WorkIconsContainer,
     AboutMeContent,
 } from '../src/components/HomePage/styles';
 import ProjectTile from '../src/components/ProjectTile/ProjectTile';
 import WorkTile from '../src/components/WorkTIle/WorkTile';
-import {
-    FileIcon,
-    GitHubIcon,
-    LinkedInIcon,
-    TwitterIcon,
-} from '../src/components/Icons';
+import PaginationControls from '../src/components/PaginationControls/PaginationControls';
 import { useInView } from '../src/hooks/useInView';
+import { useDebounce } from '../src/hooks/useDebounce';
 
 export const getStaticProps: GetStaticProps = async () => {
     const { data }: Payload<'headers', Header[]> = await apolloClient.query({
@@ -82,13 +86,27 @@ const sectionChildVariants = {
     },
 };
 
+const DELAY_HERO = 1.2;
+
+const projectsLists = [
+    { index: 0, label: 'TEST-1' },
+    { index: 1, label: 'TEST_2' },
+    { index: 2, label: 'TEST_3' },
+];
+
 function HomePage() {
+    const [featuredProject, setFeaturedProject] = useState(projectsLists[0]);
+    const debouncedFeaturedProject = useDebounce<{
+        index: number;
+        label: string;
+    }>(featuredProject, 500);
+
     const projectsContainerRef = useRef<HTMLDivElement>(null);
     const workContainerRef = useRef<HTMLDivElement>(null);
     const aboutContainerRef = useRef<HTMLParagraphElement>(null);
     const { isInView: isProjectsInView } = useInView<HTMLDivElement>({
         ref: projectsContainerRef,
-        threshold: 100,
+        threshold: 60,
         rootMargin: '0px',
         freezeOnceVisible: true,
     });
@@ -105,6 +123,26 @@ function HomePage() {
         freezeOnceVisible: true,
     });
 
+    function moveToPosition(index: number) {
+        const selectedProject = projectsLists[index];
+        if (!selectedProject) return;
+        setFeaturedProject(selectedProject);
+    }
+
+    function moveToNext() {
+        console.log('Switching to next Project...');
+        const nextProject = projectsLists[featuredProject.index + 1];
+        if (!nextProject) return;
+        setFeaturedProject(nextProject);
+    }
+
+    function moveToPrevious() {
+        console.log('Switching to Previous Project...');
+        const previousProject = projectsLists[featuredProject.index - 1];
+        if (!previousProject) return;
+        setFeaturedProject(previousProject);
+    }
+
     return (
         <Page>
             {/* Hero */}
@@ -116,7 +154,7 @@ function HomePage() {
                         animate="animate"
                         transition={{
                             duration: 0.8,
-                            delay: 0.7,
+                            delay: 0.7 + DELAY_HERO,
                             ease: [0.08, 0.82, 0.17, 1],
                         }}
                     >
@@ -127,7 +165,7 @@ function HomePage() {
                         animate={{ opacity: 1, x: 0 }}
                         transition={{
                             duration: 1,
-                            delay: 1.2,
+                            delay: 1.2 + DELAY_HERO,
                             ease: [0.08, 0.82, 0.17, 1],
                         }}
                     >
@@ -143,38 +181,57 @@ function HomePage() {
                         animate={{ opacity: 1, x: 0 }}
                         transition={{
                             duration: 1,
-                            delay: 1.2,
+                            delay: 1.2 + DELAY_HERO,
                             ease: [0.08, 0.82, 0.17, 1],
                         }}
                     >
                         IMAGE
                     </HeroImageContainer>
-                    <HeroSubHeader>SANDRICO PROVO</HeroSubHeader>
+                    <HeroSubHeader>
+                        <WaveFadeInText
+                            text="SANDRICO PROVO"
+                            replay
+                            duration={0.1}
+                        />
+                    </HeroSubHeader>
                 </HeroContent>
             </HeroSection>
             {/* Projects */}
             <ContentSection>
-                <SectionHeader ref={projectsContainerRef}>
-                    Projects
-                </SectionHeader>
-                {isProjectsInView && (
-                    <ProjectsContainer
-                        variants={sectionContainerVariants}
-                        initial="initial"
-                        animate={isProjectsInView ? 'animate' : 'initial'}
-                    >
-                        {[1, 2, 3].map((tile, index) => (
+                <SectionHeaderContainer>
+                    <SectionHeader>Projects</SectionHeader>
+                    <PaginationControls
+                        state={{
+                            isStartInList: debouncedFeaturedProject.index === 0,
+                            isLastInList:
+                                debouncedFeaturedProject.index ===
+                                projectsLists.length - 1,
+                            currentPosition: debouncedFeaturedProject.index + 1,
+                            total: projectsLists.length,
+                        }}
+                        handlers={{
+                            moveToNext,
+                            moveToPrevious,
+                            moveToStart: () => moveToPosition(0),
+                            moveToEnd: () =>
+                                moveToPosition(projectsLists.length - 1),
+                        }}
+                    />
+                </SectionHeaderContainer>
+                <ProjectsContainer ref={projectsContainerRef}>
+                    <AnimatePresence exitBeforeEnter>
+                        {isProjectsInView && (
                             <ProjectTile
-                                key={`projecttile_${index}`}
-                                variants={sectionChildVariants}
+                                key={debouncedFeaturedProject.label}
+                                isProjectsInView={isProjectsInView}
                             />
-                        ))}
-                    </ProjectsContainer>
-                )}
+                        )}
+                    </AnimatePresence>
+                </ProjectsContainer>
             </ContentSection>
             {/* Experience */}
             <ContentSection>
-                <WorkSectionHeader>
+                <SectionHeaderContainer>
                     <SectionHeader ref={workContainerRef}>
                         Experience
                     </SectionHeader>
@@ -184,7 +241,7 @@ function HomePage() {
                         <TwitterIcon href="https://sandricoprovo.dev" />
                         <FileIcon href="https://sandricoprovo.dev" />
                     </WorkIconsContainer>
-                </WorkSectionHeader>
+                </SectionHeaderContainer>
                 {isWorkXpInView && (
                     <WorkContainer
                         variants={sectionContainerVariants}
