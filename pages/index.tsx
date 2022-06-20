@@ -31,6 +31,7 @@ import ProjectTile from '../src/components/ProjectTile/ProjectTile';
 import WorkTile from '../src/components/WorkTIle/WorkTile';
 import PaginationControls from '../src/components/PaginationControls/PaginationControls';
 import { useInView } from '../src/hooks/useInView';
+import { useDebounce } from '../src/hooks/useDebounce';
 
 export const getStaticProps: GetStaticProps = async () => {
     const { data }: Payload<'headers', Header[]> = await apolloClient.query({
@@ -92,6 +93,11 @@ const projectsLists = [
 
 function HomePage() {
     const [featuredProject, setFeaturedProject] = useState(projectsLists[0]);
+    const debouncedFeaturedProject = useDebounce<{
+        index: number;
+        label: string;
+    }>(featuredProject, 500);
+
     const projectsContainerRef = useRef<HTMLDivElement>(null);
     const workContainerRef = useRef<HTMLDivElement>(null);
     const aboutContainerRef = useRef<HTMLParagraphElement>(null);
@@ -187,11 +193,11 @@ function HomePage() {
                     <SectionHeader>Projects</SectionHeader>
                     <PaginationControls
                         state={{
-                            isStartInList: featuredProject.index === 0,
+                            isStartInList: debouncedFeaturedProject.index === 0,
                             isLastInList:
-                                featuredProject.index ===
+                                debouncedFeaturedProject.index ===
                                 projectsLists.length - 1,
-                            currentPosition: featuredProject.index + 1,
+                            currentPosition: debouncedFeaturedProject.index + 1,
                             total: projectsLists.length,
                         }}
                         handlers={{
@@ -207,7 +213,7 @@ function HomePage() {
                     <AnimatePresence exitBeforeEnter>
                         {isProjectsInView && (
                             <ProjectTile
-                                key={featuredProject.label}
+                                key={debouncedFeaturedProject.label}
                                 isProjectsInView={isProjectsInView}
                             />
                         )}
