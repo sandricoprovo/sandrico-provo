@@ -84,8 +84,6 @@ const sectionChildVariants = {
     },
 };
 
-const AP_DELAY = 0.5;
-
 const projectsLists = [
     { index: 0, label: 'TEST-1' },
     { index: 1, label: 'TEST_2' },
@@ -116,20 +114,20 @@ function HomePage() {
         freezeOnceVisible: true,
     });
 
-    function handleGotoProject(index: number) {
+    function moveToPosition(index: number) {
         const selectedProject = projectsLists[index];
         if (!selectedProject) return;
         setFeaturedProject(selectedProject);
     }
 
-    function handleNextProject() {
+    function moveToNext() {
         console.log('Switching to next Project...');
         const nextProject = projectsLists[featuredProject.index + 1];
         if (!nextProject) return;
         setFeaturedProject(nextProject);
     }
 
-    function handlePreviousProject() {
+    function moveToPrevious() {
         console.log('Switching to Previous Project...');
         const previousProject = projectsLists[featuredProject.index - 1];
         if (!previousProject) return;
@@ -195,11 +193,11 @@ function HomePage() {
                                 projectsLists.length - 1,
                         }}
                         handlers={{
-                            moveToNext: handleNextProject,
-                            moveToPrevious: handlePreviousProject,
-                            moveToStart: () => handleGotoProject(0),
+                            moveToNext,
+                            moveToPrevious,
+                            moveToStart: () => moveToPosition(0),
                             moveToEnd: () =>
-                                handleGotoProject(projectsLists.length - 1),
+                                moveToPosition(projectsLists.length - 1),
                         }}
                     />
                 </SectionHeaderContainer>
