@@ -8,7 +8,7 @@ export const ProjectContainer = styled(motion.section)`
     height: 100%;
     display: flex;
     justify-content: flex-start;
-    align-items: flex-end;
+    align-items: flex-start;
 `;
 
 export const ProjectInfo = styled(motion.div)`
@@ -19,7 +19,6 @@ export const ProjectInfo = styled(motion.div)`
     height: 100%;
     z-index: 100;
     transition: color 200ms ease-in-out;
-    position: relative;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -27,7 +26,7 @@ export const ProjectInfo = styled(motion.div)`
 
     @media screen and (max-width: 975px) {
         --clr-text: white;
-        background-color: var(--clr-black-110-a40);
+        background-color: var(--clr-black-110-a70);
         width: 100%;
     }
 `;
@@ -60,6 +59,7 @@ export const ProjectStackItem = styled.p`
 
 export const ProjectDescriptionContainer = styled(motion.div)`
     background-color: var(--clr-pastelblue-10);
+    background-color: var(--clr-pastelblue-40);
     position: absolute;
     padding: var(--space-base) var(--space-lg);
     bottom: 0%;
@@ -69,6 +69,7 @@ export const ProjectDescriptionContainer = styled(motion.div)`
     min-height: 150px;
 
     & > p {
+        color: var(--clr-text);
         font-family: var(--font-primary);
         font-size: var(--font-400);
         font-weight: 400;
@@ -104,6 +105,7 @@ export const ProjectImage = styled(motion.div)`
 
 export const ProjectIcons = styled(motion.div)`
     background-color: var(--clr-pastelblue-10);
+    background-color: var(--clr-pastelblue-40);
     box-shadow: var(--shadow-td-300);
     border-radius: 10px;
     padding: 0.55rem 1rem;
