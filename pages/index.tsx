@@ -7,10 +7,6 @@ import {
     FileIcon,
     LinkedInIcon,
     TwitterIcon,
-    ChevronLeftIcon,
-    ChevronRightIcon,
-    ArrowLeftIcon,
-    ArrowRightIcon,
 } from '../src/components/Icons';
 import { apolloClient } from '../src/graphql/apolloClient';
 import { GET_HEADER } from '../src/graphql/queries/GET_HEADERS';
@@ -26,7 +22,6 @@ import {
     ContentSection,
     SectionHeader,
     ProjectsContainer,
-    ProjectPagination,
     WorkContainer,
     SectionHeaderContainer,
     WorkIconsContainer,
@@ -34,6 +29,7 @@ import {
 } from '../src/components/HomePage/styles';
 import ProjectTile from '../src/components/ProjectTile/ProjectTile';
 import WorkTile from '../src/components/WorkTIle/WorkTile';
+import PaginationControls from '../src/components/PaginationControls/PaginationControls';
 import { useInView } from '../src/hooks/useInView';
 
 export const getStaticProps: GetStaticProps = async () => {
@@ -191,50 +187,21 @@ function HomePage() {
             <ContentSection>
                 <SectionHeaderContainer>
                     <SectionHeader>Projects</SectionHeader>
-                    <ProjectPagination
-                        initial={{
-                            x: 400,
-                            opacity: 0,
-                        }}
-                        animate={{
-                            x: 0,
-                            opacity: 1,
-                        }}
-                        transition={{
-                            duration: 0.475,
-                            delay: 1.3 - AP_DELAY,
-                            ease: [0.08, 0.82, 0.17, 1],
-                        }}
-                        exit={{
-                            x: 400,
-                            opacity: 0,
-                        }}
-                    >
-                        <ChevronLeftIcon
-                            disabled={featuredProject.index === 0}
-                            onClick={() => handleGotoProject(0)}
-                        />
-                        <ArrowLeftIcon
-                            onClick={handlePreviousProject}
-                            disabled={featuredProject.index === 0}
-                        />
-                        <ArrowRightIcon
-                            onClick={handleNextProject}
-                            disabled={
+                    <PaginationControls
+                        state={{
+                            isStartInList: featuredProject.index === 0,
+                            isLastInList:
                                 featuredProject.index ===
-                                projectsLists.length - 1
-                            }
-                        />
-                        <ChevronRightIcon
-                            disabled={
-                                featuredProject.index ===
-                                projectsLists.length - 1
-                            }
-                            onClick={() =>
-                                handleGotoProject(projectsLists.length - 1)
-                            }
-                        />
-                    </ProjectPagination>
+                                projectsLists.length - 1,
+                        }}
+                        handlers={{
+                            moveToNext: handleNextProject,
+                            moveToPrevious: handlePreviousProject,
+                            moveToStart: () => handleGotoProject(0),
+                            moveToEnd: () =>
+                                handleGotoProject(projectsLists.length - 1),
+                        }}
+                    />
                 </SectionHeaderContainer>
                 <ProjectsContainer ref={projectsContainerRef}>
                     <AnimatePresence exitBeforeEnter>
