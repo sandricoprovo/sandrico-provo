@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 const PageContainer = styled.main`
-    padding: var(--space-xxl) var(--space-lg);
+    padding: 4rem var(--space-lg);
     background-color: var(--clr-background);
     width: 100%;
     grid-row: 2 / 2;

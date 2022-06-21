@@ -7,11 +7,7 @@ export const HeroSection = styled.section`
     margin-bottom: var(--space-xl);
     display: flex;
     flex-direction: column;
-    gap: var(--space-lg);
-
-    @media (max-width: 575px) {
-        gap: var(--space-xxxl);
-    }
+    gap: 3rem;
 `;
 
 export const HeroHeader = styled(motion.h1)`
@@ -49,8 +45,7 @@ export const HeroImageContainer = styled(motion.div)`
     height: 100%;
     min-width: 300px;
     max-width: 800px;
-    min-height: 175px;
-    max-height: 300px;
+    height: 300px;
 `;
 
 export const HeroSubHeader = styled(motion.h2)`
