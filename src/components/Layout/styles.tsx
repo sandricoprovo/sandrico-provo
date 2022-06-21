@@ -12,9 +12,7 @@ export const LayoutContainer = styled.div`
     align-items: flex-start;
 
     @supports (-webkit-touch-callout: none) {
-        body {
-            /* The hack for Safari */
-            height: -webkit-fill-available;
-        }
+        /* The hack for Safari */
+        height: -webkit-fill-available;
     }
 `;

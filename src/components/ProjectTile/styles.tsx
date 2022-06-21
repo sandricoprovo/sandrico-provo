@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 export const ProjectContainer = styled(motion.section)`
     position: relative;
     box-shadow: var(--shadow-tr-300);
-    min-height: 600px;
+    height: 600px;
     height: 100%;
     display: flex;
     justify-content: flex-start;
@@ -32,7 +32,7 @@ export const ProjectInfo = styled(motion.div)`
     line-height: 120%;
 
     @media screen and (max-width: 975px) {
-        --clr-text: white;
+        --clr-text: var(--clr-white-60);
         background-color: var(--clr-black-110-a70);
         width: 100%;
     }

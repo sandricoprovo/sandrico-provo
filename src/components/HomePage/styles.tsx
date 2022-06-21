@@ -80,6 +80,7 @@ export const SectionHeader = styled.h3`
 
 export const ProjectsContainer = styled(motion.div)`
     padding-top: 4rem;
+    height: 700px;
 `;
 
 export const WorkContainer = styled(motion.div)`
