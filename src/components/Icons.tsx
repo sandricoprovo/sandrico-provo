@@ -11,6 +11,7 @@ import {
     IconArrowNarrowLeft,
     IconChevronRight,
     IconChevronLeft,
+    IconPoint,
 } from '@tabler/icons';
 
 import withIconStyles from './HOCs/withIconStyles';
@@ -23,6 +24,7 @@ export const FileIcon = withIconStyles(withIconMotions(IconFile));
 export const CopyRightIcon = withIconStyles(withIconMotions(IconCopyright));
 export const LineIcon = withIconStyles(withIconMotions(IconLine));
 export const LinkedInIcon = withIconStyles(withIconMotions(IconBrandLinkedin));
+export const PointIcon = withIconStyles(withIconMotions(IconPoint));
 export const ExternalLinkIcon = withIconStyles(
     withIconMotions(IconExternalLink)
 );

@@ -2,71 +2,63 @@ import styled from 'styled-components';
 import { motion } from 'framer-motion';
 
 export const WorkTileContainer = styled(motion.div)`
+    height: 100%;
+    max-width: 350px;
+    box-shadow: var(--shadow-tr-300);
+
     position: relative;
-    margin-bottom: var(--space-lg);
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: flex-start;
-    gap: var(--space-xs);
-
-    &:after {
-        content: '';
-        position: absolute;
-        width: 2px;
-        background-color: black;
-        height: 16%;
-        top: 2%;
-        right: 0;
-        transition: background-color 400ms var(--underline-bezier) 100ms,
-            top 200ms var(--underline-bezier);
-    }
-
-    &:hover:after {
-        background-color: var(--clr-main);
-        top: 50%;
-    }
 `;
 
-export const WorkTitle = styled.h4`
-    font-family: var(--font-primary);
-    font-size: var(--font-400);
-    font-style: italic;
-    color: var(--clr-main);
-`;
-
-export const WorkLocation = styled.p`
-    width: 100%;
-    font-family: var(--font-secondary);
-    font-size: var(--font-600);
-    margin-bottom: var(--space-sm);
-`;
-
-export const WorkDuration = styled.p`
-    font-family: var(--font-primary);
-    font-size: var(--font-300);
-`;
-
-export const WorkTimeLine = styled(motion.div)`
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: var(--space-sm);
-
-    & > div > svg {
-        height: 24px;
-        width: 24px;
-    }
-
-    @media (max-width: 575px) {
-        gap: var(--space-lg);
-    }
-`;
-
-export const TimeLineTile = styled.div`
+export const WorkTileHeader = styled.div`
+    background-color: var(--clr-white-60);
+    padding: 1rem 1rem 1rem 1rem;
     width: 100%;
     display: flex;
     flex-direction: column;
     gap: 1rem;
+`;
+
+export const WorkTitle = styled.h4`
+    font-family: var(--font-secondary);
+    font-size: var(--font-600);
+    font-style: italic;
+    color: var(--clr-text);
+    line-height: 120%;
+`;
+
+export const WorkHeaderDetails = styled.div`
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+`;
+
+export const WorkHeaderDetail = styled.p`
+    font-family: var(--font-primary);
+    font-size: var(--font-400);
+    color: var(--clr-text);
+    line-height: 120%;
+`;
+
+export const WorkDetailsContainer = styled(motion.div)`
+    position: relative;
+    background-color: var(--clr-pastelblue-40);
+    width: 100%;
+    padding: 1rem 1rem 1rem 0.6rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+`;
+
+export const WorkDetail = styled.p`
+    font-family: var(--font-primary);
+    font-size: var(--font-400);
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    line-height: 180%;
+    gap: 0.5rem;
 `;

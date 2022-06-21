@@ -67,6 +67,7 @@ export const HeroSubHeader = styled(motion.h2)`
 
 export const ContentSection = styled.section`
     width: 100%;
+    min-height: 600px;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -87,13 +88,11 @@ export const ProjectsContainer = styled(motion.div)`
 `;
 
 export const WorkContainer = styled(motion.div)`
-    padding: var(--space-lg);
+    padding: var(--space-lg) 0;
     width: 100%;
-    display: grid;
-    justify-content: flex-start;
-    align-items: center;
-    grid-template-columns: repeat(auto-fit, 300px);
-    gap: var(--space-lg);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8rem;
 `;
 
 export const SectionHeaderContainer = styled.div`

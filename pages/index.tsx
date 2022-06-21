@@ -248,7 +248,12 @@ function HomePage() {
                         initial="initial"
                         animate={isWorkXpInView ? 'animate' : 'initial'}
                     >
-                        <WorkTile variants={sectionChildVariants} />
+                        {[1, 2, 3].map((workTile, index) => (
+                            <WorkTile
+                                variants={sectionChildVariants}
+                                widthDelay={(index + 1) * 0.6}
+                            />
+                        ))}
                     </WorkContainer>
                 )}
             </ContentSection>
