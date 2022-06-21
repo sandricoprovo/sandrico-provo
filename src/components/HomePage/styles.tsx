@@ -92,7 +92,7 @@ export const WorkContainer = styled(motion.div)`
     width: 100%;
     display: flex;
     flex-wrap: wrap;
-    gap: 8rem;
+    gap: 4rem;
 `;
 
 export const SectionHeaderContainer = styled.div`
