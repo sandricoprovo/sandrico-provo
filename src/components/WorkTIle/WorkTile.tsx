@@ -1,46 +1,56 @@
 import { Variants } from 'framer-motion';
 
-import { LineIcon } from '../Icons';
+import { PointIcon } from '../Icons';
 
 import {
     WorkTileContainer,
+    WorkTileHeader,
     WorkTitle,
-    WorkLocation,
-    WorkDuration,
-    TimeLineTile,
-    WorkTimeLine,
+    WorkHeaderDetail,
+    WorkHeaderDetails,
+    WorkDetailsContainer,
+    WorkDetail,
 } from './styles';
-
-const lineIconVariant = {
-    initial: {
-        rotate: 247.5,
-    },
-};
 
 interface WorkTileProps {
     variants: Variants;
+    widthDelay: number;
 }
 
-function WorkTile({ variants }: WorkTileProps) {
+function WorkTile({ variants, widthDelay }: WorkTileProps) {
     return (
         <WorkTileContainer variants={variants}>
-            <WorkLocation>REDspace Inc.</WorkLocation>
-            <WorkTimeLine>
-                <TimeLineTile>
-                    <WorkTitle>Software Developer</WorkTitle>
-                    <WorkDuration>April 2022 - Present</WorkDuration>
-                </TimeLineTile>
-                <LineIcon variants={lineIconVariant} initial="initial" />
-                <TimeLineTile>
-                    <WorkTitle>Jr. Software Developer</WorkTitle>
-                    <WorkDuration>May 2021 - April 2022</WorkDuration>
-                </TimeLineTile>
-                <LineIcon variants={lineIconVariant} initial="initial" />
-                <TimeLineTile>
-                    <WorkTitle>Intern Software Developer</WorkTitle>
-                    <WorkDuration>April 2021 - May 2021</WorkDuration>
-                </TimeLineTile>
-            </WorkTimeLine>
+            <WorkTileHeader>
+                <WorkTitle>SOFTWARE DEVELOPER</WorkTitle>
+                <WorkHeaderDetails>
+                    <WorkHeaderDetail>@ REDspace Inc.</WorkHeaderDetail>
+                    <WorkHeaderDetail>April 2021 - April 2022</WorkHeaderDetail>
+                </WorkHeaderDetails>
+            </WorkTileHeader>
+            <WorkDetailsContainer
+                initial={{ y: '100%' }}
+                animate={{
+                    y: '0%',
+                    transition: {
+                        duration: 0.2,
+                        delay: widthDelay,
+                    },
+                }}
+                whileHover={{
+                    y: [0, 10, 0],
+                    transition: {
+                        duration: 0.3,
+                    },
+                }}
+            >
+                {[1, 2, 3].map(() => (
+                    <WorkDetail>
+                        <PointIcon />
+                        TEST 12 12 fjsdiofjdsf dfj fpdsfjodf fhdsiof sdf
+                        dfdkofdsfdsfdsklf fds fhdhfdksf sf dnsklfdhsf sdfsdhf
+                    </WorkDetail>
+                ))}
+            </WorkDetailsContainer>
         </WorkTileContainer>
     );
 }

@@ -4,7 +4,6 @@ const PageContainer = styled.main`
     padding: var(--space-xxl) var(--space-lg);
     background-color: var(--clr-background);
     width: 100%;
-    height: 100%;
     grid-row: 2 / 2;
     gap: var(--space-xxxl);
     gap: 10rem;
