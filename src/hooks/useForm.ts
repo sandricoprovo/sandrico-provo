@@ -2,10 +2,11 @@ import { useState, useEffect, ChangeEvent, FormEvent } from 'react';
 
 export function useForm<T>(initial: T) {
     const [fields, setFields] = useState<T>(initial);
+    const initialValues = Object.values(initial).join('');
 
     useEffect(() => {
         setFields(initial);
-    }, [initial]);
+    }, [initialValues]);
 
     // Handles input changes.
     function handleChange(
