@@ -32,10 +32,14 @@ export function useForm<T>(initial: T) {
     }
 
     // Handles form submission.
-    function submitForm(event: FormEvent<HTMLFormElement>) {
+    function submitForm(
+        event: FormEvent<HTMLFormElement>,
+        submitHandler: (eventObj: FormEvent<HTMLFormElement>) => void
+    ) {
         event.preventDefault();
         // Runs validation
-        // Runs form submit
+        // Submits form if validation is passed
+        submitHandler(event);
     }
 
     return {

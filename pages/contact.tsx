@@ -1,3 +1,5 @@
+import { FormEvent } from 'react';
+
 import Page from '../src/components/Page';
 import { useForm } from '../src/hooks/useForm';
 import {
@@ -6,6 +8,7 @@ import {
     HeroSubTitle,
     HeroDescription,
     FormContainer,
+    FormHeader,
     ContactForm,
     FormLabel,
     FormInput,
@@ -14,22 +17,28 @@ import {
 import WavyText from '../src/components/WaveFadeInText';
 import TimezoneClock from '../src/components/TimeZone';
 import { SubmitBtn } from '../src/components/Buttons/Buttons';
+import { ContactForm as ContactFormType } from '../src/types/ContactForm';
+import { ClearAllIcon } from '../src/components/Icons';
 
 function ContactPage() {
-    // const { fields, handleChange, clearForm, resetForm, submitForm } = useForm({
-    //     name: '',
-    //     email: '',
-    //     subject: '',
-    //     message: '',
-    // });
+    const { fields, handleChange, resetForm, submitForm } =
+        useForm<ContactFormType>({
+            name: '',
+            email: '',
+            subject: '',
+            message: '',
+        });
 
-    // SENDS TO SENDGRID API
-    // function sendFormData() {
-    // 	fetch('/api/email', {
-    // 		method: 'POST',
-    // 		body: JSON.stringify(formValues),
-    // 	});
-    // }
+    function handleFormSubmit(event: FormEvent<HTMLFormElement>) {
+        event.preventDefault();
+        // Sends email via provider
+        fetch('/api/email', {
+            method: 'POST',
+            body: JSON.stringify(fields),
+        });
+        // Resets the form on submit
+        resetForm();
+    }
 
     return (
         <Page gap={5}>
@@ -50,35 +59,65 @@ function ContactPage() {
                 </HeroDescription>
             </HeroContainer>
             <FormContainer>
-                <HeroSubTitle>
-                    Reach Out To Me Below
-                    <HeroDescription>
-                        I look forward to speaking with you!
-                    </HeroDescription>
-                </HeroSubTitle>
-                <ContactForm id="form__contact">
+                <FormHeader>
+                    <HeroSubTitle>
+                        Reach Out To Me Below
+                        <HeroDescription>
+                            I look forward to speaking with you!
+                        </HeroDescription>
+                    </HeroSubTitle>
+                    <ClearAllIcon size=" 2rem" onClick={resetForm} />
+                </FormHeader>
+                <ContactForm
+                    id="form__contact"
+                    action=""
+                    method="GET"
+                    onSubmit={(event: FormEvent<HTMLFormElement>) =>
+                        submitForm(event, handleFormSubmit)
+                    }
+                >
                     <FormLabel htmlFor="name">
-                        <FormInput type="text" name="name" required />
+                        <FormInput
+                            type="text"
+                            name="name"
+                            onChange={handleChange}
+                            value={fields.name}
+                            required
+                        />
                         <span>Name</span>
                     </FormLabel>
                     <FormLabel htmlFor="email">
-                        <FormInput type="email" name="email" required />
+                        <FormInput
+                            type="email"
+                            name="email"
+                            onChange={handleChange}
+                            value={fields.email}
+                            required
+                        />
                         <span>Email</span>
                     </FormLabel>
                     <FormLabel htmlFor="subject">
-                        <FormInput type="subject" name="subject" required />
+                        <FormInput
+                            type="subject"
+                            name="subject"
+                            onChange={handleChange}
+                            value={fields.subject}
+                            required
+                        />
                         <span>Subject</span>
                     </FormLabel>
                     <FormLabel htmlFor="subject">
-                        <FormTextArea rows={8} name="message" required />
+                        <FormTextArea
+                            rows={8}
+                            name="message"
+                            onChange={handleChange}
+                            value={fields.message}
+                            required
+                        />
                         <span>Message</span>
                     </FormLabel>
                 </ContactForm>
-                <SubmitBtn
-                    formId="form__contact"
-                    cta="Get In Touch"
-                    onClick={() => console.log('Hello Submit')}
-                />
+                <SubmitBtn formId="form__contact" cta="Get In Touch" />
             </FormContainer>
         </Page>
     );

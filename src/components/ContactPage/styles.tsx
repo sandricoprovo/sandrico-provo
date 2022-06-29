@@ -48,6 +48,13 @@ export const FormContainer = styled.div`
     gap: 2rem;
 `;
 
+export const FormHeader = styled.div`
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+`;
+
 export const ContactForm = styled.form`
     width: 100%;
     display: flex;
