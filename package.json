@@ -12,18 +12,12 @@
         "url": "git+https://github.com/sandricoprovo/sandrico-provo.git"
     },
     "scripts": {
-        "keystone": "npx keystone dev",
-        "postinstall": "keystone postinstall",
+        "start": "next start",
         "dev": "next dev",
         "build": "next build",
-        "start": "next start",
         "lint": "next lint"
     },
     "dependencies": {
-        "@apollo/client": "^3.6.6",
-        "@keystone-6/auth": "^2.0.0",
-        "@keystone-6/core": "^1.1.1",
-        "@keystone-6/fields-document": "^2.0.1",
         "@sendgrid/mail": "^7.7.0",
         "@tabler/icons": "^1.68.0",
         "@types/styled-components": "^5.1.25",
