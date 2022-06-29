@@ -1,14 +1,16 @@
 import styled from 'styled-components';
 
-const PageContainer = styled.main`
+const PageContainer = styled.main<{ gap?: number; marginend?: number }>`
     padding: 4rem var(--space-lg);
     background-color: var(--clr-background);
     width: 100%;
+    margin-block-end: ${({ marginend }) =>
+        !marginend ? '0rem' : `${marginend}rem`};
     grid-row: 2 / 2;
-    gap: var(--space-xxxl);
-    gap: 10rem;
     display: flex;
     flex-direction: column;
+    gap: var(--space-xxxl);
+    gap: ${({ gap }) => (!gap ? '10rem' : `${gap}rem`)};
 
     @media (max-width: 1440px) {
         padding: var(--space-xs) var(--space-lg);

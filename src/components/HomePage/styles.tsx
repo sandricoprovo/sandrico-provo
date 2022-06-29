@@ -45,7 +45,7 @@ export const HeroImageContainer = styled(motion.div)`
     height: 100%;
     min-width: 300px;
     max-width: 800px;
-    height: 300px;
+    height: 28vh;
 `;
 
 export const HeroSubHeader = styled(motion.h2)`

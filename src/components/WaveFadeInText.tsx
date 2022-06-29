@@ -51,10 +51,6 @@ const WaveFadeInText: FC<Props> = ({
 
     return (
         <motion.h4
-            style={{
-                display: 'flex',
-                flexWrap: 'wrap',
-            }}
             variants={containerVariant}
             initial="initial"
             animate={replay ? 'animate' : 'initial'}
