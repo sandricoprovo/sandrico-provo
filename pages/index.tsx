@@ -1,5 +1,4 @@
 import { useRef, useState } from 'react';
-import { GetStaticProps } from 'next';
 import { AnimatePresence } from 'framer-motion';
 
 import {
@@ -8,9 +7,6 @@ import {
     LinkedInIcon,
     TwitterIcon,
 } from '../src/components/Icons';
-import { apolloClient } from '../src/graphql/apolloClient';
-import { GET_HEADER } from '../src/graphql/queries/GET_HEADERS';
-import { Payload, Header } from '../src/types';
 import Page from '../src/components/Page';
 import WaveFadeInText from '../src/components/WaveFadeInText';
 import {
@@ -33,27 +29,6 @@ import WorkTile from '../src/components/WorkTIle/WorkTile';
 import PaginationControls from '../src/components/PaginationControls/PaginationControls';
 import { useInView } from '../src/hooks/useInView';
 import { useDebounce } from '../src/hooks/useDebounce';
-
-export const getStaticProps: GetStaticProps = async () => {
-    const { data }: Payload<'headers', Header[]> = await apolloClient.query({
-        query: GET_HEADER,
-        variables: { header: 'Header' },
-    });
-
-    if (data.headers.length === 1) {
-        return {
-            props: {
-                header: data.headers[0] ?? null,
-            },
-        };
-    }
-
-    return {
-        props: {
-            headers: data.headers ?? null,
-        },
-    };
-};
 
 const textVariants = {
     initial: { opacity: 0, y: 50 },
