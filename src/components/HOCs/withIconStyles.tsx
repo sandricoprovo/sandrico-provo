@@ -1,6 +1,6 @@
 import { ForwardedRef } from 'react';
 import styled from 'styled-components';
-import { HTMLMotionProps, ForwardRefComponent } from 'framer-motion';
+import { HTMLMotionProps, ForwardRefComponent, Variants } from 'framer-motion';
 
 export interface IconProps extends HTMLMotionProps<any> {
     href?: string;
@@ -15,13 +15,16 @@ export interface IconProps extends HTMLMotionProps<any> {
 
 type MotionIcon = ForwardRefComponent<HTMLOrSVGElement, HTMLMotionProps<any>>;
 
-const iconVariant = {
+const iconVariant: Variants = {
     initial: { y: '0%' },
     animate: {
         y: ['0%', '-25%', '0%'],
         transition: {
             duration: 0.4,
         },
+    },
+    active: {
+        scale: 1.2,
     },
 };
 
@@ -60,7 +63,6 @@ function withIconStyles(Icon: MotionIcon) {
             ref={ref}
             variants={iconVariant}
             initial="initial"
-            whileHover={!disabled ? 'animate' : 'initial'}
             disabled={disabled}
             href={href}
             color={color}
@@ -68,6 +70,8 @@ function withIconStyles(Icon: MotionIcon) {
             onClick={!disabled ? onClick : null}
             size={size}
             hoverclr={hoverclr}
+            whileHover={!disabled ? 'animate' : 'initial'}
+            whileTap={!disabled ? 'active' : 'initial'}
         />
     );
 
