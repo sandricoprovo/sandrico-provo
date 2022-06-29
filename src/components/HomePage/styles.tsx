@@ -48,7 +48,7 @@ export const HeroImageContainer = styled(motion.div)`
     height: 28vh;
 `;
 
-export const HeroSubHeader = styled(motion.h2)`
+export const HeroSubHeader = styled(motion.div)`
     font-family: var(--font-primary);
     font-size: var(--font-800);
     font-weight: 400;
