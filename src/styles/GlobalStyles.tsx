@@ -180,6 +180,8 @@ export const GlobalStyles = createGlobalStyle`
         --clr-icon: var(--clr-text);
         --clr-icon-disabled: var( --clr-white-100);
         --clr-footer: var(--clr-pastelblue-50);
+        --clr-btn-hover: var(--clr-pastelblue-50);
+        --clr-btn-active: var(--clr-pastelblue-40);
         --clr-cta: var(--clr-yellow-70);
         --clr-cta-hover: var(--clr-yellow-60);
         --clr-cta-active: var(--clr-yellow-80);

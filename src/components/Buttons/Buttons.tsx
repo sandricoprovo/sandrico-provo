@@ -1,6 +1,6 @@
-import { ArrowRightIcon } from '../Icons';
+import { ArrowRightIcon, SendIcon } from '../Icons';
 
-import { ContactButton } from './styles';
+import { ContactButton, SubmitButton } from './styles';
 
 const contactBtnVariant = {
     rest: { y: 0 },
@@ -12,6 +12,10 @@ const contactBtnVariant = {
     },
 };
 
+interface BaseButtonProps {
+    onClick?: () => void;
+}
+
 export function ContactBtn() {
     return (
         <ContactButton
@@ -21,5 +25,18 @@ export function ContactBtn() {
         >
             Get In Touch <ArrowRightIcon size="2rem" />
         </ContactButton>
+    );
+}
+
+interface SubmitBtnProps extends BaseButtonProps {
+    formId: string;
+    cta?: string;
+}
+export function SubmitBtn({ formId, cta, onClick }: SubmitBtnProps) {
+    return (
+        <SubmitButton form={formId} type="submit" onClick={onClick}>
+            {cta ?? 'Get In Touch'}
+            <SendIcon size="1.5rem" />
+        </SubmitButton>
     );
 }
