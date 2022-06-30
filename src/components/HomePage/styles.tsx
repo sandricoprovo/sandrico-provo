@@ -8,6 +8,10 @@ export const HeroSection = styled.section`
     display: flex;
     flex-direction: column;
     gap: 7rem;
+
+    @media screen and (max-width: 575px) {
+        gap: 5rem;
+    }
 `;
 
 export const HeroHeader = styled(motion.h1)`
