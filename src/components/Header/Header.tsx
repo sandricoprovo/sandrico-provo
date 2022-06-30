@@ -56,6 +56,7 @@ export default function Header() {
             </Link>
             <NavBar
                 showMobileNav={isMobile}
+                isNavOpen={isNavOpen}
                 toggleMobileNav={toggleNavMenu}
                 links={header.links}
             />
@@ -63,6 +64,7 @@ export default function Header() {
                 isMobile={isMobile}
                 isNavOpen={isNavOpen}
                 links={header.links}
+                toggleMobileNav={toggleNavMenu}
             />
         </HeaderContainer>
     );

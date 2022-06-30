@@ -1,23 +1,15 @@
-import { useState } from 'react';
-
 import { MenuBtn as MenuIcon } from './styles';
 
 interface MenuBtnProps {
+    isNavOpen: boolean;
     onClickHandler: () => void;
 }
 
-function MenuBtn({ onClickHandler }: MenuBtnProps) {
-    const [isNavOpen, setIsNavOpen] = useState(false); // Used to change color
-
-    function handleNavClick() {
-        setIsNavOpen(!isNavOpen);
-        onClickHandler();
-    }
-
+function MenuBtn({ isNavOpen, onClickHandler }: MenuBtnProps) {
     return (
         <MenuIcon
             open={isNavOpen}
-            onClick={handleNavClick}
+            onClick={onClickHandler}
             initial={{ opacity: 0, y: '50%' }}
             animate={{ opacity: 1, y: 0 }}
             transition={{

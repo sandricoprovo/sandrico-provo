@@ -22,14 +22,23 @@ const navBarVariant = {
 interface NavBarProps {
     links: HeaderLink[];
     showMobileNav: boolean;
+    isNavOpen: boolean;
     toggleMobileNav: () => void;
 }
 
-function NavBar({ links, showMobileNav, toggleMobileNav }: NavBarProps) {
+function NavBar({
+    links,
+    showMobileNav,
+    isNavOpen,
+    toggleMobileNav,
+}: NavBarProps) {
     return (
         <NavBarContainer>
             {showMobileNav ? (
-                <MenuBtn onClickHandler={toggleMobileNav} />
+                <MenuBtn
+                    onClickHandler={toggleMobileNav}
+                    isNavOpen={isNavOpen}
+                />
             ) : (
                 <NavList
                     key="mobileNav"

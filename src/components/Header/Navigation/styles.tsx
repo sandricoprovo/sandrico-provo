@@ -80,7 +80,7 @@ export const NavLink = styled(motion.a)<{ open?: boolean }>`
         background-color: var(--clr-text);
         background-color: ${({ open }) =>
             open ? 'var(--clr-pastelblue-50)' : 'var(--clr-text)'};
-        transition: transform 400ms var(--underline-bezier),
+        transition: transform 400ms var(--underline-bezier) 200ms,
             width 400ms var(--underline-bezier);
     }
 
@@ -117,21 +117,14 @@ export const MenuBtn = styled(motion.div)<{ open: boolean }>`
             open ? 'var(--clr-white-60)' : 'var(--clr-text)'};
     }
 
-    &:hover,
-    &:focus {
-        & > span:nth-of-type(2) {
-            width: 48%;
-        }
-
-        & > span:nth-of-type(3) {
-            width: 32%;
-        }
+    & > span:nth-of-type(2) {
+        width: 48%;
+        width: ${({ open }) => (open ? '48%' : '80%')};
     }
 
-    &:active {
-        & > span:nth-of-type(3) {
-            width: 80%;
-        }
+    & > span:nth-of-type(3) {
+        width: 32%;
+        width: ${({ open }) => (open ? '32%' : '80%')};
     }
 `;
 
