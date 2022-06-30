@@ -44,7 +44,7 @@ function UsesPage() {
             </HeroContainer>
             <UsesContainer>
                 {usesGear.map((gearList) => (
-                    <GearContainer>
+                    <GearContainer key={gearList.category}>
                         <ListTitle>{gearList.category}</ListTitle>
                         <GearList>
                             {gearList.gear.map((gear) => (
