@@ -1,18 +1,13 @@
 import Link from 'next/link';
 import { useState, useEffect } from 'react';
 
-import defaultHeader from '../../mock/mockHeader';
-import { Header as HeaderType } from '../../types/Header';
+import header from '../../content/header';
 
 import { HeaderContainer, LogoText } from './styles';
 import NavBar from './Navigation/NavBar';
 import MobileNav from './Navigation/MobileNav';
 
-interface HeaderProps {
-    header: HeaderType;
-}
-
-export default function Header({ header }: HeaderProps) {
+export default function Header() {
     const [isMobile, setIsMobile] = useState<boolean>(false);
     const [isNavOpen, setIsNavOpen] = useState<boolean>(false);
 
@@ -56,18 +51,18 @@ export default function Header({ header }: HeaderProps) {
                         ease: [0.68, -0.55, 0.27, 1.55],
                     }}
                 >
-                    {header?.logo || defaultHeader.logo}
+                    {header.logo}
                 </LogoText>
             </Link>
             <NavBar
                 showMobileNav={isMobile}
                 toggleMobileNav={toggleNavMenu}
-                links={header?.links || defaultHeader.links}
+                links={header.links}
             />
             <MobileNav
                 isMobile={isMobile}
                 isNavOpen={isNavOpen}
-                links={header?.links || defaultHeader.links}
+                links={header.links}
             />
         </HeaderContainer>
     );

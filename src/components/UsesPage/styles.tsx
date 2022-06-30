@@ -25,9 +25,10 @@ export const HeroDescription = styled.p`
 `;
 
 export const HeroImageContainer = styled.div`
-    border: 2px solid blue;
+    position: relative;
     width: 100%;
     height: 50vh;
+    overflow: hidden;
 `;
 
 export const UsesContainer = styled.div`

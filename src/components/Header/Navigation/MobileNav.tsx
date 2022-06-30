@@ -3,6 +3,8 @@ import { AnimatePresence } from 'framer-motion';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 
+import { HeaderLink } from '../../../types/Header';
+
 import {
     MobileNavList,
     NavListItem,
@@ -40,7 +42,7 @@ const navLinkVariant = {
 };
 
 interface MobileNavProps {
-    links: { label: string }[];
+    links: HeaderLink[];
     isMobile: boolean;
     isNavOpen: boolean;
 }
@@ -78,17 +80,11 @@ function MobileNav({ links, isMobile, isNavOpen }: MobileNavProps) {
                     exit="exit"
                 >
                     {links.map((link, index) => {
-                        const linkHref =
-                            link.label === 'Home'
-                                ? '/'
-                                : link.label.toLowerCase();
-
-                        const isCurrentPage =
-                            router.pathname.includes(linkHref);
+                        const isCurrentPage = router.pathname === link.url;
 
                         return (
                             <NavListItem key={link.label}>
-                                <Link href={linkHref}>
+                                <Link href={link.url}>
                                     {!isCurrentPage ? (
                                         <NavLink
                                             open={showNav}

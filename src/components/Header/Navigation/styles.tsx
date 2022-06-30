@@ -60,7 +60,7 @@ export const NavListItem = styled(motion.li)`
     overflow: hidden;
 `;
 
-export const NavLink = styled(motion.a)<{ open: boolean }>`
+export const NavLink = styled(motion.a)<{ open?: boolean }>`
     text-decoration: none;
     display: block;
     cursor: pointer;

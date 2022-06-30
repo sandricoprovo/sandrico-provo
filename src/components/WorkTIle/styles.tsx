@@ -53,7 +53,7 @@ export const WorkDetailsContainer = styled(motion.div)`
     gap: 2rem;
 `;
 
-export const WorkDetail = styled.p`
+export const WorkDetail = styled.div`
     font-family: var(--font-primary);
     font-size: var(--font-400);
     display: flex;

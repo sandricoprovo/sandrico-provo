@@ -1,6 +1,6 @@
 import Image from 'next/image';
 
-import mockTileImage from '../../../public/images/city.jpeg';
+import { Project } from '../../types/Project';
 import { GitHubIcon, ExternalLinkIcon } from '../Icons';
 
 import {
@@ -16,11 +16,12 @@ import {
 
 interface ProjectTileProps {
     isProjectsInView: boolean;
+    project: Project;
 }
 
 const AP_DELAY = 0.5;
 
-function ProjectTile({ isProjectsInView }: ProjectTileProps) {
+function ProjectTile({ isProjectsInView, project }: ProjectTileProps) {
     return (
         isProjectsInView && (
             <ProjectContainer>
@@ -40,17 +41,9 @@ function ProjectTile({ isProjectsInView }: ProjectTileProps) {
                         opacity: 0,
                     }}
                 >
-                    <ProjectTitle>ESlint + Prettier Config</ProjectTitle>
+                    <ProjectTitle>{project.name}</ProjectTitle>
                     <ProjectStack>
-                        {[
-                            'React',
-                            'NextJS',
-                            'TypeScript',
-                            'KeystoneJS',
-                            'Git',
-                            'Git',
-                            'Git',
-                        ].map((stackTech) => (
+                        {project.techStack.map((stackTech) => (
                             <ProjectStackItem key={stackTech}>
                                 {stackTech}
                             </ProjectStackItem>
@@ -76,16 +69,7 @@ function ProjectTile({ isProjectsInView }: ProjectTileProps) {
                         opacity: 0,
                     }}
                 >
-                    <p>
-                        Once I had learned enough to understand what ESlint &
-                        Prettier do, I found myself using it in all of my
-                        projects to make my writing more consistent. However, I
-                        found I was doing a copy-paste of the configuration with
-                        each new project. To solve that issue, I created this
-                        package so I could have an easily accessible package I
-                        could grab. Having this package also makes distributing
-                        updates quick and easy across projects that use this.
-                    </p>
+                    <p>{project.description}</p>
                 </ProjectDescriptionContainer>
                 <ProjectImage
                     initial={{
@@ -104,11 +88,12 @@ function ProjectTile({ isProjectsInView }: ProjectTileProps) {
                     }}
                 >
                     <Image
-                        src={mockTileImage}
+                        src={project.image.src}
+                        alt={project.image.alt}
                         layout="fill"
                         objectFit="cover"
                         placeholder="blur"
-                        blurDataURL={`${mockTileImage.blurDataURL}`}
+                        blurDataURL={`${project.image.blurUrl}`}
                     />
                 </ProjectImage>
                 <ProjectIcons
@@ -130,8 +115,8 @@ function ProjectTile({ isProjectsInView }: ProjectTileProps) {
                         opacity: 0,
                     }}
                 >
-                    <GitHubIcon href="https://sandricoprovo.dev" />
-                    <ExternalLinkIcon href="https://sandricoprovo.dev" />
+                    <GitHubIcon href={project.links.github} />
+                    <ExternalLinkIcon href={project.links.external} />
                 </ProjectIcons>
             </ProjectContainer>
         )

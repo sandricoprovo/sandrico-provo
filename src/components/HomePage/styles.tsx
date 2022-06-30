@@ -40,12 +40,12 @@ export const HeroText = styled(motion.p)`
 `;
 
 export const HeroImageContainer = styled(motion.div)`
-    border: 2px solid blue;
+    position: relative;
     width: 100%;
     height: 100%;
     min-width: 300px;
     max-width: 800px;
-    height: 28vh;
+    height: 35vh;
 `;
 
 export const HeroSubHeader = styled(motion.div)`

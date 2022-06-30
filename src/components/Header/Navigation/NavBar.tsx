@@ -1,6 +1,8 @@
 import Link from 'next/link';
 import { AnimatePresence } from 'framer-motion';
 
+import { HeaderLink } from '../../../types/Header';
+
 import MenuBtn from './MenuBtn';
 import { NavBarContainer, NavList, NavListItem, NavLink } from './styles';
 
@@ -18,7 +20,7 @@ const navBarVariant = {
 };
 
 interface NavBarProps {
-    links: { label: string }[];
+    links: HeaderLink[];
     showMobileNav: boolean;
     toggleMobileNav: () => void;
 }
@@ -49,7 +51,7 @@ function NavBar({ links, showMobileNav, toggleMobileNav }: NavBarProps) {
                                 }}
                                 exit={{ opacity: 0, y: '50%' }}
                             >
-                                <Link href={link.label}>
+                                <Link href={link.url}>
                                     <NavLink>{link.label}</NavLink>
                                 </Link>
                             </NavListItem>

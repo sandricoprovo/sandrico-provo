@@ -1,3 +1,5 @@
+import Image from 'next/image';
+
 import Page from '../src/components/Page';
 import {
     HeroContainer,
@@ -12,6 +14,7 @@ import {
 } from '../src/components/UsesPage/styles';
 import WavyText from '../src/components/WaveFadeInText';
 import { PointIcon } from '../src/components/Icons';
+import { usesGearImage, usesGear } from '../src/content/usesGear';
 
 function UsesPage() {
     return (
@@ -28,17 +31,26 @@ function UsesPage() {
                     likely find it here. If not, feel free to reach out to me on
                     Twitter and ask 😄.
                 </HeroDescription>
-                <HeroImageContainer>IMAGE</HeroImageContainer>
+                <HeroImageContainer>
+                    <Image
+                        src={usesGearImage.src}
+                        alt={usesGearImage.alt}
+                        layout="fill"
+                        objectFit="cover"
+                        placeholder="blur"
+                        blurDataURL={usesGearImage.blurUrl}
+                    />
+                </HeroImageContainer>
             </HeroContainer>
             <UsesContainer>
-                {[1, 2, 3].map(() => (
+                {usesGear.map((gearList) => (
                     <GearContainer>
-                        <ListTitle>Hardware</ListTitle>
+                        <ListTitle>{gearList.category}</ListTitle>
                         <GearList>
-                            {[1, 2, 3].map(() => (
+                            {gearList.gear.map((gear) => (
                                 <GearListItem>
                                     <PointIcon />
-                                    TEST
+                                    {gear}
                                 </GearListItem>
                             ))}
                         </GearList>
