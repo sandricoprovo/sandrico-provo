@@ -8,6 +8,7 @@ import {
     WorkTileHeader,
     WorkTitle,
     WorkHeaderDetail,
+    WorkEmployerLink,
     WorkHeaderDetails,
     WorkDetailsContainer,
     WorkDetail,
@@ -25,7 +26,19 @@ function WorkTile({ variants, widthDelay, experience }: WorkTileProps) {
             <WorkTileHeader>
                 <WorkTitle>{experience.title.toUpperCase()}</WorkTitle>
                 <WorkHeaderDetails>
-                    <WorkHeaderDetail>@ {experience.company}</WorkHeaderDetail>
+                    <WorkHeaderDetail>
+                        {!experience.companyUrl ? (
+                            experience.company
+                        ) : (
+                            <WorkEmployerLink
+                                href={experience.companyUrl}
+                                rel="noopener noreferrer"
+                                target="_blank"
+                            >
+                                @{experience.company}
+                            </WorkEmployerLink>
+                        )}
+                    </WorkHeaderDetail>
                     <WorkHeaderDetail>{experience.timeFrame}</WorkHeaderDetail>
                 </WorkHeaderDetails>
             </WorkTileHeader>

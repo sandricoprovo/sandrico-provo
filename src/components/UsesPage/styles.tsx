@@ -66,6 +66,8 @@ export const GearList = styled.ul`
 `;
 export const GearListItem = styled.li`
     width: 100%;
+    font-family: var(--font-primary);
+    font-size: var(--font-400);
     display: flex;
     justify-content: start;
     align-items: center;

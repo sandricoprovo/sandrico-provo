@@ -43,6 +43,23 @@ export const WorkHeaderDetail = styled.p`
     line-height: 120%;
 `;
 
+export const WorkEmployerLink = styled(motion.a)`
+    cursor: pointer;
+    text-decoration: none;
+    color: inherit;
+    font-family: inherit;
+    font-size: inherit;
+    color: var(--clr-pastelblue-40);
+    transition: color 400ms var(--fadeUp-bezier);
+
+    &:hover {
+        color: var(--clr-pastelblue-30);
+    }
+    &:active {
+        color: var(--clr-pastelblue-50);
+    }
+`;
+
 export const WorkDetailsContainer = styled(motion.div)`
     position: relative;
     background-color: var(--clr-pastelblue-40);

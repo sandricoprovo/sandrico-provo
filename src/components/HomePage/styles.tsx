@@ -7,7 +7,7 @@ export const HeroSection = styled.section`
     margin-bottom: var(--space-xl);
     display: flex;
     flex-direction: column;
-    gap: 3rem;
+    gap: 7rem;
 `;
 
 export const HeroHeader = styled(motion.h1)`
@@ -46,6 +46,14 @@ export const HeroImageContainer = styled(motion.div)`
     min-width: 300px;
     max-width: 800px;
     height: 35vh;
+
+    & > span > img {
+        transition: transform 600ms var(--scaleIn-bezier);
+    }
+
+    &:hover > span > img {
+        transform: scale(1.1);
+    }
 `;
 
 export const HeroSubHeader = styled(motion.div)`

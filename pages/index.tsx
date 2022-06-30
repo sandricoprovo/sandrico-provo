@@ -132,7 +132,7 @@ function HomePage() {
                             ease: [0.08, 0.82, 0.17, 1],
                         }}
                     >
-                        SOFTWARE <br /> DEVELOPER
+                        SOFTWARE DEVELOPER
                     </HeroHeader>
                     <HeroText
                         initial={{ opacity: 0, x: 50 }}
