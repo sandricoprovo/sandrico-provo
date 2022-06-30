@@ -4,7 +4,7 @@ export const professionalLinks = {
     twitter: 'https://twitter.com/sandricoprovo',
     github: 'https://github.com/sandricoprovo',
     linkedIn: 'https://www.linkedin.com/in/sandrico-provo-7ab42a93/',
-    resumeFile: '',
+    resumeFile: '/static/Sandrico_Provo_Resume.pdf',
 };
 
 export const workExperience: WorkExperience[] = [
@@ -23,7 +23,7 @@ export const workExperience: WorkExperience[] = [
         company: 'REDspace',
         companyUrl: 'https://www.redspace.com/',
         title: 'Jr. Software Developer',
-        timeFrame: 'April 2021 - April 2022',
+        timeFrame: 'May 2021 - April 2022',
         details: [
             'Assisted in project architecture discussions & decision making.',
             'Provided constructive feedback during code reviews daily.',

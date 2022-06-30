@@ -29,6 +29,14 @@ export const HeroImageContainer = styled.div`
     width: 100%;
     height: 50vh;
     overflow: hidden;
+
+    & > span > img {
+        transition: transform 600ms var(--scaleIn-bezier);
+    }
+
+    &:hover > span > img {
+        transform: scale(1.1);
+    }
 `;
 
 export const UsesContainer = styled.div`

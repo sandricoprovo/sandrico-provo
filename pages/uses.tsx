@@ -48,7 +48,7 @@ function UsesPage() {
                         <ListTitle>{gearList.category}</ListTitle>
                         <GearList>
                             {gearList.gear.map((gear) => (
-                                <GearListItem>
+                                <GearListItem key={gear}>
                                     <PointIcon />
                                     {gear}
                                 </GearListItem>
