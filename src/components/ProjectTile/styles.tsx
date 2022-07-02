@@ -105,6 +105,14 @@ export const ProjectImage = styled(motion.div)`
     z-index: 1;
     transition: transform 400ms var(--scaleIn-bezier);
 
+    & > span > img {
+        transition: transform 600ms var(--scaleIn-bezier);
+    }
+
+    &:hover > span > img {
+        transform: scale(1.1);
+    }
+
     @media screen and (max-width: 975px) {
         left: 0%;
         width: 100%;

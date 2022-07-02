@@ -1,6 +1,13 @@
 import { useRef, useState } from 'react';
 import { AnimatePresence } from 'framer-motion';
+import Image from 'next/image';
 
+import { projects } from '../src/content/projects';
+import {
+    workExperience,
+    professionalLinks,
+} from '../src/content/workExperience';
+import { meImage, aboutMe } from '../src/content/aboutMe';
 import {
     GitHubIcon,
     FileIcon,
@@ -29,6 +36,7 @@ import WorkTile from '../src/components/WorkTIle/WorkTile';
 import PaginationControls from '../src/components/PaginationControls/PaginationControls';
 import { useInView } from '../src/hooks/useInView';
 import { useDebounce } from '../src/hooks/useDebounce';
+import { Project } from '../src/types/Project';
 
 const textVariants = {
     initial: { opacity: 0, y: 50 },
@@ -63,18 +71,9 @@ const sectionChildVariants = {
 
 const DELAY_HERO = 1.2;
 
-const projectsLists = [
-    { index: 0, label: 'TEST-1' },
-    { index: 1, label: 'TEST_2' },
-    { index: 2, label: 'TEST_3' },
-];
-
 function HomePage() {
-    const [featuredProject, setFeaturedProject] = useState(projectsLists[0]);
-    const debouncedFeaturedProject = useDebounce<{
-        index: number;
-        label: string;
-    }>(featuredProject, 500);
+    const [featuredProject, setFeaturedProject] = useState(projects[0]);
+    const debouncedFeaturedProject = useDebounce<Project>(featuredProject, 500);
 
     const projectsContainerRef = useRef<HTMLDivElement>(null);
     const workContainerRef = useRef<HTMLDivElement>(null);
@@ -99,21 +98,21 @@ function HomePage() {
     });
 
     function moveToPosition(index: number) {
-        const selectedProject = projectsLists[index];
+        const selectedProject = projects[index];
         if (!selectedProject) return;
         setFeaturedProject(selectedProject);
     }
 
     function moveToNext() {
         console.log('Switching to next Project...');
-        const nextProject = projectsLists[featuredProject.index + 1];
+        const nextProject = projects[featuredProject.index + 1];
         if (!nextProject) return;
         setFeaturedProject(nextProject);
     }
 
     function moveToPrevious() {
         console.log('Switching to Previous Project...');
-        const previousProject = projectsLists[featuredProject.index - 1];
+        const previousProject = projects[featuredProject.index - 1];
         if (!previousProject) return;
         setFeaturedProject(previousProject);
     }
@@ -133,7 +132,7 @@ function HomePage() {
                             ease: [0.08, 0.82, 0.17, 1],
                         }}
                     >
-                        SOFTWARE <br /> DEVELOPER
+                        SOFTWARE DEVELOPER
                     </HeroHeader>
                     <HeroText
                         initial={{ opacity: 0, x: 50 }}
@@ -160,7 +159,14 @@ function HomePage() {
                             ease: [0.08, 0.82, 0.17, 1],
                         }}
                     >
-                        IMAGE
+                        <Image
+                            src={meImage.src}
+                            alt={meImage.alt}
+                            layout="fill"
+                            objectFit="cover"
+                            placeholder="blur"
+                            blurDataURL={meImage.blurUrl}
+                        />
                     </HeroImageContainer>
                     <HeroSubHeader>
                         <WaveFadeInText
@@ -180,16 +186,16 @@ function HomePage() {
                             isStartInList: debouncedFeaturedProject.index === 0,
                             isLastInList:
                                 debouncedFeaturedProject.index ===
-                                projectsLists.length - 1,
+                                projects.length - 1,
                             currentPosition: debouncedFeaturedProject.index + 1,
-                            total: projectsLists.length,
+                            total: projects.length,
                         }}
                         handlers={{
                             moveToNext,
                             moveToPrevious,
                             moveToStart: () => moveToPosition(0),
                             moveToEnd: () =>
-                                moveToPosition(projectsLists.length - 1),
+                                moveToPosition(projects.length - 1),
                         }}
                     />
                 </SectionHeaderContainer>
@@ -197,8 +203,9 @@ function HomePage() {
                     <AnimatePresence exitBeforeEnter>
                         {isProjectsInView && (
                             <ProjectTile
-                                key={debouncedFeaturedProject.label}
+                                key={debouncedFeaturedProject.key}
                                 isProjectsInView={isProjectsInView}
+                                project={debouncedFeaturedProject}
                             />
                         )}
                     </AnimatePresence>
@@ -211,10 +218,10 @@ function HomePage() {
                         Experience
                     </SectionHeader>
                     <WorkIconsContainer>
-                        <GitHubIcon href="https://sandricoprovo.dev" />
-                        <LinkedInIcon href="https://sandricoprovo.dev" />
-                        <TwitterIcon href="https://sandricoprovo.dev" />
-                        <FileIcon href="https://sandricoprovo.dev" />
+                        <GitHubIcon href={professionalLinks.github} />
+                        <LinkedInIcon href={professionalLinks.linkedIn} />
+                        <TwitterIcon href={professionalLinks.twitter} />
+                        <FileIcon href={professionalLinks.resumeFile} />
                     </WorkIconsContainer>
                 </SectionHeaderContainer>
                 {isWorkXpInView && (
@@ -223,10 +230,12 @@ function HomePage() {
                         initial="initial"
                         animate={isWorkXpInView ? 'animate' : 'initial'}
                     >
-                        {[1, 2, 3].map((workTile, index) => (
+                        {workExperience.map((experience, index) => (
                             <WorkTile
+                                key={experience.title}
                                 variants={sectionChildVariants}
                                 widthDelay={(index + 1) * 0.6}
+                                experience={experience}
                             />
                         ))}
                     </WorkContainer>
@@ -240,34 +249,7 @@ function HomePage() {
                     initial="initial"
                     animate={isAboutMeInView ? 'animate' : 'initial'}
                 >
-                    I consider myself a career changer. Before I knew what
-                    JavaScript was I focused on using my Geography and Sociology
-                    degree. I got this degree in January of 2017, and for just
-                    over a year I worked as a contract library assistant and a
-                    retail store employee. By early 2018 I had moved onto a
-                    contract position as a Land Surveying Assistant which was
-                    more related to my degree, but after a few months of working
-                    this job and looking at my other options I realized I needed
-                    a change. My coding journey started in the summer of 2018
-                    when I bought my first MacBook. The first two things I did
-                    was download Visual Studio Code and buy a programming course
-                    on Udemy so I could start learning. At this point I was
-                    still working full time, so I would get up at 5am Monday
-                    through Friday to work on the course before my day job
-                    started. After a few months I had finished the course, and
-                    by this point I knew coding was going to be my career.
-                    Knowing I wanted to make this switch into tech, I applied
-                    and got into NSCC's two year IT Web Programming course. In
-                    this course I learned about frontend and backend
-                    technologies, best practices, problem solving, and other
-                    topics. All the while I was still building small projects in
-                    my free time that interested me or solved a problem I had.
-                    Fast forward to today I'm in industry, solving problems
-                    daily, and writing quality production code. I think peoples'
-                    stories can say a lot about them. If my story sounds
-                    interesting to you and you'd like to connect to chat more
-                    about it, or if you think I might be a fit for an
-                    opportunity you have please reach out via my contact page.
+                    {aboutMe}
                 </AboutMeContent>
             </ContentSection>
         </Page>

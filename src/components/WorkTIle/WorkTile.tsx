@@ -1,5 +1,6 @@
 import { Variants } from 'framer-motion';
 
+import { WorkExperience } from '../../types/WorkExperience';
 import { PointIcon } from '../Icons';
 
 import {
@@ -7,6 +8,7 @@ import {
     WorkTileHeader,
     WorkTitle,
     WorkHeaderDetail,
+    WorkEmployerLink,
     WorkHeaderDetails,
     WorkDetailsContainer,
     WorkDetail,
@@ -15,16 +17,29 @@ import {
 interface WorkTileProps {
     variants: Variants;
     widthDelay: number;
+    experience: WorkExperience;
 }
 
-function WorkTile({ variants, widthDelay }: WorkTileProps) {
+function WorkTile({ variants, widthDelay, experience }: WorkTileProps) {
     return (
         <WorkTileContainer variants={variants}>
             <WorkTileHeader>
-                <WorkTitle>SOFTWARE DEVELOPER</WorkTitle>
+                <WorkTitle>{experience.title.toUpperCase()}</WorkTitle>
                 <WorkHeaderDetails>
-                    <WorkHeaderDetail>@ REDspace Inc.</WorkHeaderDetail>
-                    <WorkHeaderDetail>April 2021 - April 2022</WorkHeaderDetail>
+                    <WorkHeaderDetail>
+                        {!experience.companyUrl ? (
+                            experience.company
+                        ) : (
+                            <WorkEmployerLink
+                                href={experience.companyUrl}
+                                rel="noopener noreferrer"
+                                target="_blank"
+                            >
+                                @{experience.company}
+                            </WorkEmployerLink>
+                        )}
+                    </WorkHeaderDetail>
+                    <WorkHeaderDetail>{experience.timeFrame}</WorkHeaderDetail>
                 </WorkHeaderDetails>
             </WorkTileHeader>
             <WorkDetailsContainer
@@ -43,11 +58,10 @@ function WorkTile({ variants, widthDelay }: WorkTileProps) {
                     },
                 }}
             >
-                {[1, 2, 3].map(() => (
-                    <WorkDetail>
+                {experience.details.map((detail, index) => (
+                    <WorkDetail key={`${detail}_${index}`}>
                         <PointIcon />
-                        TEST 12 12 fjsdiofjdsf dfj fpdsfjodf fhdsiof sdf
-                        dfdkofdsfdsfdsklf fds fhdhfdksf sf dnsklfdhsf sdfsdhf
+                        {detail}
                     </WorkDetail>
                 ))}
             </WorkDetailsContainer>

@@ -25,9 +25,18 @@ export const HeroDescription = styled.p`
 `;
 
 export const HeroImageContainer = styled.div`
-    border: 2px solid blue;
+    position: relative;
     width: 100%;
     height: 50vh;
+    overflow: hidden;
+
+    & > span > img {
+        transition: transform 600ms var(--scaleIn-bezier);
+    }
+
+    &:hover > span > img {
+        transform: scale(1.1);
+    }
 `;
 
 export const UsesContainer = styled.div`
@@ -65,6 +74,8 @@ export const GearList = styled.ul`
 `;
 export const GearListItem = styled.li`
     width: 100%;
+    font-family: var(--font-primary);
+    font-size: var(--font-400);
     display: flex;
     justify-content: start;
     align-items: center;

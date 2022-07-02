@@ -7,7 +7,11 @@ export const HeroSection = styled.section`
     margin-bottom: var(--space-xl);
     display: flex;
     flex-direction: column;
-    gap: 3rem;
+    gap: 7rem;
+
+    @media screen and (max-width: 575px) {
+        gap: 5rem;
+    }
 `;
 
 export const HeroHeader = styled(motion.h1)`
@@ -40,12 +44,20 @@ export const HeroText = styled(motion.p)`
 `;
 
 export const HeroImageContainer = styled(motion.div)`
-    border: 2px solid blue;
+    position: relative;
     width: 100%;
     height: 100%;
     min-width: 300px;
     max-width: 800px;
-    height: 28vh;
+    height: 35vh;
+
+    & > span > img {
+        transition: transform 600ms var(--scaleIn-bezier);
+    }
+
+    &:hover > span > img {
+        transform: scale(1.1);
+    }
 `;
 
 export const HeroSubHeader = styled(motion.div)`

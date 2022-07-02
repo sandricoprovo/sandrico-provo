@@ -1,3 +1,5 @@
+import Link from 'next/link';
+
 import { ArrowRightIcon, SendIcon } from '../Icons';
 
 import { ContactButton, SubmitButton } from './styles';
@@ -23,7 +25,17 @@ export function ContactBtn() {
             whileHover="hover"
             variants={contactBtnVariant}
         >
-            Get In Touch <ArrowRightIcon size="2rem" />
+            <Link href="/contact">
+                <div
+                    style={{
+                        display: 'flex',
+                        alignItems: 'center',
+                        gap: '0.5rem',
+                    }}
+                >
+                    Get In Touch <ArrowRightIcon size="2rem" />
+                </div>
+            </Link>
         </ContactButton>
     );
 }

@@ -9,17 +9,16 @@ import { LayoutContainer } from './styles';
 
 interface LayoutProps {
     children: ReactNode;
-    pageProps: PageProps;
 }
 
-function Layout({ children, pageProps }: LayoutProps) {
+function Layout({ children }: LayoutProps) {
     // TODO: import theme change hook here and pass to header
 
     return (
         <>
             <GlobalStyles />
             <LayoutContainer className="theme--light">
-                <Header header={pageProps.header} />
+                <Header />
                 {children}
                 <Footer />
             </LayoutContainer>

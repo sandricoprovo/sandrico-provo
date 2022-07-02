@@ -20,7 +20,7 @@ export const ContactButton = styled(BaseButton)`
     transition: color 150ms var(--fadeUp-bezier);
 
     &:hover,
-    &:hover > div > svg {
+    &:hover > div > div > svg {
         color: white;
         transition: color 200ms var(--fadeUp-bezier);
     }
