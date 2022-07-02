@@ -41,6 +41,7 @@ export default class MyDocument extends Document {
         return (
             <Html lang="en-CA">
                 <Head>
+                    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
                     <link
                         rel="preload"
                         href="/fonts/Poppins-Regular.woff2"
