@@ -132,12 +132,10 @@ export const Reset = css`
 
     html {
         height: -webkit-fill-available;
-        scroll-behavior: smooth;
     }
 
     body {
         height: 100%;
         height: -webkit-fill-available;
-        overflow-y: auto;
     }
 `;

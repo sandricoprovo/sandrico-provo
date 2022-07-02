@@ -25,16 +25,17 @@ export function ContactBtn() {
             whileHover="hover"
             variants={contactBtnVariant}
         >
-            <Link href="/contact">
-                <div
+            <Link href="/contact" passHref scroll>
+                <a
                     style={{
+                        textDecoration: 'none',
                         display: 'flex',
                         alignItems: 'center',
                         gap: '0.5rem',
                     }}
                 >
                     Get In Touch <ArrowRightIcon size="2rem" />
-                </div>
+                </a>
             </Link>
         </ContactButton>
     );

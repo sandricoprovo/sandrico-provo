@@ -60,8 +60,8 @@ function NavBar({
                                 }}
                                 exit={{ opacity: 0, y: '50%' }}
                             >
-                                <Link href={link.url}>
-                                    <NavLink>{link.label}</NavLink>
+                                <Link href={link.url} passHref>
+                                    <NavLink tabIndex={0}>{link.label}</NavLink>
                                 </Link>
                             </NavListItem>
                         ))}

@@ -40,8 +40,9 @@ export default function Header() {
 
     return (
         <HeaderContainer>
-            <Link href="/">
+            <Link href="/" passHref>
                 <LogoText
+                    tabIndex={0}
                     open={isNavOpen}
                     initial={{ opacity: 0, y: '50%' }}
                     animate={{ opacity: 1, y: 0 }}

@@ -1,7 +1,6 @@
 import { ReactNode } from 'react';
 
 import { GlobalStyles } from '../../styles/GlobalStyles';
-import { PageProps } from '../../types';
 import Header from '../Header/Header';
 import Footer from '../Footer/Footer';
 

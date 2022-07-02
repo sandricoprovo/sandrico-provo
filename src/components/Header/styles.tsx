@@ -11,9 +11,10 @@ export const HeaderContainer = styled.header`
     align-items: center;
 `;
 
-export const LogoText = styled(motion.p)<{ open: boolean }>`
+export const LogoText = styled(motion.a)<{ open: boolean }>`
     cursor: pointer;
     background-color: transparent;
+    text-decoration: none;
     font-family: var(--font-secondary);
     font-size: var(--font-600);
     color: var(--clr-text);
