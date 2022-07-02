@@ -46,7 +46,7 @@ function ContactPage() {
                 <HeroTitle>
                     <WavyText
                         text="Contact"
-                        delay={0.2}
+                        delay={0.21}
                         duration={0.18}
                         replay
                     />
