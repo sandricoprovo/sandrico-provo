@@ -60,7 +60,7 @@ function WorkTile({ variants, widthDelay, experience }: WorkTileProps) {
             >
                 {experience.details.map((detail, index) => (
                     <WorkDetail key={`${detail}_${index}`}>
-                        <PointIcon />
+                        <PointIcon aria-hidden="true" />
                         {detail}
                     </WorkDetail>
                 ))}

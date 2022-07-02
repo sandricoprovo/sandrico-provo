@@ -19,8 +19,12 @@ export const ContactButton = styled(BaseButton)`
     gap: var(--space-sm);
     transition: color 150ms var(--fadeUp-bezier);
 
-    &:hover,
-    &:hover > div > div > svg {
+    & > a {
+        color: inherit;
+    }
+
+    &:hover > a,
+    &:hover > a > div > svg {
         color: white;
         transition: color 200ms var(--fadeUp-bezier);
     }
