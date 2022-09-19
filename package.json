@@ -1,0 +1,26 @@
+{
+    "name": "sandrico-provo-personal-website",
+    "version": "2.0.0",
+    "description": "Welcome to my personal website!",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/sandricoprovo/sandrico-provo.git"
+    },
+    "keywords": [
+        "personal website",
+        "javascript",
+        "typescript",
+        "react",
+        "next"
+    ],
+    "author": "Sandrico Provo",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/sandricoprovo/sandrico-provo/issues"
+    },
+    "homepage": "https://github.com/sandricoprovo/sandrico-provo#readme"
+}
