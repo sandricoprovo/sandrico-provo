@@ -8,7 +8,7 @@
     reactStrictMode: true,
     compiler: {
         // Enables the styled-components SWC transform
-        styledComponents: tru
+        styledComponents: true
     },
     webpack: (config, { isServer }) => {
         // Fixes npm packages that depend on `fs` module on server
