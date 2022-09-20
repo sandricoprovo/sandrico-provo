@@ -53,7 +53,7 @@ export const GlobalStyles = createGlobalStyle`
         --clr-rs-500: hsla(1, 79%, 60%, 1); // Main
         --clr-rs-600: hsla(1, 79%, 48%, 1);
         --clr-rs-700: hsla(1, 79%, 36%, 1);
-        --clr-rs-900: hsla(0, 78%, 24%, 1);
+        --clr-rs-800: hsla(0, 78%, 24%, 1);
         --clr-rs-900: hsla(1, 80%, 11%, 1);
         // viridian
         --clr-viridian-hs: 151, 29%;
@@ -62,13 +62,34 @@ export const GlobalStyles = createGlobalStyle`
         --clr-viridian-200: hsla(150, 29%, 76%, 1);
         --clr-viridian-300: hsla(150, 28%, 64%, 1);
         --clr-viridian-400: hsla(150, 28%, 52%, 1);
-        --clr-viridian-500: hsla(151, 29%, 40%, 1);
+        --clr-viridian-500: hsla(151, 29%, 40%, 1); // Main
         --clr-viridian-600: hsla(150, 29%, 32%, 1);
         --clr-viridian-700: hsla(150, 28%, 24%, 1);
         --clr-viridian-800: hsla(150, 29%, 16%, 1);
         --clr-viridian-900: hsla(152, 26%, 8%, 1);
 
         /* === TYPOGRAPHY === */
+        // Base
+        --font-scale: 1.5;
+        --font-multiplier: 0.3;
+        --font-100: 0.667rem;
+        --font-200: 1;
+        --font-300: 1.5rem;
+        --font-400: 2.25rem;
+        --font-500: 3.375rem;
+        --font-600: 5.063rem;
+        --font-700: 7.594rem;
+        --font-800: 11.391rem;
+        // Clamps
+        --font-sm: clamp(calc(var(--font-100) * var(--font-multiplier)), 8vw, var(--font-100));
+        --font-base: clamp(calc(var(--font-200) * var(--font-multiplier)), 10vw, var(--font-200));
+        --font-md: clamp(calc(var(--font-300) * var(--font-multiplier)), 12vw, var(--font-300));
+        --font-lg: clamp(calc(var(--font-400) * var(--font-multiplier)), 14vw, var(--font-400));
+        --font-xl: clamp(calc(var(--font-500) * var(--font-multiplier)), 16vw, var(--font-500));
+        --font-xxl: clamp(calc(var(--font-600) * var(--font-multiplier)), 18vw, var(--font-600));
+        --font-xxxl: clamp(calc(var(--font-700) * var(--font-multiplier)), 20vw, var(--font-700));
+        --font-max: clamp(calc(var(--font-800) * var(--font-multiplier)), 30vw, var(--font-800));
+
         /* === SPACING === */
     }
 
