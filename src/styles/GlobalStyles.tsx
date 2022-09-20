@@ -1,6 +1,9 @@
 import { createGlobalStyle } from 'styled-components';
 
+import { Reset } from './Reset';
+
 export const GlobalStyles = createGlobalStyle`
+    ${Reset}
     :root {
         /* === COLORS === */
         // green blue crayola
@@ -64,6 +67,7 @@ export const GlobalStyles = createGlobalStyle`
         --clr-viridian-700: hsla(150, 28%, 24%, 1);
         --clr-viridian-800: hsla(150, 29%, 16%, 1);
         --clr-viridian-900: hsla(152, 26%, 8%, 1);
+
         /* === TYPOGRAPHY === */
         /* === SPACING === */
     }
