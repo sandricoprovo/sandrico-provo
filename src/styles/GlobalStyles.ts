@@ -72,6 +72,7 @@ export const GlobalStyles = createGlobalStyle`
         // Base
         --font-scale: 1.5;
         --font-multiplier: 0.3;
+        --font-lh: 140%;
         --font-100: 0.667rem;
         --font-200: 1;
         --font-300: 1.5rem;
@@ -94,4 +95,49 @@ export const GlobalStyles = createGlobalStyle`
     }
 
     /* === THEMES === */
+    .theme-default {
+        --clr-text: var(--clr-eb-600);
+    }
+
+    /* === Utilities === */
+    .header-1 {
+        font-size: var(--font-max);
+        line-height: var(--font-lh);
+        color: var(--clr-text);
+    }
+    .header-2 {
+        font-size: var(--font-xxxl);
+        line-height: var(--font-lh);
+        color: var(--clr-text);
+    }
+    .header-3 {
+        font-size: var(--font-xxl);
+        line-height: var(--font-lh);
+        color: var(--clr-text);
+    }
+    .header-4 {
+        font-size: var(--font-xl);
+        line-height: var(--font-lh);
+        color: var(--clr-text);
+    }
+    .header-5 {
+        font-size: var(--font-lg);
+        line-height: var(--font-lh);
+        color: var(--clr-text);
+    }
+    .header-6 {
+        font-size: var(--font-md);
+        line-height: var(--font-lh);
+        color: var(--clr-text);
+    }
+    .body {
+        font-size: var(--font-base);
+        line-height: var(--font-lh);
+        color: var(--clr-text);
+    }
+    .body-sm {
+        font-size: var(--font-sm);
+        line-height: var(--font-lh);
+        color: var(--clr-text);
+    }
 `;
