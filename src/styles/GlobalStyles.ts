@@ -90,6 +90,10 @@ export const GlobalStyles = createGlobalStyle`
         --font-xxl: clamp(calc(var(--font-600) * var(--font-multiplier)), 18vw, var(--font-600));
         --font-xxxl: clamp(calc(var(--font-700) * var(--font-multiplier)), 20vw, var(--font-700));
         --font-max: clamp(calc(var(--font-800) * var(--font-multiplier)), 30vw, var(--font-800));
+        // Families
+        --font-body: 'Montserrat';
+        --font-header: 'Montserrat-Black';
+        --font-display: 'PermanentMarker';
 
         /* === SPACING === */
         --spacing-content: 64px;
@@ -102,44 +106,41 @@ export const GlobalStyles = createGlobalStyle`
     }
 
     /* === Utilities === */
+    body > * {
+        font-family: var(--font-body);
+        color: var(--clr-text);
+    }
+
     .header-1 {
         font-size: var(--font-max);
         line-height: var(--font-lh);
-        color: var(--clr-text);
     }
     .header-2 {
         font-size: var(--font-xxxl);
         line-height: var(--font-lh);
-        color: var(--clr-text);
     }
     .header-3 {
         font-size: var(--font-xxl);
         line-height: var(--font-lh);
-        color: var(--clr-text);
     }
     .header-4 {
         font-size: var(--font-xl);
         line-height: var(--font-lh);
-        color: var(--clr-text);
     }
     .header-5 {
         font-size: var(--font-lg);
         line-height: var(--font-lh);
-        color: var(--clr-text);
     }
     .header-6 {
         font-size: var(--font-md);
         line-height: var(--font-lh);
-        color: var(--clr-text);
     }
     .body {
         font-size: var(--font-base);
         line-height: var(--font-lh);
-        color: var(--clr-text);
     }
     .body-sm {
         font-size: var(--font-sm);
         line-height: var(--font-lh);
-        color: var(--clr-text);
     }
 `;
