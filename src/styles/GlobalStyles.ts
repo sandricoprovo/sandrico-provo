@@ -92,6 +92,8 @@ export const GlobalStyles = createGlobalStyle`
         --font-max: clamp(calc(var(--font-800) * var(--font-multiplier)), 30vw, var(--font-800));
 
         /* === SPACING === */
+        --spacing-content: 64px;
+        --spacing-top: 40px;
     }
 
     /* === THEMES === */
