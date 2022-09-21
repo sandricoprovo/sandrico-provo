@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 
-import { Head } from '../src/components/Head';
+import { Head } from '../src/components/Head/Head';
 
 function Home() {
     useEffect(() => {

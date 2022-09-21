@@ -1,6 +1,8 @@
 import HeadTag from 'next/head';
 import { useRouter } from 'next/router';
 
+import { Favicon } from './Favicon';
+
 interface HeadProps {
     title: string;
 }
@@ -58,6 +60,7 @@ export function Head({ title }: HeadProps) {
                 property="twitter:description"
                 content="I'm a software developer from Canada. I build fun and data-driven experiences for the web using my front-end and back-end skills."
             />
+            <Favicon />
         </HeadTag>
     );
 }
