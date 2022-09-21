@@ -1,7 +1,11 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
 function Home() {
-    return <h1>Welcome</h1>;
+    useEffect(() => {
+        document.querySelector('body')?.classList.add('theme-default');
+    }, []);
+
+    return <h1 className="header-1">Header</h1>;
 }
 
 export default Home;
