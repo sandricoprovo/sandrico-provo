@@ -98,7 +98,8 @@ export const GlobalStyles = createGlobalStyle`
 
         /* === SPACING === */
         --spacing-content: 64px;
-        --spacing-top: 40px;
+        --spacing-content-mobile: 18px;
+        --spacing-vertical: 24px;
     }
 
     /* === THEMES === */
