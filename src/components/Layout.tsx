@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 import { Header } from './Header/Header';
 import { Page } from './Page';
-import { Footer } from './Footer';
+import { Footer } from './Footer/Footer';
 
 const LayoutStyled = styled.div`
     border: 2px solid red;

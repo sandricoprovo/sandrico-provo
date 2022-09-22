@@ -22,6 +22,7 @@ export const GlobalStyles = createGlobalStyle`
         --clr-eb-hs: 0, 0%;
         --clr-eb-l: 12%;
         --clr-white: hsla(0, 0%, 100%, 1);
+        --clr-eb-50: hsla(240, 12%, 97%, 1);
         --clr-eb-100: hsla(0, 0%, 78%, 1);
         --clr-eb-200: hsla(0, 0%, 56%, 1);
         --clr-eb-300: hsla(0, 0%, 41%, 1);
@@ -103,6 +104,8 @@ export const GlobalStyles = createGlobalStyle`
     /* === THEMES === */
     .theme-default {
         --clr-text: var(--clr-eb-600);
+        --clr-background: var(--clr-white);
+        --clr-content-bkg: var(--clr-eb-50);
     }
 
     /* === Utilities === */

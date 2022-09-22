@@ -1,6 +1,8 @@
 import styled from 'styled-components';
 
-const HeaderStyled = styled.header``;
+const HeaderStyled = styled.header`
+    padding: 0 var(--spacing-content);
+`;
 
 export function Header() {
     return (
