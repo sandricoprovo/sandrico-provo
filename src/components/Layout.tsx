@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { useEffect } from 'react';
 
 import { Header } from './Header/Header';
 import { Page } from './Page';
@@ -13,6 +14,10 @@ const LayoutStyled = styled.div`
 `;
 
 export function Layout({ children }: any) {
+    useEffect(() => {
+        document.querySelector('body')?.classList.add('theme-default');
+    }, []);
+
     return (
         <LayoutStyled>
             <Header />
