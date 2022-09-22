@@ -10,7 +10,7 @@ function Home() {
     return (
         <>
             <Head title="Sandrico Provo - Software Developer" />
-            <h1 className="header-1">Header</h1>
+            <h1 className="header-4">Header</h1>
         </>
     );
 }
