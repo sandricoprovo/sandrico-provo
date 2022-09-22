@@ -20,6 +20,7 @@ export function Head({ title }: HeadProps) {
                 name="description"
                 content="I'm a software developer from Canada. Using my front-end and back-end skills I solve problems and bring benefits to users."
             />
+            <Favicon />
 
             {/* <!-- Open Graph / Facebook --> */}
             <meta property="og:title" content={title} />
@@ -60,7 +61,6 @@ export function Head({ title }: HeadProps) {
                 property="twitter:description"
                 content="I'm a software developer from Canada. I build fun and data-driven experiences for the web using my front-end and back-end skills."
             />
-            <Favicon />
         </HeadTag>
     );
 }
