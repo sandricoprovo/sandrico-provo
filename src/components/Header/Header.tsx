@@ -1,8 +1,8 @@
-import Image from 'next/image';
 import Link from 'next/link';
 import styled from 'styled-components';
 
 import { Navigation } from './Navigation/Navigation';
+import { LogoBlack } from '../Logos';
 
 const HeaderStyled = styled.header`
     padding: 0 var(--spacing-content);
@@ -17,11 +17,7 @@ export function Header() {
         <HeaderStyled>
             <Link href="/">
                 <a>
-                    <Image
-                        src="/assets/logos/Logo-64-Black.svg"
-                        height={48}
-                        width={48}
-                    />
+                    <LogoBlack />
                 </a>
             </Link>
             <Navigation />
