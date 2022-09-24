@@ -11,7 +11,7 @@ const MenuBtnSVG = styled.svg<{ open: boolean }>`
     -ms-user-select: none;
     user-select: none;
     z-index: 100;
-    background-color: var(--clr-background);
+    background-color: transparent;
     transform: ${({ open }) => (open ? 'rotate(45deg)' : '')};
 
     & > path {
