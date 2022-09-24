@@ -1,11 +1,9 @@
 import { createGlobalStyle } from 'styled-components';
 
 import { Reset } from './Reset';
-import { MenuBtnStyles } from './MenuBtn';
 
 export const GlobalStyles = createGlobalStyle`
     ${Reset}
-    ${MenuBtnStyles}
 
     :root {
         /* === COLORS === */
