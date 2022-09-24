@@ -3,6 +3,7 @@ import Link from 'next/link';
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
 
+// eslint-disable-next-line prettier/prettier
 const NavLinkStyled = styled(motion.li)`
     list-style: none;
 
@@ -26,8 +27,6 @@ export function NavDrawerLink({
     order,
     toggleDrawer,
 }: NavDrawerLinkProps) {
-    console.log('delay', order * 1.2);
-
     return (
         <NavLinkStyled
             onClick={toggleDrawer}

@@ -38,7 +38,6 @@ const drawerVariants: Variants = {
     animate: {
         y: '56%',
         transition: {
-            // delay: 0.1,
             duration: 0.8,
             bounce: 0,
             ease: [0.65, 0.05, 0.36, 1],

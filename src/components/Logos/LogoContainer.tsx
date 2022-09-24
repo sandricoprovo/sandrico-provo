@@ -4,6 +4,13 @@ const SVGContainer = styled.svg`
     width: 64px;
     height: 64px;
     padding-top: 1rem;
+    opacity: 0;
+
+    animation-name: fadeIn;
+    animation-duration: 0.3s;
+    animation-timing-function: cubic-bezier(0.86, 0, 0.07, 1);
+    animation-delay: 0.3s;
+    animation-fill-mode: forwards;
 
     /* P */
     & > g > g > path:nth-child(1) {
@@ -22,6 +29,17 @@ const SVGContainer = styled.svg`
             & > g > g > path:nth-child(2) {
                 transform: translate(-20px, 145px);
             }
+        }
+    }
+
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+            transform: translateY(8px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0px);
         }
     }
 `;

@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 const MenuBtnSVG = styled.svg<{ open: boolean }>`
+    opacity: 0;
     cursor: pointer;
     -webkit-tap-highlight-color: transparent;
     transition: transform 0.35s;
