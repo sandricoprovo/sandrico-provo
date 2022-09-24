@@ -10,7 +10,7 @@ const NavigationStyled = styled.nav`
     gap: 2rem;
 `;
 
-export const Navigation = () => (
+export const NavBar = () => (
     <NavigationStyled>
         {NAV_LINKS.map((link) => (
             <NavLink key={link.label} href={link.href} label={link.label} />

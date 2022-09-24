@@ -1,13 +1,16 @@
 import Link from 'next/link';
 import styled from 'styled-components';
 
-import { Navigation } from './Navigation/Navigation';
+import { NavBar } from './NavBar/NavBar';
+import { NavDrawer } from './NavDrawer/NavDrawer';
 import { LogoBlack } from '../Logos';
 import { useWindowSize } from '../../hooks/useWindowSize';
 
 const HeaderStyled = styled.header`
     padding: var(--spacing-vertical) var(--spacing-content-mobile);
+    position: relative;
     opacity: 0;
+
     animation-name: fadeUpAndIn;
     animation-duration: 0.3s;
     animation-timing-function: cubic-bezier(0.86, 0, 0.07, 1);
@@ -43,7 +46,7 @@ export function Header() {
                     <LogoBlack />
                 </a>
             </Link>
-            {width && width <= 575 ? <h1>Mobile Nav</h1> : <Navigation />}
+            {width && width <= 575 ? <NavDrawer /> : <NavBar />}
         </HeaderStyled>
     );
 }

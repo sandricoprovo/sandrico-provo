@@ -102,6 +102,11 @@ export const GlobalStyles = createGlobalStyle`
         --spacing-vertical: 24px;
     }
 
+    /* === DEFAULTS === */
+    html {
+      height: -webkit-fill-available;
+    }
+
     /* === THEMES === */
     .theme-default {
         --clr-text: var(--clr-eb-600);
