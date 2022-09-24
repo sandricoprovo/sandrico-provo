@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 
 import { NAV_LINKS } from '../../../content/navLinks';
+import { MenuBtn } from './MenuBtn';
 import { NavDrawerLink } from './NavDrawerLink';
 import { NavDrawerFooter } from './NavDrawerFooter';
 
@@ -29,7 +30,7 @@ const Drawer = styled.nav`
     }
 
     & > div > li:active > a {
-        color: red;
+        color: var(--clr-text-active);
     }
 
     @supports (-webkit-touch-callout: none) {
@@ -48,9 +49,7 @@ export function NavDrawer() {
 
     return (
         <>
-            <button type="button" onClick={toggleDrawer}>
-                Menu
-            </button>
+            <MenuBtn isDrawerOpen={isOpen} toggleDrawerHandler={toggleDrawer} />
             {isOpen ? (
                 <Drawer>
                     <div>

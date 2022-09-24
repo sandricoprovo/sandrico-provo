@@ -35,8 +35,8 @@ export function NavDrawerFooter() {
             </div>
             <div>
                 <TwitterIcon title="Twitter" href="https://google.com" />
-                <GitHubIcon title="GitHub" href="https://google.com" />
-                <LinkedinIcon title="LinkedIn" href="https://google.com" />
+                <GitHubIcon title="GitHub" />
+                <LinkedinIcon title="LinkedIn" />
             </div>
         </NavDrawerFooterStyled>
     );

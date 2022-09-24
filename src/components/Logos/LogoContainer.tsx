@@ -1,6 +1,10 @@
 import styled from 'styled-components';
 
 const SVGContainer = styled.svg`
+    width: 64px;
+    height: 64px;
+    padding-top: 1rem;
+
     /* P */
     & > g > g > path:nth-child(1) {
         transition: transform 0.22s cubic-bezier(0.68, -0.55, 0.27, 1.55);

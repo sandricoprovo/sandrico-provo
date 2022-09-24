@@ -1,9 +1,12 @@
 import { createGlobalStyle } from 'styled-components';
 
 import { Reset } from './Reset';
+import { MenuBtnStyles } from './MenuBtn';
 
 export const GlobalStyles = createGlobalStyle`
     ${Reset}
+    ${MenuBtnStyles}
+
     :root {
         /* === COLORS === */
         // green blue crayola
@@ -99,7 +102,7 @@ export const GlobalStyles = createGlobalStyle`
         /* === SPACING === */
         --spacing-content: 64px;
         --spacing-content-mobile: 18px;
-        --spacing-vertical: 24px;
+        --spacing-vertical: 16px;
     }
 
     /* === DEFAULTS === */
@@ -110,10 +113,10 @@ export const GlobalStyles = createGlobalStyle`
     /* === THEMES === */
     .theme-default {
         --clr-text: var(--clr-eb-600);
+        --clr-text-active: var(--clr-eb-500);
         --clr-background: var(--clr-white);
         --clr-content-bkg: var(--clr-eb-50);
         --clr-icon: var(--clr-eb-600);
-        --clr-icon-active: var(--clr-eb-300);
     }
 
     /* === Utilities === */
