@@ -27,9 +27,11 @@
     },
     "homepage": "https://github.com/sandricoprovo/sandrico-provo#readme",
     "dependencies": {
+        "framer-motion": "^7.3.6",
         "next": "^12.3.0",
         "react": "^18.2.0",
         "react-dom": "^18.2.0",
+        "react-feather": "^2.0.10",
         "styled-components": "^5.3.5"
     },
     "devDependencies": {

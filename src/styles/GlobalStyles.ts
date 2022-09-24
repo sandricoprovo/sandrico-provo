@@ -4,6 +4,7 @@ import { Reset } from './Reset';
 
 export const GlobalStyles = createGlobalStyle`
     ${Reset}
+
     :root {
         /* === COLORS === */
         // green blue crayola
@@ -98,14 +99,22 @@ export const GlobalStyles = createGlobalStyle`
 
         /* === SPACING === */
         --spacing-content: 64px;
-        --spacing-top: 40px;
+        --spacing-content-mobile: 18px;
+        --spacing-vertical: 16px;
+    }
+
+    /* === DEFAULTS === */
+    html {
+      height: -webkit-fill-available;
     }
 
     /* === THEMES === */
     .theme-default {
         --clr-text: var(--clr-eb-600);
+        --clr-text-active: var(--clr-eb-500);
         --clr-background: var(--clr-white);
         --clr-content-bkg: var(--clr-eb-50);
+        --clr-icon: var(--clr-eb-600);
     }
 
     /* === Utilities === */
