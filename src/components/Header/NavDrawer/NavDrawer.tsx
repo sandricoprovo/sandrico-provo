@@ -15,6 +15,7 @@ const Drawer = styled(motion.nav)`
     width: 100vw;
     right: 0;
     padding-top: 3rem;
+    z-index: 200;
 
     display: flex;
     flex-direction: column;

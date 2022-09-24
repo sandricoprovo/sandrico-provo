@@ -115,6 +115,7 @@ export const GlobalStyles = createGlobalStyle`
         --clr-background: var(--clr-white);
         --clr-content-bkg: var(--clr-eb-50);
         --clr-icon: var(--clr-eb-600);
+        --clr-hero-bkg: var(--clr-gbc-400);
     }
 
     /* === Utilities === */

@@ -1,12 +1,13 @@
 import React from 'react';
 
 import { Head } from '../src/components/Head/Head';
+import { Hero } from '../src/components/Home/Hero';
 
 function Home() {
     return (
         <>
             <Head title="Sandrico Provo - Software Developer" />
-            <h1 className="header-4">Home</h1>
+            <Hero />
         </>
     );
 }
