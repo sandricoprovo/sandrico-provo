@@ -1,9 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
+import { motion } from 'framer-motion';
 
 import { TwitterIcon, GitHubIcon, LinkedinIcon } from '../../Shared/Icons';
 
-const NavDrawerFooterStyled = styled.div`
+const NavDrawerFooterStyled = styled(motion.div)`
     display: flex;
     justify-content: space-between;
 
@@ -25,7 +26,27 @@ const NavDrawerFooterStyled = styled.div`
 
 export function NavDrawerFooter() {
     return (
-        <NavDrawerFooterStyled>
+        <NavDrawerFooterStyled
+            initial={{ opacity: 0, x: -50 }}
+            animate={{
+                opacity: 1,
+                x: 0,
+                transition: {
+                    delay: 0.7,
+                    duration: 0.2,
+                    ease: [0.65, 0.05, 0.36, 1],
+                },
+            }}
+            exit={{
+                opacity: 0,
+                x: -50,
+                transition: {
+                    delay: 0.7,
+                    duration: 0.2,
+                    ease: [0.65, 0.05, 0.36, 1],
+                },
+            }}
+        >
             <div>
                 <p>
                     Based In <br />

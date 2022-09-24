@@ -1,19 +1,18 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
+import { motion, AnimatePresence, Variants } from 'framer-motion';
 
 import { NAV_LINKS } from '../../../content/navLinks';
 import { MenuBtn } from './MenuBtn';
 import { NavDrawerLink } from './NavDrawerLink';
 import { NavDrawerFooter } from './NavDrawerFooter';
 
-const Drawer = styled.nav`
-    border: 2px solid green;
+const Drawer = styled(motion.nav)`
     position: absolute;
     padding: 0 var(--spacing-content-mobile);
     background-color: var(--clr-background);
-    height: 100vh;
+    height: 80vh;
     width: 100vw;
-    top: 100px;
     right: 0;
     padding-top: 3rem;
 
@@ -32,13 +31,29 @@ const Drawer = styled.nav`
     & > div > li:active > a {
         color: var(--clr-text-active);
     }
-
-    @supports (-webkit-touch-callout: none) {
-        /* The hack for Safari */
-        height: fill-available;
-        height: -webkit-fill-available;
-    }
 `;
+
+const drawerVariants: Variants = {
+    initial: { y: '-100%' },
+    animate: {
+        y: '56%',
+        transition: {
+            // delay: 0.1,
+            duration: 0.8,
+            bounce: 0,
+            ease: [0.65, 0.05, 0.36, 1],
+        },
+    },
+    exit: {
+        y: '-100%',
+        transition: {
+            delay: 0.3,
+            duration: 0.8,
+            bounce: 0,
+            ease: [0.65, 0.05, 0.36, 1],
+        },
+    },
+};
 
 export function NavDrawer() {
     const [isOpen, setIsOpen] = useState(false);
@@ -50,21 +65,29 @@ export function NavDrawer() {
     return (
         <>
             <MenuBtn isDrawerOpen={isOpen} toggleDrawerHandler={toggleDrawer} />
-            {isOpen ? (
-                <Drawer>
-                    <div>
-                        {NAV_LINKS.map((link) => (
-                            <NavDrawerLink
-                                key={link.label}
-                                href={link.href}
-                                label={link.label}
-                                toggleDrawer={toggleDrawer}
-                            />
-                        ))}
-                    </div>
-                    <NavDrawerFooter />
-                </Drawer>
-            ) : null}
+            <AnimatePresence>
+                {isOpen && (
+                    <Drawer
+                        variants={drawerVariants}
+                        initial="initial"
+                        animate="animate"
+                        exit="exit"
+                    >
+                        <div>
+                            {NAV_LINKS.map((link, index) => (
+                                <NavDrawerLink
+                                    key={link.label}
+                                    href={link.href}
+                                    label={link.label}
+                                    order={index}
+                                    toggleDrawer={toggleDrawer}
+                                />
+                            ))}
+                        </div>
+                        <NavDrawerFooter />
+                    </Drawer>
+                )}
+            </AnimatePresence>
         </>
     );
 }
