@@ -41,6 +41,7 @@ const HeroStyled = styled.section`
         width: 0%;
         height: 100%;
         z-index: 1;
+        overflow: hidden;
 
         display: flex;
         justify-content: center;
@@ -87,10 +88,12 @@ const HeroStyled = styled.section`
     @keyframes fadeTextIn {
         from {
             opacity: 0;
+            display: none;
             transform: translateY(40px);
         }
         to {
             opacity: 1;
+            display: inline;
             transform: translateY(0px);
         }
     }
