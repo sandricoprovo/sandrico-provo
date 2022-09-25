@@ -11,14 +11,7 @@ const HeroStyled = styled.section`
         position: relative;
         z-index: 10;
         width: 100%;
-        opacity: 0;
         gap: 8px;
-
-        animation-name: fadeTextIn;
-        animation-duration: 0.9s;
-        animation-timing-function: cubic-bezier(0.68, -0.55, 0.27, 1.55);
-        animation-fill-mode: forwards;
-        animation-delay: 0.4s;
 
         & > p:nth-child(1) {
             font-family: var(--font-display);
@@ -43,7 +36,6 @@ const HeroStyled = styled.section`
         height: 100%;
         z-index: 1;
         overflow: hidden;
-        transition: transform 0.1s ease-in-out;
 
         display: flex;
         justify-content: center;
@@ -108,11 +100,16 @@ const HeroStyled = styled.section`
 `;
 
 export function Hero() {
-    const heroPosition = useScrollPosition(1.2);
+    const headerText = useScrollPosition(0.5);
+    const coloredBackground = useScrollPosition(0.5);
 
     return (
         <HeroStyled>
-            <div>
+            <div
+                style={{
+                    transform: `translateY(${-headerText}px)`,
+                }}
+            >
                 <p>Hey, I'm</p>
                 <h1 className="header-2">
                     <span>San</span> <br />
@@ -120,7 +117,7 @@ export function Hero() {
                     <span>co</span> <br />
                 </h1>
             </div>
-            <div style={{ transform: `translateX(${heroPosition}px)` }}>
+            <div style={{ transform: `translateX(${coloredBackground}px)` }}>
                 <p>
                     I write <span>front-end</span> and <span>back-end</span>{' '}
                     code.
