@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { useScrollPosition } from '../../hooks/useScrollPosition';
 
 const HeroStyled = styled.section`
     padding: 164px 24% 164px 10%;
@@ -37,11 +38,12 @@ const HeroStyled = styled.section`
         padding-bottom: 2rem;
         top: 0;
         right: 0%;
+        width: 0;
         background-color: var(--clr-hero-bkg);
-        width: 0%;
         height: 100%;
         z-index: 1;
         overflow: hidden;
+        transition: transform 0.1s ease-in-out;
 
         display: flex;
         justify-content: center;
@@ -106,6 +108,8 @@ const HeroStyled = styled.section`
 `;
 
 export function Hero() {
+    const heroPosition = useScrollPosition(1.2);
+
     return (
         <HeroStyled>
             <div>
@@ -116,7 +120,7 @@ export function Hero() {
                     <span>co</span> <br />
                 </h1>
             </div>
-            <div>
+            <div style={{ transform: `translateX(${heroPosition}px)` }}>
                 <p>
                     I write <span>front-end</span> and <span>back-end</span>{' '}
                     code.

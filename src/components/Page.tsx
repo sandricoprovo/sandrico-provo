@@ -3,6 +3,7 @@ import styled from 'styled-components';
 const PageStyled = styled.main`
     margin: 0 var(--spacing-content-mobile);
     background-color: var(--clr-content-bkg);
+    overflow-x: hidden;
 
     @media (min-width: 575px) {
         margin: 0 var(--spacing-content);
