@@ -101,6 +101,7 @@ export const GlobalStyles = createGlobalStyle`
         --spacing-content: 64px;
         --spacing-content-mobile: 18px;
         --spacing-vertical: 16px;
+        --spacing-margin: 160px;
     }
 
     /* === DEFAULTS === */

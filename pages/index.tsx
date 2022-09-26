@@ -4,14 +4,14 @@ import Image from 'next/image';
 import setup1 from '../public/images/setup-1.jpeg';
 
 import { Head } from '../src/components/Head/Head';
-import { Hero } from '../src/components/Home/Hero';
+import { Hero, ShortAbout } from '../src/components/Home';
 import { useScrollPosition } from '../src/hooks/useScrollPosition';
 
 const ImageContainer = styled.section`
     position: relative;
     width: 100%;
     height: 400px;
-    margin: 120px 0;
+    margin-bottom: var(--spacing-margin);
 
     & > div {
         position: relative;
@@ -36,6 +36,7 @@ function Home() {
                     <Image src={setup1.src} layout="fill" objectFit="cover" />
                 </div>
             </ImageContainer>
+            <ShortAbout />
         </>
     );
 }

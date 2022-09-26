@@ -5,6 +5,7 @@ import { useScrollPosition } from '../../hooks/useScrollPosition';
 const HeroStyled = styled.section`
     padding: 164px 24% 164px 10%;
     position: relative;
+    margin-bottom: var(--spacing-margin);
 
     /* Content */
     & > div:nth-child(1) {
