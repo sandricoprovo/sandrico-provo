@@ -139,7 +139,6 @@ export const GlobalStyles = createGlobalStyle`
     }
     .header-4 {
         font-size: var(--font-xl);
-        line-height: var(--font-lh);
     }
     .header-5 {
         font-size: var(--font-lg);

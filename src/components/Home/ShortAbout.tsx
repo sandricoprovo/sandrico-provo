@@ -58,7 +58,13 @@ const ShortAboutStyled = styled.section`
 
         & > p {
             font-family: var(--font-header);
+            line-height: 100%;
         }
+
+        & > div > p {
+            line-height: 160%;
+        }
+
         & > p > span {
             font-family: var(--font-display);
         }
