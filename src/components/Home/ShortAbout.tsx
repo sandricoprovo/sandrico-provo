@@ -1,13 +1,128 @@
 import React from 'react';
+import Image from 'next/image';
+import Link from 'next/link';
 import styled from 'styled-components';
+import setup1 from '../../../public/images/setup-1.jpeg';
 
 const ShortAboutStyled = styled.section`
-    border: 2px solid red;
     width: 100%;
-    height: 200px; // TEMP
     margin-bottom: var(--spacing-margin);
+    padding: 0 var(--spacing-content-mobile);
+
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 80px;
+
+    & > div:nth-child(1) {
+        width: 100%;
+        min-width: 300px;
+        max-width: 600px;
+        height: 100%;
+        display: flex;
+        justify-content: flex-start;
+        align-items: flex-end;
+        gap: 16px;
+
+        & > p {
+            font-size: var(--font-base);
+            font-family: var(--font-display);
+            writing-mode: vertical-rl;
+            transform: rotate(180deg);
+        }
+
+        & > div {
+            position: relative;
+            width: 100%;
+            height: 100%;
+
+            & > div {
+                position: relative;
+                height: 100%;
+            }
+        }
+    }
+
+    & > div:nth-child(2) {
+        width: 100%;
+        min-width: 300px;
+        max-width: 500px;
+        height: 100%;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: flex-start;
+        gap: 40px;
+
+        & > p {
+            font-family: var(--font-header);
+        }
+        & > p > span {
+            font-family: var(--font-display);
+        }
+
+        & > p > span > span {
+            font-family: var(--font-display);
+            color: var(--clr-hero-bkg);
+        }
+
+        & > a {
+            color: var(--clr-text);
+            text-decoration: none;
+        }
+    }
+
+    @media (min-width: 575px) {
+        padding: 0 var(--spacing-content);
+    }
 `;
 
 export function ShortAbout() {
-    return <ShortAboutStyled>About</ShortAboutStyled>;
+    return (
+        <ShortAboutStyled>
+            <div>
+                <p>Software Developer</p>
+                <div>
+                    <Image
+                        src={setup1.src}
+                        layout="responsive"
+                        width={100}
+                        height={100}
+                        objectFit="cover"
+                    />
+                </div>
+            </div>
+            <div>
+                <p className="header-4">
+                    A little <br />
+                    <span>
+                        About Me<span>.</span>
+                    </span>
+                </p>
+                <div>
+                    <p className="body">
+                        I’m Sandrico Provo, a Software Developer based in
+                        Halifax, Nova Scotia, Canada. <br />
+                        <br />
+                        Mi eget mauris pharetra et ultrices neque ornare. Nisl
+                        nunc mi ipsum faucibus vitae aliquet. Massa id neque
+                        aliquam vestibulum morbi blandit cursus risus at. Sit
+                        amet nisl suscipit adipiscing. Ultrices gravida dictum
+                        fusce ut placerat orci nulla pellentesque. Iaculis at
+                        erat pellentesque adipiscing commodo elit at. Lobortis
+                        mattis aliquam faucibus purus in. <br /> <br />
+                        Mi eget mauris pharetra et ultrices neque ornare. Nisl
+                        nunc mi ipsum faucibus vitae aliquet. Massa id neque
+                        aliquam vestibulum morbi blandit cursus risus at.
+                    </p>
+                </div>
+                {/* TODO: Add arrow icon below */}
+                <Link href="/about">
+                    <a>More</a>
+                </Link>
+            </div>
+        </ShortAboutStyled>
+    );
 }

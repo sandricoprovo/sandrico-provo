@@ -54,7 +54,7 @@ const HeroStyled = styled.section`
             transform: translateY(24px);
             font-family: var(--font-header);
             color: var(--clr-content-bkg);
-            font-size: var(--font-300);
+            font-size: var(--font-base);
             max-width: 250px;
 
             animation-name: fadeTextIn;
@@ -66,7 +66,7 @@ const HeroStyled = styled.section`
             & > span {
                 font-family: var(--font-display);
                 color: var(--clr-content-bkg);
-                font-size: var(--font-300);
+                font-size: var(--font-md);
             }
         }
     }
