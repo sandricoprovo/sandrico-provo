@@ -4,7 +4,6 @@ import { useScrollPosition } from '../../hooks/useScrollPosition';
 
 const HeroStyled = styled.section`
     padding: 164px 24% 164px 10%;
-    height: 88vh;
     position: relative;
     margin-bottom: var(--spacing-margin);
 
@@ -26,6 +25,7 @@ const HeroStyled = styled.section`
         }
 
         & > h1 {
+            font-size: var(--font-xxl);
             font-family: var(--font-header);
             line-height: 100%;
         }
@@ -99,6 +99,12 @@ const HeroStyled = styled.section`
     }
 
     @media (min-width: 975px) {
+        height: 100vh;
+
+        & > div:nth-child(1) > h1 {
+            font-size: var(--font-xxxl);
+        }
+
         & > div:nth-child(2) {
             align-items: center;
         }
@@ -117,7 +123,7 @@ export function Hero() {
                 }}
             >
                 <p>Hey, I'm</p>
-                <h1 className="header-2">
+                <h1>
                     <span>San</span> <br />
                     <span>dri</span> <br />
                     <span>co</span> <br />
