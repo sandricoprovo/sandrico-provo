@@ -26,6 +26,8 @@ const Container = styled.section`
     & > div {
         display: flex;
         flex-wrap: wrap;
+        justify-content: space-around;
+        align-items: center;
         gap: 4rem;
         padding-bottom: var(--spacing-content-mobile);
     }

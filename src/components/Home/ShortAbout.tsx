@@ -1,6 +1,5 @@
 import React from 'react';
 import Image from 'next/image';
-import Link from 'next/link';
 import styled from 'styled-components';
 import setup1 from '../../../public/images/setup-1.jpeg';
 import { GoToBtn } from '../Buttons';
@@ -14,7 +13,6 @@ const ShortAboutStyled = styled.section`
     flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
-    gap: 80px;
 
     & > div:nth-child(1) {
         width: 100%;
@@ -48,7 +46,7 @@ const ShortAboutStyled = styled.section`
     & > div:nth-child(2) {
         width: 100%;
         min-width: 300px;
-        max-width: 500px;
+        max-width: 600px;
         height: 100%;
 
         display: flex;
