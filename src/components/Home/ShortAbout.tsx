@@ -13,6 +13,7 @@ const ShortAboutStyled = styled.section`
     flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
+    gap: 80px;
 
     & > div:nth-child(1) {
         width: 100%;

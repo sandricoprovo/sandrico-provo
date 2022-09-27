@@ -73,7 +73,7 @@ export const GlobalStyles = createGlobalStyle`
         /* === TYPOGRAPHY === */
         // Base
         --font-scale: 1.5;
-        --font-multiplier: 0.3;
+        --font-multiplier: 0.1;
         --font-lh: 140%;
         --font-100: 0.667rem;
         --font-200: 1;
@@ -118,6 +118,7 @@ export const GlobalStyles = createGlobalStyle`
         --clr-content-bkg: var(--clr-eb-50);
         --clr-icon: var(--clr-eb-600);
         --clr-main: var(--clr-gbc-400);
+        --clr-footer-bkg: var(--clr-eb-600);
     }
 
     /* === Utilities === */
