@@ -1,6 +1,5 @@
 import React from 'react';
 import Image from 'next/image';
-import Link from 'next/link';
 import styled from 'styled-components';
 import setup1 from '../../../public/images/setup-1.jpeg';
 import { GoToBtn } from '../Buttons';
