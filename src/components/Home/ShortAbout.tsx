@@ -71,7 +71,7 @@ const ShortAboutStyled = styled.section`
 
         & > p > span > span {
             font-family: var(--font-display);
-            color: var(--clr-hero-bkg);
+            color: var(--clr-main);
         }
 
         & > a {

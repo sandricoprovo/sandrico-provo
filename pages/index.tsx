@@ -4,7 +4,7 @@ import Image from 'next/image';
 import setup1 from '../public/images/setup-1.jpeg';
 
 import { Head } from '../src/components/Head/Head';
-import { Hero, ShortAbout } from '../src/components/Home';
+import { Hero, ShortAbout, WorkPreview } from '../src/components/Home';
 import { useScrollPosition } from '../src/hooks/useScrollPosition';
 
 const ImageContainer = styled.section`
@@ -37,6 +37,7 @@ function Home() {
                 </div>
             </ImageContainer>
             <ShortAbout />
+            <WorkPreview />
         </>
     );
 }
