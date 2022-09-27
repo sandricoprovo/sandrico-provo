@@ -3,6 +3,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import styled from 'styled-components';
 import setup1 from '../../../public/images/setup-1.jpeg';
+import { GoToBtn } from '../Buttons';
 
 const ShortAboutStyled = styled.section`
     width: 100%;
@@ -124,10 +125,7 @@ export function ShortAbout() {
                         aliquam vestibulum morbi blandit cursus risus at.
                     </p>
                 </div>
-                {/* TODO: Add arrow icon below */}
-                <Link href="/about">
-                    <a>More</a>
-                </Link>
+                <GoToBtn href="/about" label="More About Me" />
             </div>
         </ShortAboutStyled>
     );
