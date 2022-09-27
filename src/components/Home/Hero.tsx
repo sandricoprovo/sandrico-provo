@@ -4,8 +4,13 @@ import { useScrollPosition } from '../../hooks/useScrollPosition';
 
 const HeroStyled = styled.section`
     padding: 164px 24% 164px 10%;
+    height: 88vh;
     position: relative;
     margin-bottom: var(--spacing-margin);
+
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
 
     /* Content */
     & > div:nth-child(1) {
@@ -33,7 +38,7 @@ const HeroStyled = styled.section`
         top: 0;
         right: 0%;
         width: 0;
-        background-color: var(--clr-hero-bkg);
+        background-color: var(--clr-main);
         height: 100%;
         z-index: 1;
         overflow: hidden;
