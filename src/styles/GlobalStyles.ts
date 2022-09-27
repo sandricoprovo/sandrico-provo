@@ -102,6 +102,7 @@ export const GlobalStyles = createGlobalStyle`
         --spacing-content-mobile: 18px;
         --spacing-vertical: 16px;
         --spacing-margin: 160px;
+        --spacing-page-max: 1800px;
     }
 
     /* === DEFAULTS === */
@@ -116,7 +117,7 @@ export const GlobalStyles = createGlobalStyle`
         --clr-background: var(--clr-white);
         --clr-content-bkg: var(--clr-eb-50);
         --clr-icon: var(--clr-eb-600);
-        --clr-hero-bkg: var(--clr-gbc-400);
+        --clr-main: var(--clr-gbc-400);
     }
 
     /* === Utilities === */

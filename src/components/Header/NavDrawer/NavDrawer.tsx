@@ -9,11 +9,10 @@ import { NavDrawerFooter } from './NavDrawerFooter';
 
 const Drawer = styled(motion.nav)`
     position: absolute;
-    padding: 0 var(--spacing-content-mobile);
+    /* padding: 0 var(--spacing-content-mobile); */
     background-color: var(--clr-background);
     height: 80vh;
-    width: 100vw;
-    right: 0;
+    width: 100%;
     padding-top: 3rem;
     z-index: 200;
 

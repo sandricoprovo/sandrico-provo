@@ -1,11 +1,8 @@
 import styled from 'styled-components';
 
 const FooterStyled = styled.footer`
-    padding: 0 var(--spacing-content-mobile);
-
-    @media (min-width: 575px) {
-        padding: 0 var(--spacing-content);
-    }
+    width: 100%;
+    max-width: var(--spacing-page-max);
 `;
 
 export function Footer() {
