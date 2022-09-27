@@ -17,7 +17,6 @@ const LinkItem = styled.div`
             }
 
             & > span > li {
-                color: red;
                 transform: translateY(-22px);
             }
 
@@ -44,14 +43,14 @@ const AnimationMask = styled.span`
 // a tags in unison.
 const NavLinkStyled = styled.li`
     list-style: none;
-    transition: transform 0.3s cubic-bezier(0.86, 0, 0.07, 1);
+    transition: transform 0.5s cubic-bezier(0.86, 0, 0.07, 1);
 
     /* This is the default styling for the links */
     & > a {
         color: var(--clr-text);
         text-decoration: none;
         display: block;
-        transition: transform 0.3s cubic-bezier(0.86, 0, 0.07, 1);
+        transition: transform 0.5s cubic-bezier(0.86, 0, 0.07, 1);
     }
 
     & > a:nth-child(1) {

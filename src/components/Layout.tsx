@@ -7,8 +7,11 @@ import { Footer } from './Footer/Footer';
 
 const LayoutStyled = styled.div`
     display: grid;
-    grid-template-columns: 100vw;
-    grid-template-rows: 1fr 1fr auto;
+    grid-template-columns: 92vw;
+    grid-template-rows: auto 1fr auto;
+    justify-content: space-around;
+    justify-items: center;
+    align-items: center;
 `;
 
 export function Layout({ children }: any) {

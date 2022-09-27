@@ -20,6 +20,7 @@ export function Head({ title }: HeadProps) {
                 name="description"
                 content="I'm a software developer from Canada. Using my front-end and back-end skills I solve problems and bring benefits to users."
             />
+            <meta name="viewport" content="width=device-width" />
             <Favicon />
 
             {/* <!-- Open Graph / Facebook --> */}

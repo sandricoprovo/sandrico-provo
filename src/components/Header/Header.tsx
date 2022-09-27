@@ -7,8 +7,10 @@ import { LogoBlack } from '../Logos';
 import { useWindowSize } from '../../hooks/useWindowSize';
 
 const HeaderStyled = styled.header`
-    padding: var(--spacing-vertical) var(--spacing-content-mobile);
+    width: 100%;
+    margin: var(--spacing-vertical) var(--spacing-content-mobile);
     position: relative;
+    max-width: var(--spacing-page-max);
 
     display: flex;
     justify-content: space-between;
@@ -35,7 +37,7 @@ const HeaderStyled = styled.header`
     }
 
     @media (min-width: 575px) {
-        padding: var(--spacing-vertical) var(--spacing-content);
+        margin: var(--spacing-vertical) var(--spacing-content);
     }
 `;
 

@@ -7,6 +7,7 @@ import { NavLink } from './NavLink';
 const NavigationStyled = styled.nav`
     display: flex;
     align-items: center;
+    flex-wrap: wrap;
     gap: 2rem;
 `;
 
