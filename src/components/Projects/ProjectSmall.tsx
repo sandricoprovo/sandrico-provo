@@ -3,6 +3,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import styled from 'styled-components';
 import setup1 from '../../../public/images/setup-1.jpeg';
+import { GoToBtn } from '../Buttons';
 
 const ProjectSmallStyled = styled.div`
     flex-grow: 1;
@@ -51,9 +52,7 @@ export function ProjectSmall() {
             </div>
             <div>
                 <p>Project One One One One</p>
-                <Link href="/projects">
-                    <a>More</a>
-                </Link>
+                <GoToBtn href="/projects" label="More" />
             </div>
         </ProjectSmallStyled>
     );
