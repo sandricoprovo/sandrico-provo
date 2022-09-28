@@ -3,7 +3,8 @@ import styled from 'styled-components';
 
 import { getFormattedUTC } from '../utils/getFormattedTime';
 
-const TimeStyled = styled.p`
+const TimeStyled = styled.span`
+    display: block;
     line-height: 120%;
 `;
 

@@ -8,11 +8,11 @@ import { NavDrawerLink } from './NavDrawerLink';
 import { NavDrawerFooter } from './NavDrawerFooter';
 
 const Drawer = styled(motion.nav)`
+    /* border: 2px solid red; */
     position: absolute;
-    /* padding: 0 var(--spacing-content-mobile); */
     background-color: var(--clr-background);
     height: 80vh;
-    width: 100%;
+    width: 93vw;
     padding-top: 3rem;
     z-index: 200;
 
@@ -21,7 +21,7 @@ const Drawer = styled(motion.nav)`
     justify-content: space-between;
 
     & > div > li {
-        margin: 0.75rem 0;
+        margin: 1.5rem 0;
     }
 
     & > div:nth-child(2) {

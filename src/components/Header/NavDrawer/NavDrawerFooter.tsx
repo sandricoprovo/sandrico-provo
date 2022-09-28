@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import { motion } from 'framer-motion';
 
 import { TwitterIcon, GitHubIcon, LinkedinIcon } from '../../Shared/Icons';
+import { Time } from '../../Time';
 
 const NavDrawerFooterStyled = styled(motion.div)`
     display: flex;
@@ -52,7 +53,9 @@ export function NavDrawerFooter() {
                     Based In <br />
                     Nova Scotia, Canada
                 </p>
-                <p>Local Time:</p>
+                <p>
+                    Local Time: <Time />
+                </p>
             </div>
             <div>
                 <TwitterIcon title="Twitter" href="https://google.com" />
