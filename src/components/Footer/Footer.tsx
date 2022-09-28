@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { TwitterIcon, GitHubIcon, LinkedinIcon } from '../Shared/Icons';
+import { Time } from '../Time';
 
 const FooterStyled = styled.footer`
     width: 100%;
@@ -129,8 +130,10 @@ const FooterStyled = styled.footer`
         gap: 16px;
     }
 
-    & > div:nth-of-type(2) > div:nth-child(2) > div > p {
-        font-size: var(--font-base);
+    & > div:nth-of-type(2) > div:nth-child(2) > div > div > p:nth-of-type(1),
+    & > div:nth-of-type(2) > div:nth-child(2) > div > p:nth-of-type(1) {
+        font-size: var(--font-sm);
+        font-family: var(--font-display);
     }
 
     & > div:nth-of-type(2) > div:nth-child(2) > div > div > div {
@@ -183,7 +186,7 @@ export function Footer() {
                         </div>
                         <div>
                             <p>Local Time</p>
-                            <div>Time</div>
+                            <Time />
                         </div>
                     </div>
                     <div>
