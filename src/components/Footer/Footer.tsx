@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { GoToBtn } from '../Buttons';
 import { TwitterIcon, GitHubIcon, LinkedinIcon } from '../Shared/Icons';
 import { Time } from '../Time';
 
@@ -161,7 +162,7 @@ export function Footer() {
                             I'm excited to <span>CONNECT</span> with you
                             <span>.</span>
                         </p>
-                        <button type="button">Get In Touch</button>
+                        <GoToBtn href="/contact" label="Get In Touch" />
                     </div>
                     <p>DESIGNED AND BUILT BY ME.</p>
                 </div>
@@ -191,7 +192,7 @@ export function Footer() {
                     </div>
                     <div>
                         <p>2022 Edition</p>
-                        <p>Sandrico Provo 2018-2022</p>
+                        <p>Sandrico Provo © 2018-2022</p>
                     </div>
                 </div>
             </div>
