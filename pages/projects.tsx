@@ -1,12 +1,19 @@
 import React from 'react';
 
 import { Head } from '../src/components/Head/Head';
+import { Hero } from '../src/components/Hero';
 
 function Projects() {
     return (
         <>
             <Head title="Sandrico Provo - Projects" />
-            <h1 className="header-4">Projects</h1>
+            <Hero
+                header={{
+                    overline: 'My',
+                    lineOne: 'Wo',
+                    lineTwo: 'rks.',
+                }}
+            />
         </>
     );
 }

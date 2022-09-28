@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { useScrollPosition } from '../../hooks/useScrollPosition';
+import { useScrollPosition } from '../hooks/useScrollPosition';
 
 const HeroStyled = styled.section`
     padding: 164px 24% 164px 10%;
@@ -111,9 +111,21 @@ const HeroStyled = styled.section`
     }
 `;
 
-export function Hero() {
+interface HeroProps {
+    header: {
+        overline?: string;
+        lineOne?: string;
+        lineTwo?: string;
+        lineThree?: string;
+    };
+    showContent?: boolean;
+}
+
+export function Hero({ header, showContent = false }: HeroProps) {
     const headerText = useScrollPosition(0.5);
     const coloredBackground = useScrollPosition(0.5);
+
+    const { lineOne, lineThree, lineTwo, overline } = header;
 
     return (
         <HeroStyled>
@@ -122,18 +134,32 @@ export function Hero() {
                     transform: `translateY(${-headerText}px)`,
                 }}
             >
-                <p>Hey, I'm</p>
+                {overline ? <p>{overline}</p> : null}
                 <h1>
-                    <span>San</span> <br />
-                    <span>dri</span> <br />
-                    <span>co</span> <br />
+                    {lineOne ? (
+                        <>
+                            <span>{lineOne}</span> <br />
+                        </>
+                    ) : null}
+                    {lineTwo ? (
+                        <>
+                            <span>{lineTwo}</span> <br />
+                        </>
+                    ) : null}
+                    {lineThree ? (
+                        <>
+                            <span>{lineThree}</span> <br />
+                        </>
+                    ) : null}
                 </h1>
             </div>
             <div style={{ transform: `translateX(${coloredBackground}px)` }}>
-                <p>
-                    I write <span>front-end</span> and <span>back-end</span>{' '}
-                    code.
-                </p>
+                {showContent && (
+                    <p>
+                        I write <span>front-end</span> and <span>back-end</span>{' '}
+                        code.
+                    </p>
+                )}
             </div>
         </HeroStyled>
     );
