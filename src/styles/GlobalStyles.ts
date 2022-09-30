@@ -118,6 +118,8 @@ export const GlobalStyles = createGlobalStyle`
         --clr-content-bkg: var(--clr-eb-50);
         --clr-icon: var(--clr-eb-600);
         --clr-main: var(--clr-gbc-400);
+        --clr-main-700: var(--clr-gbc-700);
+        --clr-accent: var(--clr-mc-500);
         --clr-footer-bkg: var(--clr-eb-600);
     }
 

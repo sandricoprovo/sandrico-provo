@@ -1,3 +1,4 @@
 import { MyStory } from './MyStory';
+import { WorkExperience } from './WorkExperience';
 
-export { MyStory };
+export { MyStory, WorkExperience };
