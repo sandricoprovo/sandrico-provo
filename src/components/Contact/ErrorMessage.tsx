@@ -18,16 +18,18 @@ const messageVariants: Variants = {
         opacity: 1,
         y: 0,
         transition: {
+            duration: 0.3,
             delay: 0.2,
-            ease: [1, 1, 1, 1],
+            ease: [0.77, 0, 0.18, 1],
         },
     },
     exit: {
         opacity: 0,
         y: -8,
         transition: {
-            delay: 0,
-            ease: [1, 1, 1, 1],
+            duration: 0.3,
+            delay: 0.2,
+            ease: [0.77, 0, 0.18, 1],
         },
     },
 };
