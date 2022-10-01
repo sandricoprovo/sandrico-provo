@@ -1,8 +1,8 @@
 import React from 'react';
 import Image from 'next/image';
 import styled from 'styled-components';
-import setup1 from '../../../public/images/setup-1.jpeg';
 import { ExternalLinkIcon, GitHubIcon } from '../Shared/Icons';
+import { Project } from '../../types/Project';
 
 const ProjectFullStyled = styled.div`
     width: 100%;
@@ -43,14 +43,14 @@ const ProjectFullStyled = styled.div`
         align-items: flex-start;
     }
 
-    & > div:nth-of-type(2) > div > div {
+    & > div:nth-of-type(2) > div:nth-of-type(1) > div {
         display: flex;
         justify-content: flex-start;
         align-items: center;
         gap: 24px;
     }
 
-    & > div:nth-of-type(2) > div > p {
+    & > div:nth-of-type(2) > div:nth-of-type(1) > p {
         width: 50%;
         min-width: 200px;
         font-family: var(--font-display);
@@ -58,7 +58,7 @@ const ProjectFullStyled = styled.div`
         color: var(--clr-text);
     }
 
-    & > div:nth-of-type(2) > div > a {
+    & > div:nth-of-type(2) > div:nth-of-type(1) > a {
         font-size: var(--font-base);
         color: var(--clr-text);
         text-decoration: none;
@@ -67,45 +67,67 @@ const ProjectFullStyled = styled.div`
     & > div:nth-of-type(2) > p {
         line-height: 180%;
     }
+
+    & > div:nth-of-type(2) > div:nth-of-type(2) {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        gap: 16px;
+
+        & > div {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+
+            & > p {
+                font-family: var(--font-body);
+                font-size: var(--font-sm);
+            }
+        }
+
+        & > p {
+            font-family: var(--font-display);
+            font-size: var(--font-base);
+        }
+    }
 `;
 
-export function ProjectFull() {
+interface ProjectFullProps {
+    project: Project;
+}
+
+export function ProjectFull({ project }: ProjectFullProps) {
+    const { description, links, name, photo, stack } = project;
+
     return (
         <ProjectFullStyled>
             <div>
-                <Image src={setup1.src} layout="fill" objectFit="cover" />
+                <Image src={photo.src} layout="fill" objectFit="cover" />
             </div>
             <div>
                 <div>
-                    <p>Project One One One One</p>
+                    <p>{name}</p>
                     <div>
-                        <GitHubIcon title="GitHub" href="https://google.ca" />
-                        <ExternalLinkIcon
-                            title="Live Site"
-                            href="https://google.ca"
-                        />
+                        {links.github && (
+                            <GitHubIcon title="GitHub" href={links.github} />
+                        )}
+                        {links.external && (
+                            <ExternalLinkIcon
+                                title="Live Site"
+                                href={links.external}
+                            />
+                        )}
                     </div>
                 </div>
-                <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                    do eiusmod tempor incididunt ut labore et dolore magna
-                    aliqua. Aliquam etiam erat velit scelerisque in dictum non
-                    consectetur a. Ornare quam viverra orci sagittis eu. Risus
-                    commodo viverra maecenas accumsan. Et malesuada fames ac
-                    turpis. Amet tellus cras adipiscing enim eu. Amet est
-                    placerat in egestas erat. A pellentesque sit amet porttitor.
-                    Ac felis donec et odio pellentesque diam volutpat. Dis
-                    parturient montes nascetur ridiculus mus mauris. Malesuada
-                    nunc vel risus commodo viverra. Porta lorem mollis aliquam
-                    ut porttitor. Mauris commodo quis imperdiet massa tincidunt
-                    nunc pulvinar. Lorem sed risus ultricies tristique nulla
-                    aliquet. Augue mauris augue neque gravida in. Posuere lorem
-                    ipsum dolor sit. Venenatis lectus magna fringilla urna
-                    porttitor rhoncus dolor purus non. Scelerisque eleifend
-                    donec pretium vulputate sapien nec sagittis aliquam
-                    malesuada. Posuere urna nec tincidunt praesent semper
-                    feugiat nibh sed.
-                </p>
+                <p>{description}</p>
+                <div>
+                    <p>Tech Stack</p>
+                    <div>
+                        {stack.map((tech) => (
+                            <p>{tech}</p>
+                        ))}
+                    </div>
+                </div>
             </div>
         </ProjectFullStyled>
     );

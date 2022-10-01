@@ -1,7 +1,8 @@
 import deckOfCardsPhoto from '../../public/images/deck-of-cards.png';
 import eslintConfigPhoto from '../../public/images/eslint-config.png';
+import { Project } from '../types/Project';
 
-const projectsList = [
+const projectsList: Project[] = [
     {
         name: 'Deck of Cards',
         photo: deckOfCardsPhoto,

@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import { Head } from '../src/components/Head/Head';
 import { Hero } from '../src/components/Hero';
 import { ProjectFull } from '../src/components/Projects';
+import { projectsList } from '../src/content/projects';
 
 const ProjectsContainer = styled.section`
     margin: var(--spacing-vertical) var(--spacing-content-mobile)
@@ -33,7 +34,9 @@ function Projects() {
                 }}
             />
             <ProjectsContainer>
-                <ProjectFull />
+                {projectsList.map((project) => (
+                    <ProjectFull project={project} />
+                ))}
             </ProjectsContainer>
         </>
     );
