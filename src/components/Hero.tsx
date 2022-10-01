@@ -58,10 +58,11 @@ const HeroStyled = styled.section`
         & > p {
             opacity: 0;
             transform: translateY(24px);
-            font-family: var(--font-header);
+            font-family: var(--font-body);
             color: var(--clr-content-bkg);
             font-size: var(--font-base);
             max-width: 250px;
+            line-height: 180%;
 
             animation-name: fadeTextIn;
             animation-duration: 0.9s;
@@ -157,8 +158,9 @@ export function Hero({ header, showContent = false }: HeroProps) {
             <div style={{ transform: `translateX(${coloredBackground}px)` }}>
                 {showContent && (
                     <p>
-                        I write <span>front-end</span> and <span>back-end</span>{' '}
-                        code.
+                        I'm a <span>front-end</span> focused full stack Software
+                        Engineer. I use JavaScript, React, and TypeScript to
+                        build appealing web experiences.
                     </p>
                 )}
             </div>
