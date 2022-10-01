@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 const Container = styled.section`
     padding: 0 var(--spacing-content-mobile);
-    margin-bottom: calc(var(--spacing-margin) / 2);
+    margin-bottom: var(--spacing-margin);
 
     display: flex;
     flex-direction: column;
