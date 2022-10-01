@@ -7,13 +7,19 @@ const Container = styled.section`
 
     display: flex;
     flex-direction: column;
-    gap: 64px;
+    gap: 16px;
 
     & > h2 {
-        margin-bottom: 40px;
+        margin-bottom: 32px;
         font-family: var(--font-header);
-        font-size: var(--font-xl);
+        font-size: var(--font-xxl);
         color: var(--clr-text);
+    }
+
+    & > div {
+        display: flex;
+        flex-direction: column;
+        gap: 40px;
     }
 
     @media (min-width: 575px) {
@@ -29,7 +35,7 @@ export function GearTilesContainer({ children }: GearTilesContainerProps) {
     return (
         <Container>
             <h2>My Gear</h2>
-            {children}
+            <div>{children}</div>
         </Container>
     );
 }

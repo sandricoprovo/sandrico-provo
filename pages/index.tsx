@@ -26,7 +26,7 @@ function Home() {
 
     return (
         <>
-            <Head title="Sandrico Provo - Software Developer" />
+            <Head title="Sandrico Provo - Software Engineer" />
             <Hero
                 header={{
                     overline: "Hey, I'm",

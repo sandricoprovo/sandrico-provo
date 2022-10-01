@@ -21,14 +21,19 @@ const Container = styled.div`
     }
 `;
 
-export function GearTile() {
+interface GearTileProps {
+    label: string;
+    gear: string[];
+}
+
+export function GearTile({ gear, label }: GearTileProps) {
     return (
         <Container>
-            <h3>Title</h3>
+            <h3>{label}</h3>
             <ul>
-                <li>Gear one</li>
-                <li>Gear two</li>
-                <li>Gear three</li>
+                {gear.map((item) => (
+                    <li key={item}>{item}</li>
+                ))}
             </ul>
         </Container>
     );
