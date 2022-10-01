@@ -2,6 +2,7 @@ import styled from 'styled-components';
 import { GoToBtn } from '../Buttons';
 import { TwitterIcon, GitHubIcon, LinkedinIcon } from '../Shared/Icons';
 import { Time } from '../Time';
+import { myInfo } from '../../content/myInfo';
 
 const FooterStyled = styled.footer`
     width: 100%;
@@ -173,15 +174,15 @@ export function Footer() {
                             <div>
                                 <GitHubIcon
                                     title="GitHub"
-                                    href="https://google.ca"
+                                    href={myInfo.links.github}
                                 />
                                 <TwitterIcon
                                     title="Twitter"
-                                    href="https://google.ca"
+                                    href={myInfo.links.twitter}
                                 />
                                 <LinkedinIcon
                                     title="LinkedIn"
-                                    href="https://google.ca"
+                                    href={myInfo.links.linkedIn}
                                 />
                             </div>
                         </div>
@@ -192,7 +193,7 @@ export function Footer() {
                     </div>
                     <div>
                         <p>2022 Edition</p>
-                        <p>Sandrico Provo © 2018-2022</p>
+                        <p>Sandrico Provo © 2018-{new Date().getFullYear()}</p>
                     </div>
                 </div>
             </div>
