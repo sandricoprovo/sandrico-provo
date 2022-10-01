@@ -100,7 +100,7 @@ export function ProjectFull({ project }: ProjectFullProps) {
     const { description, links, name, photo, stack } = project;
 
     return (
-        <ProjectFullStyled>
+        <ProjectFullStyled id={name}>
             <div>
                 <Image src={photo.src} layout="fill" objectFit="contain" />
             </div>

@@ -55,7 +55,7 @@ export function ProjectSmall({ image, name }: ProjectSmallProps) {
             </div>
             <div>
                 <p>{name}</p>
-                <GoToBtn href="/projects" label="More" />
+                <GoToBtn href={`/projects/#${name}`} label="More" />
             </div>
         </ProjectSmallStyled>
     );
