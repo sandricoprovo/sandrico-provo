@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { SubmitBtn } from '../Buttons';
 
 const FormContainer = styled.form`
     & > fieldset {
@@ -77,7 +78,7 @@ export function ContactForm() {
                     />
                 </label>
             </fieldset>
-            <button type="submit">Submit</button>
+            <SubmitBtn label="Submit" />
         </FormContainer>
     );
 }
