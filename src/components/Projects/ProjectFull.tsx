@@ -102,7 +102,7 @@ export function ProjectFull({ project }: ProjectFullProps) {
     return (
         <ProjectFullStyled>
             <div>
-                <Image src={photo.src} layout="fill" objectFit="cover" />
+                <Image src={photo.src} layout="fill" objectFit="contain" />
             </div>
             <div>
                 <div>
