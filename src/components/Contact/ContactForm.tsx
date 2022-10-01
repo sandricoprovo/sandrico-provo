@@ -28,6 +28,8 @@ const FormContainer = styled.form`
         & > label > input,
         & > label > textarea {
             padding: 16px;
+            border: 1px solid var(--clr-text);
+            border-radius: var(--border-radius);
         }
 
         & > label:not(label:last-child) {

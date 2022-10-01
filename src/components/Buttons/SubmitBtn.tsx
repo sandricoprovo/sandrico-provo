@@ -2,14 +2,15 @@ import React from 'react';
 import styled from 'styled-components';
 
 const SubmitBtnStyled = styled.button`
-    padding: 12px 16px;
+    padding: 16px;
     width: 100%;
     border: none;
-    border-radius: 5px;
+    border-radius: var(--border-radius);
     cursor: pointer;
-    font-family: var(--font-base);
+    font-family: var(--font-header);
     color: var(--clr-text);
     background-color: var(--clr-main);
+    transition: background-color 0.2s ease-in-out;
 
     &:hover,
     &:focus {

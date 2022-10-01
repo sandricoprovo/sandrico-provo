@@ -123,6 +123,8 @@ export const GlobalStyles = createGlobalStyle`
         --clr-main-700: var(--clr-gbc-700);
         --clr-accent: var(--clr-mc-500);
         --clr-footer-bkg: var(--clr-eb-600);
+
+        --border-radius: 5px;
     }
 
     /* === Utilities === */
