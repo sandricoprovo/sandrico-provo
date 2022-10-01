@@ -3,6 +3,9 @@ import styled from 'styled-components';
 import { SubmitBtn, DangerBtn } from '../Buttons';
 import { ContactForm as IContactForm } from '../../types/ContactForm';
 import { useForm } from '../../hooks/useForm';
+import { ErrorMessage } from './ErrorMessage';
+import { AnimatePresence } from 'framer-motion';
+import { Spacer } from '../Spacer';
 
 const FormContainer = styled.form`
     & > fieldset {
@@ -12,7 +15,7 @@ const FormContainer = styled.form`
         display: flex;
         flex-direction: column;
         justify-content: flex-start;
-        gap: 40px;
+        gap: 21px;
 
         & > label,
         & > label > input,
@@ -76,7 +79,8 @@ export function ContactForm() {
         resetForm();
     }
 
-    console.log(errors);
+    // Holds space for potential error messages to avoid layout shifting.
+    const errorMessageSpacer = <Spacer height={20} />;
 
     return (
         <FormContainer
@@ -94,7 +98,13 @@ export function ContactForm() {
                         value={fields.name}
                         required
                     />
-                    {errors?.name && <span>{errors.name}</span>}
+                    <AnimatePresence>
+                        {errors?.name ? (
+                            <ErrorMessage>{errors.name}</ErrorMessage>
+                        ) : (
+                            errorMessageSpacer
+                        )}
+                    </AnimatePresence>
                 </label>
                 <label htmlFor="email">
                     Email
@@ -106,7 +116,13 @@ export function ContactForm() {
                         value={fields.email}
                         required
                     />
-                    {errors?.email && <span>{errors.email}</span>}
+                    <AnimatePresence>
+                        {errors?.email ? (
+                            <ErrorMessage>{errors.email}</ErrorMessage>
+                        ) : (
+                            errorMessageSpacer
+                        )}
+                    </AnimatePresence>
                 </label>
                 <label htmlFor="subject">
                     Subject
@@ -118,7 +134,13 @@ export function ContactForm() {
                         value={fields.subject}
                         required
                     />
-                    {errors?.subject && <span>{errors.subject}</span>}
+                    <AnimatePresence>
+                        {errors?.subject ? (
+                            <ErrorMessage>{errors.subject}</ErrorMessage>
+                        ) : (
+                            errorMessageSpacer
+                        )}
+                    </AnimatePresence>
                 </label>
                 <label htmlFor="message">
                     Message
@@ -129,7 +151,13 @@ export function ContactForm() {
                         value={fields.message}
                         required
                     />
-                    {errors?.message && <span>{errors.message}</span>}
+                    <AnimatePresence>
+                        {errors?.message ? (
+                            <ErrorMessage>{errors.message}</ErrorMessage>
+                        ) : (
+                            errorMessageSpacer
+                        )}
+                    </AnimatePresence>
                 </label>
             </fieldset>
             <div>

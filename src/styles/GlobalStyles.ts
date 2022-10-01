@@ -124,6 +124,7 @@ export const GlobalStyles = createGlobalStyle`
         --clr-main-700: var(--clr-gbc-700);
         --clr-accent: var(--clr-mc-500);
         --clr-footer-bkg: var(--clr-eb-600);
+        --clr-danger: var(--clr-rs-500);
 
         --border-radius: 5px;
     }
