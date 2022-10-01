@@ -24,6 +24,7 @@ export const GlobalStyles = createGlobalStyle`
         --clr-eb-l: 12%;
         --clr-white: hsla(0, 0%, 100%, 1);
         --clr-eb-50: hsla(240, 12%, 97%, 1);
+        --clr-eb-75: hsla(0, 0%, 90%, 1);
         --clr-eb-100: hsla(0, 0%, 78%, 1);
         --clr-eb-200: hsla(0, 0%, 56%, 1);
         --clr-eb-300: hsla(0, 0%, 41%, 1);
@@ -118,9 +119,14 @@ export const GlobalStyles = createGlobalStyle`
         --clr-content-bkg: var(--clr-eb-50);
         --clr-icon: var(--clr-eb-600);
         --clr-main: var(--clr-gbc-400);
+        --clr-main-hover: var(--clr-gbc-300);
+        --clr-main-active: var(--clr-gbc-500);
         --clr-main-700: var(--clr-gbc-700);
         --clr-accent: var(--clr-mc-500);
         --clr-footer-bkg: var(--clr-eb-600);
+        --clr-danger: var(--clr-rs-500);
+
+        --border-radius: 5px;
     }
 
     /* === Utilities === */
