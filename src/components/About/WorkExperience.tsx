@@ -93,7 +93,6 @@ export function WorkExperience() {
                     Experience<span>.</span>
                 </p>
             </h2>
-            {/* TODO: Add years of work experience & years i've been coding here, along with resume link */}
             <div>
                 <ul>
                     <li>

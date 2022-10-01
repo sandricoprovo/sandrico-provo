@@ -59,31 +59,67 @@ const Container = styled.div`
         line-height: 180%;
     }
 
-    & > ul {
+    & > div:nth-of-type(2) {
+        & > p {
+            font-family: var(--font-display);
+            font-size: var(--font-base);
+            letter-spacing: 2px;
+            margin-bottom: calc(var(--ctn-spacer-lg) * 0.5);
+        }
+
+        & > ul {
+            width: 100%;
+            padding-left: 14px;
+
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: flex-start;
+            gap: 16px;
+
+            & > li {
+                list-style: square;
+                list-style-position: outside;
+                line-height: 180%;
+            }
+
+            margin-bottom: var(--ctn-spacer-lg);
+        }
+    }
+
+    & > div:nth-of-type(3) {
         width: 100%;
-        padding-left: 14px;
 
         display: flex;
         flex-direction: column;
-        justify-content: flex-start;
-        align-items: flex-start;
-        gap: 16px;
+
+        & > p {
+            font-family: var(--font-display);
+            font-size: var(--font-base);
+            letter-spacing: 2px;
+            margin-bottom: calc(var(--ctn-spacer-lg) * 0.5);
+        }
+
+        & > ul {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
 
         & > li {
-            list-style: square;
-            list-style-position: outside;
+            list-style: none;
             line-height: 180%;
         }
 
         margin-bottom: var(--ctn-spacer-lg);
     }
 
-    & > div:nth-of-type(2) {
+    & > div:nth-of-type(4) {
         & > p {
             font-family: var(--font-display);
             font-size: var(--font-base);
             letter-spacing: 2px;
-            margin-bottom: calc(var(--ctn-spacer-lg) * 0.7);
+            margin-bottom: calc(var(--ctn-spacer-lg) * 0.5);
         }
 
         & > ul {
@@ -91,6 +127,13 @@ const Container = styled.div`
             flex-direction: column;
             justify-content: flex-start;
             align-items: flex-start;
+
+            & > p {
+                font-family: var(--font-display);
+                font-size: var(--font-base);
+                letter-spacing: 2px;
+                margin-bottom: calc(var(--ctn-spacer-lg) * 0.7);
+            }
 
             & > li {
                 line-height: 180%;
@@ -128,11 +171,24 @@ export function ExperienceDetails({ experience }: ExperienceDetailsProps) {
                 </p>
             </div>
             <p>{experience.timeline}</p>
-            <ul>
-                {experience.details.map((detail) => (
-                    <li key={detail.slice(0, 5)}>{detail}</li>
-                ))}
-            </ul>
+            <div>
+                <p>Details</p>
+                <ul>
+                    {experience.details.map((detail, _, arr) => (
+                        <li key={`detail_${detail}_${arr.length}`}>{detail}</li>
+                    ))}
+                </ul>
+            </div>
+            <div>
+                <p>Tech Used</p>
+                <ul>
+                    {experience.techUsed.map((tech, _, arr) => (
+                        <li
+                            key={`tech_${tech}_${arr.length}`}
+                        >{`${tech} |`}</li>
+                    ))}
+                </ul>
+            </div>
             {experience.previousRoles && (
                 <div>
                     <p>Previous Roles</p>

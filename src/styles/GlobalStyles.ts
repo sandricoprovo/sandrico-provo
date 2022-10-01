@@ -77,7 +77,7 @@ export const GlobalStyles = createGlobalStyle`
         --font-multiplier: 0.1;
         --font-lh: 140%;
         --font-100: 0.667rem;
-        --font-200: 1;
+        --font-200: 1rem;
         --font-300: 1.5rem;
         --font-400: 2.25rem;
         --font-500: 3.375rem;

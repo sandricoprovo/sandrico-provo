@@ -7,9 +7,18 @@ const WORK_EXPERIENCES: IWorkExperience[] = [
         companyLink: 'https://www.redspace.com/',
         timeline: 'April 2022 - Present / Halifax, NS / Remote',
         details: [
-            'Utilizing React & TypeScript to provide critical front-end UI components daily.',
-            'Interact with a variety of technologies including Docker, React, CSS, TypeScript, C#, GraphQL.',
-            'Contributing to documentation maintenance.',
+            'Acted in a tech lead role on a small internal development team which took an application from proposal to minimum viable product in less than two months.',
+            'Utilized React and TypeScript to build at least 2 critical user flows including authentication and selecting primary UI elements.',
+            'Implemented a secondary approach to running a back-end application which prevented 16 hours of lost development time.',
+        ],
+        techUsed: [
+            'React',
+            'TypeScript',
+            'CSS',
+            'GraphQL',
+            'React Native',
+            'Git',
+            'JIRA',
         ],
         previousRoles: [
             'Junior Software Developer / May 2021 - April 2022 / Remote',
@@ -22,10 +31,11 @@ const WORK_EXPERIENCES: IWorkExperience[] = [
         timeline:
             'May 2020 - August 2020 (CO-OP) / Halifax, NS / Remote / Early Stage Startup',
         details: [
-            'Implemented the majority of a CMS front-end which displays 100’s of personalized scholarships to users within 15 minutes.',
+            "Implemented the majority of a CMS front-end which displays 100's of personalized scholarships to users within 15 minutes.",
             'Designed a light weight user interface that provided hundreds of personalized scholarships to students within 5 steps or less.',
             'Created a full design prototype using Figma which attracted two interested startup investors after demonstrations.',
         ],
+        techUsed: ['CSS', 'WordPress', 'Figma'],
     },
 ];
 
