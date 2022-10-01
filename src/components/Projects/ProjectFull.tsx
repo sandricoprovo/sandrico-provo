@@ -18,7 +18,7 @@ const ProjectFullStyled = styled.div`
         width: 100%;
         min-width: 300px;
         max-width: 450px;
-        height: 500px;
+        height: 400px;
     }
 
     & > div:nth-of-type(2) {
