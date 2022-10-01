@@ -6,6 +6,7 @@ const HeroStyled = styled.section`
     padding: 164px 24% 164px 10%;
     position: relative;
     margin-bottom: var(--spacing-margin);
+    height: 88vh;
 
     display: flex;
     justify-content: flex-start;
