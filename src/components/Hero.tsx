@@ -38,21 +38,16 @@ const HeroStyled = styled.section`
         padding-bottom: 2rem;
         top: 0;
         right: 0%;
-        width: 0;
+        width: 80%;
         background-color: var(--clr-main);
         height: 100%;
         z-index: 1;
         overflow: hidden;
+        transform: translateX(-100vw);
 
         display: flex;
         justify-content: center;
         align-items: flex-end;
-
-        animation-name: slideOver;
-        animation-duration: 0.6s;
-        animation-timing-function: cubic-bezier(0.46, 0.03, 0.52, 0.96);
-        animation-fill-mode: forwards;
-        animation-delay: 0.5s;
 
         /* Intro Sentence */
         & > p {
@@ -75,15 +70,6 @@ const HeroStyled = styled.section`
                 color: var(--clr-content-bkg);
                 font-size: var(--font-md);
             }
-        }
-    }
-
-    @keyframes slideOver {
-        from {
-            width: 0%;
-        }
-        to {
-            width: 81%;
         }
     }
 
