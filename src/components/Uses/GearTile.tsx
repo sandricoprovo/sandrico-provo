@@ -15,7 +15,7 @@ const Container = styled.div`
     & > ul > li {
         line-height: 180%;
         list-style: square;
-        margin-left: 16px;
+        margin-left: 18px;
         padding-left: 8px;
         color: var(--clr-text);
     }

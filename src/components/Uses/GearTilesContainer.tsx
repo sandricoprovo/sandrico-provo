@@ -10,9 +10,9 @@ const Container = styled.section`
     gap: 64px;
 
     & > h2 {
-        margin-bottom: 64px;
+        margin-bottom: 40px;
         font-family: var(--font-header);
-        font-size: var(--font-xxl);
+        font-size: var(--font-xl);
         color: var(--clr-text);
     }
 
