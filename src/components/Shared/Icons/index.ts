@@ -6,6 +6,7 @@ import {
     ArrowRight,
     ExternalLink,
     File,
+    Trash2,
 } from 'react-feather';
 
 // Exported Icons
@@ -16,3 +17,4 @@ export const ArrowRightIcon = (props: IconProps) => HOCIcon(ArrowRight, props);
 export const ExternalLinkIcon = (props: IconProps) =>
     HOCIcon(ExternalLink, props);
 export const FileIcon = (props: IconProps) => HOCIcon(File, props);
+export const Trash2Icon = (props: IconProps) => HOCIcon(Trash2, props);

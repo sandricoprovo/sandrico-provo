@@ -1,6 +1,6 @@
 import React, { FormEvent } from 'react';
 import styled from 'styled-components';
-import { SubmitBtn } from '../Buttons';
+import { SubmitBtn, DangerBtn } from '../Buttons';
 import { ContactForm as IContactForm } from '../../types/ContactForm';
 import { useForm } from '../../hooks/useForm';
 
@@ -134,9 +134,7 @@ export function ContactForm() {
             </fieldset>
             <div>
                 <SubmitBtn label="Submit" />
-                <button type="button" onClick={resetForm}>
-                    Clear
-                </button>
+                <DangerBtn label="Clear" clickHandler={resetForm} />
             </div>
         </FormContainer>
     );
