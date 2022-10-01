@@ -3,6 +3,7 @@ import styled from 'styled-components';
 
 const DetailBlockStyled = styled.div<{ listDirection: string }>`
     --block-margin-btm: 40px;
+    max-width: 550px;
 
     & > p {
         font-family: var(--font-header);
@@ -18,22 +19,33 @@ const DetailBlockStyled = styled.div<{ listDirection: string }>`
 
     & > ul {
         display: flex;
+        flex-wrap: wrap;
         flex-direction: ${({ listDirection }) => listDirection};
         justify-content: flex-start;
-        align-items: center;
+        align-items: start;
         gap: 24px;
     }
 `;
 
-export function DetailBlock() {
+interface DetailBlockProps {
+    label: string;
+    list: string[];
+    listDirection: 'row' | 'column';
+}
+
+export function DetailBlock({
+    list,
+    label,
+    listDirection = 'column',
+}: DetailBlockProps) {
     return (
-        <DetailBlockStyled listDirection="column">
-            <p>Education</p>
+        <DetailBlockStyled listDirection={listDirection}>
+            <p>{label}</p>
             <div />
             <ul>
-                <li>NSCC IT Web Programming / 2021 / Honours</li>
-                <li>NSCC IT Web Programming / 2021 / Honours</li>
-                <li>NSCC IT Web Programming / 2021 / Honours</li>
+                {list.map((item) => (
+                    <li key={item}>{item}</li>
+                ))}
             </ul>
         </DetailBlockStyled>
     );

@@ -3,6 +3,7 @@ export interface IWorkExperience {
     companyName: string;
     timeline: string;
     details: string[];
+    techUsed: string[];
     companyLink?: string;
     previousRoles?: string[];
 }

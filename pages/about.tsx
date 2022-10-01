@@ -5,18 +5,7 @@ import { Head } from '../src/components/Head/Head';
 import { Hero } from '../src/components/Hero';
 import { MyStory, WorkExperience } from '../src/components/About';
 import { DetailBlock } from '../src/components/DetailBlock';
-
-const IntroComments = styled.p`
-    width: 100%;
-    max-width: 800px;
-    line-height: 180%;
-    padding: 0 var(--spacing-content-mobile);
-    margin-bottom: var(--spacing-margin);
-
-    @media (min-width: 575px) {
-        padding: 0 var(--spacing-content);
-    }
-`;
+import { myInfo } from '../src/content/myInfo';
 
 const DetailsBlockContainer = styled.section`
     padding: 0 var(--spacing-content-mobile);
@@ -25,7 +14,7 @@ const DetailsBlockContainer = styled.section`
     display: flex;
     flex-wrap: wrap;
     justify-content: flex-start;
-    align-items: center;
+    align-items: flex-start;
     gap: 160px;
 
     @media (min-width: 575px) {
@@ -43,18 +32,19 @@ function About() {
                     lineTwo: 'Me.',
                 }}
             />
-            <IntroComments>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-                enim ad minim veniam, quis nostrud exercitation ullamco laboris
-                nisi ut aliquip ex ea commodo consequat.
-            </IntroComments>
             <MyStory />
             <WorkExperience />
             <DetailsBlockContainer>
-                <DetailBlock />
-                <DetailBlock />
-                <DetailBlock />
+                <DetailBlock
+                    label="Education"
+                    listDirection="column"
+                    list={myInfo.education}
+                />
+                <DetailBlock
+                    label="Skills"
+                    listDirection="row"
+                    list={myInfo.techSkills}
+                />
             </DetailsBlockContainer>
         </>
     );

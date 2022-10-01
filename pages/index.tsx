@@ -26,7 +26,7 @@ function Home() {
 
     return (
         <>
-            <Head title="Sandrico Provo - Software Developer" />
+            <Head title="Sandrico Provo - Software Engineer" />
             <Hero
                 header={{
                     overline: "Hey, I'm",
@@ -42,7 +42,12 @@ function Home() {
                         transform: `translateX(calc(24vw + ${imageScrollPosition}px))`,
                     }}
                 >
-                    <Image src={setup1.src} layout="fill" objectFit="cover" />
+                    <Image
+                        src={setup1.src}
+                        layout="fill"
+                        objectFit="cover"
+                        quality={95}
+                    />
                 </div>
             </ImageContainer>
             <ShortAbout />
