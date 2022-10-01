@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { ProjectSmall } from '../Projects/ProjectSmall';
+import { projectsList } from '../../content/projects';
 
 const Container = styled.section`
     width: 100%;
@@ -48,8 +49,18 @@ export function WorkPreview() {
                 <span>Recent</span> <br /> Work<span>.</span>
             </h3>
             <div>
-                <ProjectSmall />
-                <ProjectSmall />
+                {projectsList.map((project) => {
+                    if (!project.shouldFeature) {
+                        return null;
+                    }
+
+                    return (
+                        <ProjectSmall
+                            image={project.photo}
+                            name={project.name}
+                        />
+                    );
+                })}
             </div>
         </Container>
     );

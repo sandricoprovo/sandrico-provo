@@ -1,7 +1,6 @@
 import React from 'react';
-import Image from 'next/image';
+import Image, { StaticImageData } from 'next/image';
 import styled from 'styled-components';
-import setup1 from '../../../public/images/setup-1.jpeg';
 import { GoToBtn } from '../Buttons';
 
 const ProjectSmallStyled = styled.div`
@@ -43,14 +42,19 @@ const ProjectSmallStyled = styled.div`
     }
 `;
 
-export function ProjectSmall() {
+interface ProjectSmallProps {
+    image: StaticImageData;
+    name: string;
+}
+
+export function ProjectSmall({ image, name }: ProjectSmallProps) {
     return (
         <ProjectSmallStyled>
             <div>
-                <Image src={setup1.src} layout="fill" objectFit="cover" />
+                <Image src={image.src} layout="fill" objectFit="cover" />
             </div>
             <div>
-                <p>Project One One One One</p>
+                <p>{name}</p>
                 <GoToBtn href="/projects" label="More" />
             </div>
         </ProjectSmallStyled>

@@ -1,7 +1,7 @@
 import React from 'react';
 import Image from 'next/image';
 import styled from 'styled-components';
-import setup1 from '../../../public/images/setup-1.jpeg';
+import { myInfo } from '../../content/myInfo';
 import { GoToBtn } from '../Buttons';
 
 const ShortAboutStyled = styled.section`
@@ -89,14 +89,17 @@ export function ShortAbout() {
     return (
         <ShortAboutStyled>
             <div>
-                <p>Software Developer</p>
+                <p>{myInfo.title}</p>
                 <div>
                     <Image
-                        src={setup1.src}
+                        src={myInfo.photo.src}
                         layout="responsive"
+                        blurDataURL={myInfo.photo.blurDataURL}
                         width={100}
                         height={100}
                         objectFit="cover"
+                        placeholder="blur"
+                        quality={95}
                     />
                 </div>
             </div>
@@ -109,19 +112,21 @@ export function ShortAbout() {
                 </p>
                 <div>
                     <p className="body">
-                        I’m Sandrico Provo, a Software Developer based in
-                        Halifax, Nova Scotia, Canada. <br />
-                        <br />
-                        Mi eget mauris pharetra et ultrices neque ornare. Nisl
-                        nunc mi ipsum faucibus vitae aliquet. Massa id neque
-                        aliquam vestibulum morbi blandit cursus risus at. Sit
-                        amet nisl suscipit adipiscing. Ultrices gravida dictum
-                        fusce ut placerat orci nulla pellentesque. Iaculis at
-                        erat pellentesque adipiscing commodo elit at. Lobortis
-                        mattis aliquam faucibus purus in. <br /> <br />
-                        Mi eget mauris pharetra et ultrices neque ornare. Nisl
-                        nunc mi ipsum faucibus vitae aliquet. Massa id neque
-                        aliquam vestibulum morbi blandit cursus risus at.
+                        My path to IT and Software Development wasn't that
+                        straightforward. I started my post-secondary education
+                        with a Bachelor of Arts in Geography and Sociology.
+                        However, my chapter on coding started while I worked a
+                        full-time job related to my degree. Eventually, I knew I
+                        needed a change and I've always been techy so I decided
+                        to learn to code. I started out self-taught, waking up
+                        at 5am every day to practice and learn for 1-1.5 hours
+                        before work. Then I went to NSCC and got a diploma with
+                        honours in IT.
+                        <br /> <br />
+                        These days I work as a Software Engineer at a local
+                        company writing React and TypeScript daily. If you've
+                        enjoyed a snapshot of my story, you can read more about
+                        it below.
                     </p>
                 </div>
                 <GoToBtn href="/about" label="More About Me" />
