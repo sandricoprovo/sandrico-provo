@@ -51,13 +51,14 @@ const FooterStyled = styled.footer`
     }
 
     & > div:nth-of-type(2) {
-        height: 90vh;
+        padding-top: 120px;
         width: 100%;
 
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: flex-start;
+        gap: 120px;
     }
 
     & > div:nth-of-type(2) > div {
