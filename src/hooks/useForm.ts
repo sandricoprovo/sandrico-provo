@@ -41,6 +41,7 @@ export function useForm<T>(initial: FieldValues<T>) {
     // Handle form reset.
     function resetForm() {
         setFields(initial);
+        setErrors({});
     }
 
     // Handle form clearing.
@@ -50,6 +51,7 @@ export function useForm<T>(initial: FieldValues<T>) {
         ) as FieldValues<T>;
 
         setFields(blankState);
+        setErrors({});
     }
 
     // Handles form submission.
