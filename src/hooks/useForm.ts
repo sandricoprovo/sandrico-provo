@@ -58,7 +58,11 @@ export function useForm<T>(initial: FieldValues<T>) {
         submitHandler: (eventObj: FormEvent<HTMLFormElement>) => void
     ) {
         event.preventDefault();
-        // Runs validation
+        // Confirms empty state of error object
+        if (Object.keys(errors).length > 0) {
+            return;
+        }
+
         // Submits form if validation is passed
         submitHandler(event);
     }
@@ -66,6 +70,7 @@ export function useForm<T>(initial: FieldValues<T>) {
     return {
         fields,
         errors,
+        hasErrors: Object.keys(errors).length > 0,
         handleChange,
         clearForm,
         resetForm,

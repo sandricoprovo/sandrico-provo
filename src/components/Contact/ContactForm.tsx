@@ -57,7 +57,7 @@ const FormContainer = styled.form`
 `;
 
 export function ContactForm() {
-    const { fields, errors, handleChange, resetForm, submitForm } =
+    const { fields, errors, hasErrors, handleChange, resetForm, submitForm } =
         useForm<IContactForm>({
             name: '',
             email: '',
@@ -133,7 +133,7 @@ export function ContactForm() {
                 </label>
             </fieldset>
             <div>
-                <SubmitBtn label="Submit" />
+                <SubmitBtn label="Submit" isDisabled={hasErrors} />
                 <DangerBtn label="Clear" clickHandler={resetForm} />
             </div>
         </FormContainer>

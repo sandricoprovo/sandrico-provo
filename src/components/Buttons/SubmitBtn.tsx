@@ -20,11 +20,21 @@ const SubmitBtnStyled = styled.button`
     &:active {
         background-color: var(--clr-main-active);
     }
+
+    &:disabled {
+        background-color: var(--clr-eb-100);
+        color: var(--clr-eb-300);
+    }
 `;
 
 interface SubmitBtnProps {
     label: string;
+    isDisabled?: boolean;
 }
-export function SubmitBtn({ label }: SubmitBtnProps) {
-    return <SubmitBtnStyled type="submit">{label}</SubmitBtnStyled>;
+export function SubmitBtn({ label, isDisabled = false }: SubmitBtnProps) {
+    return (
+        <SubmitBtnStyled type="submit" disabled={isDisabled}>
+            {label}
+        </SubmitBtnStyled>
+    );
 }
