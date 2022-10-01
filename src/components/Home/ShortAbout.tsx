@@ -11,9 +11,8 @@ const ShortAboutStyled = styled.section`
 
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
     align-items: center;
-    gap: 64px;
+    gap: 104px;
 
     & > div:nth-child(1) {
         width: 100%;
@@ -111,7 +110,7 @@ export function ShortAbout() {
                     </span>
                 </p>
                 <div>
-                    <p className="body">
+                    <p>
                         My path to IT and Software Development wasn't that
                         straightforward. I started my post-secondary education
                         with a Bachelor of Arts in Geography and Sociology.
