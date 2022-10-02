@@ -1,18 +1,14 @@
-export interface ProjectLinks {
-    github: string;
-    external: string;
-}
+import { StaticImageData } from 'next/image';
 
 export interface Project {
-    index: number;
     name: string;
-    key: string;
-    techStack: string[];
+    photo: StaticImageData;
+    photoAlt: string;
     description: string;
-    links: ProjectLinks;
-    image: {
-        src: string;
-        alt: string;
-        blurUrl: string;
+    links: {
+        github?: string;
+        external?: string;
     };
+    stack: string[];
+    shouldFeature: boolean;
 }
