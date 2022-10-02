@@ -55,8 +55,9 @@ const ShortAboutStyled = styled.section`
         align-items: flex-start;
         gap: 40px;
 
-        & > p {
+        & > h2 {
             font-family: var(--font-header);
+            font-size: var(--font-xl);
             line-height: 100%;
         }
 
@@ -64,11 +65,11 @@ const ShortAboutStyled = styled.section`
             line-height: 160%;
         }
 
-        & > p > span {
+        & > h2 > span {
             font-family: var(--font-display);
         }
 
-        & > p > span > span {
+        & > h2 > span > span {
             font-family: var(--font-display);
             color: var(--clr-main);
         }
@@ -104,12 +105,12 @@ export function ShortAbout() {
                 </div>
             </div>
             <div>
-                <p className="header-4">
+                <h2>
                     A little <br />
                     <span>
                         About Me<span>.</span>
                     </span>
-                </p>
+                </h2>
                 <div>
                     <p>
                         My path to IT and Software Development wasn't that
