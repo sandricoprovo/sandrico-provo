@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import { NAV_LINKS } from '../../../content/navLinks';
 import { NavLink } from './NavLink';
 
-const NavigationStyled = styled.nav`
+const NavigationStyled = styled.ul`
     display: flex;
     align-items: center;
     flex-wrap: wrap;
