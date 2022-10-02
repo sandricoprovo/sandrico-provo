@@ -1,12 +1,14 @@
 /* eslint-disable @typescript-eslint/no-unsafe-member-access */
 /* eslint-disable @typescript-eslint/no-unsafe-assignment */
 
-/** @type {import('next').NextConfig} */
-const nextConfig = {
+/**
+ * @type {import('next').NextConfig}
+ */
+ const nextConfig = {
     reactStrictMode: true,
     compiler: {
         // Enables the styled-components SWC transform
-        styledComponents: true,
+        styledComponents: true
     },
     webpack: (config, { isServer }) => {
         // Fixes npm packages that depend on `fs` module on server
@@ -19,6 +21,6 @@ const nextConfig = {
         // eslint-disable-next-line @typescript-eslint/no-unsafe-return
         return config;
     },
-};
+  }
 
-module.exports = nextConfig;
+  module.exports = nextConfig

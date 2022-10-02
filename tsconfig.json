@@ -1,31 +1,31 @@
 {
     "compilerOptions": {
-        "target": "es2016",
+        "target": "ES2015",
+        "jsx": "preserve",
         "module": "commonjs",
-        "allowJs": true,
         "esModuleInterop": true,
         "forceConsistentCasingInFileNames": true,
+        "strict": true,
         "skipLibCheck": true,
-        "jsx": "preserve",
         "lib": [
             "dom",
             "dom.iterable",
             "esnext"
         ],
-        "strict": false,
+        "allowJs": true,
         "noEmit": true,
         "incremental": true,
+        "moduleResolution": "node",
         "resolveJsonModule": true,
-        "isolatedModules": true,
+        "isolatedModules": true
     },
     "include": [
         "next-env.d.ts",
-        "next.config.js",
-        "webpack.config.js",
         "**/*.ts",
         "**/*.tsx"
     ],
     "exclude": [
-        "node_modules"
+        "node_modules",
+        "./next.config.js"
     ]
 }

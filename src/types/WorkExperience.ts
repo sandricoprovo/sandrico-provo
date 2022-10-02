@@ -1,7 +1,9 @@
-export interface WorkExperience {
-    title: string;
-    company: string;
-    companyUrl: string;
-    timeFrame: string;
+export interface IWorkExperience {
+    jobTitle: string;
+    companyName: string;
+    timeline: string;
     details: string[];
+    techUsed: string[];
+    companyLink?: string;
+    previousRoles?: string[];
 }

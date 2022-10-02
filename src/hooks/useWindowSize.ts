@@ -1,36 +1,33 @@
 import { useState, useEffect } from 'react';
 
 interface WindowSize {
-    width: number | undefined;
     height: number | undefined;
+    width: number | undefined;
 }
 
-export function useWindowSize(): {
-    windowSize: WindowSize;
-    isMobileWidth: boolean;
-} {
+export function useWindowSize() {
     const [windowSize, setWindowSize] = useState<WindowSize>({
         width: undefined,
         height: undefined,
     });
-    const [isMobileWidth, setIsMobileWidth] = useState(false);
 
     useEffect(() => {
+        // Sets the window size when run.
         function handleResize() {
-            if (window.innerWidth <= 575) setIsMobileWidth(true);
             setWindowSize({
                 width: window.innerWidth,
                 height: window.innerHeight,
             });
         }
 
-        // Adds event listener
+        // Watches resizing of window/
         window.addEventListener('resize', handleResize);
-        // Call handler right away so state gets updated with initial window size
+
+        // Handles setting values on load.
         handleResize();
-        // Remove event listener on cleanup
+
         return () => window.removeEventListener('resize', handleResize);
     }, []);
 
-    return { windowSize, isMobileWidth };
+    return windowSize;
 }

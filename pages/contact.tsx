@@ -1,126 +1,96 @@
-import { FormEvent } from 'react';
+import React from 'react';
+import styled from 'styled-components';
+import { ContactForm, ContactMethods } from '../src/components/Contact';
 
-import Page from '../src/components/Page';
-import { useForm } from '../src/hooks/useForm';
-import {
-    HeroContainer,
-    HeroTitle,
-    HeroSubTitle,
-    HeroDescription,
-    FormContainer,
-    FormHeader,
-    ContactForm,
-    FormLabel,
-    FormInput,
-    FormTextArea,
-} from '../src/components/ContactPage/styles';
-import WavyText from '../src/components/WaveFadeInText';
-import TimezoneClock from '../src/components/TimeZone';
-import { SubmitBtn } from '../src/components/Buttons/Buttons';
-import { ContactForm as ContactFormType } from '../src/types/ContactForm';
-import { ClearAllIcon } from '../src/components/Icons';
+import { Head } from '../src/components/Head/Head';
+import { Hero } from '../src/components/Hero';
 
-function ContactPage() {
-    const { fields, handleChange, resetForm, submitForm } =
-        useForm<ContactFormType>({
-            name: '',
-            email: '',
-            subject: '',
-            message: '',
-        });
+const IntroComments = styled.section`
+    width: 70%;
+    min-width: 350px;
+    padding: 0 var(--spacing-content-mobile);
+    margin-bottom: calc(var(--spacing-margin) / 2);
 
-    function handleFormSubmit(event: FormEvent<HTMLFormElement>) {
-        event.preventDefault();
-        // Sends email via provider
-        fetch('/api/email', {
-            method: 'POST',
-            body: JSON.stringify(fields),
-        });
-        // Resets the form on submit
-        resetForm();
+    & > div {
+        margin-bottom: 40px;
+
+        & > small {
+            font-family: var(--font-display);
+            font-size: var(--font-base);
+
+            & > span {
+                color: var(--clr-main);
+            }
+        }
+
+        & > h2:nth-of-type(1) {
+            font-family: var(--font-header);
+            font-size: var(--font-xl);
+            line-height: 120%;
+        }
+
+        & > p {
+            font-family: var(--font-base);
+            font-size: var(--font-md);
+        }
     }
 
+    @media (min-width: 575px) {
+        padding: 0 var(--spacing-content);
+    }
+`;
+
+const Contacts = styled.div`
+    padding: 0 var(--spacing-content-mobile);
+    margin-bottom: var(--spacing-margin);
+
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap: 80px;
+
+    & > form {
+        flex-grow: 1;
+    }
+
+    & > div {
+        flex-grow: 1;
+    }
+
+    @media (min-width: 575px) {
+        padding: 0 var(--spacing-content);
+    }
+`;
+
+function Contact() {
     return (
-        <Page gap={5}>
-            <HeroContainer>
-                <HeroTitle>
-                    <WavyText
-                        text="Contact"
-                        delay={0.21}
-                        duration={0.18}
-                        replay
-                    />
-                </HeroTitle>
-                <HeroDescription>
-                    <HeroSubTitle>Date & Time:</HeroSubTitle> <TimezoneClock />{' '}
-                    <br />
-                    <HeroSubTitle>Location:</HeroSubTitle> Halifax, Nova Scotia,
-                    Canada 🇨🇦
-                </HeroDescription>
-            </HeroContainer>
-            <FormContainer>
-                <FormHeader>
-                    <HeroSubTitle>
-                        Reach Out To Me Below
-                        <HeroDescription>
-                            I look forward to speaking with you!
-                        </HeroDescription>
-                    </HeroSubTitle>
-                    <ClearAllIcon size=" 2rem" onClick={resetForm} />
-                </FormHeader>
-                <ContactForm
-                    id="form__contact"
-                    action=""
-                    method="GET"
-                    onSubmit={(event: FormEvent<HTMLFormElement>) =>
-                        submitForm(event, handleFormSubmit)
-                    }
-                >
-                    <FormLabel htmlFor="name">
-                        <FormInput
-                            type="text"
-                            name="name"
-                            onChange={handleChange}
-                            value={fields.name}
-                            required
-                        />
-                        <span>Name</span>
-                    </FormLabel>
-                    <FormLabel htmlFor="email">
-                        <FormInput
-                            type="email"
-                            name="email"
-                            onChange={handleChange}
-                            value={fields.email}
-                            required
-                        />
-                        <span>Email</span>
-                    </FormLabel>
-                    <FormLabel htmlFor="subject">
-                        <FormInput
-                            type="subject"
-                            name="subject"
-                            onChange={handleChange}
-                            value={fields.subject}
-                            required
-                        />
-                        <span>Subject</span>
-                    </FormLabel>
-                    <FormLabel htmlFor="subject">
-                        <FormTextArea
-                            rows={8}
-                            name="message"
-                            onChange={handleChange}
-                            value={fields.message}
-                            required
-                        />
-                        <span>Message</span>
-                    </FormLabel>
-                </ContactForm>
-                <SubmitBtn formId="form__contact" cta="Get In Touch" />
-            </FormContainer>
-        </Page>
+        <>
+            <Head title="Sandrico Provo - Contact" />
+            <Hero
+                header={{
+                    lineOne: 'Get',
+                    lineTwo: 'In',
+                    lineThree: 'Touch',
+                }}
+            />
+            <IntroComments>
+                <div>
+                    <small>
+                        It all <span>starts</span> below,
+                    </small>
+                    <h2>Lets Work Together.</h2>
+                </div>
+                <p>
+                    I'd love to get in touch and chat with you. Use the form or
+                    social links below to say hello.
+                </p>
+            </IntroComments>
+            <Contacts>
+                <ContactForm />
+                <ContactMethods />
+            </Contacts>
+        </>
     );
 }
 
-export default ContactPage;
+export default Contact;

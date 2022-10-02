@@ -1,64 +1,77 @@
 import Image from 'next/image';
+import React from 'react';
+import styled from 'styled-components';
+import setupVertical from '../public/images/setup-vertical.jpg';
+import { Head } from '../src/components/Head/Head';
+import { Hero } from '../src/components/Hero';
+import { GearTile, GearTilesContainer } from '../src/components/Uses';
+import { setupGear } from '../src/content/setupGear';
 
-import Page from '../src/components/Page';
-import {
-    HeroContainer,
-    HeroTitle,
-    HeroDescription,
-    HeroImageContainer,
-    UsesContainer,
-    GearContainer,
-    ListTitle,
-    GearList,
-    GearListItem,
-} from '../src/components/UsesPage/styles';
-import WavyText from '../src/components/WaveFadeInText';
-import { PointIcon } from '../src/components/Icons';
-import { usesGearImage, usesGear } from '../src/content/usesGear';
+const IntroComments = styled.section`
+    width: 70%;
+    min-width: 350px;
+    padding: 0 var(--spacing-content-mobile);
+    margin-bottom: calc(var(--spacing-margin) / 2);
 
-function UsesPage() {
+    & > p {
+        color: var(--clr-text);
+        line-height: 180%;
+    }
+
+    @media (min-width: 575px) {
+        padding: 0 var(--spacing-content);
+    }
+`;
+
+const SetupImageContainer = styled.div`
+    position: relative;
+    width: 100%;
+    aspect-ratio: 9 / 12;
+    margin: 0 auto;
+    padding: 0 var(--spacing-content-mobile);
+    margin-bottom: var(--spacing-margin);
+
+    @media (min-width: 575px) {
+        width: 80%;
+        padding: 0 var(--spacing-content);
+    }
+`;
+
+function Uses() {
     return (
-        <Page gap={4} marginend={4}>
-            <HeroContainer>
-                <HeroTitle>
-                    <WavyText text="/uses" delay={0.2} duration={0.18} replay />
-                </HeroTitle>
-                <HeroDescription>
+        <>
+            <Head title="Sandrico Provo - /uses" />
+            <Hero
+                header={{
+                    lineOne: '/uses',
+                }}
+            />
+            <SetupImageContainer>
+                <Image
+                    src={setupVertical.src}
+                    layout="fill"
+                    objectFit="cover"
+                    priority
+                    alt="My setup including the monitor, laptop, desk map, docking station, mouse and other items."
+                />
+            </SetupImageContainer>
+            <IntroComments>
+                <p>
                     This page is dedicated to detailing all of the gear, apps,
                     and other essentials that I use to get my work done and stay
                     productive. It’s really just for fun! If you’ve seen me use
                     something and are curious about what it is, you will most
                     likely find it here. If not, feel free to reach out to me on
                     Twitter and ask 😄.
-                </HeroDescription>
-                <HeroImageContainer>
-                    <Image
-                        src={usesGearImage.src}
-                        alt={usesGearImage.alt}
-                        layout="fill"
-                        objectFit="cover"
-                        placeholder="blur"
-                        blurDataURL={usesGearImage.blurUrl}
-                    />
-                </HeroImageContainer>
-            </HeroContainer>
-            <UsesContainer>
-                {usesGear.map((gearList) => (
-                    <GearContainer key={gearList.category}>
-                        <ListTitle>{gearList.category}</ListTitle>
-                        <GearList>
-                            {gearList.gear.map((gear) => (
-                                <GearListItem key={gear}>
-                                    <PointIcon />
-                                    {gear}
-                                </GearListItem>
-                            ))}
-                        </GearList>
-                    </GearContainer>
+                </p>
+            </IntroComments>
+            <GearTilesContainer>
+                {setupGear.map((category) => (
+                    <GearTile label={category.label} gear={category.gear} />
                 ))}
-            </UsesContainer>
-        </Page>
+            </GearTilesContainer>
+        </>
     );
 }
 
-export default UsesPage;
+export default Uses;

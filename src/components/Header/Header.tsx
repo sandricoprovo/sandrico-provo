@@ -1,72 +1,57 @@
 import Link from 'next/link';
-import { useState, useEffect } from 'react';
+import styled from 'styled-components';
 
-import header from '../../content/header';
+import { NavBar } from './NavBar/NavBar';
+import { NavDrawer } from './NavDrawer/NavDrawer';
+import { LogoBlack } from '../Logos';
+import { useWindowSize } from '../../hooks/useWindowSize';
 
-import { HeaderContainer, LogoText } from './styles';
-import NavBar from './Navigation/NavBar';
-import MobileNav from './Navigation/MobileNav';
+const HeaderStyled = styled.header`
+    width: 100%;
+    margin: var(--spacing-vertical) var(--spacing-content-mobile);
+    position: relative;
+    max-width: var(--spacing-page-max);
 
-export default function Header() {
-    const [isMobile, setIsMobile] = useState<boolean>(false);
-    const [isNavOpen, setIsNavOpen] = useState<boolean>(false);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 
-    function toggleNavMenu() {
-        if (isNavOpen) {
-            setTimeout(() => {
-                setIsNavOpen(!isNavOpen);
-            }, 600);
-        } else {
-            setIsNavOpen(!isNavOpen);
+    & > nav,
+    & > svg {
+        opacity: 0;
+
+        animation-name: fadeIn;
+        animation-duration: 0.3s;
+        animation-timing-function: cubic-bezier(0.86, 0, 0.07, 1);
+        animation-delay: 0.5s;
+        animation-fill-mode: forwards;
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
         }
     }
 
-    function checkIfMobile() {
-        if (window.innerWidth < 600) {
-            setIsMobile(true);
-        } else {
-            setIsMobile(false);
-        }
+    @media (min-width: 575px) {
+        margin: var(--spacing-vertical) var(--spacing-content);
     }
+`;
 
-    useEffect(() => {
-        if (window.innerWidth < 600) setIsMobile(true);
-        window.addEventListener('resize', checkIfMobile);
-
-        return () => {
-            window.removeEventListener('resize', checkIfMobile);
-        };
-    }, []);
+export function Header() {
+    const { width } = useWindowSize();
 
     return (
-        <HeaderContainer>
-            <Link href="/" passHref>
-                <LogoText
-                    tabIndex={0}
-                    open={isNavOpen}
-                    initial={{ opacity: 0, y: '50%' }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{
-                        duration: 0.7,
-                        delay: 0.05,
-                        ease: [0.68, -0.55, 0.27, 1.55],
-                    }}
-                >
-                    {header.logo}
-                </LogoText>
+        <HeaderStyled>
+            <Link href="/">
+                <a title="Logo">
+                    <LogoBlack />
+                </a>
             </Link>
-            <NavBar
-                showMobileNav={isMobile}
-                isNavOpen={isNavOpen}
-                toggleMobileNav={toggleNavMenu}
-                links={header.links}
-            />
-            <MobileNav
-                isMobile={isMobile}
-                isNavOpen={isNavOpen}
-                links={header.links}
-                toggleMobileNav={toggleNavMenu}
-            />
-        </HeaderContainer>
+            {width && width <= 575 ? <NavDrawer /> : <NavBar />}
+        </HeaderStyled>
     );
 }
