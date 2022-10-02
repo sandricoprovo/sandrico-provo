@@ -63,7 +63,7 @@ interface GoToBtnProps {
 
 export function GoToBtn({ href, isExternal = false, label }: GoToBtnProps) {
     const internalGoToBtn = (
-        <Link href={href}>
+        <Link href={href} title={label} passHref>
             <GoToInternal tabIndex={0}>
                 {label} <ArrowRightIcon title={label} size={16} />
             </GoToInternal>
@@ -71,7 +71,7 @@ export function GoToBtn({ href, isExternal = false, label }: GoToBtnProps) {
     );
 
     const externalGoToBtn = (
-        <GoToExternal tabIndex={0}>
+        <GoToExternal tabIndex={0} title={label} href={href}>
             {label} <ExternalLinkIcon title={label} />
         </GoToExternal>
     );
