@@ -78,8 +78,10 @@ export const NavLink = ({ href, label }: NavLinkProps) => (
                     <a className="body">{label}</a>
                 </Link>
                 {/* Link viewed while hovering */}
-                <Link href={href} passHref>
-                    <a className="body">{label}</a>
+                <Link tabIndex={-1} href={href} passHref>
+                    <a tabIndex={-1} className="body">
+                        {label}
+                    </a>
                 </Link>
             </NavLinkStyled>
         </AnimationMask>

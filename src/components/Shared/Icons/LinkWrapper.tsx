@@ -18,7 +18,8 @@ const LinkWrapperStyled = styled.div`
     @media (hover: hover) {
         cursor: pointer;
 
-        &:hover {
+        &:hover,
+        &:focus {
             transform: translateY(-8px) scale(1.15);
         }
     }
