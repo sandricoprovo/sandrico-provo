@@ -43,6 +43,7 @@ export default class MyDocument extends Document {
         return (
             <Html lang="en">
                 <Head>
+                    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
                     <link
                         rel="preload"
                         href="/fonts/Montserrat-Black.woff"
