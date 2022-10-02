@@ -50,11 +50,11 @@ const ProjectFullStyled = styled.div`
         gap: 24px;
     }
 
-    & > div:nth-of-type(2) > div:nth-of-type(1) > p {
+    & > div:nth-of-type(2) > div:nth-of-type(1) > h2 {
         width: 50%;
         min-width: 200px;
         font-family: var(--font-display);
-        font-size: var(--font-md);
+        font-size: var(--font-lg);
         color: var(--clr-text);
     }
 
@@ -111,7 +111,7 @@ export function ProjectFull({ project }: ProjectFullProps) {
             </div>
             <div>
                 <div>
-                    <p>{name}</p>
+                    <h2>{name}</h2>
                     <div>
                         {links.github && (
                             <GitHubIcon title="GitHub" href={links.github} />
