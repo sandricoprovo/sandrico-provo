@@ -12,9 +12,11 @@ const NavigationStyled = styled.ul`
 `;
 
 export const NavBar = () => (
-    <NavigationStyled>
-        {NAV_LINKS.map((link) => (
-            <NavLink key={link.label} href={link.href} label={link.label} />
-        ))}
-    </NavigationStyled>
+    <nav>
+        <NavigationStyled>
+            {NAV_LINKS.map((link) => (
+                <NavLink key={link.label} href={link.href} label={link.label} />
+            ))}
+        </NavigationStyled>
+    </nav>
 );
