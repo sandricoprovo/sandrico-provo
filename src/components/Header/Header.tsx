@@ -47,7 +47,7 @@ export function Header() {
     return (
         <HeaderStyled>
             <Link href="/">
-                <a>
+                <a title="Logo">
                     <LogoBlack />
                 </a>
             </Link>
