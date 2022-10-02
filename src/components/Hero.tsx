@@ -29,6 +29,7 @@ const HeroStyled = styled.section`
             font-size: var(--font-xxl);
             font-family: var(--font-header);
             line-height: 100%;
+            color: #111111;
         }
     }
 
