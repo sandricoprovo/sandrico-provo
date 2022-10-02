@@ -97,12 +97,17 @@ interface ProjectFullProps {
 }
 
 export function ProjectFull({ project }: ProjectFullProps) {
-    const { description, links, name, photo, stack } = project;
+    const { description, links, name, photo, stack, photoAlt } = project;
 
     return (
         <ProjectFullStyled id={name}>
             <div>
-                <Image src={photo.src} layout="fill" objectFit="contain" />
+                <Image
+                    src={photo.src}
+                    layout="fill"
+                    objectFit="contain"
+                    alt={photoAlt}
+                />
             </div>
             <div>
                 <div>

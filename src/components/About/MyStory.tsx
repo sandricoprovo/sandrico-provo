@@ -89,7 +89,12 @@ export function MyStory() {
         <Container>
             <p>Hey, I'm Sandrico Provo.</p>
             <div>
-                <Image src={myInfo.photo.src} layout="fill" objectFit="cover" />
+                <Image
+                    src={myInfo.photo.src}
+                    layout="fill"
+                    objectFit="cover"
+                    alt={myInfo.photoAlt}
+                />
             </div>
             <div>
                 <h2>

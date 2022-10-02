@@ -47,6 +47,7 @@ function Home() {
                         layout="fill"
                         objectFit="cover"
                         quality={95}
+                        alt="My setup including the monitor, laptop, desk map, docking station, mouse and other items."
                     />
                 </div>
             </ImageContainer>

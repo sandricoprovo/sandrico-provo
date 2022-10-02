@@ -59,6 +59,7 @@ export function WorkPreview() {
                             key={project.name}
                             image={project.photo}
                             name={project.name}
+                            alt={project.photoAlt}
                         />
                     );
                 })}

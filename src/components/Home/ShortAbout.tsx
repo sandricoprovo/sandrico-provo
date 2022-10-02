@@ -92,6 +92,7 @@ export function ShortAbout() {
                 <div>
                     <Image
                         src={myInfo.photo.src}
+                        alt={myInfo.photoAlt}
                         layout="responsive"
                         blurDataURL={myInfo.photo.blurDataURL}
                         width={100}
