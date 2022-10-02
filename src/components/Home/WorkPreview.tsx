@@ -56,8 +56,10 @@ export function WorkPreview() {
 
                     return (
                         <ProjectSmall
+                            key={project.name}
                             image={project.photo}
                             name={project.name}
+                            alt={project.photoAlt}
                         />
                     );
                 })}

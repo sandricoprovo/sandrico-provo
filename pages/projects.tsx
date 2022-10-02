@@ -35,7 +35,7 @@ function Projects() {
             />
             <ProjectsContainer>
                 {projectsList.map((project) => (
-                    <ProjectFull project={project} />
+                    <ProjectFull key={project.name} project={project} />
                 ))}
             </ProjectsContainer>
         </>

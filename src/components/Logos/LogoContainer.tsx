@@ -47,6 +47,7 @@ const SVGContainer = styled.svg`
 export function LogoContainer({ children }: any) {
     return (
         <SVGContainer
+            name="Slanted S Logo"
             width="48px"
             height="48px"
             viewBox="0 0 85 80"

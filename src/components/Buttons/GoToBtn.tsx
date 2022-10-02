@@ -32,7 +32,8 @@ const GoToBase = styled.a`
             width: 100%;
         }
 
-        &:hover > svg {
+        &:hover > svg,
+        &:focus > svg {
             animation-name: rightArrowPoint;
             animation-duration: 0.6s;
             animation-timing-function: cubic-bezier(0.79, 0.14, 0.15, 0.86);
@@ -62,15 +63,15 @@ interface GoToBtnProps {
 
 export function GoToBtn({ href, isExternal = false, label }: GoToBtnProps) {
     const internalGoToBtn = (
-        <Link href={href}>
-            <GoToInternal>
+        <Link href={href} title={label} passHref>
+            <GoToInternal tabIndex={0}>
                 {label} <ArrowRightIcon title={label} size={16} />
             </GoToInternal>
         </Link>
     );
 
     const externalGoToBtn = (
-        <GoToExternal>
+        <GoToExternal tabIndex={0} title={label} href={href}>
             {label} <ExternalLinkIcon title={label} />
         </GoToExternal>
     );

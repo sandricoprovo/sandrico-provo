@@ -45,17 +45,23 @@ const ProjectSmallStyled = styled.div`
 interface ProjectSmallProps {
     image: StaticImageData;
     name: string;
+    alt: string;
 }
 
-export function ProjectSmall({ image, name }: ProjectSmallProps) {
+export function ProjectSmall({ image, name, alt }: ProjectSmallProps) {
     return (
         <ProjectSmallStyled>
             <div>
-                <Image src={image.src} layout="fill" objectFit="cover" />
+                <Image
+                    src={image.src}
+                    layout="fill"
+                    objectFit="cover"
+                    alt={alt}
+                />
             </div>
             <div>
                 <p>{name}</p>
-                <GoToBtn href="/projects" label="More" />
+                <GoToBtn href={`/projects/#${name}`} label="More" />
             </div>
         </ProjectSmallStyled>
     );

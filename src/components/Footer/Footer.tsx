@@ -2,6 +2,7 @@ import styled from 'styled-components';
 import { GoToBtn } from '../Buttons';
 import { TwitterIcon, GitHubIcon, LinkedinIcon } from '../Shared/Icons';
 import { Time } from '../Time';
+import { myInfo } from '../../content/myInfo';
 
 const FooterStyled = styled.footer`
     width: 100%;
@@ -22,7 +23,7 @@ const FooterStyled = styled.footer`
         }
     }
 
-    & > div:nth-of-type(1) > h4 {
+    & > div:nth-of-type(1) > p {
         color: var(--clr-white);
         font-family: var(--font-header);
         font-size: var(--font-lg);
@@ -34,7 +35,7 @@ const FooterStyled = styled.footer`
         }
     }
 
-    & > div:nth-of-type(1) > h4 > span:nth-of-type(1) {
+    & > div:nth-of-type(1) > p > span:nth-of-type(1) {
         font-family: var(--font-display);
         font-size: var(--font-xl);
 
@@ -43,20 +44,21 @@ const FooterStyled = styled.footer`
         }
     }
 
-    & > div:nth-of-type(1) > h4 > span:nth-of-type(2) {
+    & > div:nth-of-type(1) > p > span:nth-of-type(2) {
         font-family: var(--font-display);
         color: var(--clr-main);
         font-size: var(--font-xxl);
     }
 
     & > div:nth-of-type(2) {
-        height: 90vh;
+        padding-top: 120px;
         width: 100%;
 
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: flex-start;
+        gap: 120px;
     }
 
     & > div:nth-of-type(2) > div {
@@ -149,11 +151,11 @@ export function Footer() {
     return (
         <FooterStyled>
             <div>
-                <h4>
+                <p>
                     Lets Work <br />
                     <span>Together</span>
                     <span>.</span>
-                </h4>
+                </p>
             </div>
             <div>
                 <div>
@@ -173,15 +175,15 @@ export function Footer() {
                             <div>
                                 <GitHubIcon
                                     title="GitHub"
-                                    href="https://google.ca"
+                                    href={myInfo.links.github}
                                 />
                                 <TwitterIcon
                                     title="Twitter"
-                                    href="https://google.ca"
+                                    href={myInfo.links.twitter}
                                 />
                                 <LinkedinIcon
                                     title="LinkedIn"
-                                    href="https://google.ca"
+                                    href={myInfo.links.linkedIn}
                                 />
                             </div>
                         </div>
@@ -192,7 +194,7 @@ export function Footer() {
                     </div>
                     <div>
                         <p>2022 Edition</p>
-                        <p>Sandrico Provo © 2018-2022</p>
+                        <p>Sandrico Provo © 2018-{new Date().getFullYear()}</p>
                     </div>
                 </div>
             </div>

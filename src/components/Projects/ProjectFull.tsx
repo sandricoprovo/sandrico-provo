@@ -50,11 +50,11 @@ const ProjectFullStyled = styled.div`
         gap: 24px;
     }
 
-    & > div:nth-of-type(2) > div:nth-of-type(1) > p {
+    & > div:nth-of-type(2) > div:nth-of-type(1) > h2 {
         width: 50%;
         min-width: 200px;
         font-family: var(--font-display);
-        font-size: var(--font-md);
+        font-size: var(--font-lg);
         color: var(--clr-text);
     }
 
@@ -97,16 +97,21 @@ interface ProjectFullProps {
 }
 
 export function ProjectFull({ project }: ProjectFullProps) {
-    const { description, links, name, photo, stack } = project;
+    const { description, links, name, photo, stack, photoAlt } = project;
 
     return (
-        <ProjectFullStyled>
+        <ProjectFullStyled id={name}>
             <div>
-                <Image src={photo.src} layout="fill" objectFit="contain" />
+                <Image
+                    src={photo.src}
+                    layout="fill"
+                    objectFit="contain"
+                    alt={photoAlt}
+                />
             </div>
             <div>
                 <div>
-                    <p>{name}</p>
+                    <h2>{name}</h2>
                     <div>
                         {links.github && (
                             <GitHubIcon title="GitHub" href={links.github} />
@@ -123,8 +128,8 @@ export function ProjectFull({ project }: ProjectFullProps) {
                 <div>
                     <p>Tech Stack</p>
                     <div>
-                        {stack.map((tech) => (
-                            <p>{tech}</p>
+                        {stack.map((tech, index) => (
+                            <p key={`${tech}_${index}`}>{tech}</p>
                         ))}
                     </div>
                 </div>

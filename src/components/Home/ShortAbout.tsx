@@ -11,9 +11,8 @@ const ShortAboutStyled = styled.section`
 
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
     align-items: center;
-    gap: 64px;
+    gap: 104px;
 
     & > div:nth-child(1) {
         width: 100%;
@@ -56,8 +55,9 @@ const ShortAboutStyled = styled.section`
         align-items: flex-start;
         gap: 40px;
 
-        & > p {
+        & > h2 {
             font-family: var(--font-header);
+            font-size: var(--font-xl);
             line-height: 100%;
         }
 
@@ -65,11 +65,11 @@ const ShortAboutStyled = styled.section`
             line-height: 160%;
         }
 
-        & > p > span {
+        & > h2 > span {
             font-family: var(--font-display);
         }
 
-        & > p > span > span {
+        & > h2 > span > span {
             font-family: var(--font-display);
             color: var(--clr-main);
         }
@@ -93,6 +93,7 @@ export function ShortAbout() {
                 <div>
                     <Image
                         src={myInfo.photo.src}
+                        alt={myInfo.photoAlt}
                         layout="responsive"
                         blurDataURL={myInfo.photo.blurDataURL}
                         width={100}
@@ -104,14 +105,14 @@ export function ShortAbout() {
                 </div>
             </div>
             <div>
-                <p className="header-4">
+                <h2>
                     A little <br />
                     <span>
                         About Me<span>.</span>
                     </span>
-                </p>
+                </h2>
                 <div>
-                    <p className="body">
+                    <p>
                         My path to IT and Software Development wasn't that
                         straightforward. I started my post-secondary education
                         with a Bachelor of Arts in Geography and Sociology.

@@ -3,6 +3,8 @@ import mePhoto from '../../public/images/me-1.jpeg';
 const myInfo = {
     title: 'Software Engineer',
     photo: mePhoto,
+    photoAlt:
+        'Me setting at my desk setup, in front of my desk and plants, smiling.',
     links: {
         github: 'https://github.com/sandricoprovo',
         twitter: 'https://twitter.com/sandricoprovo',

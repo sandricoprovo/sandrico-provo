@@ -52,6 +52,7 @@ function Uses() {
                     layout="fill"
                     objectFit="cover"
                     priority
+                    alt="My setup including the monitor, laptop, desk map, docking station, mouse and other items."
                 />
             </SetupImageContainer>
             <IntroComments>

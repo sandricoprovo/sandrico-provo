@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import { NAV_LINKS } from '../../../content/navLinks';
 import { NavLink } from './NavLink';
 
-const NavigationStyled = styled.nav`
+const NavigationStyled = styled.ul`
     display: flex;
     align-items: center;
     flex-wrap: wrap;
@@ -12,9 +12,11 @@ const NavigationStyled = styled.nav`
 `;
 
 export const NavBar = () => (
-    <NavigationStyled>
-        {NAV_LINKS.map((link) => (
-            <NavLink key={link.label} href={link.href} label={link.label} />
-        ))}
-    </NavigationStyled>
+    <nav>
+        <NavigationStyled>
+            {NAV_LINKS.map((link) => (
+                <NavLink key={link.label} href={link.href} label={link.label} />
+            ))}
+        </NavigationStyled>
+    </nav>
 );

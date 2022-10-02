@@ -23,13 +23,13 @@ const IntroComments = styled.section`
             }
         }
 
-        & > p:nth-of-type(1) {
+        & > h2:nth-of-type(1) {
             font-family: var(--font-header);
             font-size: var(--font-xl);
             line-height: 120%;
         }
 
-        & > p:nth-of-type(2) {
+        & > p {
             font-family: var(--font-base);
             font-size: var(--font-md);
         }
@@ -78,12 +78,11 @@ function Contact() {
                     <small>
                         It all <span>starts</span> below,
                     </small>
-                    <p>Lets Work Together.</p>
+                    <h2>Lets Work Together.</h2>
                 </div>
                 <p>
-                    Mi eget mauris pharetra et ultrices neque ornare. Nisl nunc
-                    mi ipsum faucibus vitae aliquet. Massa id neque aliquam
-                    vestibulum morbi blandit cursus risus at.
+                    I'd love to get in touch and chat with you. Use the form or
+                    social links below to say hello.
                 </p>
             </IntroComments>
             <Contacts>
