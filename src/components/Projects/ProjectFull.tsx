@@ -128,8 +128,8 @@ export function ProjectFull({ project }: ProjectFullProps) {
                 <div>
                     <p>Tech Stack</p>
                     <div>
-                        {stack.map((tech) => (
-                            <p>{tech}</p>
+                        {stack.map((tech, index) => (
+                            <p key={`${tech}_${index}`}>{tech}</p>
                         ))}
                     </div>
                 </div>
