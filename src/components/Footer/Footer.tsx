@@ -23,7 +23,7 @@ const FooterStyled = styled.footer`
         }
     }
 
-    & > div:nth-of-type(1) > h4 {
+    & > div:nth-of-type(1) > p {
         color: var(--clr-white);
         font-family: var(--font-header);
         font-size: var(--font-lg);
@@ -35,7 +35,7 @@ const FooterStyled = styled.footer`
         }
     }
 
-    & > div:nth-of-type(1) > h4 > span:nth-of-type(1) {
+    & > div:nth-of-type(1) > p > span:nth-of-type(1) {
         font-family: var(--font-display);
         font-size: var(--font-xl);
 
@@ -44,7 +44,7 @@ const FooterStyled = styled.footer`
         }
     }
 
-    & > div:nth-of-type(1) > h4 > span:nth-of-type(2) {
+    & > div:nth-of-type(1) > p > span:nth-of-type(2) {
         font-family: var(--font-display);
         color: var(--clr-main);
         font-size: var(--font-xxl);
@@ -151,11 +151,11 @@ export function Footer() {
     return (
         <FooterStyled>
             <div>
-                <h4>
+                <p>
                     Lets Work <br />
                     <span>Together</span>
                     <span>.</span>
-                </h4>
+                </p>
             </div>
             <div>
                 <div>
