@@ -5,6 +5,7 @@ const SVGContainer = styled.svg`
     height: 64px;
     padding-top: 1rem;
     opacity: 0;
+    margin-left: -6px;
 
     animation-name: fadeIn;
     animation-duration: 0.3s;
