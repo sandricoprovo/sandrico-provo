@@ -9,6 +9,7 @@ import { useWindowSize } from '../../hooks/useWindowSize';
 const HeaderStyled = styled.header`
     width: 100%;
     margin: var(--spacing-vertical) var(--spacing-content-mobile);
+    padding: 0 var(--spacing-content-mobile);
     position: relative;
     max-width: var(--spacing-page-max);
 
@@ -38,6 +39,7 @@ const HeaderStyled = styled.header`
 
     @media (min-width: 575px) {
         margin: var(--spacing-vertical) var(--spacing-content);
+        padding: 0 var(--spacing-content);
     }
 `;
 

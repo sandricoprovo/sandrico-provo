@@ -6,8 +6,10 @@ import { Page } from './Page';
 import { Footer } from './Footer/Footer';
 
 const LayoutStyled = styled.div`
+    background-color: var(--clr-background);
+
     display: grid;
-    grid-template-columns: 92vw;
+    grid-template-columns: 100vw;
     grid-template-rows: auto 1fr auto;
     justify-content: space-around;
     justify-items: center;
