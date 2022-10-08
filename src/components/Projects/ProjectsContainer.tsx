@@ -2,8 +2,8 @@ import React, { ReactNode } from 'react';
 import styled from 'styled-components';
 
 const ProjectsContainerStyled = styled.section`
-    margin: var(--spacing-vertical) var(--spacing-content-mobile)
-        var(--spacing-margin) var(--spacing-content-mobile);
+    margin: 0 var(--spacing-content-mobile);
+    margin-bottom: var(--spacing-margin);
 
     display: flex;
     flex-direction: column;
@@ -12,8 +12,8 @@ const ProjectsContainerStyled = styled.section`
     gap: 80px;
 
     @media (min-width: 575px) {
-        margin: var(--spacing-vertical) var(--spacing-content)
-            var(--spacing-margin) var(--spacing-content);
+        margin: 0 var(--spacing-content);
+        margin-bottom: var(--spacing-margin);
     }
 `;
 

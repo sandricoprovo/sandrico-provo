@@ -138,9 +138,9 @@ export function MyStory() {
                     Currently, my technical skills include creating front-end
                     applications in React, TypeScript, JavaScript, HTML, and CSS
                     while knowing popular libraries and frameworks like Styled
-                    Components and NextJS. I have familiarity with back-end
-                    technologies and tools including NodeJS, ExpressJS, REST
-                    APIs, GraphQL, PostgreSQL, and Prisma. I also use
+                    Components and NextJS. I also have confidence in using
+                    back-end technologies and tools including NodeJS, ExpressJS,
+                    REST APIs, GraphQL, PostgreSQL, and Prisma. I also use
                     professional collaboration tools such as Git, GitHub,
                     BitBucket, Slack, and JIRA daily.
                 </p>

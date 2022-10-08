@@ -60,6 +60,10 @@ const FooterStyled = styled.footer`
         justify-content: center;
         align-items: flex-start;
         gap: 120px;
+
+        @media (min-width: 575px) {
+            padding: 0 var(--spacing-content);
+        }
     }
 
     & > div:nth-of-type(2) > div {

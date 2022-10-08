@@ -29,7 +29,7 @@ const ProjectFullStyled = styled.div`
     & > div:nth-of-type(2) {
         height: 100%;
         width: 100%;
-        max-width: 650px;
+        max-width: 550px;
 
         display: flex;
         flex-direction: column;
