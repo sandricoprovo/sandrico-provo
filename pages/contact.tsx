@@ -7,21 +7,18 @@ import { HeroContainer } from '../src/components/Hero/HeroContainer';
 import { HeroHeader } from '../src/components/Hero/HeroHeader';
 
 const IntroComments = styled.section`
-    width: 70%;
-    min-width: 350px;
+    width: 100%;
+    min-width: 280px;
     padding: 0 var(--spacing-content-mobile);
-    margin-bottom: calc(var(--spacing-margin) / 2);
+    margin-bottom: calc(var(--spacing-margin) * 0.24);
 
     & > div {
         margin-bottom: 40px;
 
-        & > small {
-            font-family: var(--font-display);
+        & > span {
             font-size: var(--font-base);
-
-            & > span {
-                color: var(--clr-main);
-            }
+            font-family: var(--font-display);
+            color: var(--clr-main);
         }
 
         & > h2:nth-of-type(1) {
@@ -35,14 +32,9 @@ const IntroComments = styled.section`
             font-size: var(--font-md);
         }
     }
-
-    @media (min-width: 575px) {
-        padding: 0 var(--spacing-content);
-    }
 `;
 
 const Contacts = styled.div`
-    padding: 0 var(--spacing-content-mobile);
     margin-bottom: var(--spacing-margin);
 
     display: flex;
@@ -58,9 +50,7 @@ const Contacts = styled.div`
         flex-grow: 1;
     }
 
-    @media (min-width: 575px) {
-        padding: 0 var(--spacing-content);
-    }
+    padding: 0 var(--spacing-content-mobile);
 `;
 
 function Contact() {
@@ -72,9 +62,7 @@ function Contact() {
             </HeroContainer>
             <IntroComments>
                 <div>
-                    <small>
-                        It all <span>starts</span> below,
-                    </small>
+                    <span>Collabs</span>
                     <h2>Lets Work Together.</h2>
                 </div>
                 <p>
