@@ -7,11 +7,12 @@ import { Footer } from './Footer/Footer';
 
 const LayoutStyled = styled.div`
     background-color: var(--clr-background);
+    width: 100vw;
 
     display: grid;
     grid-template-columns: 100vw;
     grid-template-rows: auto 1fr auto;
-    justify-content: space-around;
+    justify-content: center;
     justify-items: center;
     align-items: center;
 `;

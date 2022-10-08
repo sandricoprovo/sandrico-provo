@@ -4,6 +4,7 @@ import styled from 'styled-components';
 const Container = styled.section`
     position: relative;
     width: 100%;
+    min-height: 500px;
     height: calc(100vh - 67px - 112px);
     margin-bottom: var(--spacing-margin);
     padding: 20vh var(--spacing-content);

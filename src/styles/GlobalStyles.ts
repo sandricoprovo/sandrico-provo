@@ -92,7 +92,7 @@ export const GlobalStyles = createGlobalStyle`
         --font-lg: clamp(calc(var(--font-400) * var(--font-multiplier)), 14vw, var(--font-400));
         --font-xl: clamp(calc(var(--font-500) * var(--font-multiplier)), 15vw, var(--font-500));
         --font-xxl: clamp(calc(var(--font-600) * var(--font-multiplier)), 15vw, var(--font-600));
-        --font-xxxl: clamp(calc(var(--font-700) * var(--font-multiplier)), 15vw, var(--font-700));
+        --font-xxxl: clamp(calc(var(--font-700) * var(--font-multiplier)), 12vw, var(--font-700));
         --font-xxxxl: clamp(calc(var(--font-800) * var(--font-multiplier)), 12vw, var(--font-800));
         --font-max: clamp(calc(var(--font-900) * 0.24), 12vw, var(--font-900));
         // Families
