@@ -4,6 +4,8 @@ import { ContactForm, ContactMethods } from '../src/components/Contact';
 
 import { Head } from '../src/components/Head/Head';
 import { Hero } from '../src/components/Hero/Hero';
+import { HeroContainer } from '../src/components/Hero/HeroContainer';
+import { HeroHeader } from '../src/components/Hero/HeroHeader';
 
 const IntroComments = styled.section`
     width: 70%;
@@ -66,13 +68,9 @@ function Contact() {
     return (
         <>
             <Head title="Sandrico Provo - Contact" />
-            <Hero
-                header={{
-                    lineOne: 'Get',
-                    lineTwo: 'In',
-                    lineThree: 'Touch',
-                }}
-            />
+            <HeroContainer>
+                <HeroHeader content="Contact" />
+            </HeroContainer>
             <IntroComments>
                 <div>
                     <small>

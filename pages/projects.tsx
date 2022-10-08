@@ -2,7 +2,8 @@ import React from 'react';
 import styled from 'styled-components';
 
 import { Head } from '../src/components/Head/Head';
-import { Hero } from '../src/components/Hero/Hero';
+import { HeroContainer } from '../src/components/Hero/HeroContainer';
+import { HeroHeader } from '../src/components/Hero/HeroHeader';
 import { ProjectFull } from '../src/components/Projects';
 import { projectsList } from '../src/content/projects';
 
@@ -26,13 +27,9 @@ function Projects() {
     return (
         <>
             <Head title="Sandrico Provo - Projects" />
-            <Hero
-                header={{
-                    overline: 'My',
-                    lineOne: 'Wo',
-                    lineTwo: 'rks.',
-                }}
-            />
+            <HeroContainer>
+                <HeroHeader content="Projects" />
+            </HeroContainer>
             <ProjectsContainer>
                 {projectsList.map((project) => (
                     <ProjectFull key={project.name} project={project} />

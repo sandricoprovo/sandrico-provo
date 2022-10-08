@@ -2,10 +2,11 @@ import React from 'react';
 import styled from 'styled-components';
 
 import { Head } from '../src/components/Head/Head';
-import { Hero } from '../src/components/Hero/Hero';
 import { MyStory, WorkExperience } from '../src/components/About';
 import { DetailBlock } from '../src/components/DetailBlock';
 import { myInfo } from '../src/content/myInfo';
+import { HeroContainer } from '../src/components/Hero/HeroContainer';
+import { HeroHeader } from '../src/components/Hero/HeroHeader';
 
 const DetailsBlockContainer = styled.section`
     padding: 0 var(--spacing-content-mobile);
@@ -26,12 +27,9 @@ function About() {
     return (
         <>
             <Head title="Sandrico Provo - About" />
-            <Hero
-                header={{
-                    lineOne: 'About',
-                    lineTwo: 'Me.',
-                }}
-            />
+            <HeroContainer>
+                <HeroHeader content="About" />
+            </HeroContainer>
             <MyStory />
             <WorkExperience />
             <DetailsBlockContainer>
