@@ -105,7 +105,7 @@ export const GlobalStyles = createGlobalStyle`
         --spacing-content-mobile: 18px;
         --spacing-vertical: 16px;
         --spacing-margin: 160px;
-        --spacing-page-max: 2000px;
+        --spacing-page-max: 1600px;
     }
 
     /* === THEMES === */
