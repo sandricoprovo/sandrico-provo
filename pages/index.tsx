@@ -6,12 +6,11 @@ import setup1 from '../public/images/setup-1.jpeg';
 import { Head } from '../src/components/Head/Head';
 import { Hero } from '../src/components/Hero/Hero';
 import { ShortAbout, WorkPreview } from '../src/components/Home';
-import { useScrollPosition } from '../src/hooks/useScrollPosition';
 
 const ImageContainer = styled.section`
     position: relative;
     width: 100%;
-    height: 400px;
+    height: 500px;
     margin-bottom: var(--spacing-margin);
 
     & > div {
@@ -22,8 +21,6 @@ const ImageContainer = styled.section`
 `;
 
 function Home() {
-    const imageScrollPosition = useScrollPosition(-0.5);
-
     return (
         <>
             <Head title="Sandrico Provo - Software Engineer" />
@@ -32,11 +29,7 @@ function Home() {
                 header="Software Engineer"
             />
             <ImageContainer>
-                <div
-                    style={{
-                        transform: `translateX(calc(24vw + ${imageScrollPosition}px))`,
-                    }}
-                >
+                <div>
                     <Image
                         src={setup1.src}
                         layout="fill"
