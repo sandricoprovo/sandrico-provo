@@ -3,7 +3,6 @@ import styled from 'styled-components';
 import { ContactForm, ContactMethods } from '../src/components/Contact';
 
 import { Head } from '../src/components/Head/Head';
-import { Hero } from '../src/components/Hero/Hero';
 import { HeroContainer } from '../src/components/Hero/HeroContainer';
 import { HeroHeader } from '../src/components/Hero/HeroHeader';
 
