@@ -15,10 +15,15 @@ const ProjectFullStyled = styled.div`
 
     & > div:nth-of-type(1) {
         position: relative;
+        overflow: hidden;
         width: 100%;
         min-width: 300px;
-        max-width: 450px;
+        max-width: 550px;
         height: 400px;
+
+        & > * {
+            transition: transform 0.3s ease-in-out;
+        }
     }
 
     & > div:nth-of-type(2) {
@@ -77,6 +82,7 @@ const ProjectFullStyled = styled.div`
         & > div {
             display: flex;
             flex-wrap: wrap;
+            align-items: center;
             gap: 16px;
 
             & > p {
@@ -88,6 +94,12 @@ const ProjectFullStyled = styled.div`
         & > p {
             font-family: var(--font-display);
             font-size: var(--font-base);
+        }
+    }
+
+    @media (hover: hover) {
+        &:hover > div:nth-of-type(1) > * {
+            transform: scale(1.1);
         }
     }
 `;
@@ -105,7 +117,8 @@ export function ProjectFull({ project }: ProjectFullProps) {
                 <Image
                     src={photo.src}
                     layout="fill"
-                    objectFit="contain"
+                    objectFit="cover"
+                    objectPosition="50% 50%"
                     alt={photoAlt}
                 />
             </div>

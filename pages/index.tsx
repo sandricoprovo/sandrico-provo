@@ -6,7 +6,10 @@ import setup1 from '../public/images/setup-1.jpeg';
 import { Head } from '../src/components/Head/Head';
 import { Hero } from '../src/components/Hero/Hero';
 import { ShortAbout } from '../src/components/ShortAbout/ShortAbout';
-import { WorkPreview } from '../src/components/WorkPreview/WorkPreview';
+import { ProjectsContainer } from '../src/components/Projects/ProjectsContainer';
+import { projectsList } from '../src/content/projects';
+import { ProjectFull } from '../src/components/Projects';
+import { ProjectsHeader } from '../src/components/Projects/ProjectsHeader';
 
 const ImageContainer = styled.section`
     position: relative;
@@ -40,8 +43,13 @@ function Home() {
                     />
                 </div>
             </ImageContainer>
+            <ProjectsContainer>
+                <ProjectsHeader overline="Check Out My" header="Projects" />
+                {projectsList.map((project) => (
+                    <ProjectFull key={project.name} project={project} />
+                ))}
+            </ProjectsContainer>
             <ShortAbout />
-            <WorkPreview />
         </>
     );
 }
