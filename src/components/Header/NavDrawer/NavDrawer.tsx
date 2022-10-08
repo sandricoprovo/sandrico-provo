@@ -8,7 +8,6 @@ import { NavDrawerLink } from './NavDrawerLink';
 import { NavDrawerFooter } from './NavDrawerFooter';
 
 const Drawer = styled(motion.nav)`
-    /* border: 2px solid red; */
     position: absolute;
     background-color: var(--clr-background);
     height: 80vh;
@@ -18,7 +17,13 @@ const Drawer = styled(motion.nav)`
 
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: flex-end;
+    gap: 2rem;
+
+    & > div:nth-of-type(1) {
+        display: flex;
+        flex-direction: column;
+    }
 
     & > div > li {
         margin: 1.5rem 0;
