@@ -5,7 +5,8 @@ import setup1 from '../public/images/setup-1.jpeg';
 
 import { Head } from '../src/components/Head/Head';
 import { Hero } from '../src/components/Hero/Hero';
-import { ShortAbout, WorkPreview } from '../src/components/Home';
+import { ShortAbout } from '../src/components/ShortAbout/ShortAbout';
+import { WorkPreview } from '../src/components/WorkPreview/WorkPreview';
 
 const ImageContainer = styled.section`
     position: relative;

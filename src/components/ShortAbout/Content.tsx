@@ -20,6 +20,13 @@ const Container = styled.div`
     }
 `;
 
+const LinksContainer = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+`;
+
 export function Content() {
     return (
         <Container>
@@ -39,7 +46,14 @@ export function Content() {
                 writing React and TypeScript daily. If you've enjoyed a snapshot
                 of my story, you can read more about it below.
             </p>
-            <GoToBtn href="/about" label="More About Me" />
+            <LinksContainer>
+                <GoToBtn href="/about" label="More About Me" />
+                <GoToBtn
+                    href="https://www.nscc.ca/about/news/stories/2022/a-new-career-in-tech.asp"
+                    label="My College Did A Story on Me"
+                    isExternal
+                />
+            </LinksContainer>
         </Container>
     );
 }

@@ -9,11 +9,6 @@ const GoToBase = styled.a`
     font-size: var(--font-base);
     position: relative;
 
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    gap: 0.5rem;
-
     &::before {
         content: '';
         position: absolute;
@@ -71,8 +66,14 @@ export function GoToBtn({ href, isExternal = false, label }: GoToBtnProps) {
     );
 
     const externalGoToBtn = (
-        <GoToExternal tabIndex={0} title={label} href={href}>
-            {label} <ExternalLinkIcon title={label} />
+        <GoToExternal
+            tabIndex={0}
+            title={label}
+            href={href}
+            rel="noopener noreferrer"
+            target="_blank"
+        >
+            {label} <ExternalLinkIcon title={label} size={16} />
         </GoToExternal>
     );
 
