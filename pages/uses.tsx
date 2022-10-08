@@ -66,7 +66,11 @@ function Uses() {
             </IntroComments>
             <GearTilesContainer>
                 {setupGear.map((category) => (
-                    <GearTile label={category.label} gear={category.gear} />
+                    <GearTile
+                        key={category.label}
+                        label={category.label}
+                        gear={category.gear}
+                    />
                 ))}
             </GearTilesContainer>
         </>

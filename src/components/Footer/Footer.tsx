@@ -52,7 +52,7 @@ const FooterStyled = styled.footer`
 
     & > div:nth-of-type(2) {
         width: 100%;
-        padding: 120px var(--spacing-content-mobile) 40px
+        padding: 120px var(--spacing-content-mobile) 0px
             var(--spacing-content-mobile);
 
         display: flex;
@@ -62,13 +62,13 @@ const FooterStyled = styled.footer`
         gap: 120px;
 
         @media (min-width: 575px) {
-            padding: 120px var(--spacing-content) 40px var(--spacing-content);
+            padding: 120px var(--spacing-content) 0px var(--spacing-content);
         }
     }
 
     & > div:nth-of-type(2) > div {
         margin-top: auto;
-        margin-bottom: 48px;
+        margin-bottom: 24px;
         width: 100%;
 
         display: flex;

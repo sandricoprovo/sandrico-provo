@@ -45,7 +45,7 @@ const SVGContainer = styled.svg`
     }
 `;
 
-export function LogoContainer({ children }: any) {
+export function LogoContainer({ children }: { children: any }) {
     return (
         <SVGContainer
             name="Slanted S Logo"
