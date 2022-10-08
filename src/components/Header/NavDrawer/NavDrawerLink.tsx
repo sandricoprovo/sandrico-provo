@@ -3,13 +3,13 @@ import Link from 'next/link';
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
 
-// eslint-disable-next-line prettier/prettier
 const NavLinkStyled = styled(motion.li)`
     list-style: none;
 
     & > a {
         color: var(--clr-text);
         font-family: var(--font-header);
+        font-size: var(--font-xxl);
         text-decoration: none;
     }
 `;

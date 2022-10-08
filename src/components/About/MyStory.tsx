@@ -2,6 +2,7 @@ import Image from 'next/image';
 import React from 'react';
 import styled from 'styled-components';
 import { myInfo } from '../../content/myInfo';
+import { GoToBtn } from '../Buttons';
 import {
     FileIcon,
     GitHubIcon,
@@ -12,7 +13,7 @@ import {
 const Container = styled.section`
     width: 100%;
     padding: 0 var(--spacing-content-mobile);
-    margin-bottom: var(--spacing-margin);
+    margin-bottom: calc(var(--spacing-margin) / 2);
 
     display: flex;
     flex-direction: column;
@@ -74,6 +75,7 @@ const Container = styled.section`
 
     & > div:nth-of-type(3) {
         display: flex;
+        flex-wrap: wrap;
         justify-content: flex-start;
         align-items: center;
         gap: 24px;
@@ -87,7 +89,6 @@ const Container = styled.section`
 export function MyStory() {
     return (
         <Container>
-            <p>Hey, I'm Sandrico Provo.</p>
             <div>
                 <Image
                     src={myInfo.photo.src}
@@ -150,6 +151,11 @@ export function MyStory() {
                 <TwitterIcon title="Twitter" href={myInfo.links.twitter} />
                 <LinkedinIcon title="LinkedIn" href={myInfo.links.linkedIn} />
                 <FileIcon title="Resume" href={myInfo.links.resume} />
+                <GoToBtn
+                    href="https://www.nscc.ca/about/news/stories/2022/a-new-career-in-tech.asp"
+                    label="My College Did A Story on Me"
+                    isExternal
+                />
             </div>
         </Container>
     );

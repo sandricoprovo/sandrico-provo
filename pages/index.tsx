@@ -2,16 +2,22 @@ import React from 'react';
 import styled from 'styled-components';
 import Image from 'next/image';
 import setup1 from '../public/images/setup-1.jpeg';
+import { myInfo } from '../src/content/myInfo';
 
 import { Head } from '../src/components/Head/Head';
-import { Hero } from '../src/components/Hero';
-import { ShortAbout, WorkPreview } from '../src/components/Home';
-import { useScrollPosition } from '../src/hooks/useScrollPosition';
+import { Hero } from '../src/components/Hero/Hero';
+import { ProjectsContainer } from '../src/components/Projects/ProjectsContainer';
+import { projectsList } from '../src/content/projects';
+import { ProjectFull } from '../src/components/Projects';
+import { ProjectsHeader } from '../src/components/Projects/ProjectsHeader';
+import { MyStory, WorkExperience } from '../src/components/About';
+import { DetailBlock } from '../src/components/DetailBlock';
+import { DetailsBlockContainer } from '../src/components/Projects/DetailsBlockContainer';
 
 const ImageContainer = styled.section`
     position: relative;
     width: 100%;
-    height: 400px;
+    height: 500px;
     margin-bottom: var(--spacing-margin);
 
     & > div {
@@ -22,28 +28,18 @@ const ImageContainer = styled.section`
 `;
 
 function Home() {
-    const imageScrollPosition = useScrollPosition(-0.5);
-
     return (
         <>
             <Head title="Sandrico Provo - Software Engineer" />
             <Hero
-                header={{
-                    overline: "Hey, I'm",
-                    lineOne: 'San',
-                    lineTwo: 'dri',
-                    lineThree: 'co',
-                }}
-                showContent
+                overline="Hey, I'm Sandrico. I'm a"
+                header="Software Engineer"
             />
             <ImageContainer>
-                <div
-                    style={{
-                        transform: `translateX(calc(24vw + ${imageScrollPosition}px))`,
-                    }}
-                >
+                <div>
                     <Image
                         src={setup1.src}
+                        priority
                         layout="fill"
                         objectFit="cover"
                         quality={95}
@@ -51,8 +47,26 @@ function Home() {
                     />
                 </div>
             </ImageContainer>
-            <ShortAbout />
-            <WorkPreview />
+            <ProjectsContainer>
+                <ProjectsHeader overline="Check Out My" header="Projects" />
+                {projectsList.map((project) => (
+                    <ProjectFull key={project.name} project={project} />
+                ))}
+            </ProjectsContainer>
+            <MyStory />
+            <DetailsBlockContainer>
+                <DetailBlock
+                    label="Education"
+                    listDirection="column"
+                    list={myInfo.education}
+                />
+                <DetailBlock
+                    label="Skills"
+                    listDirection="row"
+                    list={myInfo.techSkills}
+                />
+            </DetailsBlockContainer>
+            <WorkExperience />
         </>
     );
 }

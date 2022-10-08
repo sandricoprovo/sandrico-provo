@@ -15,9 +15,14 @@ const ProjectSmallStyled = styled.div`
     gap: 40px;
 
     & > div:nth-of-type(1) {
+        overflow: hidden;
         width: 100%;
         height: 80%;
         position: relative;
+
+        & > * {
+            transition: transform 0.3s ease-in-out;
+        }
     }
 
     & > div:nth-of-type(2) {
@@ -40,6 +45,12 @@ const ProjectSmallStyled = styled.div`
         color: var(--clr-text);
         text-decoration: none;
     }
+
+    @media (hover: hover) {
+        &:hover > div:nth-of-type(1) > * {
+            transform: scale(1.1);
+        }
+    }
 `;
 
 interface ProjectSmallProps {
@@ -56,6 +67,7 @@ export function ProjectSmall({ image, name, alt }: ProjectSmallProps) {
                     src={image.src}
                     layout="fill"
                     objectFit="cover"
+                    objectPosition="0% 0%"
                     alt={alt}
                 />
             </div>
