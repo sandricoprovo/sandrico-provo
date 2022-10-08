@@ -12,19 +12,6 @@ const Header = styled.h1`
     text-align: center;
     opacity: 0;
     transform: translateY(40px);
-
-    animation: fadeTextIn 0.4s 0.4s cubic-bezier(0.65, 0.05, 0.36, 1) forwards;
-
-    @keyframes fadeTextIn {
-        from {
-            opacity: 0;
-            transform: translateY(40px);
-        }
-        to {
-            opacity: 1;
-            transform: translateY(0);
-        }
-    }
 `;
 
 interface HeroHeaderProps {

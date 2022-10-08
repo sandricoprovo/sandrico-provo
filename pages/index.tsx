@@ -39,6 +39,7 @@ function Home() {
                 <div>
                     <Image
                         src={setup1.src}
+                        priority
                         layout="fill"
                         objectFit="cover"
                         quality={95}

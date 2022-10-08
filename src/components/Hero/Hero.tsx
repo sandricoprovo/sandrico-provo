@@ -3,14 +3,7 @@ import styled from 'styled-components';
 import { HeroContainer } from './HeroContainer';
 import { HeroHeader } from './HeroHeader';
 
-const TextContainer = styled.div`
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 8px;
-`;
-
-const SubText = styled.span`
+const SubText = styled.p`
     width: 40%;
     min-width: 300px;
     line-height: 180%;
@@ -18,6 +11,8 @@ const SubText = styled.span`
     font-family: var(--font-body);
     font-size: var(--font-base);
     margin-bottom: -20px;
+
+    animation: fadeTextIn 0.4s cubic-bezier(0.65, 0.05, 0.36, 1) forwards;
 
     & > span {
         font-family: var(--font-display);
@@ -36,14 +31,11 @@ export function Hero({ header, overline }: HeroProps) {
                 <span>{overline}</span>
             </SubText>
             <HeroHeader content={header} />
-            <TextContainer>
-                <SubText>
-                    I write organized and type safe code using technologies like
-                    React, TypeScript and GraphQL to create{' '}
-                    <span>data-driven</span> and <span>appealing</span> user
-                    experiences for the web.
-                </SubText>
-            </TextContainer>
+            <SubText>
+                I write organized and type safe code using technologies like
+                React, TypeScript and GraphQL to create <span>data-driven</span>{' '}
+                and <span>appealing</span> user experiences for the web.
+            </SubText>
         </HeroContainer>
     );
 }
