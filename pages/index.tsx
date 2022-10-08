@@ -12,6 +12,7 @@ import { ProjectFull } from '../src/components/Projects';
 import { ProjectsHeader } from '../src/components/Projects/ProjectsHeader';
 import { MyStory, WorkExperience } from '../src/components/About';
 import { DetailBlock } from '../src/components/DetailBlock';
+import { DetailsBlockContainer } from '../src/components/Projects/DetailsBlockContainer';
 
 const ImageContainer = styled.section`
     position: relative;
@@ -23,21 +24,6 @@ const ImageContainer = styled.section`
         position: relative;
         width: 100%;
         height: 100%;
-    }
-`;
-
-const DetailsBlockContainer = styled.section`
-    padding: 0 var(--spacing-content-mobile);
-    margin-bottom: var(--spacing-margin);
-
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: flex-start;
-    align-items: flex-start;
-    gap: 160px;
-
-    @media (min-width: 575px) {
-        padding: 0 var(--spacing-content);
     }
 `;
 
