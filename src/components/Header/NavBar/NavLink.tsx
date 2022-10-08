@@ -58,7 +58,7 @@ const NavLinkStyled = styled.li`
     }
 
     & > a:nth-child(2) {
-        color: var(--clr-accent);
+        color: var(--clr-text);
         font-family: var(--font-display);
         transform-origin: left center;
         transform: rotate(20deg);
