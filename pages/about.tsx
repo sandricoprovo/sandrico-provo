@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 import { Head } from '../src/components/Head/Head';
-import { Hero } from '../src/components/Hero';
+import { Hero } from '../src/components/Hero/Hero';
 import { MyStory, WorkExperience } from '../src/components/About';
 import { DetailBlock } from '../src/components/DetailBlock';
 import { myInfo } from '../src/content/myInfo';

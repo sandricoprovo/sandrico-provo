@@ -3,7 +3,7 @@ import React from 'react';
 import styled from 'styled-components';
 import setupVertical from '../public/images/setup-vertical.jpg';
 import { Head } from '../src/components/Head/Head';
-import { Hero } from '../src/components/Hero';
+import { Hero } from '../src/components/Hero/Hero';
 import { GearTile, GearTilesContainer } from '../src/components/Uses';
 import { setupGear } from '../src/content/setupGear';
 

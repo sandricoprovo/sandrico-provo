@@ -41,7 +41,7 @@ export default class MyDocument extends Document {
     // ---------------------------------------------------//
     render() {
         return (
-            <Html lang="en">
+            <Html lang="en" className="theme-default">
                 <Head>
                     <link rel="icon" type="image/x-icon" href="/favicon.ico" />
                     <link

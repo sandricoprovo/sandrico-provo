@@ -74,7 +74,7 @@ export const GlobalStyles = createGlobalStyle`
         /* === TYPOGRAPHY === */
         // Base
         --font-scale: 1.5;
-        --font-multiplier: 0.1;
+        --font-multiplier: 0.4;
         --font-lh: 140%;
         --font-100: 0.667rem;
         --font-200: 1rem;
@@ -84,15 +84,17 @@ export const GlobalStyles = createGlobalStyle`
         --font-600: 5.063rem;
         --font-700: 7.594rem;
         --font-800: 11.391rem;
+        --font-900: 17.086rem;
         // Clamps
         --font-sm: clamp(calc(var(--font-100) * var(--font-multiplier)), 8vw, var(--font-100));
         --font-base: clamp(calc(var(--font-200) * var(--font-multiplier)), 10vw, var(--font-200));
         --font-md: clamp(calc(var(--font-300) * var(--font-multiplier)), 12vw, var(--font-300));
         --font-lg: clamp(calc(var(--font-400) * var(--font-multiplier)), 14vw, var(--font-400));
-        --font-xl: clamp(calc(var(--font-500) * var(--font-multiplier)), 16vw, var(--font-500));
-        --font-xxl: clamp(calc(var(--font-600) * var(--font-multiplier)), 18vw, var(--font-600));
-        --font-xxxl: clamp(calc(var(--font-700) * var(--font-multiplier)), 20vw, var(--font-700));
-        --font-max: clamp(calc(var(--font-800) * var(--font-multiplier)), 30vw, var(--font-800));
+        --font-xl: clamp(calc(var(--font-500) * var(--font-multiplier)), 15vw, var(--font-500));
+        --font-xxl: clamp(calc(var(--font-600) * var(--font-multiplier)), 15vw, var(--font-600));
+        --font-xxxl: clamp(calc(var(--font-700) * var(--font-multiplier)), 15vw, var(--font-700));
+        --font-xxxxl: clamp(calc(var(--font-800) * var(--font-multiplier)), 12vw, var(--font-800));
+        --font-max: clamp(calc(var(--font-900) * 0.24), 12vw, var(--font-900));
         // Families
         --font-body: 'Montserrat';
         --font-header: 'Montserrat-Black';
@@ -103,12 +105,7 @@ export const GlobalStyles = createGlobalStyle`
         --spacing-content-mobile: 18px;
         --spacing-vertical: 16px;
         --spacing-margin: 160px;
-        --spacing-page-max: 1500px;
-    }
-
-    /* === DEFAULTS === */
-    html {
-      height: -webkit-fill-available;
+        --spacing-page-max: 2000px;
     }
 
     /* === THEMES === */
@@ -129,41 +126,14 @@ export const GlobalStyles = createGlobalStyle`
         --border-radius: 5px;
     }
 
-    /* === Utilities === */
+    /* === DEFAULTS === */
+    html {
+      height: -webkit-fill-available;
+      background-color: var(--clr-background);
+    }
+
     body > * {
         font-family: var(--font-body);
         color: var(--clr-text);
-    }
-
-    .header-1 {
-        font-size: var(--font-max);
-        line-height: var(--font-lh);
-    }
-    .header-2 {
-        font-size: var(--font-xxxl);
-        line-height: var(--font-lh);
-    }
-    .header-3 {
-        font-size: var(--font-xxl);
-        line-height: var(--font-lh);
-    }
-    .header-4 {
-        font-size: var(--font-xl);
-    }
-    .header-5 {
-        font-size: var(--font-lg);
-        line-height: var(--font-lh);
-    }
-    .header-6 {
-        font-size: var(--font-md);
-        line-height: var(--font-lh);
-    }
-    .body {
-        font-size: var(--font-base);
-        line-height: var(--font-lh);
-    }
-    .body-sm {
-        font-size: var(--font-sm);
-        line-height: var(--font-lh);
     }
 `;

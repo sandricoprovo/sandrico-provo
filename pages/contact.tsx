@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { ContactForm, ContactMethods } from '../src/components/Contact';
 
 import { Head } from '../src/components/Head/Head';
-import { Hero } from '../src/components/Hero';
+import { Hero } from '../src/components/Hero/Hero';
 
 const IntroComments = styled.section`
     width: 70%;

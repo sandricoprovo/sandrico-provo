@@ -4,7 +4,7 @@ import Image from 'next/image';
 import setup1 from '../public/images/setup-1.jpeg';
 
 import { Head } from '../src/components/Head/Head';
-import { Hero } from '../src/components/Hero';
+import { Hero } from '../src/components/Hero/Hero';
 import { ShortAbout, WorkPreview } from '../src/components/Home';
 import { useScrollPosition } from '../src/hooks/useScrollPosition';
 
@@ -27,15 +27,7 @@ function Home() {
     return (
         <>
             <Head title="Sandrico Provo - Software Engineer" />
-            <Hero
-                header={{
-                    overline: "Hey, I'm",
-                    lineOne: 'San',
-                    lineTwo: 'dri',
-                    lineThree: 'co',
-                }}
-                showContent
-            />
+            <Hero overline="Hey, I'm" header="Sandrico Provo" />
             <ImageContainer>
                 <div
                     style={{
