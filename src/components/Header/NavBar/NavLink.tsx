@@ -17,7 +17,7 @@ const LinkItem = styled.div`
             }
 
             & > span > li {
-                transform: translateY(-22px);
+                transform: translateY(-18px);
             }
 
             & > span > li > a:nth-child(1) {
@@ -58,6 +58,7 @@ const NavLinkStyled = styled.li`
     }
 
     & > a:nth-child(2) {
+        color: var(--clr-text);
         font-family: var(--font-display);
         transform-origin: left center;
         transform: rotate(20deg);

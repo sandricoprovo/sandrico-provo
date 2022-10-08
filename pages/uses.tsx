@@ -3,7 +3,8 @@ import React from 'react';
 import styled from 'styled-components';
 import setupVertical from '../public/images/setup-vertical.jpg';
 import { Head } from '../src/components/Head/Head';
-import { Hero } from '../src/components/Hero';
+import { HeroContainer } from '../src/components/Hero/HeroContainer';
+import { HeroHeader } from '../src/components/Hero/HeroHeader';
 import { GearTile, GearTilesContainer } from '../src/components/Uses';
 import { setupGear } from '../src/content/setupGear';
 
@@ -41,11 +42,9 @@ function Uses() {
     return (
         <>
             <Head title="Sandrico Provo - /uses" />
-            <Hero
-                header={{
-                    lineOne: '/uses',
-                }}
-            />
+            <HeroContainer>
+                <HeroHeader content="/uses" />
+            </HeroContainer>
             <SetupImageContainer>
                 <Image
                     src={setupVertical.src}

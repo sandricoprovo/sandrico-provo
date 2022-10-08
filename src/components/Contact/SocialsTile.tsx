@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { TwitterIcon, LinkedinIcon, GitHubIcon } from '../Shared/Icons';
+import { myInfo } from '../../content/myInfo';
 
 const SocialTileStyled = styled.div`
     display: flex;
@@ -26,17 +27,17 @@ export function SocialsTile() {
             <div>
                 <TwitterIcon
                     title="TwitterIcon"
-                    href="https://google.ca"
+                    href={myInfo.links.twitter}
                     size={32}
                 />
                 <LinkedinIcon
                     title="LinkedinIcon"
-                    href="https://google.ca"
+                    href={myInfo.links.linkedIn}
                     size={32}
                 />
                 <GitHubIcon
                     title="GitHubIcon"
-                    href="https://google.ca"
+                    href={myInfo.links.github}
                     size={32}
                 />
             </div>

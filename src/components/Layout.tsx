@@ -6,17 +6,20 @@ import { Page } from './Page';
 import { Footer } from './Footer/Footer';
 
 const LayoutStyled = styled.div`
+    background-color: var(--clr-background);
+    width: 100vw;
+
     display: grid;
-    grid-template-columns: 92vw;
+    grid-template-columns: 100vw;
     grid-template-rows: auto 1fr auto;
-    justify-content: space-around;
+    justify-content: center;
     justify-items: center;
     align-items: center;
 `;
 
 export function Layout({ children }: any) {
     useEffect(() => {
-        document.querySelector('body')?.classList.add('theme-default');
+        document.querySelector('html')?.classList.add('theme-default');
     }, []);
 
     return (

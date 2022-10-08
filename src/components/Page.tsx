@@ -1,10 +1,9 @@
 import styled from 'styled-components';
 
 const PageStyled = styled.main`
-    width: 100%;
     max-width: var(--spacing-page-max);
     padding: auto var(--spacing-content-mobile);
-    background-color: var(--clr-content-bkg);
+    background-color: var(--clr-background);
     overflow-x: hidden;
 
     @media (min-width: 575px) {
