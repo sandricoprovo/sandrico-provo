@@ -18,7 +18,7 @@ const LayoutStyled = styled.div`
 
 export function Layout({ children }: any) {
     useEffect(() => {
-        document.querySelector('body')?.classList.add('theme-default');
+        document.querySelector('html')?.classList.add('theme-default');
     }, []);
 
     return (
