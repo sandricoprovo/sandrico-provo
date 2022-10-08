@@ -33,9 +33,9 @@ export function Hero({ header, overline }: HeroProps) {
     return (
         <HeroContainer>
             <SubText>
-                <span>Hey, I'm Sandrico. I'm a</span>
+                <span>{overline}</span>
             </SubText>
-            <HeroHeader />
+            <HeroHeader content={header} />
             <TextContainer>
                 <SubText>
                     I write organized and type safe code using technologies like

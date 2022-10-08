@@ -12,6 +12,10 @@ const Header = styled.h1`
     text-align: center;
 `;
 
-export function HeroHeader() {
-    return <Header>Software Engineer</Header>;
+interface HeroHeaderProps {
+    content: string;
+}
+
+export function HeroHeader({ content }: HeroHeaderProps) {
+    return <Header>{content}</Header>;
 }

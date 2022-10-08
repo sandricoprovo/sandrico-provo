@@ -27,7 +27,10 @@ function Home() {
     return (
         <>
             <Head title="Sandrico Provo - Software Engineer" />
-            <Hero overline="Hey, I'm" header="Sandrico Provo" />
+            <Hero
+                overline="Hey, I'm Sandrico. I'm a"
+                header="Software Engineer"
+            />
             <ImageContainer>
                 <div
                     style={{
