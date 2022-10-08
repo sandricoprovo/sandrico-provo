@@ -2,14 +2,16 @@ import React from 'react';
 import styled from 'styled-components';
 import Image from 'next/image';
 import setup1 from '../public/images/setup-1.jpeg';
+import { myInfo } from '../src/content/myInfo';
 
 import { Head } from '../src/components/Head/Head';
 import { Hero } from '../src/components/Hero/Hero';
-import { ShortAbout } from '../src/components/ShortAbout/ShortAbout';
 import { ProjectsContainer } from '../src/components/Projects/ProjectsContainer';
 import { projectsList } from '../src/content/projects';
 import { ProjectFull } from '../src/components/Projects';
 import { ProjectsHeader } from '../src/components/Projects/ProjectsHeader';
+import { MyStory, WorkExperience } from '../src/components/About';
+import { DetailBlock } from '../src/components/DetailBlock';
 
 const ImageContainer = styled.section`
     position: relative;
@@ -21,6 +23,21 @@ const ImageContainer = styled.section`
         position: relative;
         width: 100%;
         height: 100%;
+    }
+`;
+
+const DetailsBlockContainer = styled.section`
+    padding: 0 var(--spacing-content-mobile);
+    margin-bottom: var(--spacing-margin);
+
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 160px;
+
+    @media (min-width: 575px) {
+        padding: 0 var(--spacing-content);
     }
 `;
 
@@ -49,7 +66,20 @@ function Home() {
                     <ProjectFull key={project.name} project={project} />
                 ))}
             </ProjectsContainer>
-            <ShortAbout />
+            <MyStory />
+            <DetailsBlockContainer>
+                <DetailBlock
+                    label="Education"
+                    listDirection="column"
+                    list={myInfo.education}
+                />
+                <DetailBlock
+                    label="Skills"
+                    listDirection="row"
+                    list={myInfo.techSkills}
+                />
+            </DetailsBlockContainer>
+            <WorkExperience />
         </>
     );
 }

@@ -48,7 +48,11 @@ const GoToBase = styled.a`
 `;
 
 const GoToInternal = styled(GoToBase)``;
-const GoToExternal = styled(GoToBase)``;
+const GoToExternal = styled(GoToBase)`
+    display: flex;
+    align-items: center;
+    gap: 8px;
+`;
 
 interface GoToBtnProps {
     label: string;
