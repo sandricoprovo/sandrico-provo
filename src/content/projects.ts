@@ -1,5 +1,5 @@
-import deckOfCardsPhoto from '../../public/images/deck-of-cards.png';
-import eslintConfigPhoto from '../../public/images/eslint-config.png';
+import deckOfCardsPhoto from '../../public/images/deck_of_cards_mock.png';
+import eslintConfigPhoto from '../../public/images/eslint_config_mock.png';
 import { Project } from '../types/Project';
 
 const projectsList: Project[] = [
