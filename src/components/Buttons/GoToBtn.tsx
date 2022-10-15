@@ -13,7 +13,7 @@ const GoToBase = styled.a`
         content: '';
         position: absolute;
         width: 0%;
-        height: 2px;
+        height: 1px;
         bottom: -21%;
         left: 0;
         background-color: var(--clr-text);
