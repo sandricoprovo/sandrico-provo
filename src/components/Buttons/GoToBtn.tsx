@@ -14,7 +14,7 @@ const GoToBase = styled.a`
         position: absolute;
         width: 0%;
         height: 1px;
-        bottom: -21%;
+        bottom: -40%;
         left: 0;
         background-color: var(--clr-text);
         transition: width 0.3s cubic-bezier(0.79, 0.14, 0.15, 0.86);
