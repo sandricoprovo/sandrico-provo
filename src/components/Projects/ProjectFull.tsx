@@ -7,9 +7,8 @@ import { Project } from '../../types/Project';
 const ProjectFullStyled = styled.div`
     width: 100%;
 
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     align-items: center;
     gap: 64px;
 
@@ -18,22 +17,15 @@ const ProjectFullStyled = styled.div`
         border-radius: 16px;
         position: relative;
         overflow: hidden;
-        width: 100%;
-        min-width: 300px;
-        max-width: 550px;
-        height: 400px;
+        aspect-ratio: 16 / 9;
 
+        // Used to make the image larger within its container
         & > * {
             transform: scale(1.4);
-            transition: transform 0.3s ease-in-out;
         }
     }
 
     & > div:nth-of-type(2) {
-        height: 100%;
-        width: 100%;
-        max-width: 550px;
-
         display: flex;
         flex-direction: column;
         justify-content: flex-start;
@@ -43,7 +35,6 @@ const ProjectFullStyled = styled.div`
 
     & > div:nth-of-type(2) > div:nth-of-type(1) {
         width: 100%;
-        max-width: 650px;
 
         display: flex;
         flex-wrap: wrap;
