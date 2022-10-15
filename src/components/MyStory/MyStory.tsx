@@ -21,23 +21,15 @@ const Container = styled.section`
 
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
-    align-items: flex-start;
-    gap: 48px;
+    gap: 64px;
 
     /* Component specific image container */
     & > div:nth-of-type(1) {
         position: relative;
         width: 100%;
         min-width: 350px;
-        height: 550px;
-        margin-bottom: 24px;
-
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-start;
-        align-items: flex-start;
-        gap: 40px;
+        aspect-ratio: 1/1;
+        max-height: 500px;
     }
 
     @media (min-width: 575px) {
