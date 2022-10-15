@@ -18,12 +18,11 @@ import { DetailsBlockContainer } from '../src/components/Projects/DetailsBlockCo
 const ImageContainer = styled.section`
     position: relative;
     width: 100vw;
-    height: 500px;
+    height: 50vh;
     margin-bottom: var(--spacing-margin);
 
     & > div {
         position: relative;
-        width: 100%;
         height: 100%;
     }
 `;
