@@ -16,6 +16,8 @@ export function Head({ title }: HeadProps) {
             {/* <!-- Primary Meta Tags --> */}
             <title>{title}</title>
             <meta name="title" content={title} />
+            {/* Sets the top tap colour on mobile. */}
+            <meta name="theme-color" content="#1f1f1f" />
             <meta
                 name="description"
                 content="I'm a software developer from Canada. Using my front-end and back-end skills I solve problems and bring benefits to users."
