@@ -1,14 +1,16 @@
 import React from 'react';
 import Link from 'next/link';
 import styled from 'styled-components';
-import { ArrowRightIcon, ExternalLinkIcon } from '../Shared/Icons';
+import { ArrowRightIcon } from '../Shared/Icons';
 
 const GoToBase = styled.a`
     color: var(--clr-text);
     text-decoration: none;
     font-size: var(--font-base);
     position: relative;
+`;
 
+const GoToInternal = styled(GoToBase)`
     &::before {
         content: '';
         position: absolute;
@@ -47,11 +49,27 @@ const GoToBase = styled.a`
     }
 `;
 
-const GoToInternal = styled(GoToBase)``;
 const GoToExternal = styled(GoToBase)`
     display: flex;
     align-items: center;
     gap: 8px;
+
+    &::before {
+        content: '';
+        position: absolute;
+        width: 100%;
+        height: 1px;
+        bottom: -40%;
+        left: 0;
+        background-color: var(--clr-text);
+        transition: transform 0.3s cubic-bezier(0.79, 0.14, 0.15, 0.86);
+    }
+
+    @media (hover: hover) {
+        &:hover::before {
+            transform: translateY(4px);
+        }
+    }
 `;
 
 interface GoToBtnProps {
@@ -77,7 +95,7 @@ export function GoToBtn({ href, isExternal = false, label }: GoToBtnProps) {
             rel="noopener noreferrer"
             target="_blank"
         >
-            {label} <ExternalLinkIcon title={label} size={16} />
+            {label}
         </GoToExternal>
     );
 
