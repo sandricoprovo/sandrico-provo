@@ -21,7 +21,7 @@ const Container = styled.section`
 
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: flex-start;
     align-items: flex-start;
     gap: 48px;
 
@@ -52,7 +52,8 @@ export function MyStory() {
                 <Image
                     src={myInfo.photo.src}
                     layout="fill"
-                    objectFit="cover"
+                    objectFit="contain"
+                    objectPosition="0% 50%"
                     alt={myInfo.photoAlt}
                     quality={100}
                 />

@@ -42,7 +42,7 @@ function Home() {
                         priority
                         layout="fill"
                         objectFit="cover"
-                        quality={95}
+                        quality={100}
                         alt="My setup including the monitor, laptop, desk map, docking station, mouse and other items."
                     />
                 </div>
