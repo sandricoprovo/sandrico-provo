@@ -6,10 +6,17 @@ import { Head } from '../src/components/Head/Head';
 import { HeroContainer } from '../src/components/Hero/HeroContainer';
 import { HeroHeader } from '../src/components/Hero/HeroHeader';
 
-const IntroComments = styled.section`
+const Container = styled.section`
+    padding: 0 var(--spacing-content-mobile);
+
+    @media (min-width: 575px) {
+        padding: 0 var(--spacing-content);
+    }
+`;
+
+const IntroComments = styled.div`
     width: 100%;
     min-width: 280px;
-    padding: 0 var(--spacing-content-mobile);
     margin-bottom: calc(var(--spacing-margin) * 0.24);
 
     & > div {
@@ -37,10 +44,9 @@ const IntroComments = styled.section`
 const Contacts = styled.div`
     margin-bottom: var(--spacing-margin);
 
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    gap: 80px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 128px;
 
     & > form {
         flex-grow: 1;
@@ -49,8 +55,6 @@ const Contacts = styled.div`
     & > div {
         flex-grow: 1;
     }
-
-    padding: 0 var(--spacing-content-mobile);
 `;
 
 function Contact() {
@@ -60,20 +64,22 @@ function Contact() {
             <HeroContainer>
                 <HeroHeader content="Contact" />
             </HeroContainer>
-            <IntroComments>
-                <div>
-                    <span>Collabs</span>
-                    <h2>Lets Work Together.</h2>
-                </div>
-                <p>
-                    I'd love to get in touch and chat with you. Use the form or
-                    social links below to say hello.
-                </p>
-            </IntroComments>
-            <Contacts>
-                <ContactForm />
-                <ContactMethods />
-            </Contacts>
+            <Container>
+                <IntroComments>
+                    <div>
+                        <span>Collabs</span>
+                        <h2>Lets Work Together.</h2>
+                    </div>
+                    <p>
+                        I'd love to get in touch and chat with you. Use the form
+                        or social links below to say hello.
+                    </p>
+                </IntroComments>
+                <Contacts>
+                    <ContactForm />
+                    <ContactMethods />
+                </Contacts>
+            </Container>
         </>
     );
 }

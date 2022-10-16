@@ -9,7 +9,6 @@ import { Spacer } from '../Spacer';
 
 const FormContainer = styled.form`
     & > fieldset {
-        max-width: 600px;
         margin-bottom: 40px;
 
         display: flex;

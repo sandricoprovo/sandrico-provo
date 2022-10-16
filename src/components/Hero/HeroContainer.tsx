@@ -7,7 +7,7 @@ const Container = styled.section`
     min-height: 500px;
     height: calc(100vh - 67px - 112px);
     margin-bottom: var(--spacing-margin);
-    padding: 20vh var(--spacing-content);
+    padding: 20vh var(--spacing-content-mobile);
 
     display: flex;
     flex-direction: column;
@@ -34,6 +34,7 @@ const Container = styled.section`
 
     @media (min-width: 575px) {
         height: calc(100vh - 67px - 30px);
+        padding: 20vh var(--spacing-content);
     }
 
     @keyframes fadeTextIn {
