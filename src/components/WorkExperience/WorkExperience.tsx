@@ -2,11 +2,14 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 import { WORK_EXPERIENCES } from '../../content/workExperiences';
 import { IWorkExperience } from '../../types/WorkExperience';
-import { MinimalBtn } from '../Buttons';
+import { ContentContainer } from './ContentContainer';
 import { ExperienceDetails } from './ExperienceDetails';
+import { Header } from './Header';
+import { TabHeader } from './TabHeader';
+import { WorkExperienceTab } from './WorkExperienceTab';
 
 const Container = styled.section`
-    --ctn-gap: 40px;
+    --ctn-gap: 64px;
     width: 100%;
     margin-bottom: var(--spacing-margin);
 
@@ -14,65 +17,6 @@ const Container = styled.section`
     flex-direction: column;
     justify-content: flex-start;
     gap: var(--ctn-gap);
-
-    & > h2 {
-        width: 100%;
-        font-family: var(--font-header);
-        font-size: var(--font-xl);
-        color: var(--clr-text);
-        padding: 0 var(--spacing-content-mobile);
-
-        & > p {
-            font-family: var(--font-display);
-            font-size: var(--font-lg);
-
-            & > span {
-                color: var(--clr-main);
-            }
-        }
-
-        @media (min-width: 575px) {
-            padding: 0 var(--spacing-content);
-        }
-    }
-
-    & > div {
-        width: 100%;
-
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-between;
-        /* padding: 0 var(--spacing-content-mobile); */
-        gap: var(--ctn-gap);
-
-        & > ul {
-            flex-grow: 1;
-            padding: 0 var(--spacing-content-mobile);
-            min-width: 350px;
-
-            display: flex;
-            flex-direction: column;
-            gap: var(--ctn-gap);
-
-            & > li {
-                width: 100%;
-                font-family: var(--font-display);
-                font-size: var(--font-md);
-
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
-            }
-
-            @media (min-width: 575px) {
-                padding: 0;
-            }
-        }
-
-        @media (min-width: 575px) {
-            padding: 0 var(--spacing-content);
-        }
-    }
 `;
 
 export function WorkExperience() {
@@ -87,31 +31,20 @@ export function WorkExperience() {
 
     return (
         <Container>
-            <h2>
-                Work
-                <p>
-                    Experience<span>.</span>
-                </p>
-            </h2>
-            <div>
-                <ul>
-                    <li>
-                        REDspace Inc.
-                        <MinimalBtn
-                            label="View Details"
-                            clickHandler={() => switchExperience(0)}
+            <Header />
+            <ContentContainer>
+                <TabHeader>
+                    {experiences.map((experience, index) => (
+                        <WorkExperienceTab
+                            key={experience.companyName}
+                            jobTitle={experience.jobTitle}
+                            isActiveTab={index === experienceIndex}
+                            clickHandler={() => switchExperience(index)}
                         />
-                    </li>
-                    <li>
-                        Bursity Inc.
-                        <MinimalBtn
-                            label="View Details"
-                            clickHandler={() => switchExperience(1)}
-                        />
-                    </li>
-                </ul>
+                    ))}
+                </TabHeader>
                 <ExperienceDetails experience={experiences[experienceIndex]} />
-            </div>
+            </ContentContainer>
         </Container>
     );
 }

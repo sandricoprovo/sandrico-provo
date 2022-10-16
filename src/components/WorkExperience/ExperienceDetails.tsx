@@ -4,8 +4,7 @@ import { IWorkExperience } from '../../types/WorkExperience';
 
 const Container = styled.div`
     --ctn-spacer-lg: 56px;
-    min-width: 350px;
-    max-width: 600px;
+
     color: var(--clr-white);
     background-color: var(--clr-main-700);
     padding: 32px 21px;
