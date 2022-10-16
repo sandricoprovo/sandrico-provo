@@ -80,6 +80,7 @@ const Container = styled.div`
                 list-style: square;
                 list-style-position: outside;
                 line-height: 180%;
+                max-width: 80ch;
             }
 
             margin-bottom: var(--ctn-spacer-lg);
