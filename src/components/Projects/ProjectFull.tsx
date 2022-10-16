@@ -7,30 +7,25 @@ import { Project } from '../../types/Project';
 const ProjectFullStyled = styled.div`
     width: 100%;
 
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     align-items: center;
     gap: 64px;
 
     & > div:nth-of-type(1) {
+        background-color: var(--clr-eb-50);
+        border-radius: 16px;
         position: relative;
         overflow: hidden;
-        width: 100%;
-        min-width: 300px;
-        max-width: 550px;
-        height: 400px;
+        aspect-ratio: 16 / 9;
 
+        // Used to make the image larger within its container
         & > * {
-            transition: transform 0.3s ease-in-out;
+            transform: scale(1.4);
         }
     }
 
     & > div:nth-of-type(2) {
-        height: 100%;
-        width: 100%;
-        max-width: 550px;
-
         display: flex;
         flex-direction: column;
         justify-content: flex-start;
@@ -40,7 +35,6 @@ const ProjectFullStyled = styled.div`
 
     & > div:nth-of-type(2) > div:nth-of-type(1) {
         width: 100%;
-        max-width: 650px;
 
         display: flex;
         flex-wrap: wrap;
@@ -58,7 +52,7 @@ const ProjectFullStyled = styled.div`
     & > div:nth-of-type(2) > div:nth-of-type(1) > h2 {
         width: 50%;
         min-width: 200px;
-        font-family: var(--font-display);
+        font-family: var(--font-header);
         font-size: var(--font-lg);
         color: var(--clr-text);
     }
@@ -92,14 +86,8 @@ const ProjectFullStyled = styled.div`
         }
 
         & > p {
-            font-family: var(--font-display);
+            font-family: var(--font-header);
             font-size: var(--font-base);
-        }
-    }
-
-    @media (hover: hover) {
-        &:hover > div:nth-of-type(1) > * {
-            transform: scale(1.1);
         }
     }
 `;
@@ -117,7 +105,7 @@ export function ProjectFull({ project }: ProjectFullProps) {
                 <Image
                     src={photo.src}
                     layout="fill"
-                    objectFit="cover"
+                    objectFit="contain"
                     objectPosition="50% 50%"
                     alt={photoAlt}
                 />

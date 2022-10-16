@@ -10,19 +10,19 @@ import { ProjectsContainer } from '../src/components/Projects/ProjectsContainer'
 import { projectsList } from '../src/content/projects';
 import { ProjectFull } from '../src/components/Projects';
 import { ProjectsHeader } from '../src/components/Projects/ProjectsHeader';
-import { MyStory, WorkExperience } from '../src/components/About';
+import { WorkExperience } from '../src/components/WorkExperience/WorkExperience';
+import { MyStory } from '../src/components/MyStory/MyStory';
 import { DetailBlock } from '../src/components/DetailBlock';
 import { DetailsBlockContainer } from '../src/components/Projects/DetailsBlockContainer';
 
 const ImageContainer = styled.section`
     position: relative;
-    width: 100%;
-    height: 500px;
+    width: 100vw;
+    height: 50vh;
     margin-bottom: var(--spacing-margin);
 
     & > div {
         position: relative;
-        width: 100%;
         height: 100%;
     }
 `;
@@ -42,7 +42,7 @@ function Home() {
                         priority
                         layout="fill"
                         objectFit="cover"
-                        quality={95}
+                        quality={100}
                         alt="My setup including the monitor, laptop, desk map, docking station, mouse and other items."
                     />
                 </div>
