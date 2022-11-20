@@ -5,9 +5,9 @@
     "main": "index.js",
     "scripts": {
         "dev": "next dev",
-        "build": "next build",
+        "build": "tsc && next build",
         "start": "next start",
-        "lint": "next lint"
+        "type-check": "tsc"
     },
     "repository": {
         "type": "git",
@@ -26,9 +26,12 @@
     },
     "homepage": "https://github.com/sandricoprovo/sandrico-provo#readme",
     "dependencies": {
+        "framer-motion": "^7.6.7",
+        "lucide-react": "^0.101.0",
         "next": "^13.0.4",
         "react": "^18.2.0",
-        "react-dom": "^18.2.0"
+        "react-dom": "^18.2.0",
+        "styled-components": "^5.3.6"
     },
     "devDependencies": {
         "@babel/core": "^7.20.2",
