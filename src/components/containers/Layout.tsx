@@ -25,7 +25,7 @@ export function Layout({ children }: LayoutProps) {
             <LayoutStyled>
                 <Page>{children}</Page>
             </LayoutStyled>
-            <footer />
+            <footer>{/* Link to icons 8 = https://icons8.com */}</footer>
         </>
     );
 }
