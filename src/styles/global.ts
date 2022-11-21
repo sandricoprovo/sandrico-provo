@@ -63,15 +63,15 @@ export const GlobalStyles = createGlobalStyle`
         --font-700: clamp(calc(var(--font-xxxxl) * var(--font-scale)), 12vw, var(--font-xxxxl));
         /* Families */
         --font-primary: 'Work Sans';
-        --font-reg: var(--font-100)/140% 'Work Sans';
-        --font-semi: 600 var(--font-300)/140% 'Work Sans';
-        --font-bold: bold var(--font-500)/180% 'Work Sans';
+        --font-body: var(--font-100)/180% 'Work Sans';
+        --font-subheader: 600 var(--font-300)/140% 'Work Sans';
+        --font-header: bold var(--font-500)/120% 'Work Sans';
 
         /* === SPACING === */
         --spg-layout-max-width: 1200px;
         --spg-padding-block: 40px;
         --spg-padding-inline: clamp(24px, 8vw, 165px);
-        --spg-section: clamp(165px, 20vw, 400px);
+        --spg-section: clamp(104px, 8vw, 165px);
         --spg-links: 16px;
 
         /* === ELEVATION === */
@@ -124,6 +124,7 @@ export const GlobalStyles = createGlobalStyle`
         --clr-text: var(--clr-gs-300);
         --clr-icon: var(--clr-text);
         --clr-icon-hover: var(--clr-text-header);
+        --clr-accent: var(--clr-oyc-500);
     }
 
     html {
