@@ -5,9 +5,11 @@ import { GithubIcon, LinkedInIcon, TwitterIcon } from './shared/icons';
 
 const HeaderStyled = styled.header`
     padding-block: var(--spg-padding-block);
+    margin-block-end: var(--spg-section);
     background-color: var(--clr-background);
-    padding-inline: var(--spg-padding-inline);
-    margin-bottom: var(--spg-section);
+    width: 100%;
+    max-width: var(--spg-layout-max-width);
+    margin-inline: auto;
 
     display: flex;
     align-items: center;
