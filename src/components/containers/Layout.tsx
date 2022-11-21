@@ -11,6 +11,10 @@ const LayoutStyled = styled.div`
     background-color: var(--clr-background);
     padding-inline: var(--spg-padding-inline);
     color: var(--clr-text);
+
+    display: flex;
+    flex-direction: column;
+    gap: var(--spg-section);
 `;
 
 interface LayoutProps {
