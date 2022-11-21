@@ -11,9 +11,9 @@ const HeroSectionStyled = styled.section`
 
 interface BodyTextProps {
     children: ReactNode | ReactNode[];
-    sectionId: string;
+    sectionId?: string;
 }
 
-export function HeroSection({ children, sectionId }: BodyTextProps) {
+export function HeroSection({ children, sectionId = '' }: BodyTextProps) {
     return <HeroSectionStyled id={sectionId}>{children}</HeroSectionStyled>;
 }
