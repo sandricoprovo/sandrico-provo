@@ -1,5 +1,5 @@
-import { IconProps } from '../../types/icon';
-import { withIconStyles } from '../../components/hoc/withIconStyles';
+import { IconProps } from '../../../types/icon';
+import { withIconStyles } from '../../hoc/withIconStyles';
 
 import { Twitter } from './Twitter';
 import { GitHub } from './GitHub';

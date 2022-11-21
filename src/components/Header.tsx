@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import { GithubIcon, LinkedInIcon, TwitterIcon } from '../shared/icons';
+import { GithubIcon, LinkedInIcon, TwitterIcon } from './shared/icons';
 
 const HeaderStyled = styled.header`
     padding-top: var(--spg-padding-block);

@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { IconProps } from '../../types/icon';
+import { IconProps } from '../../../types/icon';
 
 export function ExternalLink(props: IconProps) {
     const { color, size } = props;
