@@ -22,21 +22,29 @@ const TextLinkStyled = styled.button`
         left: 0;
         width: 100%;
         height: 1px;
-        opacity: 0;
+        opacity: 1;
         transform: translateY(-4px);
         transition: transform 0.3s var(--easing-hover),
             opacity 0.3s var(--easing-hover);
-        background-color: var(--clr-accent);
+        background-color: var(--clr-text-header);
+        /* background-color: var(--clr-accent); */
     }
 
-    &:hover {
-        & a {
-            color: var(--clr-accent);
+    @media screen and (hover: hover) {
+        &:hover {
+            & a {
+                color: var(--clr-accent);
+            }
+
+            &::after {
+                opacity: 1;
+                transform: translateY(-2px);
+            }
         }
 
         &::after {
-            opacity: 1;
-            transform: translateY(-2px);
+            opacity: 0;
+            background-color: var(--clr-accent);
         }
     }
 `;
