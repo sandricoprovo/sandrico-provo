@@ -70,7 +70,7 @@ export const GlobalStyles = createGlobalStyle`
         /* === SPACING === */
         --spg-layout-max-width: 1200px;
         --spg-padding-block: 40px;
-        --spg-padding-inline: clamp(16px, 8vw, 165px);
+        --spg-padding-inline: clamp(16px, 4vw, 165px);
         --spg-section: clamp(104px, 8vw, 165px);
         --spg-links: 16px;
 

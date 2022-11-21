@@ -1,6 +1,7 @@
 import React from 'react';
 
 import { HeroSection } from '../src/components/containers/HeroSection';
+import { ProjectCards } from '../src/components/containers/ProjectCards';
 import { TextLink } from '../src/components/shared/buttons';
 import {
     Header1,
@@ -24,7 +25,7 @@ function HomePage() {
                     in touch.
                 </BodyText>
             </HeroSection>
-            <section />
+            <ProjectCards>Hello</ProjectCards>
         </>
     );
 }

@@ -2,6 +2,8 @@ import React, { ReactNode } from 'react';
 import styled from 'styled-components';
 
 const HeroSectionStyled = styled.section`
+    margin-block-end: var(--spg-section);
+
     display: flex;
     flex-direction: column;
     gap: 24px;

@@ -10,7 +10,6 @@ const LayoutStyled = styled.div`
     min-height: 100vh;
     background-color: var(--clr-background);
     padding-inline: var(--spg-padding-inline);
-
     color: var(--clr-text);
 `;
 
@@ -20,12 +19,10 @@ interface LayoutProps {
 
 export function Layout({ children }: LayoutProps) {
     return (
-        <>
+        <LayoutStyled>
             <Header />
-            <LayoutStyled>
-                <Page>{children}</Page>
-            </LayoutStyled>
+            <Page>{children}</Page>
             <footer>{/* Link to icons 8 = https://icons8.com */}</footer>
-        </>
+        </LayoutStyled>
     );
 }
