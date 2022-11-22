@@ -2,6 +2,7 @@ import React from 'react';
 
 import { HeroSection } from '../src/components/containers/HeroSection';
 import { ProjectCards } from '../src/components/containers/ProjectCards';
+import { AboutSection } from '../src/components/containers/AboutSection';
 import { ProjectCard } from '../src/components/ProjectCard';
 import { TextLink } from '../src/components/shared/buttons';
 import {
@@ -10,6 +11,7 @@ import {
     Highlighted,
 } from '../src/components/shared/typography';
 import { orderedProjects } from '../src/content/projectsList';
+import { MePhoto } from '../src/components/MePhoto';
 
 function HomePage() {
     return (
@@ -32,6 +34,9 @@ function HomePage() {
                     <ProjectCard key={project.id} project={project} />
                 ))}
             </ProjectCards>
+            <AboutSection>
+                <MePhoto />
+            </AboutSection>
         </>
     );
 }
