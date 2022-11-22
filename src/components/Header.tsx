@@ -17,7 +17,7 @@ const HeaderStyled = styled.header`
 
 export function Header() {
     return (
-        <HeaderStyled>
+        <HeaderStyled id="top">
             <TwitterIcon />
             <LinkedInIcon />
             <GithubIcon />
