@@ -7,7 +7,7 @@ const AboutSectionStyled = styled.section`
 
     display: flex;
     flex-direction: column;
-    gap: 24px;
+    gap: 64px;
 `;
 
 interface AboutSectionProps {

@@ -12,6 +12,7 @@ import {
 } from '../src/components/shared/typography';
 import { orderedProjects } from '../src/content/projectsList';
 import { MePhoto } from '../src/components/MePhoto';
+import { MyStory } from '../src/components/MyStory';
 
 function HomePage() {
     return (
@@ -29,6 +30,9 @@ function HomePage() {
                     to get in touch.
                 </BodyText>
             </HeroSection>
+            {/* TODO:
+                - Add experience tab
+            */}
             <ProjectCards>
                 {orderedProjects.map((project) => (
                     <ProjectCard key={project.id} project={project} />
@@ -36,6 +40,10 @@ function HomePage() {
             </ProjectCards>
             <AboutSection>
                 <MePhoto />
+                {/* TODO:
+                    - Add contact inks (Twitter, GitHub, LinkedIn, resume)
+                */}
+                <MyStory />
             </AboutSection>
         </>
     );
