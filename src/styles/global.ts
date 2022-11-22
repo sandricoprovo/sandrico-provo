@@ -125,6 +125,7 @@ export const GlobalStyles = createGlobalStyle`
         --clr-icon: var(--clr-text);
         --clr-icon-hover: var(--clr-text-header);
         --clr-accent: var(--clr-oyc-500);
+        --clr-project-img-background: var(--clr-gs-800);
     }
 
     html {

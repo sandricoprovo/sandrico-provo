@@ -10,43 +10,43 @@ import { Youtube } from './Youtube';
 
 export function TwitterIcon(props: IconProps) {
     const customProps = {
-        ...props,
         title: 'Twitter',
+        ...props,
     };
     return withIconStyles(Twitter, customProps);
 }
 export function GithubIcon(props: IconProps) {
     const customProps = {
-        ...props,
         title: 'GitHub',
+        ...props,
     };
     return withIconStyles(GitHub, customProps);
 }
 export function LinkedInIcon(props: IconProps) {
     const customProps = {
-        ...props,
         title: 'LinkedIn',
+        ...props,
     };
     return withIconStyles(LinkedIn, customProps);
 }
 export function FileIcon(props: IconProps) {
     const customProps = {
-        ...props,
         title: 'Resume',
+        ...props,
     };
     return withIconStyles(File, customProps);
 }
 export function ExternalLinkIcon(props: IconProps) {
     const customProps = {
-        ...props,
         title: 'Link',
+        ...props,
     };
     return withIconStyles(ExternalLink, customProps);
 }
 export function YoutubeIcon(props: IconProps) {
     const customProps = {
-        ...props,
         title: 'Youtube',
+        ...props,
     };
     return withIconStyles(Youtube, customProps);
 }

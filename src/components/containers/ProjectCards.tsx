@@ -4,7 +4,6 @@ import styled from 'styled-components';
 import { SubHeader } from '../shared/typography';
 
 const ProjectCardsContainer = styled.section`
-    border: 2px solid red;
     width: 100%;
 
     display: flex;
@@ -13,8 +12,11 @@ const ProjectCardsContainer = styled.section`
 `;
 
 const ProjectCardsGrid = styled.section`
-    border: 2px solid blue;
     width: 100%;
+
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 64px;
 `;
 
 interface ProjectCardsContainerProps {
