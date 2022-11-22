@@ -116,6 +116,9 @@ export const GlobalStyles = createGlobalStyle`
 
         /* === TRANSITIONS & ANIMATIONS */
         --easing-hover: cubic-bezier(0.65,0.05,0.36,1);
+
+        /* === MISC === */
+        --br-image: 20px;
     }
 
     .theme--default {

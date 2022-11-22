@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import { SubHeader } from '../shared/typography';
 
 const ProjectCardsContainer = styled.section`
+    margin-block-end: var(--spg-section);
     width: 100%;
 
     display: flex;

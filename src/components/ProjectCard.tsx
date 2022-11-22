@@ -29,7 +29,7 @@ const ProjectCardStyled = styled.div`
         width: 100%;
         height: 300px;
         background-color: var(--clr-project-img-background);
-        border-radius: 20px;
+        border-radius: var(--br-image);
         overflow: hidden;
 
         & img {
