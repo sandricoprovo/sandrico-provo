@@ -84,7 +84,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
         links: { external, github },
         name,
         photo,
-        stack,
+        stack = [],
         updatedOn,
     } = project;
     const projectYear = new Date(updatedOn).getFullYear();
