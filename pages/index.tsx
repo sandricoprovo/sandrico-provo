@@ -1,16 +1,14 @@
 import React from 'react';
 
 import { HeroSection } from '../src/components/containers/HeroSection';
-import { ProjectCards } from '../src/components/containers/ProjectCards';
 import { AboutSection } from '../src/components/containers/AboutSection';
-import { ProjectCard } from '../src/components/ProjectCard';
 import { TextLink } from '../src/components/shared/buttons';
+import { ExperienceTabs } from '../src/components/containers/ExperienceTabs';
 import {
     Header1,
     BodyText,
     Highlighted,
 } from '../src/components/shared/typography';
-import { orderedProjects } from '../src/content/projectsList';
 import { MePhoto } from '../src/components/MePhoto';
 import { MyStory } from '../src/components/MyStory';
 
@@ -30,14 +28,7 @@ function HomePage() {
                     to get in touch.
                 </BodyText>
             </HeroSection>
-            {/* TODO:
-                - Add experience tab
-            */}
-            <ProjectCards>
-                {orderedProjects.map((project) => (
-                    <ProjectCard key={project.id} project={project} />
-                ))}
-            </ProjectCards>
+            <ExperienceTabs />
             <AboutSection>
                 <MePhoto />
                 {/* TODO:

@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 import { SubHeader } from '../shared/typography';
 
-const ProjectCardsContainer = styled.section`
+const ProjectsContainer = styled.section`
     margin-block-end: var(--spg-section);
     width: 100%;
 
@@ -12,7 +12,7 @@ const ProjectCardsContainer = styled.section`
     gap: 24px;
 `;
 
-const ProjectCardsGrid = styled.section`
+const ProjectsGrid = styled.section`
     width: 100%;
 
     display: grid;
@@ -20,15 +20,15 @@ const ProjectCardsGrid = styled.section`
     gap: 64px;
 `;
 
-interface ProjectCardsContainerProps {
+interface ProjectsGridContainerProps {
     children: ReactNode | ReactNode[];
 }
 
-export function ProjectCards({ children }: ProjectCardsContainerProps) {
+export function ProjectsSection({ children }: ProjectsGridContainerProps) {
     return (
-        <ProjectCardsContainer>
+        <ProjectsContainer>
             <SubHeader>Projects</SubHeader>
-            <ProjectCardsGrid>{children}</ProjectCardsGrid>
-        </ProjectCardsContainer>
+            <ProjectsGrid>{children}</ProjectsGrid>
+        </ProjectsContainer>
     );
 }
