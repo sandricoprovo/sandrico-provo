@@ -1,6 +1,6 @@
 import mePhoto from '../../public/images/me-2.jpeg';
 
-const myInfo = {
+const aboutMe = {
     title: 'Software Engineer',
     photo: {
         src: mePhoto,
@@ -30,4 +30,4 @@ const myInfo = {
     ],
 };
 
-export { myInfo };
+export { aboutMe };

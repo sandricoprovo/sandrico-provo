@@ -2,7 +2,7 @@ import React from 'react';
 import Image from 'next/image';
 import styled from 'styled-components';
 
-import { myInfo } from '../content/aboutMe';
+import { aboutMe } from '../content/aboutMe';
 
 const ImageContainer = styled.div`
     position: relative;
@@ -25,7 +25,7 @@ const ImageContainer = styled.div`
 export function MePhoto() {
     const {
         photo: { alt, src },
-    } = myInfo;
+    } = aboutMe;
 
     return (
         <ImageContainer>

@@ -1,4 +1,5 @@
 import { IconProps } from '../../types/icon';
+import { IconLinkWrapper, IconWrapper } from '../shared/icons/IconWrappers';
 
 const DEFAULT_PROPS: IconProps = {
     title: 'Icon',
@@ -14,26 +15,21 @@ export function withIconStyles(Icon: React.FC<IconProps>, props: IconProps) {
         ...props,
     };
 
-    if (props?.href) {
+    if (iconProps?.href) {
         // Handles removing the onClick method because <a> tags
         // already have click.
         const { onClick, href, ...rest } = iconProps;
 
         return (
-            <a
-                rel="noopener noreferrer"
-                target="_Blank"
-                title={iconProps.title}
-                href={href}
-            >
+            <IconLinkWrapper title={iconProps?.title || 'Link'} href={href}>
                 <Icon {...rest} />
-            </a>
+            </IconLinkWrapper>
         );
     }
 
     return (
-        <span title={props.title}>
+        <IconWrapper title={iconProps?.title || 'Icon'}>
             <Icon {...iconProps} />
-        </span>
+        </IconWrapper>
     );
 }

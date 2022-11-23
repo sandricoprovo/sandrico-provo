@@ -5,9 +5,10 @@ import styled from 'styled-components';
 const TextLinkStyled = styled.button`
     border: none;
     background-color: transparent;
-    font: var(--font-reg);
+    font: var(--font-body);
     cursor: pointer;
     position: relative;
+    text-align: left;
 
     & a {
         transition: color 0.2s var(--easing-hover);
@@ -27,7 +28,6 @@ const TextLinkStyled = styled.button`
         transition: transform 0.3s var(--easing-hover),
             opacity 0.3s var(--easing-hover);
         background-color: var(--clr-text-header);
-        /* background-color: var(--clr-accent); */
     }
 
     @media screen and (hover: hover) {
@@ -52,10 +52,26 @@ const TextLinkStyled = styled.button`
 interface TextLinkProps {
     children: ReactNode | ReactNode[];
     href: string;
+    isExternal?: boolean;
 }
 
-export function TextLink({ children, href }: TextLinkProps) {
-    return (
+export function TextLink({
+    children,
+    href,
+    isExternal = false,
+}: TextLinkProps) {
+    return isExternal ? (
+        <TextLinkStyled>
+            <a
+                href={href}
+                title="External Link"
+                rel="noreferrer noopener"
+                target="_blank"
+            >
+                {children}
+            </a>
+        </TextLinkStyled>
+    ) : (
         <TextLinkStyled>
             <Link href={href}>{children}</Link>
         </TextLinkStyled>

@@ -70,6 +70,12 @@ const ProjectCardStyled = styled.div`
         justify-content: space-between;
         align-items: center;
         gap: var(--spg-links);
+
+        @media screen and (hover: hover) {
+            & > a:hover > svg {
+                fill: var(--clr-accent);
+            }
+        }
     }
 `;
 
@@ -108,7 +114,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
                     <Highlighted>{projectYear}</Highlighted>
                 </BodyText>
                 <div>
-                    {github ? <GithubIcon href={github} /> : null}
+                    {github ? <GithubIcon title={name} href={github} /> : null}
                     {external ? (
                         <ExternalLinkIcon title={name} href={external} />
                     ) : null}
