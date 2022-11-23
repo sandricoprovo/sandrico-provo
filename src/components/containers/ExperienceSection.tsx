@@ -2,13 +2,14 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 
 import { Tab as ITab } from '../../types/tabs';
+import { Experiences } from '../Experiences';
 import { Projects } from '../Projects';
 import { Tab } from '../shared/buttons';
 
 import { TabButtons } from './TabButtons';
 import { TabHeader } from './TabHeader';
 
-const ExperienceTabsContainer = styled.section`
+const ExperienceSectionContainer = styled.section`
     width: 100%;
     margin-block-end: var(--spg-section);
 
@@ -27,13 +28,13 @@ const TabUnderline = styled.hr<{ activeTab: number }>`
     background-color: var(--clr-accent);
 `;
 
-export function ExperienceTabs() {
+export function ExperienceSection() {
     const [activeTab, setActiveTab] = useState(0);
 
     const tabs: ITab[] = [
         {
             header: 'Experience',
-            content: <p>Work Experience</p>,
+            content: <Experiences />,
         },
         {
             header: 'Projects',
@@ -46,7 +47,7 @@ export function ExperienceTabs() {
     };
 
     return (
-        <ExperienceTabsContainer>
+        <ExperienceSectionContainer>
             <TabHeader>
                 <TabButtons>
                     {tabs.map((tab, index) => (
@@ -63,6 +64,6 @@ export function ExperienceTabs() {
                 <TabUnderline activeTab={activeTab} />
             </TabHeader>
             {tabs[activeTab].content}
-        </ExperienceTabsContainer>
+        </ExperienceSectionContainer>
     );
 }

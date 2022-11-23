@@ -3,7 +3,7 @@ import React from 'react';
 import { HeroSection } from '../src/components/containers/HeroSection';
 import { AboutSection } from '../src/components/containers/AboutSection';
 import { TextLink } from '../src/components/shared/buttons';
-import { ExperienceTabs } from '../src/components/containers/ExperienceTabs';
+import { ExperienceSection } from '../src/components/containers/ExperienceSection';
 import {
     Header1,
     BodyText,
@@ -28,7 +28,7 @@ function HomePage() {
                     to get in touch.
                 </BodyText>
             </HeroSection>
-            <ExperienceTabs />
+            <ExperienceSection />
             <AboutSection>
                 <MePhoto />
                 {/* TODO:
