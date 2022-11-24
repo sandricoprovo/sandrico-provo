@@ -31,9 +31,6 @@ function HomePage() {
             <ExperienceSection />
             <AboutSection>
                 <MePhoto />
-                {/* TODO:
-                    - Add contact inks (Twitter, GitHub, LinkedIn, resume)
-                */}
                 <MyStory />
             </AboutSection>
         </>
