@@ -32,6 +32,11 @@ const ExperiencesListContainer = styled.section`
         display: flex;
         flex-direction: column;
         gap: 24px;
+
+        & > ul > li {
+            list-style: square;
+            margin-inline-start: 15px;
+        }
     }
 `;
 
