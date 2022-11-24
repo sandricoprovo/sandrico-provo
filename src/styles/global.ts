@@ -135,4 +135,11 @@ export const GlobalStyles = createGlobalStyle`
     html {
         background-color: var(--clr-background);
     }
+
+    body {
+        /* Prevents fonts from scaling on iOS orientation change */
+        -webkit-text-size-adjust: 100%;
+        -moz-text-size-adjust: none;
+        -ms-text-size-adjust: 100%;
+    }
 `;

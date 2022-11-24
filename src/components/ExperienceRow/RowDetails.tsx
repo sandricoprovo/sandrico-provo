@@ -30,7 +30,7 @@ const RowDetailsStyled = styled.details`
 
         & li {
             list-style: square;
-            margin-left: 16px;
+            margin-inline-start: 18px;
         }
     }
 `;
