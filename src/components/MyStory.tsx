@@ -1,12 +1,9 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 
-import { aboutMe } from '../content/aboutMe';
-
-import { IconsContainer } from './containers/IconsContainer';
 import { ToggleBtn } from './shared/buttons';
-import { GithubIcon, LinkedInIcon, TwitterIcon } from './shared/icons';
 import { BodyText, SubHeader } from './shared/typography';
+import { Socials } from './Socials';
 
 const StoryContainer = styled.div`
     --spg-gap: 16px;
@@ -27,9 +24,6 @@ const StoryContent = styled.div`
 
 export function MyStory() {
     const [showExcerpt, setShowExcerpt] = useState(true);
-    const {
-        links: { github, linkedIn, twitter },
-    } = aboutMe;
 
     const toggleExcerpt = () => setShowExcerpt(!showExcerpt);
 
@@ -41,15 +35,7 @@ export function MyStory() {
                     {showExcerpt ? 'More' : 'Less'}
                 </ToggleBtn>
             </div>
-            <IconsContainer>
-                <TwitterIcon title="Twitter" href={twitter} label="Twitter" />
-                <LinkedInIcon
-                    title="LinkedIn"
-                    href={linkedIn}
-                    label="LinkedIn"
-                />
-                <GithubIcon title="GitHub" href={github} label="GitHub" />
-            </IconsContainer>
+            <Socials />
             <StoryContent>
                 <BodyText>
                     I enjoy solving problems and bringing benefits through code.
