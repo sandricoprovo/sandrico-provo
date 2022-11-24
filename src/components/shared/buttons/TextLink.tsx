@@ -6,6 +6,7 @@ const TextLinkStyled = styled.button`
     border: none;
     background-color: transparent;
     font: var(--font-body);
+    font-size: inherit; // Overwrites set font size if parent sets font size.
     cursor: pointer;
     position: relative;
     text-align: left;
@@ -53,26 +54,28 @@ interface TextLinkProps {
     children: ReactNode | ReactNode[];
     href: string;
     isExternal?: boolean;
+    title?: string;
 }
 
 export function TextLink({
     children,
     href,
     isExternal = false,
+    title = 'Link',
 }: TextLinkProps) {
     return isExternal ? (
-        <TextLinkStyled>
+        <TextLinkStyled title={title}>
             <a
                 href={href}
-                title="External Link"
                 rel="noreferrer noopener"
                 target="_blank"
+                title={title}
             >
                 {children}
             </a>
         </TextLinkStyled>
     ) : (
-        <TextLinkStyled>
+        <TextLinkStyled title={title}>
             <Link href={href}>{children}</Link>
         </TextLinkStyled>
     );

@@ -8,7 +8,7 @@ const HeaderStyled = styled.header`
     width: 100%;
     max-width: var(--spg-layout-max-width);
     padding-block: var(--spg-padding-block);
-    background-color: var(--clr-background);
+    background-color: transparent;
 
     display: flex;
     align-items: center;
