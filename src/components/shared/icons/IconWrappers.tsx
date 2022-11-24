@@ -5,20 +5,13 @@ import { Children } from '../../../types/children';
 
 const IconWrapperStyled = styled.span`
     padding: 8px 8px 8px 0; // Gives better surface area for presses
+    color: var(--clr-text);
+    font: var(--font-body);
+    transition: color var(--hover-duration) var(--easing-hover);
 
     display: flex;
     align-items: center;
-
-    & > svg {
-        transition: fill var(--hover-duration) var(--easing-hover);
-    }
-`;
-
-const IconLinkWrapperStyled = styled.a`
-    padding: 8px 8px 8px 0; // Gives better surface area for presses
-
-    display: flex;
-    align-items: center;
+    gap: 8px;
 
     & > svg {
         transition: fill var(--hover-duration) var(--easing-hover),
@@ -26,8 +19,39 @@ const IconLinkWrapperStyled = styled.a`
     }
 
     @media screen and (hover: hover) {
-        &:hover > svg {
-            transform: scale(1.1);
+        &:hover {
+            color: var(--clr-accent);
+
+            & > svg {
+                transform: scale(1.1);
+            }
+        }
+    }
+`;
+
+const IconLinkWrapperStyled = styled.a`
+    padding: 8px 8px 8px 0; // Gives better surface area for presses
+    color: var(--clr-text);
+    text-decoration: none;
+    font: var(--font-body);
+    transition: color var(--hover-duration) var(--easing-hover);
+
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    & > svg {
+        transition: fill var(--hover-duration) var(--easing-hover),
+            transform var(--hover-duration) var(--easing-hover);
+    }
+
+    @media screen and (hover: hover) {
+        &:hover {
+            color: var(--clr-accent);
+
+            & > svg {
+                transform: scale(1.1);
+            }
         }
     }
 `;

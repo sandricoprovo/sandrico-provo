@@ -18,11 +18,11 @@ export function withIconStyles(Icon: React.FC<IconProps>, props: IconProps) {
     if (iconProps?.href) {
         // Handles removing the onClick method because <a> tags
         // already have click.
-        const { onClick, href, ...rest } = iconProps;
+        const { onClick, href, label, ...rest } = iconProps;
 
         return (
             <IconLinkWrapper title={iconProps?.title || 'Link'} href={href}>
-                <Icon {...rest} />
+                {label || null} <Icon {...rest} />
             </IconLinkWrapper>
         );
     }

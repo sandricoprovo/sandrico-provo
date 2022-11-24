@@ -54,9 +54,16 @@ export function Experiences() {
                 post-secondary education.
             </BodyText>
             <div>
-                {/* TODO: Add label option to icons */}
-                <LinkedInIcon href={aboutMe.links.linkedIn} title="LinkedIn" />
-                <FileIcon href={aboutMe.links.resume} title="Resume" />
+                <LinkedInIcon
+                    href={aboutMe.links.linkedIn}
+                    title="LinkedIn"
+                    label="LinkedIn"
+                />
+                <FileIcon
+                    href={aboutMe.links.resume}
+                    title="Resume"
+                    label="Resume"
+                />
             </div>
             <ExperienceList>
                 {experienceList.length > 0 &&
