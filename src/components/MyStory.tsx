@@ -3,7 +3,6 @@ import styled from 'styled-components';
 
 import { ToggleBtn } from './shared/buttons';
 import { BodyText, SubHeader } from './shared/typography';
-import { Socials } from './Socials';
 
 const StoryContainer = styled.div`
     --spg-gap: 16px;
@@ -35,7 +34,6 @@ export function MyStory() {
                     {showExcerpt ? 'More' : 'Less'}
                 </ToggleBtn>
             </div>
-            <Socials />
             <StoryContent>
                 <BodyText>
                     I enjoy solving problems and bringing benefits through code.

@@ -40,6 +40,8 @@ export const GlobalStyles = createGlobalStyle`
         --clr-gs-50: hsla(240, 4.3%, 95.5%, 1);
         --clr-gs-background: hsla(200, 100%, 99.4%, 1);
         --clr-gs-white: hsla(0, 0%, 100%, 1);
+        /* statuses */
+        --clr-red: hsla(2, 71%, 55%, 1);
 
         /* === TYPOGRAPHY === */
         /* Base */
@@ -129,7 +131,10 @@ export const GlobalStyles = createGlobalStyle`
         --clr-icon: var(--clr-text);
         --clr-icon-hover: var(--clr-text-header);
         --clr-accent: var(--clr-oyc-500);
+        --clr-accent-focus: var(--clr-oyc-400);
+        --clr-accent-active: var(--clr-oyc-600);
         --clr-project-img-background: var(--clr-gs-800);
+        --clr-danger: var(--clr-red);
     }
 
     html {

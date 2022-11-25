@@ -11,6 +11,7 @@ import {
 } from '../src/components/shared/typography';
 import { MePhoto } from '../src/components/MePhoto';
 import { MyStory } from '../src/components/MyStory';
+import { ContactForm } from '../src/components/contactForm/ContactForm';
 
 function HomePage() {
     return (
@@ -33,6 +34,7 @@ function HomePage() {
                 <MePhoto />
                 <MyStory />
             </AboutSection>
+            <ContactForm />
         </>
     );
 }
