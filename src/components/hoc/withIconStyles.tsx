@@ -29,7 +29,7 @@ export function withIconStyles(Icon: React.FC<IconProps>, props: IconProps) {
 
     return (
         <IconWrapper title={iconProps?.title || 'Icon'}>
-            <Icon {...iconProps} />
+            {iconProps?.label || null} <Icon {...iconProps} />
         </IconWrapper>
     );
 }
