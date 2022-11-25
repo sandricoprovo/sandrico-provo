@@ -43,6 +43,21 @@ const FormStyled = styled.form`
 `;
 
 export function Form() {
+    // const {
+    //     fields,
+    //     errors,
+    //     disableSubmit,
+    //     handleChange,
+    //     resetForm,
+    //     submitForm,
+    // } = useForm<ContactForm>({
+    //     name: '',
+    //     email: '',
+    //     subject: '',
+    //     message: '',
+    // });
+
+    // NOTES: REMOVE WHEN DONE TESTING
     const {
         fields,
         errors,
@@ -51,23 +66,24 @@ export function Form() {
         resetForm,
         submitForm,
     } = useForm<ContactForm>({
-        name: '',
-        email: '',
-        subject: '',
-        message: '',
+        name: 'John Appleseed',
+        email: 'jappleseed@example.ca',
+        subject: 'Test Go Email Function',
+        message: 'This is a test. Hello Go!',
     });
 
-    function handleFormSubmit(event: FormEvent<HTMLFormElement>) {
+    async function handleFormSubmit(event: FormEvent<HTMLFormElement>) {
         event.preventDefault();
 
-        console.log('fields: ', fields);
-
         // Sends email via provider
-        // fetch('/api/email', {
-        //     method: 'POST',
-        //     body: JSON.stringify(fields),
-        // });
-        // // Resets the form on submit
+        const emailAttempt = await fetch('/api/email', {
+            method: 'POST',
+            body: JSON.stringify(fields),
+        });
+
+        console.log(emailAttempt.status);
+
+        // Resets the form on submit
         // resetForm();
     }
 

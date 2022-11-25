@@ -5,6 +5,7 @@
     "main": "index.js",
     "scripts": {
         "dev": "next dev",
+        "api": "vercel dev",
         "build": "tsc && next build",
         "start": "next start",
         "type-check": "tsc"
