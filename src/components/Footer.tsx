@@ -79,6 +79,14 @@ export function Footer() {
                         title="icons 8"
                     >
                         icons 8
+                    </TextLink>{' '}
+                    &{' '}
+                    <TextLink
+                        isExternal
+                        href="https://thenounproject.com/browse/icons/term/send/"
+                        title="Noun Project"
+                    >
+                        Kidiladon from Noun Project
                     </TextLink>
                 </SmallBodyText>
             </div>

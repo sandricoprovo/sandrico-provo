@@ -7,6 +7,8 @@ import { LinkedIn } from './LinkedIn';
 import { File } from './File';
 import { ExternalLink } from './ExternalLink';
 import { Youtube } from './Youtube';
+import { Trash } from './Trash';
+import { Send } from './Send';
 
 export function TwitterIcon(props: IconProps) {
     const customProps = {
@@ -49,4 +51,18 @@ export function YoutubeIcon(props: IconProps) {
         ...props,
     };
     return withIconStyles(Youtube, customProps);
+}
+export function TrashIcon(props: IconProps) {
+    const customProps = {
+        title: 'Clear',
+        ...props,
+    };
+    return withIconStyles(Trash, customProps);
+}
+export function SendIcon(props: IconProps) {
+    const customProps = {
+        title: 'Send',
+        ...props,
+    };
+    return withIconStyles(Send, customProps);
 }
