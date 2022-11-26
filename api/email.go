@@ -41,7 +41,7 @@ func createBody(e Email) []byte {
 
 	// Builds out formatted email message.
 	t, b := new(template.Template), new(strings.Builder)
-	template.Must(t.Parse("From: {{.Name}} \nEmail: {{.Email}} \n\nMessage: {{.Message}}")).Execute(b, email)
+	template.Must(t.Parse("From: {{.Name}} \nEmail: {{.Email}} \n\nMessage:\n {{.Message}}")).Execute(b, email)
 
 	content := mail.NewContent("text/plain", b.String())
 	m := mail.NewV3MailInit(from, subject, to, content)
