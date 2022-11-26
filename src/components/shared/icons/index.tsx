@@ -9,6 +9,7 @@ import { ExternalLink } from './ExternalLink';
 import { Youtube } from './Youtube';
 import { Trash } from './Trash';
 import { Send } from './Send';
+import { Spinner } from './Spinner';
 
 export function TwitterIcon(props: IconProps) {
     const customProps = {
@@ -65,4 +66,11 @@ export function SendIcon(props: IconProps) {
         ...props,
     };
     return withIconStyles(Send, customProps);
+}
+export function SpinnerIcon(props: IconProps) {
+    const customProps = {
+        title: 'Loading',
+        ...props,
+    };
+    return withIconStyles(Spinner, customProps);
 }

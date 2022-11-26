@@ -42,6 +42,7 @@ export const GlobalStyles = createGlobalStyle`
         --clr-gs-white: hsla(0, 0%, 100%, 1);
         /* statuses */
         --clr-red: hsla(2, 71%, 55%, 1);
+        --clr-green: hsla(163, 100%, 33%, 1);
 
         /* === TYPOGRAPHY === */
         /* Base */
@@ -116,7 +117,7 @@ export const GlobalStyles = createGlobalStyle`
             17px 33.9px 42.7px -2.1px hsl(var(--shadow-main-color) / 0.1),
             25px 50px 62.9px -2.5px hsl(var(--shadow-main-color) / 0.1);
 
-        /* === TRANSITIONS & ANIMATIONS */
+        /* === TRANSITIONS & ANIMATIONS === */
         --easing-hover: cubic-bezier(0.65,0.05,0.36,1);
         --hover-duration: 0.2s;
 
@@ -135,6 +136,7 @@ export const GlobalStyles = createGlobalStyle`
         --clr-accent-active: var(--clr-oyc-600);
         --clr-project-img-background: var(--clr-gs-800);
         --clr-danger: var(--clr-red);
+        --clr-success: var(--clr-green);
     }
 
     html {
@@ -146,5 +148,15 @@ export const GlobalStyles = createGlobalStyle`
         -webkit-text-size-adjust: 100%;
         -moz-text-size-adjust: none;
         -ms-text-size-adjust: 100%;
+    }
+
+    /* === Global Animations === */
+    @keyframes infiniteSpin {
+        from {
+            transform: rotate(0deg);
+        }
+        to {
+            transform: rotate(359deg);
+        }
     }
 `;

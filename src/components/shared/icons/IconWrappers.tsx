@@ -2,8 +2,9 @@ import React from 'react';
 import styled from 'styled-components';
 
 import { Children } from '../../../types/children';
+import { IconProps } from '../../../types/icon';
 
-const IconWrapperStyled = styled.span`
+const IconWrapperStyled = styled.span<{ animation: IconProps['animation'] }>`
     padding: 8px 8px 8px 0; // Gives better surface area for presses
     color: var(--clr-text);
     font: var(--font-body);
@@ -12,6 +13,11 @@ const IconWrapperStyled = styled.span`
     display: flex;
     align-items: center;
     gap: 8px;
+
+    animation-name: ${({ animation }) => animation};
+    animation-duration: 0.8s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
 
     & > svg {
         transition: fill var(--hover-duration) var(--easing-hover),
@@ -61,14 +67,20 @@ interface WrapperProps {
     title: string;
 }
 
-type IconWrapperProps = WrapperProps;
+interface IconWrapperProps extends WrapperProps {
+    animation?: IconProps['animation'];
+}
 
 interface IconLinkWrapperProps extends WrapperProps {
     href: string;
 }
 
-export function IconWrapper({ children, title }: IconWrapperProps) {
-    return <IconWrapperStyled title={title}>{children}</IconWrapperStyled>;
+export function IconWrapper({ children, title, animation }: IconWrapperProps) {
+    return (
+        <IconWrapperStyled title={title} animation={animation}>
+            {children}
+        </IconWrapperStyled>
+    );
 }
 
 export function IconLinkWrapper({

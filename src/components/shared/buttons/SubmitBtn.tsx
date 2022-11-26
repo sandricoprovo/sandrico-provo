@@ -1,16 +1,18 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import styled from 'styled-components';
 
 import { Children } from '../../../types/children';
-import { SendIcon } from '../icons';
+import { SubmitStatusesAvailable, SUBMIT_STATUSES } from '../../../types/form';
+import { SendIcon, SpinnerIcon } from '../icons';
 
-const SubmitBtnStyled = styled.button`
+const SubmitBtnStyled = styled.button<{ statusClr: string }>`
     padding: 4px 16px;
     font: var(--font-body);
     color: var(--clr-background);
     cursor: pointer;
     border: none;
-    background-color: var(--clr-accent);
+    background-color: var(--clr-accent); // fallback
+    background-color: ${({ statusClr }) => statusClr};
     border-radius: 5px;
     transition: color var(--hover-duration) var(--easing-hover),
         background-color var(--hover-duration) var(--easing-hover);
@@ -49,6 +51,8 @@ interface SubmitBtnProps {
     children: Children;
     isDisabled: boolean;
     type: 'submit' | 'button';
+    status: SubmitStatusesAvailable;
+    submitInProgress: boolean;
     clickHandler?: () => void;
 }
 
@@ -57,14 +61,36 @@ export function SubmitBtn({
     clickHandler,
     type,
     isDisabled,
+    submitInProgress,
+    status = SUBMIT_STATUSES.NONE,
 }: SubmitBtnProps) {
+    const statusClr = useRef('var(--clr-accent)');
+
+    if (status === SUBMIT_STATUSES.SUCCEEDED) {
+        statusClr.current = 'var(--clr-success)';
+    } else if (status === SUBMIT_STATUSES.FAILED) {
+        statusClr.current = 'var(--clr-danger)';
+    } else {
+        statusClr.current = 'var(--clr-accent)';
+    }
+
     return (
         <SubmitBtnStyled
             type={type}
             onClick={clickHandler ?? undefined}
             disabled={isDisabled}
+            statusClr={statusClr.current}
         >
-            {children} <SendIcon size={22} color="var(--clr-background)" />
+            {children}{' '}
+            {submitInProgress ? (
+                <SpinnerIcon
+                    size={22}
+                    color="var(--clr-background)"
+                    animation="infiniteSpin"
+                />
+            ) : (
+                <SendIcon size={22} color="var(--clr-background)" />
+            )}
         </SubmitBtnStyled>
     );
 }

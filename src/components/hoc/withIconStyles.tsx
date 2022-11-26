@@ -28,7 +28,10 @@ export function withIconStyles(Icon: React.FC<IconProps>, props: IconProps) {
     }
 
     return (
-        <IconWrapper title={iconProps?.title || 'Icon'}>
+        <IconWrapper
+            title={iconProps?.title || 'Icon'}
+            animation={iconProps?.animation}
+        >
             {iconProps?.label || null} <Icon {...iconProps} />
         </IconWrapper>
     );
