@@ -33,6 +33,7 @@ const FormStyled = styled.form`
         gap: var(--spg-gap);
 
         & > button {
+            min-height: 42px;
             flex: 1;
         }
 
@@ -43,48 +44,51 @@ const FormStyled = styled.form`
 `;
 
 export function Form() {
-    // const {
-    //     fields,
-    //     errors,
-    //     disableSubmit,
-    //     handleChange,
-    //     resetForm,
-    //     submitForm,
-    // } = useForm<ContactForm>({
-    //     name: '',
-    //     email: '',
-    //     subject: '',
-    //     message: '',
-    // });
-
-    // NOTES: REMOVE WHEN DONE TESTING
     const {
         fields,
         errors,
         disableSubmit,
+        submitStatus,
+        submitInProgress,
         handleChange,
         resetForm,
         submitForm,
+        updateSubmitStatus,
+        toggleSubmitProgressStatus,
     } = useForm<ContactForm>({
-        name: 'John Appleseed',
-        email: 'jappleseed@example.ca',
-        subject: 'Test Go Email Function',
-        message: 'This is a test. Hello Go!',
+        name: '',
+        email: '',
+        subject: '',
+        message: '',
     });
 
     async function handleFormSubmit(event: FormEvent<HTMLFormElement>) {
         event.preventDefault();
 
-        // Sends email via provider
-        const emailAttempt = await fetch('/api/email', {
-            method: 'POST',
-            body: JSON.stringify(fields),
-        });
+        try {
+            // Initiates in progress state
+            toggleSubmitProgressStatus(true);
 
-        console.log(emailAttempt.status);
+            // Sends email via provider
+            const emailResponse = await fetch('/api/email', {
+                method: 'POST',
+                body: JSON.stringify(fields),
+            });
 
-        // Resets the form on submit
-        // resetForm();
+            if (emailResponse.ok) {
+                updateSubmitStatus(true);
+            } else {
+                updateSubmitStatus(false);
+            }
+
+            // Ends in progress state
+            toggleSubmitProgressStatus(false);
+
+            // Resets the form on submit
+            resetForm();
+        } catch (err) {
+            console.error(err);
+        }
     }
 
     return (
@@ -132,7 +136,12 @@ export function Form() {
                 </Label>
             </fieldset>
             <div>
-                <SubmitBtn type="submit" isDisabled={disableSubmit}>
+                <SubmitBtn
+                    type="submit"
+                    isDisabled={disableSubmit}
+                    status={submitStatus}
+                    submitInProgress={submitInProgress}
+                >
                     Submit
                 </SubmitBtn>
                 <ClearBtn clickHandler={resetForm}>Clear</ClearBtn>

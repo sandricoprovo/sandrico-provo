@@ -1,5 +1,7 @@
 import { useState, ChangeEvent, FormEvent, useRef, useMemo } from 'react';
 
+import { SubmitStatusesAvailable } from '../types/form';
+
 type FieldValues<T> = {
     [Property in keyof T]: T[Property];
 };
@@ -13,6 +15,9 @@ export function useForm<T>(initial: FieldValues<T>) {
     const [errors, setErrors] = useState<ErrorMessages<T>>(
         {} as ErrorMessages<T>
     );
+    const [submitStatus, setSubmitStatus] =
+        useState<SubmitStatusesAvailable>('none');
+    const [submitInProgress, setSubmitInProgress] = useState(false);
     // Notes if a user has tried to enter any content
     const isClean = useRef(true);
 
@@ -105,13 +110,33 @@ export function useForm<T>(initial: FieldValues<T>) {
         submitHandler(event);
     }
 
+    // Handles updating the state of a submission so forms can react to their submit attempts
+    function updateSubmitStatus(didSucceed: boolean) {
+        if (!didSucceed) {
+            setSubmitStatus('failed');
+        } else {
+            setSubmitStatus('succeeded');
+        }
+
+        // Resets the status after 3 seconds.
+        setTimeout(() => setSubmitStatus('none'), 3000);
+    }
+
+    function toggleSubmitProgressStatus(status = !submitInProgress) {
+        setSubmitInProgress(status);
+    }
+
     return {
         fields,
         errors,
         disableSubmit: hasEmptyFields || hasErrors,
+        submitStatus,
+        submitInProgress,
         handleChange,
         clearForm,
         resetForm,
         submitForm,
+        updateSubmitStatus,
+        toggleSubmitProgressStatus,
     };
 }
