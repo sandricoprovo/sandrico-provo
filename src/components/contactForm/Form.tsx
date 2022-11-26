@@ -85,7 +85,7 @@ export function Form() {
             toggleSubmitProgressStatus(false);
 
             // Resets the form on submit
-            resetForm();
+            setTimeout(() => resetForm(), 3000);
         } catch (err) {
             console.error(err);
         }
