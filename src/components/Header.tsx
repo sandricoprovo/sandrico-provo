@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import { GithubIcon, LinkedInIcon, TwitterIcon } from './shared/icons';
+import { Socials } from './Socials';
 
 const HeaderStyled = styled.header`
     margin: 0 auto;
@@ -18,9 +18,7 @@ const HeaderStyled = styled.header`
 export function Header() {
     return (
         <HeaderStyled id="top">
-            <TwitterIcon />
-            <LinkedInIcon />
-            <GithubIcon />
+            <Socials hideLabel />
         </HeaderStyled>
     );
 }
