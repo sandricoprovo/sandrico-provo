@@ -7,6 +7,8 @@ import (
 	"log"
 	"net/http"
 	"os"
+	"strings"
+	"text/template"
 
 	"github.com/microcosm-cc/bluemonday"
 	"github.com/sendgrid/sendgrid-go"
@@ -24,18 +26,24 @@ func createBody(e Email) []byte {
 	// Creates a sanitization policy
 	p := bluemonday.StrictPolicy()
 
-	// TODO: Add users email and name to email content
-
 	// Sanitizes inputs
-	// senderEmail := p.Sanitize(e.Email)
-	// senderName := p.Sanitize(e.Name)
+	senderEmail := p.Sanitize(e.Email)
+	senderName := p.Sanitize(e.Name)
 	subject := p.Sanitize(e.Subject)
 	message := p.Sanitize(e.Message)
+
+	// The email needs to be put into an object so template().Execute() can map variable names.
+	email := Email{Name: senderName, Email: senderEmail, Subject: subject, Message: message}
 
 	// Crafts email
 	from := mail.NewEmail("Portfolio Contact Form", os.Getenv("SENDER_EMAIL"))
 	to := mail.NewEmail("Sandrico Provo", os.Getenv("RECEIVER_EMAIL"))
-	content := mail.NewContent("text/plain", message)
+
+	// Builds out formatted email message.
+	t, b := new(template.Template), new(strings.Builder)
+	template.Must(t.Parse("From: {{.Name}} \nEmail: {{.Email}} \n\nMessage: {{.Message}}")).Execute(b, email)
+
+	content := mail.NewContent("text/plain", b.String())
 	m := mail.NewV3MailInit(from, subject, to, content)
 
 	return mail.GetRequestBody(m)
