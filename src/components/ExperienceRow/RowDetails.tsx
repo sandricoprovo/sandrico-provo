@@ -1,9 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
+import { motion } from 'framer-motion';
 
 import { Children } from '../../types/children';
 
-const RowDetailsStyled = styled.details`
+const RowDetailsStyled = styled(motion.details)`
     width: 100%;
 
     display: flex;

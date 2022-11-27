@@ -1,8 +1,10 @@
+import { motion } from 'framer-motion';
 import React from 'react';
 import styled from 'styled-components';
 
 import { Children } from '../../../types/children';
 import { IconProps } from '../../../types/icon';
+import { fadeUp, MOTION_DEFAULTS } from '../motions';
 
 const IconWrapperStyled = styled.span<{ animation: IconProps['animation'] }>`
     padding: 8px 8px 8px 0; // Gives better surface area for presses
@@ -65,6 +67,7 @@ const IconLinkWrapperStyled = styled.a`
 interface WrapperProps {
     children: Children;
     title: string;
+    order?: number;
 }
 
 interface IconWrapperProps extends WrapperProps {
@@ -75,9 +78,26 @@ interface IconLinkWrapperProps extends WrapperProps {
     href: string;
 }
 
-export function IconWrapper({ children, title, animation }: IconWrapperProps) {
+export function IconWrapper({
+    children,
+    title,
+    animation,
+    order = 0,
+}: IconWrapperProps) {
     return (
-        <IconWrapperStyled title={title} animation={animation}>
+        <IconWrapperStyled
+            title={title}
+            animation={animation}
+            as={motion.span}
+            variants={fadeUp}
+            transition={{
+                delay: order / 10,
+                duration: MOTION_DEFAULTS.DURATION,
+                ease: MOTION_DEFAULTS.EASE,
+            }}
+            initial="initial"
+            animate="animate"
+        >
             {children}
         </IconWrapperStyled>
     );
@@ -87,6 +107,7 @@ export function IconLinkWrapper({
     children,
     href,
     title,
+    order = 0,
 }: IconLinkWrapperProps) {
     return (
         <IconLinkWrapperStyled
@@ -94,6 +115,15 @@ export function IconLinkWrapper({
             target="_blank"
             title={title}
             href={href}
+            as={motion.a}
+            variants={fadeUp}
+            transition={{
+                delay: order / 10,
+                duration: MOTION_DEFAULTS.DURATION,
+                ease: MOTION_DEFAULTS.EASE,
+            }}
+            initial="initial"
+            animate="animate"
         >
             {children}
         </IconLinkWrapperStyled>

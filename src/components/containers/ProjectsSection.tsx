@@ -27,7 +27,7 @@ interface ProjectsGridContainerProps {
 export function ProjectsSection({ children }: ProjectsGridContainerProps) {
     return (
         <ProjectsContainer>
-            <BodyText>
+            <BodyText shouldMotion>
                 Below is a list of projects I've built. With each project I
                 strived to solve a problem, learn / practice a new technology,
                 or both. Use the link icons on each tile to view its code or try

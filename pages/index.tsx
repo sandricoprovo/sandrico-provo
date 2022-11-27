@@ -17,8 +17,8 @@ function HomePage() {
     return (
         <>
             <HeroSection>
-                <Header1>Hey, I'm Sandrico</Header1>
-                <BodyText>
+                <Header1 shouldMotion>Hey, I'm Sandrico</Header1>
+                <BodyText shouldMotion>
                     I'm a <Highlighted accent>Software Developer</Highlighted>.
                     I solve problems on the web by building appealing,
                     data-driven experiences. My skill set is{' '}

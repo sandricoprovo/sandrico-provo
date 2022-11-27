@@ -20,16 +20,19 @@ export function Socials({ hideLabel }: SocialsProps) {
                 title="Twitter"
                 href={twitter}
                 label={hideLabel ? '' : 'Twitter'}
+                order={0}
             />
             <LinkedInIcon
                 title="LinkedIn"
                 href={linkedIn}
                 label={hideLabel ? '' : 'LinkedIn'}
+                order={1}
             />
             <GithubIcon
                 title="GitHub"
                 href={github}
                 label={hideLabel ? '' : 'GitHub'}
+                order={2}
             />
         </IconsContainer>
     );

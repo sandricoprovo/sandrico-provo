@@ -1,4 +1,5 @@
 /* eslint-disable */
+import { motion } from 'framer-motion';
 import React, { ReactNode } from 'react';
 import styled from 'styled-components';
 

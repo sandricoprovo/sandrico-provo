@@ -12,9 +12,10 @@ import { RowTechStack } from './RowTechStack';
 
 interface ExperienceRowProps {
     experience: Experience;
+    order: number;
 }
 
-export function ExperienceRow({ experience }: ExperienceRowProps) {
+export function ExperienceRow({ experience, order }: ExperienceRowProps) {
     const {
         companyName,
         jobTitle,
@@ -26,7 +27,7 @@ export function ExperienceRow({ experience }: ExperienceRowProps) {
     } = experience;
 
     return (
-        <RowContainer>
+        <RowContainer order={order}>
             <RowInfo>
                 <InfoTile>
                     <BodyText>Role:</BodyText>
@@ -72,7 +73,7 @@ export function ExperienceRow({ experience }: ExperienceRowProps) {
                     </li>
                 ))}
             </RowTechStack>
-            {details && details.length > 0 ? (
+            {details && (
                 <RowDetails>
                     {details.map((detail, index) => (
                         <li key={`${jobTitle}_detail_${index}`}>
@@ -80,7 +81,7 @@ export function ExperienceRow({ experience }: ExperienceRowProps) {
                         </li>
                     ))}
                 </RowDetails>
-            ) : null}
+            )}
         </RowContainer>
     );
 }

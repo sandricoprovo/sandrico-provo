@@ -29,7 +29,12 @@ export function MePhoto() {
 
     return (
         <ImageContainer>
-            <Image src={src} alt={alt} />
+            <Image
+                src={src}
+                alt={alt}
+                placeholder="blur"
+                blurDataURL={src.blurDataURL}
+            />
         </ImageContainer>
     );
 }

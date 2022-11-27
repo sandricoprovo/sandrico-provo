@@ -1,7 +1,10 @@
+import { motion } from 'framer-motion';
 import React, { ReactNode } from 'react';
 import styled from 'styled-components';
 
-const TabButtonsStyled = styled.ul`
+import { fadeUp, MOTION_DEFAULTS } from '../shared/motions';
+
+const TabButtonsStyled = styled(motion.ul)`
     width: 100%;
 
     display: flex;
@@ -18,5 +21,18 @@ interface TabButtonsProps {
 }
 
 export function TabButtons({ children }: TabButtonsProps) {
-    return <TabButtonsStyled>{children}</TabButtonsStyled>;
+    return (
+        <TabButtonsStyled
+            variants={fadeUp}
+            transition={{
+                delay: 0.3,
+                duration: MOTION_DEFAULTS.DURATION,
+                ease: MOTION_DEFAULTS.EASE,
+            }}
+            initial="initial"
+            animate="animate"
+        >
+            {children}
+        </TabButtonsStyled>
+    );
 }

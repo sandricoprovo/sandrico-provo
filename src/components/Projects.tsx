@@ -8,8 +8,8 @@ import { ProjectCard } from './ProjectCard';
 export function Projects() {
     return (
         <ProjectsSection>
-            {orderedProjects.map((project) => (
-                <ProjectCard key={project.id} project={project} />
+            {orderedProjects.map((project, index) => (
+                <ProjectCard key={project.id} project={project} order={index} />
             ))}
         </ProjectsSection>
     );

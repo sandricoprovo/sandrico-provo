@@ -1,13 +1,15 @@
 import React from 'react';
 import Image from 'next/image';
 import styled from 'styled-components';
+import { motion } from 'framer-motion';
 
 import { Project } from '../types/project';
 
 import { GithubIcon, ExternalLinkIcon } from './shared/icons';
 import { BodyText, Highlighted } from './shared/typography';
+import { fadeUp, MOTION_DEFAULTS } from './shared/motions';
 
-const ProjectCardStyled = styled.div`
+const ProjectCardStyled = styled(motion.div)`
     display: flex;
     flex-direction: column;
     gap: 20px;
@@ -81,9 +83,10 @@ const ProjectCardStyled = styled.div`
 
 interface ProjectCardProps {
     project: Project;
+    order: number;
 }
 
-export function ProjectCard({ project }: ProjectCardProps) {
+export function ProjectCard({ project, order }: ProjectCardProps) {
     const {
         id,
         description,
@@ -96,9 +99,23 @@ export function ProjectCard({ project }: ProjectCardProps) {
     const projectYear = new Date(updatedOn).getFullYear();
 
     return (
-        <ProjectCardStyled>
+        <ProjectCardStyled
+            variants={fadeUp}
+            transition={{
+                delay: order / 100,
+                duration: MOTION_DEFAULTS.DURATION,
+                ease: MOTION_DEFAULTS.EASE,
+            }}
+            initial="initial"
+            animate="animate"
+        >
             <div>
-                <Image src={photo.src} alt={photo.alt} />
+                <Image
+                    src={photo.src}
+                    alt={photo.alt}
+                    placeholder="blur"
+                    blurDataURL={photo.src.blurDataURL}
+                />
             </div>
             <h3>{name}</h3>
             <BodyText>{description}</BodyText>

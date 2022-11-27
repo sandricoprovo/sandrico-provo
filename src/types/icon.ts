@@ -4,6 +4,7 @@ export interface IconProps {
     size?: number;
     color?: string;
     href?: string;
+    order?: number;
     animation?: 'infiniteSpin';
     onClick?: () => void;
 }

@@ -26,7 +26,7 @@ export function ContactForm() {
         <FormContainer id="contact_form">
             <div>
                 <SubHeader>Get In Touch</SubHeader>
-                <BodyText>
+                <BodyText shouldMotion>
                     Thanks for reaching out! Below is a form you can use to
                     contact me. If you prefer social media, you can also use the
                     links below to find me. Looking forward to connecting with

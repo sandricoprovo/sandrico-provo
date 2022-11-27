@@ -1,10 +1,12 @@
+import { motion } from 'framer-motion';
 import React, { useState } from 'react';
 import styled from 'styled-components';
 
 import { ToggleBtn } from './shared/buttons';
+import { fadeUp, MOTION_DEFAULTS } from './shared/motions';
 import { BodyText, SubHeader } from './shared/typography';
 
-const StoryContainer = styled.div`
+const StoryContainer = styled(motion.div)`
     --spg-gap: 16px;
     display: flex;
     flex-direction: column;
@@ -27,7 +29,16 @@ export function MyStory() {
     const toggleExcerpt = () => setShowExcerpt(!showExcerpt);
 
     return (
-        <StoryContainer>
+        <StoryContainer
+            variants={fadeUp}
+            transition={{
+                delay: MOTION_DEFAULTS.DELAY,
+                duration: MOTION_DEFAULTS.DURATION,
+                ease: MOTION_DEFAULTS.EASE,
+            }}
+            initial="initial"
+            animate="animate"
+        >
             <div>
                 <SubHeader>My Story</SubHeader>
                 <ToggleBtn clickHandler={toggleExcerpt}>
@@ -35,18 +46,18 @@ export function MyStory() {
                 </ToggleBtn>
             </div>
             <StoryContent>
-                <BodyText>
+                <BodyText shouldMotion>
                     I enjoy solving problems and bringing benefits through code.
                     But, my journey started with maps, people, and places.
                 </BodyText>
                 <br />
                 {showExcerpt ? (
-                    <BodyText>
+                    <BodyText shouldMotion motionDelay={0}>
                         My path to IT and Software Development...
                     </BodyText>
                 ) : (
                     <>
-                        <BodyText>
+                        <BodyText shouldMotion motionDelay={0.05}>
                             My path to IT and Software Development wasn't that
                             straightforward. I started my post-secondary
                             education with a Bachelor of Arts in Geography and
@@ -61,7 +72,7 @@ export function MyStory() {
                             of people, places, and the systems we live in.
                         </BodyText>
                         <br />
-                        <BodyText>
+                        <BodyText shouldMotion motionDelay={0.1}>
                             My chapter on coding started while I worked at that
                             one full-time job related to my degree. Eventually,
                             I knew I needed and change, and I've always been
@@ -82,7 +93,7 @@ export function MyStory() {
                             projects that solve my problems.
                         </BodyText>
                         <br />
-                        <BodyText>
+                        <BodyText shouldMotion motionDelay={0.15}>
                             I enjoy solving problems, and I also love to learn.
                             These facts about me are significant reasons why I
                             enjoy software development. One of the biggest
@@ -92,7 +103,7 @@ export function MyStory() {
                             create.
                         </BodyText>
                         <br />
-                        <BodyText>
+                        <BodyText shouldMotion motionDelay={0.2}>
                             Currently, my technical skills include creating
                             front-end applications in React, TypeScript,
                             JavaScript, HTML, and CSS while knowing popular

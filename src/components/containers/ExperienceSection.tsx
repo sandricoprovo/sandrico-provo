@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
+import { motion } from 'framer-motion';
 
 import { Tab as ITab } from '../../types/tabs';
 import { Experiences } from '../Experiences';
 import { Projects } from '../Projects';
 import { Tab } from '../shared/buttons';
+import { fadeUp, MOTION_DEFAULTS } from '../shared/motions';
 
 import { TabButtons } from './TabButtons';
 import { TabHeader } from './TabHeader';
@@ -51,14 +53,24 @@ export function ExperienceSection() {
             <TabHeader>
                 <TabButtons>
                     {tabs.map((tab, index) => (
-                        <li key={tab.header.toLowerCase()}>
+                        <motion.li
+                            key={tab.header.toLowerCase()}
+                            variants={fadeUp}
+                            transition={{
+                                delay: (index + 2.5) * MOTION_DEFAULTS.DELAY,
+                                duration: MOTION_DEFAULTS.DURATION,
+                                ease: MOTION_DEFAULTS.EASE,
+                            }}
+                            initial="initial"
+                            animate="animate"
+                        >
                             <Tab
                                 clickHandler={() => handleTabSwitch(index)}
                                 isActive={activeTab === index}
                             >
                                 {tab.header}
                             </Tab>
-                        </li>
+                        </motion.li>
                     ))}
                 </TabButtons>
                 <TabUnderline activeTab={activeTab} />
