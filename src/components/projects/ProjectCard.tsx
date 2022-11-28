@@ -3,11 +3,10 @@ import Image from 'next/image';
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
 
-import { Project } from '../types/project';
-
-import { GithubIcon, ExternalLinkIcon } from './shared/icons';
-import { BodyText, Highlighted } from './shared/typography';
-import { fadeUp, MOTION_DEFAULTS } from './shared/motions';
+import { Project } from '../../types/project';
+import { GithubIcon, ExternalLinkIcon } from '../shared/icons';
+import { BodyText, Highlighted } from '../shared/typography';
+import { fadeUp, MOTION_DEFAULTS } from '../shared/motions';
 
 const ProjectCardStyled = styled(motion.div)`
     display: flex;

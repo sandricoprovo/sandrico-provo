@@ -3,7 +3,7 @@ import React from 'react';
 import { HeroSection } from '../src/components/containers/HeroSection';
 import { AboutSection } from '../src/components/containers/AboutSection';
 import { TextLink } from '../src/components/shared/buttons';
-import { ExperienceSection } from '../src/components/containers/ExperienceSection';
+import { ExperienceSection } from '../src/components/experiences/ExperienceSection';
 import {
     Header1,
     BodyText,

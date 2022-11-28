@@ -1,8 +1,8 @@
 import React from 'react';
 
-import { orderedProjects } from '../content/projectsList';
+import { orderedProjects } from '../../content/projectsList';
 
-import { ProjectsSection } from './containers/ProjectsSection';
+import { ProjectsSection } from './ProjectsSection';
 import { ProjectCard } from './ProjectCard';
 
 export function Projects() {

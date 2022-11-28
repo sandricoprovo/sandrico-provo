@@ -2,13 +2,13 @@ import React from 'react';
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
 
-import { aboutMe } from '../content/aboutMe';
-import { educationList, experienceList } from '../content/experience';
+import { aboutMe } from '../../content/aboutMe';
+import { educationList, experienceList } from '../../content/experience';
+import { fadeUp, MOTION_DEFAULTS } from '../shared/motions';
+import { FileIcon, LinkedInIcon } from '../shared/icons';
+import { BodyText, Highlighted, SubHeader } from '../shared/typography';
 
-import { fadeUp, MOTION_DEFAULTS } from './shared/motions';
-import { ExperienceRow } from './ExperienceRow/ExperienceRow';
-import { FileIcon, LinkedInIcon } from './shared/icons';
-import { BodyText, Highlighted, SubHeader } from './shared/typography';
+import { ExperienceRow } from './ExperienceRow';
 
 const ExperiencesListContainer = styled(motion.section)`
     margin-block-end: var(--spg-section);

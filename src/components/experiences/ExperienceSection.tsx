@@ -3,13 +3,13 @@ import styled from 'styled-components';
 import { motion } from 'framer-motion';
 
 import { Tab as ITab } from '../../types/tabs';
-import { Experiences } from '../Experiences';
-import { Projects } from '../Projects';
+import { Projects } from '../projects/Projects';
 import { Tab } from '../shared/buttons';
 import { fadeUp, MOTION_DEFAULTS } from '../shared/motions';
+import { TabButtons } from '../containers/TabButtons';
+import { TabHeader } from '../containers/TabHeader';
 
-import { TabButtons } from './TabButtons';
-import { TabHeader } from './TabHeader';
+import { Experiences } from './Experiences';
 
 const ExperienceSectionContainer = styled.section`
     width: 100%;
