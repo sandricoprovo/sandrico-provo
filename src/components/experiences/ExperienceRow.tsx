@@ -73,7 +73,7 @@ export function ExperienceRow({ experience, order }: ExperienceRowProps) {
                     </li>
                 ))}
             </RowTechStack>
-            {details && (
+            {details && details.length > 0 ? (
                 <RowDetails>
                     {details.map((detail, index) => (
                         <li key={`${jobTitle}_detail_${index}`}>
@@ -81,7 +81,7 @@ export function ExperienceRow({ experience, order }: ExperienceRowProps) {
                         </li>
                     ))}
                 </RowDetails>
-            )}
+            ) : null}
         </RowContainer>
     );
 }
