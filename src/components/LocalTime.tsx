@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 
-import { getFormattedUTC } from '../utils/getFormattedTime';
+import { getFormattedUTC } from '../utils/getFormattedUTC';
 
 const LocalTimeStyled = styled.p`
     font: var(--font-body);
