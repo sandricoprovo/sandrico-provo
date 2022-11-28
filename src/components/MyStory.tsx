@@ -21,12 +21,16 @@ const StoryContainer = styled(motion.div)`
 
 const StoryContent = styled.div`
     margin-block-end: 24px;
+
+    column-count: 2;
+    column-width: 400px;
+    column-gap: 80px;
 `;
 
 export function MyStory() {
-    const [showExcerpt, setShowExcerpt] = useState(true);
+    const [showFullStory, setShowFullStory] = useState(false);
 
-    const toggleExcerpt = () => setShowExcerpt(!showExcerpt);
+    const toggleExcerpt = () => setShowFullStory(!showFullStory);
 
     return (
         <StoryContainer
@@ -42,7 +46,7 @@ export function MyStory() {
             <div>
                 <SubHeader>My Story</SubHeader>
                 <ToggleBtn clickHandler={toggleExcerpt}>
-                    {showExcerpt ? 'More' : 'Less'}
+                    {!showFullStory ? 'More' : 'Less'}
                 </ToggleBtn>
             </div>
             <StoryContent>
@@ -51,11 +55,7 @@ export function MyStory() {
                     But, my journey started with maps, people, and places.
                 </BodyText>
                 <br />
-                {showExcerpt ? (
-                    <BodyText shouldMotion motionDelay={0}>
-                        My path to IT and Software Development...
-                    </BodyText>
-                ) : (
+                {showFullStory && (
                     <>
                         <BodyText shouldMotion motionDelay={0.05}>
                             My path to IT and Software Development wasn't that
