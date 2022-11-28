@@ -24,7 +24,10 @@ export function LocalTime({
     useEffect(() => {
         const updateUTCInterval = setInterval(() => {
             const formattedUTC = getFormattedUTC(timezone);
-            setTimezoneUTC(formattedUTC);
+
+            if (formattedUTC !== undefined) {
+                setTimezoneUTC(formattedUTC);
+            }
         }, 1000);
         return () => clearInterval(updateUTCInterval);
     }, [timezone]);
