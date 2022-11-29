@@ -12,10 +12,12 @@ import {
 import { MePhoto } from '../src/components/MePhoto';
 import { MyStory } from '../src/components/MyStory';
 import { ContactForm } from '../src/components/contactForm/ContactForm';
+import { Head } from '../src/components/Head';
 
 function HomePage() {
     return (
         <>
+            <Head title="Sandrico Provo - Software Developer" />
             <HeroSection>
                 <Header1 shouldMotion>Hey, I'm Sandrico</Header1>
                 <BodyText shouldMotion>
