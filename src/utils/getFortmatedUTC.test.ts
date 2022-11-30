@@ -17,11 +17,11 @@ describe('getFormattedUTC', () => {
             const formattedUTCDateTime = getDateTimeString(formattedUTCMs);
             const testDateTime = getDateTimeString(testCurrMs);
 
-            expect(formattedUTCDateTime).toEqual(testDateTime);
+            expect(formattedUTCDateTime).equal(testDateTime);
         });
         test('Handles valid timezone argument', () => {
             const formattedUTCMs = getFormattedUTC('America/Glace_Bay');
-            expect(formattedUTCMs).not.toEqual(undefined);
+            expect(formattedUTCMs).not.equal(undefined);
         });
     });
 
@@ -29,7 +29,7 @@ describe('getFormattedUTC', () => {
         test('Handles invalid timezone argument', () => {
             // Correct timezone = 'America/Glace_Bay'
             const formattedUTCMs = getFormattedUTC('America/GlaceBay');
-            expect(formattedUTCMs).toEqual(undefined);
+            expect(formattedUTCMs).equal(undefined);
         });
     });
 });
