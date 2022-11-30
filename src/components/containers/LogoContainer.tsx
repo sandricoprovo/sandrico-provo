@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 import { Children } from '../../types/children';
 
-const Container = styled.div`
+const Container = styled.ul`
     display: flex;
     flex-wrap: wrap;
     align-items: center;

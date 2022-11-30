@@ -52,12 +52,14 @@ export function TechStack() {
     return (
         <TechStackStyled>
             <LogoContainer>
-                {stackLogos.map((logo, index) => logo({ order: index }))}
+                {stackLogos.map((logo, index) => (
+                    <li key={index}>{logo({ order: index })}</li>
+                ))}
             </LogoContainer>
 
             <ul>
                 {nonLogoStack.map((tech) => (
-                    <li>
+                    <li key={tech}>
                         <BodyText shouldMotion>{tech}</BodyText>
                     </li>
                 ))}
