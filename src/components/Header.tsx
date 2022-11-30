@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
+import { NavBar } from './Navigation/NavBar';
 import { Socials } from './Socials';
 
 const HeaderStyled = styled.header`
@@ -12,6 +13,7 @@ const HeaderStyled = styled.header`
 
     display: flex;
     align-items: center;
+    justify-content: space-between;
     gap: 20px;
 `;
 
@@ -19,6 +21,7 @@ export function Header() {
     return (
         <HeaderStyled id="top">
             <Socials hideLabel />
+            <NavBar />
         </HeaderStyled>
     );
 }
