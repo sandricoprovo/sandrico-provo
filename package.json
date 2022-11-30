@@ -9,7 +9,9 @@
         "build": "tsc && next build",
         "start": "next start",
         "type-check": "tsc",
-        "test": "jest"
+        "test": "jest",
+        "cy": "cypress open",
+        "cy:run": "cypress run --component"
     },
     "repository": {
         "type": "git",
@@ -47,12 +49,14 @@
         "@types/styled-components": "^5.1.26",
         "@typescript-eslint/eslint-plugin": "^5.43.0",
         "@typescript-eslint/parser": "^5.43.0",
+        "cypress": "^11.2.0",
         "eslint": "^8.28.0",
         "eslint-config-airbnb": "^19.0.4",
         "eslint-config-airbnb-typescript": "^16.2.0",
         "eslint-config-prettier": "^8.5.0",
         "eslint-config-sandricoprovo": "^3.0.7",
         "eslint-import-resolver-typescript": "^2.7.1",
+        "eslint-plugin-cypress": "^2.12.1",
         "eslint-plugin-html": "^6.2.0",
         "eslint-plugin-import": "^2.26.0",
         "eslint-plugin-jsx-a11y": "^6.6.1",

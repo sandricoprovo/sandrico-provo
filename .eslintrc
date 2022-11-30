@@ -1,6 +1,7 @@
 {
     "extends": [
-        "sandricoprovo/typescript"
+        "sandricoprovo/typescript",
+        "plugin:cypress/recommended"
     ],
     "rules": {
         "react/destructuring-assignment": 0
