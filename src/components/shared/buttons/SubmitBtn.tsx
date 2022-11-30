@@ -29,11 +29,11 @@ const SubmitBtnStyled = styled.button<{ statusClr: string }>`
 
     &:disabled {
         cursor: auto;
-        background-color: var(--clr-gs-500);
-        color: var(--clr-text);
+        background-color: var(--clr-btn-disabled);
+        color: var(--clr-text-disabled);
 
         & > span > svg {
-            fill: var(--clr-text);
+            fill: var(--clr-text-disabled);
         }
     }
 

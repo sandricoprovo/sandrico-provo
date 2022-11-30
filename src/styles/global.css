@@ -132,6 +132,8 @@
     --clr-project-img-background: var(--clr-gs-800);
     --clr-danger: var(--clr-red);
     --clr-success: var(--clr-green);
+    --clr-btn-disabled: var(--clr-gs-800);
+    --clr-text-disabled: var(--clr-gs-200);
 }
 
 html {

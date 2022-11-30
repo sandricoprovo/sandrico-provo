@@ -1,8 +1,8 @@
 import React, { ReactNode } from 'react';
 import Link from 'next/link';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
-const TextLinkStyled = styled.button`
+const sharedStyles = css`
     border: none;
     background-color: transparent;
     font: var(--font-body);
@@ -10,12 +10,9 @@ const TextLinkStyled = styled.button`
     cursor: pointer;
     position: relative;
     text-align: left;
-
-    & a {
-        transition: color 0.2s var(--easing-hover);
-        color: var(--clr-text-header);
-        text-decoration: none;
-    }
+    transition: color 0.2s var(--easing-hover);
+    color: var(--clr-text-header);
+    text-decoration: none;
 
     &::after {
         content: '';
@@ -25,7 +22,7 @@ const TextLinkStyled = styled.button`
         width: 100%;
         height: 1px;
         opacity: 1;
-        transform: translateY(-4px);
+        transform: translateY(0px);
         transition: transform 0.3s var(--easing-hover),
             opacity 0.3s var(--easing-hover);
         background-color: var(--clr-text-header);
@@ -33,13 +30,11 @@ const TextLinkStyled = styled.button`
 
     @media screen and (hover: hover) {
         &:hover {
-            & a {
-                color: var(--clr-accent);
-            }
+            color: var(--clr-accent);
 
             &::after {
                 opacity: 1;
-                transform: translateY(-2px);
+                transform: translateY(2px);
             }
         }
 
@@ -48,6 +43,13 @@ const TextLinkStyled = styled.button`
             background-color: var(--clr-accent);
         }
     }
+`;
+
+const InternalLink = styled(Link)`
+    ${sharedStyles}
+`;
+const ExternalLink = styled.a`
+    ${sharedStyles}
 `;
 
 interface TextLinkProps {
@@ -64,19 +66,17 @@ export function TextLink({
     title = 'Link',
 }: TextLinkProps) {
     return isExternal ? (
-        <TextLinkStyled title={title}>
-            <a
-                href={href}
-                rel="noreferrer noopener"
-                target="_blank"
-                title={title}
-            >
-                {children}
-            </a>
-        </TextLinkStyled>
+        <ExternalLink
+            href={href}
+            rel="noreferrer noopener"
+            target="_blank"
+            title={title}
+        >
+            {children}
+        </ExternalLink>
     ) : (
-        <TextLinkStyled title={title}>
-            <Link href={href}>{children}</Link>
-        </TextLinkStyled>
+        <InternalLink title={title} href={href}>
+            {children}
+        </InternalLink>
     );
 }

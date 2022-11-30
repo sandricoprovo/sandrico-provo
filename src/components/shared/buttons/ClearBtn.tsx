@@ -7,10 +7,10 @@ import { TrashIcon } from '../icons';
 const ClearBtnStyled = styled.button`
     padding: 4px 16px;
     font: var(--font-body);
-    color: var(--clr-text);
+    color: var(--clr-text-disabled);
     cursor: pointer;
     border: none;
-    background-color: var(--clr-gs-500);
+    background-color: var(--clr-btn-disabled);
     border-radius: 5px;
     transition: color var(--hover-duration) var(--easing-hover),
         background-color var(--hover-duration) var(--easing-hover);
