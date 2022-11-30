@@ -84,11 +84,12 @@ export function Experiences() {
             <ExperienceList>
                 {experienceList.length > 0 &&
                     experienceList.map((experience, index) => (
-                        <ExperienceRow
-                            key={experience.id}
-                            order={index}
-                            experience={experience}
-                        />
+                        <li key={experience.id}>
+                            <ExperienceRow
+                                order={index}
+                                experience={experience}
+                            />
+                        </li>
                     ))}
             </ExperienceList>
             <motion.div

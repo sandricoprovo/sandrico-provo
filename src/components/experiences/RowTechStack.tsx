@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 import { Children } from '../../types/children';
 
-const RowTechStackStyled = styled.ul`
+const RowTechStackStyled = styled.div`
     display: flex;
     flex-direction: column;
     gap: 8px;
