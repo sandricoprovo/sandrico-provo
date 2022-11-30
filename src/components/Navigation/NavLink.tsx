@@ -5,11 +5,15 @@ import styled from 'styled-components';
 import { NavLink as INavLink } from '../../types/navlink';
 
 const NavLinkStyled = styled.li`
+    --padding-link: 24px;
     text-align: center;
     position: relative;
     font: var(--font-body);
     color: var(--clr-text);
     list-style: none;
+
+    padding: 0 var(--padding-link);
+    text-align: center;
 
     & > a {
         text-decoration: none;
@@ -26,8 +30,10 @@ const NavLinkStyled = styled.li`
         position: absolute;
         bottom: 0;
         left: 0;
+        right: 0;
+        margin: auto;
         height: 1px;
-        width: 100%;
+        width: calc(100% - (var(--padding-link) * 2));
         background-color: var(--clr-accent);
         opacity: 0;
         transition: opacity var(--hover-duration) var(--easing-hover),

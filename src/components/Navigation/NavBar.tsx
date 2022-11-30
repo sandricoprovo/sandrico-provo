@@ -9,7 +9,7 @@ const NavBarStyled = styled.nav`
     & > ul {
         display: flex;
         align-items: center;
-        gap: 40px;
+        gap: 8px;
     }
 `;
 
@@ -18,7 +18,7 @@ export function NavBar() {
         <NavBarStyled>
             <ul>
                 {NAV_LINKS.map((link) => (
-                    <NavLink link={link} />
+                    <NavLink key={link.label.toLowerCase()} link={link} />
                 ))}
             </ul>
         </NavBarStyled>
