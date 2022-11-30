@@ -45,13 +45,6 @@ export default class MyDocument extends Document {
                 <Head>
                     <link
                         rel="preload"
-                        href="/fonts/WorkSans-ExtraBold.woff"
-                        as="font"
-                        type="font/woff"
-                        crossOrigin=""
-                    />
-                    <link
-                        rel="preload"
                         href="/fonts/WorkSans-ExtraBold.woff2"
                         as="font"
                         type="font/woff2"
@@ -59,23 +52,9 @@ export default class MyDocument extends Document {
                     />
                     <link
                         rel="preload"
-                        href="/fonts/WorkSans-SemiBold.woff"
-                        as="font"
-                        type="font/woff"
-                        crossOrigin=""
-                    />
-                    <link
-                        rel="preload"
                         href="/fonts/WorkSans-SemiBold.woff2"
                         as="font"
                         type="font/woff2"
-                        crossOrigin=""
-                    />
-                    <link
-                        rel="preload"
-                        href="/fonts/WorkSans-Regular.woff"
-                        as="font"
-                        type="font/woff"
                         crossOrigin=""
                     />
                     <link
