@@ -53,12 +53,12 @@ export function Footer() {
     return (
         <FooterStyled>
             <div>
-                <h2>Let's Work Together</h2>
-                <BodyText>I look forward to connecting with you!</BodyText>
+                <h2>Let's Connect</h2>
+                <BodyText>I' look forward to connecting with you!</BodyText>
             </div>
             <div>
                 <BodyText>
-                    Say hello using the{' '}
+                    You can say hello using the{' '}
                     <TextLink href="#contact_form">contact form</TextLink>{' '}
                     above, or you can find me on these platforms:
                 </BodyText>

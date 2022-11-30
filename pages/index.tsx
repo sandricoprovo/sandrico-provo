@@ -23,8 +23,7 @@ function HomePage() {
                 <Header1 shouldMotion>Hey, I'm Sandrico</Header1>
                 <BodyText shouldMotion>
                     I'm a <Highlighted accent>Software Developer</Highlighted>{' '}
-                    that solves problems on the web by building appealing,
-                    data-driven experiences. My skill set is{' '}
+                    from Nova Scotia, Canada 🇨🇦. My skill set is{' '}
                     <Highlighted accent>front-end focused</Highlighted>, but I{' '}
                     <Highlighted accent>also bring back-end skills</Highlighted>
                     {'. '} You can see a list of technologies and tools I use
