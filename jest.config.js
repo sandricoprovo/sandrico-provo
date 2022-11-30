@@ -2,11 +2,14 @@
  * For a detailed explanation regarding each configuration property and type check, visit:
  * https://jestjs.io/docs/configuration
  */
-import type { Config } from 'jest';
-import { defaults } from 'jest-config';
+const nextJest = require('next/jest')
 
-export default {
-    moduleFileExtensions: [...defaults.moduleFileExtensions],
+const createJestConfig = nextJest({
+    dir: './',
+});
+
+/** @type {import('jest').Config} */
+const customJestConfig = {
     // Automatically clear mock calls, instances, contexts and results before every test
     clearMocks: true,
     // Indicates whether the coverage information should be collected while executing the test
@@ -18,5 +21,7 @@ export default {
     // Indicates which provider should be used to instrument code for coverage
     coverageProvider: 'babel',
     // The test environment that will be used for testing
-    testEnvironment: 'jsdom',
-} as Config;
+    testEnvironment: 'jest-environment-jsdom',
+};
+
+module.exports = createJestConfig(customJestConfig);
