@@ -13,6 +13,7 @@ import { MePhoto } from '../src/components/MePhoto';
 import { MyStory } from '../src/components/MyStory';
 import { ContactForm } from '../src/components/contactForm/ContactForm';
 import { Head } from '../src/components/Head';
+import { TechStack } from '../src/components/TechStack';
 
 function HomePage() {
     return (
@@ -21,15 +22,17 @@ function HomePage() {
             <HeroSection>
                 <Header1 shouldMotion>Hey, I'm Sandrico</Header1>
                 <BodyText shouldMotion>
-                    I'm a <Highlighted accent>Software Developer</Highlighted>.
-                    I solve problems on the web by building appealing,
+                    I'm a <Highlighted accent>Software Developer</Highlighted>{' '}
+                    that solves problems on the web by building appealing,
                     data-driven experiences. My skill set is{' '}
                     <Highlighted accent>front-end focused</Highlighted>, but I{' '}
-                    <Highlighted accent>also bring back-end skills</Highlighted>{' '}
-                    as well. If you'd like to get in touch with me, use the{' '}
+                    <Highlighted accent>also bring back-end skills</Highlighted>
+                    {'. '} You can see a list of technologies and tools I use
+                    below. If you'd like to get in touch with me, use the{' '}
                     <TextLink href="#contact_form">contact form</TextLink> below
                     to get in touch.
                 </BodyText>
+                <TechStack />
             </HeroSection>
             <ExperienceSection />
             <AboutSection>

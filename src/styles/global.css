@@ -124,6 +124,7 @@
     --clr-text-header: var(--clr-gs-background);
     --clr-text: var(--clr-gs-300);
     --clr-icon: var(--clr-text);
+    --clr-icon-faded: var(--clr-gs-700);
     --clr-icon-hover: var(--clr-text-header);
     --clr-accent: var(--clr-oyc-500);
     --clr-accent-focus: var(--clr-oyc-400);
