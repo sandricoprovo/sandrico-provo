@@ -1,17 +1,16 @@
 import type { AppProps } from 'next/app';
 
+import '../src/styles/reset.css';
 import '../src/styles/fontface.css';
-import { GlobalStyles } from '../src/styles/global';
+import '../src/styles/global.css';
+
 import { Layout } from '../src/components/containers/Layout';
 
 function App({ Component, pageProps }: AppProps): JSX.Element {
     return (
-        <>
-            <GlobalStyles />
-            <Layout>
-                <Component {...pageProps} />
-            </Layout>
-        </>
+        <Layout>
+            <Component {...pageProps} />
+        </Layout>
     );
 }
 
