@@ -1,74 +1,46 @@
 import React from 'react';
-import styled from 'styled-components';
-import Image from 'next/image';
-import setup1 from '../public/images/setup-1.jpeg';
-import { myInfo } from '../src/content/myInfo';
 
-import { Head } from '../src/components/Head/Head';
-import { Hero } from '../src/components/Hero/Hero';
-import { ProjectsContainer } from '../src/components/Projects/ProjectsContainer';
-import { projectsList } from '../src/content/projects';
-import { ProjectFull } from '../src/components/Projects';
-import { ProjectsHeader } from '../src/components/Projects/ProjectsHeader';
-import { WorkExperience } from '../src/components/WorkExperience/WorkExperience';
-import { MyStory } from '../src/components/MyStory/MyStory';
-import { DetailBlock } from '../src/components/DetailBlock';
-import { DetailsBlockContainer } from '../src/components/Projects/DetailsBlockContainer';
+import { HeroSection } from '../src/components/containers/HeroSection';
+import { AboutSection } from '../src/components/containers/AboutSection';
+import { TextLink } from '../src/components/shared/buttons';
+import { ExperienceSection } from '../src/components/experiences/ExperienceSection';
+import {
+    Header1,
+    BodyText,
+    Highlighted,
+} from '../src/components/shared/typography';
+import { MePhoto } from '../src/components/MePhoto';
+import { MyStory } from '../src/components/MyStory';
+import { ContactForm } from '../src/components/contactForm/ContactForm';
+import { Head } from '../src/components/Head';
+import { TechStack } from '../src/components/TechStack';
 
-const ImageContainer = styled.section`
-    position: relative;
-    width: 100vw;
-    height: 50vh;
-    margin-bottom: var(--spacing-margin);
-
-    & > div {
-        position: relative;
-        height: 100%;
-    }
-`;
-
-function Home() {
+function HomePage() {
     return (
         <>
-            <Head title="Sandrico Provo - Software Engineer" />
-            <Hero
-                overline="Hey, I'm Sandrico. I'm a"
-                header="Software Engineer"
-            />
-            <ImageContainer>
-                <div>
-                    <Image
-                        src={setup1.src}
-                        priority
-                        layout="fill"
-                        objectFit="cover"
-                        quality={100}
-                        alt="My setup including the monitor, laptop, desk map, docking station, mouse and other items."
-                    />
-                </div>
-            </ImageContainer>
-            <ProjectsContainer>
-                <ProjectsHeader overline="Check Out My" header="Projects" />
-                {projectsList.map((project) => (
-                    <ProjectFull key={project.name} project={project} />
-                ))}
-            </ProjectsContainer>
-            <MyStory />
-            <DetailsBlockContainer>
-                <DetailBlock
-                    label="Education"
-                    listDirection="column"
-                    list={myInfo.education}
-                />
-                <DetailBlock
-                    label="Skills"
-                    listDirection="row"
-                    list={myInfo.techSkills}
-                />
-            </DetailsBlockContainer>
-            <WorkExperience />
+            <Head title="Sandrico Provo - Software Developer" />
+            <HeroSection>
+                <Header1 shouldMotion>Hey, I'm Sandrico</Header1>
+                <BodyText shouldMotion>
+                    I'm a <Highlighted accent>Software Developer</Highlighted>{' '}
+                    from Nova Scotia, Canada 🇨🇦. My skill set is{' '}
+                    <Highlighted accent>front-end focused</Highlighted>, but I{' '}
+                    <Highlighted accent>also bring back-end skills</Highlighted>
+                    {'. '} You can see a list of technologies and tools I use
+                    below. If you'd like to get in touch with me, use the{' '}
+                    <TextLink href="#contact_form">contact form</TextLink> below
+                    to get in touch.
+                </BodyText>
+                <TechStack />
+            </HeroSection>
+            <ExperienceSection />
+            <AboutSection>
+                <MePhoto />
+                <MyStory />
+            </AboutSection>
+            <ContactForm />
         </>
     );
 }
 
-export default Home;
+export default HomePage;

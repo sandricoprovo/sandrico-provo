@@ -1,7 +1,7 @@
 import Document, {
     Html,
-    Head,
     Main,
+    Head,
     NextScript,
     DocumentInitialProps,
     DocumentContext,
@@ -41,47 +41,25 @@ export default class MyDocument extends Document {
     // ---------------------------------------------------//
     render() {
         return (
-            <Html lang="en" className="theme-default">
+            <Html lang="en" className="theme--default">
                 <Head>
-                    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
                     <link
                         rel="preload"
-                        href="/fonts/Montserrat-Black.woff"
-                        as="font"
-                        type="font/woff"
-                        crossOrigin=""
-                    />
-                    <link
-                        rel="preload"
-                        href="/fonts/Montserrat-Black.woff2"
+                        href="/fonts/WorkSans-ExtraBold.woff2"
                         as="font"
                         type="font/woff2"
                         crossOrigin=""
                     />
                     <link
                         rel="preload"
-                        href="/fonts/Montserrat-Regular.woff"
-                        as="font"
-                        type="font/woff"
-                        crossOrigin=""
-                    />
-                    <link
-                        rel="preload"
-                        href="/fonts/Montserrat-Regular.woff2"
+                        href="/fonts/WorkSans-SemiBold.woff2"
                         as="font"
                         type="font/woff2"
                         crossOrigin=""
                     />
                     <link
                         rel="preload"
-                        href="/fonts/PermanentMarker-Regular.woff"
-                        as="font"
-                        type="font/woff"
-                        crossOrigin=""
-                    />
-                    <link
-                        rel="preload"
-                        href="/fonts/PermanentMarker-Regular.woff2"
+                        href="/fonts/WorkSans-Regular.woff2"
                         as="font"
                         type="font/woff2"
                         crossOrigin=""

@@ -1,12 +1,9 @@
 {
     "extends": [
-        "sandricoprovo/typescript"
+        "sandricoprovo/typescript",
+        "plugin:cypress/recommended"
     ],
     "rules": {
-        "react/destructuring-assignment": 0,
-        "react/function-component-definition": 0,
-        "react/display-name": 0,
-        "react-hooks/exhaustive-deps": 0,
-        "import/order": 0
+        "react/destructuring-assignment": 0
     }
 }
