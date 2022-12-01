@@ -13,69 +13,62 @@ const ProjectCardStyled = styled(motion.div)`
     flex-direction: column;
     gap: 20px;
 
-    /* Project Name */
-    & > h3:nth-child(2) {
-        font: var(--font-body);
-        color: var(--clr-text-header);
-    }
-
-    /* Project Description */
-    & > h3 ~ p {
-        min-height: 88px;
-    }
-
-    /* Image Container */
-    & > div:first-of-type {
-        position: relative;
-        width: 100%;
-        height: 300px;
-        background-color: var(--clr-project-img-background);
-        border-radius: var(--br-image);
-        overflow: hidden;
-
-        & img {
-            max-width: 100%;
-            max-height: 100%;
-            object-fit: cover;
-            transition: transform 0.3s var(--easing-hover);
-        }
-    }
-
     &:hover img {
         transform: scale(1.08);
     }
+`;
+const CardHeader = styled.h3`
+    font: var(--font-body);
+    color: var(--clr-text-header);
 
-    /* Tech Stack Container */
-    & > ul {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 12px;
-        min-height: 56px;
-
-        li > p {
-            font-size: var(--font-75);
-        }
+    & ~ p {
+        min-height: 88px;
     }
+`;
+const ImageContainer = styled.div`
+    position: relative;
+    width: 100%;
+    height: 300px;
+    background-color: var(--clr-project-img-background);
+    border-radius: var(--br-image);
+    overflow: hidden;
+`;
+const CardImage = styled(Image)`
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s var(--easing-hover);
+`;
+const StackContainer = styled.ul`
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    min-height: 56px;
 
-    /* Bottom Row Container */
-    & > div:last-child {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        gap: 20px;
+    li > p {
+        font-size: var(--font-75);
     }
+`;
+const StackList = styled.li`
+    & > p {
+        font-size: var(--font-75);
+    }
+`;
+const BottomRow = styled.div`
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+`;
+const IconsContainer = styled.div`
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: var(--spg-links);
 
-    /* Link Icons Container */
-    & > div:last-child > div:last-child {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        gap: var(--spg-links);
-
-        @media screen and (hover: hover) {
-            & > a:hover > svg {
-                fill: var(--clr-accent);
-            }
+    @media screen and (hover: hover) {
+        & > a:hover > svg {
+            fill: var(--clr-accent);
         }
     }
 `;
@@ -108,34 +101,34 @@ export function ProjectCard({ project, order }: ProjectCardProps) {
             initial="initial"
             animate="animate"
         >
-            <div>
-                <Image
+            <ImageContainer>
+                <CardImage
                     src={photo.src}
                     alt={photo.alt}
                     placeholder="blur"
                     blurDataURL={photo.src.blurDataURL}
                 />
-            </div>
-            <h3>{name}</h3>
+            </ImageContainer>
+            <CardHeader>{name}</CardHeader>
             <BodyText>{description}</BodyText>
-            <ul>
+            <StackContainer>
                 {stack.map((tech) => (
-                    <li key={`${id}_${tech}`}>
+                    <StackList key={`${id}_${tech}`}>
                         <BodyText>{tech}</BodyText>
-                    </li>
+                    </StackList>
                 ))}
-            </ul>
-            <div>
+            </StackContainer>
+            <BottomRow>
                 <BodyText>
                     <Highlighted>{projectYear}</Highlighted>
                 </BodyText>
-                <div>
+                <IconsContainer>
                     {github ? <GithubIcon title={name} href={github} /> : null}
                     {external ? (
                         <ExternalLinkIcon title={name} href={external} />
                     ) : null}
-                </div>
-            </div>
+                </IconsContainer>
+            </BottomRow>
         </ProjectCardStyled>
     );
 }
