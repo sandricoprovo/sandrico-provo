@@ -12,24 +12,24 @@ const GearTile = styled(motion.div)`
     display: flex;
     flex-direction: column;
     gap: 8px;
+`;
 
-    & > h3 {
-        font-size: var(--font-200);
-        font-family: var(--font-primary);
-        font-weight: normal;
-        line-height: 180%;
-    }
+const GearHeader = styled.h3`
+    font-size: var(--font-200);
+    font-family: var(--font-primary);
+    font-weight: normal;
+    line-height: 180%;
+`;
 
-    & > ul {
-        display: flex;
-        flex-direction: column;
+const GearItemsList = styled.ul`
+    display: flex;
+    flex-direction: column;
+`;
 
-        & > li {
-            list-style: square;
-            margin-inline-start: 18px;
-            font: var(--font-body);
-        }
-    }
+const GearItem = styled(motion.li)`
+    list-style: square;
+    margin-inline-start: 18px;
+    font: var(--font-body);
 `;
 
 interface GearListProps {
@@ -50,11 +50,11 @@ export function GearList({ gear }: GearListProps) {
 
     return (
         <GearTile>
-            <h3>{label}</h3>
-            <ul ref={itemsRef}>
+            <GearHeader>{label}</GearHeader>
+            <GearItemsList ref={itemsRef}>
                 {isItemsInView &&
                     list.map((item, index) => (
-                        <motion.li
+                        <GearItem
                             key={`${item}_${index}`}
                             variants={fadeUp}
                             transition={{
@@ -66,9 +66,9 @@ export function GearList({ gear }: GearListProps) {
                             animate="animate"
                         >
                             {item}
-                        </motion.li>
+                        </GearItem>
                     ))}
-            </ul>
+            </GearItemsList>
         </GearTile>
     );
 }
