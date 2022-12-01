@@ -5,7 +5,7 @@ const PageStyled = styled.main`
     width: 100%;
     max-width: var(--spg-layout-max-width);
     margin-inline: auto;
-    background-color: var(--clr-background);
+    background-color: inherit;
 `;
 
 interface PageProps {

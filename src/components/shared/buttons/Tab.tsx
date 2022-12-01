@@ -17,7 +17,7 @@ const TabStyled = styled.button<{ isActive: boolean }>`
     cursor: pointer;
 
     @media screen and (hover: hover) {
-        &:hover {
+        &:hover, &:focus {
             color: ${({ isActive }) =>
         // This line below causes an eslint/prettier error due to wrapping
         isActive ? 'var(--clr-accent)' : 'var(--clr-text-header)'};

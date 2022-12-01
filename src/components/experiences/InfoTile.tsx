@@ -20,7 +20,8 @@ const InfoTileStyled = styled.div`
     }
 
     @media screen and (hover: hover) {
-        &:hover a {
+        &:hover a,
+        &:focus a {
             color: var(--clr-accent);
 
             & span > svg {

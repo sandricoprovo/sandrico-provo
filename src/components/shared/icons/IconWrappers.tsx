@@ -27,7 +27,8 @@ const IconWrapperStyled = styled.span<{ animation: IconProps['animation'] }>`
     }
 
     @media screen and (hover: hover) {
-        &:hover {
+        &:hover,
+        &:focus {
             color: var(--clr-accent);
 
             & > svg {
@@ -54,7 +55,8 @@ const IconLinkWrapperStyled = styled.a`
     }
 
     @media screen and (hover: hover) {
-        &:hover {
+        &:hover,
+        &:focus {
             color: var(--clr-accent);
 
             & > svg {

@@ -24,7 +24,8 @@ const ClearBtnStyled = styled.button`
         padding-inline: 0;
     }
 
-    &:active {
+    &:active,
+    &:focus {
         background-color: var(--clr-danger);
         color: var(--clr-text-header);
 

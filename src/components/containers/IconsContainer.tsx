@@ -10,7 +10,8 @@ const IconsContainerStyled = styled.div`
     gap: var(--spg-links);
 
     @media screen and (hover: hover) {
-        & > a:hover > svg {
+        & > a:hover > svg,
+        & > a:focus > svg {
             fill: var(--clr-accent);
         }
     }

@@ -29,7 +29,8 @@ const sharedStyles = css`
     }
 
     @media screen and (hover: hover) {
-        &:hover {
+        &:hover,
+        &:focus {
             color: var(--clr-accent);
 
             &::after {

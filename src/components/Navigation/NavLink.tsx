@@ -4,26 +4,18 @@ import styled from 'styled-components';
 
 import { NavLink as INavLink } from '../../types/navlink';
 
-const NavLinkStyled = styled.li`
-    --padding-link: 24px;
+const NavLinkStyled = styled(Link)`
+    --padding-link: 16px;
     text-align: center;
     position: relative;
     font: var(--font-body);
     color: var(--clr-text);
     list-style: none;
-
     padding: 0 var(--padding-link);
     text-align: center;
-
-    & > a {
-        text-decoration: none;
-        color: inherit;
-    }
-
-    &,
-    & > a {
-        transition: color 0.1s var(--easing-hover);
-    }
+    text-decoration: none;
+    color: inherit;
+    transition: color 0.1s var(--easing-hover);
 
     &::after {
         content: '';
@@ -38,17 +30,19 @@ const NavLinkStyled = styled.li`
         opacity: 0;
         transition: opacity var(--hover-duration) var(--easing-hover),
             transform var(--hover-duration) var(--easing-hover);
-        transform: translateY(-4px);
+        transform: translateY(-2px);
     }
 
     @media screen and (hover: hover) {
-        &:hover {
+        &:hover,
+        &:focus {
             color: var(--clr-accent);
         }
 
-        &:hover::after {
+        &:hover::after,
+        &:focus::after {
             opacity: 1;
-            transform: translateY(0px);
+            transform: translateY(2px);
         }
     }
 `;
@@ -59,8 +53,8 @@ interface NavLinkProps {
 
 export function NavLink({ link }: NavLinkProps) {
     return (
-        <NavLinkStyled>
-            <Link href={link.href}>{link.label}</Link>
+        <NavLinkStyled href={link.href} tabIndex={0}>
+            {link.label}
         </NavLinkStyled>
     );
 }
