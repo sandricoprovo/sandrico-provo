@@ -5,22 +5,22 @@ import { NAV_LINKS } from '../../content/navigation';
 
 import { NavLink } from './NavLink';
 
-const NavBarStyled = styled.nav`
-    & > ul {
-        display: flex;
-        align-items: center;
-        gap: 8px;
-    }
+const NavItemsList = styled.ul`
+    display: flex;
+    align-items: center;
+    gap: 4px;
 `;
 
 export function NavBar() {
     return (
-        <NavBarStyled>
-            <ul>
+        <nav>
+            <NavItemsList>
                 {NAV_LINKS.map((link) => (
-                    <NavLink key={link.label.toLowerCase()} link={link} />
+                    <li key={link.label.toLowerCase()}>
+                        <NavLink link={link} />
+                    </li>
                 ))}
-            </ul>
-        </NavBarStyled>
+            </NavItemsList>
+        </nav>
     );
 }
