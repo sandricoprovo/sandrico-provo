@@ -10,14 +10,14 @@ const GearContainer = styled.section`
     display: flex;
     flex-wrap: wrap;
     gap: 24px;
+`;
 
-    & > div {
-        width: 100%;
+const GearListsContainer = styled.div`
+    width: 100%;
 
-        display: flex;
-        flex-wrap: wrap;
-        gap: 80px;
-    }
+    display: flex;
+    flex-wrap: wrap;
+    gap: 80px;
 `;
 
 interface GearSectionProps {
@@ -28,7 +28,7 @@ export function GearSection({ children }: GearSectionProps) {
     return (
         <GearContainer>
             <SubHeader>My Setup</SubHeader>
-            <div>{children}</div>
+            <GearListsContainer>{children}</GearListsContainer>
         </GearContainer>
     );
 }

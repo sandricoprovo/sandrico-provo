@@ -10,6 +10,7 @@ const TabStyled = styled.button<{ isActive: boolean }>`
     border: none;
     padding: 16px 16px 16px 0;
     width: 100%;
+    min-width: 150px;
     text-align: left;
     background-color: transparent;
     transition: color 0.2s var(--easing-hover);

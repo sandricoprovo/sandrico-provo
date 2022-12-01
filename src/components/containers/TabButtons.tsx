@@ -9,11 +9,6 @@ const TabButtonsStyled = styled(motion.ul)`
 
     display: flex;
     align-items: center;
-
-    & > li {
-        list-style: none;
-        width: 150px;
-    }
 `;
 
 interface TabButtonsProps {

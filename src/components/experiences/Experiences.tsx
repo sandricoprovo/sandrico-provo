@@ -17,27 +17,16 @@ const ExperiencesListContainer = styled(motion.section)`
     display: flex;
     flex-direction: column;
     gap: 40px;
+`;
 
-    & > div:first-of-type {
-        display: flex;
-        align-items: center;
-        gap: 4px;
+const IconsContainer = styled(motion.div)`
+    display: flex;
+    align-items: center;
+    gap: 4px;
 
-        @media screen and (hover: hover) {
-            & > a:hover > svg {
-                fill: var(--clr-accent);
-            }
-        }
-    }
-
-    & > div:last-child {
-        display: flex;
-        flex-direction: column;
-        gap: 24px;
-
-        & > ul > li {
-            list-style: square;
-            margin-inline-start: 15px;
+    @media screen and (hover: hover) {
+        & > a:hover > svg {
+            fill: var(--clr-accent);
         }
     }
 `;
@@ -50,6 +39,17 @@ const ExperienceList = styled(motion.ul)`
     gap: 40px;
 `;
 
+const EducationList = styled(motion.div)`
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+`;
+
+const EducationItem = styled.li`
+    list-style: square;
+    margin-inline-start: 15px;
+`;
+
 export function Experiences() {
     return (
         <ExperiencesListContainer>
@@ -60,7 +60,7 @@ export function Experiences() {
                 problems. Further down you'll also find a list of my
                 post-secondary education.
             </BodyText>
-            <motion.div
+            <IconsContainer
                 variants={fadeUp}
                 transition={{
                     delay: MOTION_DEFAULTS.DELAY,
@@ -80,7 +80,7 @@ export function Experiences() {
                     title="Resume"
                     label="Resume"
                 />
-            </motion.div>
+            </IconsContainer>
             <ExperienceList>
                 {experienceList.length > 0 &&
                     experienceList.map((experience, index) => (
@@ -92,7 +92,7 @@ export function Experiences() {
                         </li>
                     ))}
             </ExperienceList>
-            <motion.div
+            <EducationList
                 variants={fadeUp}
                 transition={{
                     delay: MOTION_DEFAULTS.DELAY,
@@ -110,13 +110,13 @@ export function Experiences() {
                         educationList.map((education) => {
                             const { endDate, program, school, id } = education;
                             return (
-                                <li key={id}>
+                                <EducationItem key={id}>
                                     <BodyText>{`${school} // ${program} // ${endDate}`}</BodyText>
-                                </li>
+                                </EducationItem>
                             );
                         })}
                 </motion.ul>
-            </motion.div>
+            </EducationList>
         </ExperiencesListContainer>
     );
 }
