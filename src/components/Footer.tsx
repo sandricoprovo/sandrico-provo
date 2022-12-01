@@ -54,7 +54,7 @@ export function Footer() {
         <FooterStyled>
             <div>
                 <h2>Let's Connect</h2>
-                <BodyText>I' look forward to connecting with you!</BodyText>
+                <BodyText>I look forward to connecting with you!</BodyText>
             </div>
             <div>
                 <BodyText>
