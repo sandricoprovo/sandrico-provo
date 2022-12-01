@@ -14,14 +14,14 @@ const ImageContainer = styled(motion.div)`
     background-color: var(--clr-project-img-background);
     border-radius: var(--br-image);
     overflow: hidden;
+`;
 
-    & img {
-        max-width: 100%;
-        max-height: 100%;
-        object-fit: cover;
-        object-position: center;
-        transition: transform 0.3s var(--easing-hover);
-    }
+const GearImage = styled(Image)`
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: cover;
+    object-position: center;
+    transition: transform 0.3s var(--easing-hover);
 `;
 
 export function GearPhoto() {
@@ -40,7 +40,7 @@ export function GearPhoto() {
             initial="initial"
             animate="animate"
         >
-            <Image
+            <GearImage
                 src={src}
                 alt={alt}
                 placeholder="blur"
