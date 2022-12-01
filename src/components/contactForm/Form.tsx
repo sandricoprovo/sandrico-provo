@@ -1,17 +1,19 @@
 import React, { FormEvent } from 'react';
 import styled from 'styled-components';
+import { motion } from 'framer-motion';
 
 import { useForm } from '../../hooks/useForm';
 import { ContactForm } from '../../types/contact';
 import { BodyText } from '../shared/typography';
 import { ClearBtn, SubmitBtn } from '../shared/buttons';
+import { fadeUp, MOTION_DEFAULTS } from '../shared/motions';
 
 import { Label } from './Label';
 import { Input } from './Input';
 import { TextArea } from './TextArea';
 import { ControlError } from './ControlError';
 
-const FormStyled = styled.form`
+const FormStyled = styled(motion.form)`
     --spg-gap: 16px;
     width: 100%;
     max-width: 800px;
@@ -95,6 +97,14 @@ export function Form() {
         <FormStyled
             method="POST"
             onSubmit={(event) => submitForm(event, handleFormSubmit)}
+            variants={fadeUp}
+            transition={{
+                delay: 0.4,
+                duration: MOTION_DEFAULTS.DURATION,
+                ease: MOTION_DEFAULTS.EASE,
+            }}
+            initial="initial"
+            animate="animate"
         >
             <fieldset>
                 <Label fieldName="name">
