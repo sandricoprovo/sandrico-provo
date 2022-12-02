@@ -49,11 +49,16 @@ const ClearBtnStyled = styled.button`
 interface ClearBtnProps {
     children: Children;
     clickHandler: () => void;
+    testId?: string;
 }
 
-export function ClearBtn({ children, clickHandler }: ClearBtnProps) {
+export function ClearBtn({ children, clickHandler, testId }: ClearBtnProps) {
     return (
-        <ClearBtnStyled type="button" onClick={clickHandler}>
+        <ClearBtnStyled
+            type="button"
+            onClick={clickHandler}
+            data-test-id={testId}
+        >
             {children} <TrashIcon size={18} />
         </ClearBtnStyled>
     );

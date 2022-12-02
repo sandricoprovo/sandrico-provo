@@ -67,6 +67,7 @@ export function ExperienceSection() {
                             <Tab
                                 clickHandler={() => handleTabSwitch(index)}
                                 isActive={activeTab === index}
+                                testId={`EXPTAB-${index + 1}`}
                             >
                                 {tab.header}
                             </Tab>

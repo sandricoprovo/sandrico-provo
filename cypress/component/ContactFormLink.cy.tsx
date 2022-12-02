@@ -43,9 +43,7 @@ describe('ContactFormLink.cy.tsx', () => {
     });
 
     it('First CF link scrolls to contact form on click', () => {
-        cy.get(
-            '.HeroSection__HeroSectionStyled-sc-26289b2a-0 > .BodyText__BodyTextStyled-sc-42d0cf54-0 > .TextLink__TextLinkStyled-sc-e62ab949-0 > a'
-        )
+        cy.get('[data-test-id=CFL-1]')
             .click()
             .then(() => {
                 expect(router.push).to.be.calledWith('/#contact_form');
@@ -53,9 +51,7 @@ describe('ContactFormLink.cy.tsx', () => {
     });
 
     it('Second CF link scrolls to contact form on click', () => {
-        cy.get(
-            ':nth-child(2) > .BodyText__BodyTextStyled-sc-42d0cf54-0 > .TextLink__TextLinkStyled-sc-e62ab949-0 > a'
-        )
+        cy.get('[data-test-id="CFL-2"]')
             .click()
             .then(() => {
                 expect(router.push).to.be.calledWith('/#contact_form');

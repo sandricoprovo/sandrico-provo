@@ -58,6 +58,7 @@ interface TextLinkProps {
     href: string;
     isExternal?: boolean;
     title?: string;
+    testId?: string;
 }
 
 export function TextLink({
@@ -65,9 +66,11 @@ export function TextLink({
     href,
     isExternal = false,
     title = 'Link',
+    testId,
 }: TextLinkProps) {
     return isExternal ? (
         <ExternalLink
+            data-test-id={testId}
             href={href}
             rel="noreferrer noopener"
             target="_blank"
@@ -76,7 +79,7 @@ export function TextLink({
             {children}
         </ExternalLink>
     ) : (
-        <InternalLink title={title} href={href}>
+        <InternalLink title={title} href={href} data-test-id={testId}>
             {children}
         </InternalLink>
     );

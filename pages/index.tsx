@@ -28,8 +28,10 @@ function HomePage() {
                     <Highlighted accent>also bring back-end skills</Highlighted>
                     {'. '} You can see a list of technologies and tools I use
                     below. If you'd like to get in touch with me, use the{' '}
-                    <TextLink href="#contact_form">contact form</TextLink> below
-                    to get in touch.
+                    <TextLink href="#contact_form" testId="CFL-1">
+                        contact form
+                    </TextLink>{' '}
+                    below to get in touch.
                 </BodyText>
                 <TechStack />
             </HeroSection>

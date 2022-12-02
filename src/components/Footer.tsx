@@ -59,7 +59,9 @@ export function Footer() {
             <div>
                 <BodyText>
                     You can say hello using the{' '}
-                    <TextLink href="#contact_form">contact form</TextLink>{' '}
+                    <TextLink href="#contact_form" testId="CFL-2">
+                        contact form
+                    </TextLink>{' '}
                     above, or you can find me on these platforms:
                 </BodyText>
                 <Socials />
@@ -77,6 +79,7 @@ export function Footer() {
                         isExternal
                         href="https://icons8.com"
                         title="icons 8"
+                        testId="I8L-1"
                     >
                         icons 8
                     </TextLink>
@@ -85,6 +88,7 @@ export function Footer() {
                         isExternal
                         href="https://thenounproject.com/browse/icons/term/send/"
                         title="Noun Project"
+                        testId="NP-1"
                     >
                         Kidiladon
                     </TextLink>{' '}
@@ -93,6 +97,7 @@ export function Footer() {
                         isExternal
                         href="https://thenounproject.com/browse/icons/term/loading/"
                         title="Noun Project"
+                        testId="NP-2"
                     >
                         Logodemia
                     </TextLink>{' '}

@@ -68,10 +68,13 @@ describe('Form.cy.tsx', () => {
     }
 
     function getSubmitBtn() {
-        return cy.get('.SubmitBtn__SubmitBtnStyled-sc-7965c19-0');
+        return cy.get('[data-test-id=CFSB]');
     }
 
     it('Submit button is disabled until form is filled', () => {
+        // Scrolls contact form into view so the intersection observer fires.
+        cy.get('#contact_form').scrollIntoView();
+
         // Checks that submit button is disabled.
         getSubmitBtn().should('be.disabled');
 
@@ -82,6 +85,6 @@ describe('Form.cy.tsx', () => {
         getSubmitBtn().should('be.not.disabled');
 
         // Clears the form.
-        cy.get('.ClearBtn__ClearBtnStyled-sc-b638bc50-0').click();
+        cy.get('[data-test-id=CFCB]').click();
     });
 });

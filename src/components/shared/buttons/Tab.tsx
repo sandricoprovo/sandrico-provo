@@ -29,11 +29,12 @@ interface TabProps {
     clickHandler: () => void;
     isActive: boolean;
     children: ReactNode | ReactNode[];
+    testId?: string;
 }
 
-export function Tab({ clickHandler, children, isActive }: TabProps) {
+export function Tab({ clickHandler, children, isActive, testId }: TabProps) {
     return (
-        <TabStyled isActive={isActive} onClick={clickHandler}>
+        <TabStyled isActive={isActive} onClick={clickHandler} data-test-id={testId}>
             {children}
         </TabStyled>
     );

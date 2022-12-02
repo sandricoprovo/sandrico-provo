@@ -54,6 +54,7 @@ interface SubmitBtnProps {
     status: SubmitStatusesAvailable;
     submitInProgress: boolean;
     clickHandler?: () => void;
+    testId?: string;
 }
 
 export function SubmitBtn({
@@ -63,6 +64,7 @@ export function SubmitBtn({
     isDisabled,
     submitInProgress,
     status = SUBMIT_STATUSES.NONE,
+    testId,
 }: SubmitBtnProps) {
     const statusClr = useRef('var(--clr-accent)');
 
@@ -80,6 +82,7 @@ export function SubmitBtn({
             onClick={clickHandler ?? undefined}
             disabled={isDisabled}
             statusClr={statusClr.current}
+            data-test-id={testId}
         >
             {children}{' '}
             {submitInProgress ? (

@@ -151,10 +151,13 @@ export function Form() {
                     isDisabled={disableSubmit}
                     status={submitStatus}
                     submitInProgress={submitInProgress}
+                    testId="CFSB"
                 >
                     Submit
                 </SubmitBtn>
-                <ClearBtn clickHandler={resetForm}>Clear</ClearBtn>
+                <ClearBtn clickHandler={resetForm} testId="CFCB">
+                    Clear
+                </ClearBtn>
             </div>
         </FormStyled>
     );

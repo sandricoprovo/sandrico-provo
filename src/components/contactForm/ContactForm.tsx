@@ -31,7 +31,7 @@ export function ContactForm() {
         threshold: 1,
     });
     return (
-        <FormContainer id="contact_form" ref={formRef}>
+        <FormContainer id="contact_form" data-test-id="CFC" ref={formRef}>
             {isInView && (
                 <>
                     <motion.div
