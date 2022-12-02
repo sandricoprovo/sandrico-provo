@@ -1,31 +1,54 @@
-import { useState, useEffect, MutableRefObject } from 'react';
+import { MutableRefObject, useEffect, useRef, useState } from 'react';
 
-export function useInView<T extends Element>(
+interface Options {
+    rootMargin?: string;
+    threshold?: number;
+    triggerOnce?: boolean;
+}
+
+export function useInView<T extends Element | null>(
     ref: MutableRefObject<T>,
-    rootMargin = '0px'
-): boolean {
-    const [isInView, setIsInView] = useState<boolean>(false);
+    options: Options = {} as Options
+) {
+    const {
+        rootMargin = '0px',
+        threshold = 0.4,
+        triggerOnce = false,
+    } = options;
 
-    useEffect(() => {
-        // Creates a new observer.
-        const observer = new IntersectionObserver(
-            ([entry]) => {
-                // Update our state when observer callback fires
-                setIsInView(entry.isIntersecting);
-            },
-            {
-                rootMargin,
-            }
-        );
+    const [isInView, setIsInView] = useState(false);
+    const shouldIntersectOnce = useRef(false);
 
-        if (ref.current) {
-            observer.observe(ref.current);
+    function updateIntersectingStatus([entry]: IntersectionObserverEntry[]) {
+        const { isIntersecting } = entry;
+        // Prevents the element from unmounting when not in view if triggerOnce is set.
+        if (shouldIntersectOnce.current) return;
+        if (triggerOnce && isIntersecting) {
+            shouldIntersectOnce.current = true;
         }
 
-        // Removes observer on unmount.
+        setIsInView(isIntersecting);
+    }
+
+    useEffect(() => {
+        // Splits ref element into variable to maintain reference to a single element.
+        const refElement = ref.current;
+
+        const observer = new IntersectionObserver(updateIntersectingStatus, {
+            rootMargin,
+            threshold,
+        });
+
+        if (refElement) {
+            observer.observe(refElement);
+        }
+
         return () => {
-            observer.unobserve(ref.current);
+            if (refElement) {
+                observer.unobserve(refElement);
+            }
         };
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
     return isInView;

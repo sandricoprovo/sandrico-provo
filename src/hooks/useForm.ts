@@ -1,4 +1,6 @@
-import { useState, useEffect, ChangeEvent, FormEvent } from 'react';
+import { useState, ChangeEvent, FormEvent, useRef, useMemo } from 'react';
+
+import { SubmitStatusesAvailable } from '../types/form';
 
 type FieldValues<T> = {
     [Property in keyof T]: T[Property];
@@ -13,33 +15,71 @@ export function useForm<T>(initial: FieldValues<T>) {
     const [errors, setErrors] = useState<ErrorMessages<T>>(
         {} as ErrorMessages<T>
     );
-    const initialValues = Object.values(initial).join('');
+    const [submitStatus, setSubmitStatus] =
+        useState<SubmitStatusesAvailable>('none');
+    const [submitInProgress, setSubmitInProgress] = useState(false);
+    // Notes if a user has tried to enter any content
+    const isClean = useRef(true);
 
-    useEffect(() => {
-        setFields(initial);
-    }, [initialValues]);
+    // Note: Checks are done for empty fields & errors because the are technically two different states that should prevent form submission.
+    const hasEmptyFields = useMemo(
+        () => Object.values(fields).some((value) => !value),
+        [fields]
+    );
+    const hasErrors = useMemo(() => Object.keys(errors).length > 0, [errors]);
+
+    function handleAddError(name: string) {
+        setErrors({
+            ...errors,
+            [name]: `Please enter a valid ${name}.`,
+        });
+    }
+
+    function handleRemoveError(name: string) {
+        const updatedErrors = { ...errors };
+        delete updatedErrors[name as keyof typeof errors];
+        setErrors(updatedErrors);
+    }
+
+    function checkForError(name: string, value: string) {
+        switch (name) {
+            case 'email':
+                // eslint-disable-next-line no-useless-escape
+                if (!/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/g.test(value)) {
+                    handleAddError(name);
+                } else {
+                    handleRemoveError(name);
+                }
+                break;
+            default: {
+                if (!value || value.length <= 0) {
+                    handleAddError(name);
+                } else {
+                    handleRemoveError(name);
+                }
+            }
+        }
+    }
 
     // Handles input changes.
     function handleChange(
         event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
     ) {
+        if (isClean.current) {
+            isClean.current = false;
+        }
+
         const { name, value } = event.target;
 
         // Updates the errors object
-        if (value.length <= 0) {
-            setErrors({ ...errors, [name]: `The ${name} field is required.` });
-        } else {
-            const updatedErrors = { ...errors };
-            delete updatedErrors[name as keyof typeof errors];
-            setErrors(updatedErrors);
-        }
+        checkForError(name, value);
 
-        // TODO: handle specific input types
         setFields({ ...fields, [name]: value });
     }
 
     // Handle form reset.
     function resetForm() {
+        isClean.current = true;
         setFields(initial);
         setErrors({});
     }
@@ -50,6 +90,7 @@ export function useForm<T>(initial: FieldValues<T>) {
             Object.entries(fields).map(([key]) => [key, ''])
         ) as FieldValues<T>;
 
+        isClean.current = true;
         setFields(blankState);
         setErrors({});
     }
@@ -60,8 +101,8 @@ export function useForm<T>(initial: FieldValues<T>) {
         submitHandler: (eventObj: FormEvent<HTMLFormElement>) => void
     ) {
         event.preventDefault();
-        // Confirms empty state of error object
-        if (Object.keys(errors).length > 0) {
+
+        if (hasEmptyFields || hasErrors) {
             return;
         }
 
@@ -69,13 +110,33 @@ export function useForm<T>(initial: FieldValues<T>) {
         submitHandler(event);
     }
 
+    // Handles updating the state of a submission so forms can react to their submit attempts
+    function updateSubmitStatus(didSucceed: boolean) {
+        if (!didSucceed) {
+            setSubmitStatus('failed');
+        } else {
+            setSubmitStatus('succeeded');
+        }
+
+        // Resets the status after 3 seconds.
+        setTimeout(() => setSubmitStatus('none'), 3000);
+    }
+
+    function toggleSubmitProgressStatus(status = !submitInProgress) {
+        setSubmitInProgress(status);
+    }
+
     return {
         fields,
         errors,
-        hasErrors: Object.keys(errors).length > 0,
+        disableSubmit: hasEmptyFields || hasErrors,
+        submitStatus,
+        submitInProgress,
         handleChange,
         clearForm,
         resetForm,
         submitForm,
+        updateSubmitStatus,
+        toggleSubmitProgressStatus,
     };
 }
