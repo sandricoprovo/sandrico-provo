@@ -22,6 +22,12 @@ const customJestConfig = {
     coverageProvider: 'babel',
     // The test environment that will be used for testing
     testEnvironment: 'jest-environment-jsdom',
+    roots: [
+        "<rootDir>/src"
+    ],
+    transform: {
+        "^.+\\.tsx?$": "ts-jest"
+    },
 };
 
 module.exports = createJestConfig(customJestConfig);
