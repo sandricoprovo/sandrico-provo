@@ -8,7 +8,7 @@ import { fadeUp, MOTION_DEFAULTS } from '../shared/motions';
 import { FileIcon, LinkedInIcon } from '../shared/icons';
 import { BodyText, Highlighted, SubHeader } from '../shared/typography';
 
-import { ExperienceRow } from './ExperienceRow';
+import { Row } from './Row';
 
 const ExperiencesListContainer = styled(motion.section)`
     margin-block-end: var(--spg-section);
@@ -36,7 +36,7 @@ const ExperienceList = styled(motion.ul)`
 
     display: flex;
     flex-direction: column;
-    gap: 40px;
+    gap: 80px;
 `;
 
 const EducationList = styled(motion.div)`
@@ -79,19 +79,16 @@ export function Experiences() {
             </div>
             <BodyText shouldMotion>
                 Below you'll find a list of places I've worked professionally
-                and some notable achievements I made while there. You'll also
-                see the technologies I used build out features and solve
-                problems. Further down you'll also find a list of my
-                post-secondary education.
+                and some impactful achievements I made while there. You'll also
+                see the technologies I used while features and solving technical
+                problems. Further down you'll find a list of my post-secondary
+                education.
             </BodyText>
             <ExperienceList>
                 {experienceList.length > 0 &&
                     experienceList.map((experience, index) => (
                         <li key={experience.id}>
-                            <ExperienceRow
-                                order={index}
-                                experience={experience}
-                            />
+                            <Row order={index} experience={experience} />
                         </li>
                     ))}
             </ExperienceList>

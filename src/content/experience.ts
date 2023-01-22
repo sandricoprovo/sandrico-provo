@@ -6,9 +6,9 @@ const experienceList: Experience[] = [
         jobTitle: 'Software Developer',
         companyName: 'REDspace',
         companyLink: 'https://www.redspace.com/',
-        timeline: 'April 2022 - Present',
+        timeline: 'May 2022 - Present',
         location: 'Remote',
-        details: [
+        achievements: [
             'Developed a UI form renderer that utilizes JSON by designing an intake JSON structure and component mapping system.',
             'Utilized React and TypeScript to build at least 2 critical user flows including authentication and selecting primary UI elements.',
             'Optimized load times of a high usage component by a factor of N by loading data in chunks as needed instead of all on load.',
@@ -29,9 +29,9 @@ const experienceList: Experience[] = [
         jobTitle: 'Jr. Software Developer',
         companyName: 'REDspace',
         companyLink: 'https://www.redspace.com/',
-        timeline: 'May 2021 - May 2022',
+        timeline: 'May 2021 - April 2022',
         location: 'Remote',
-        details: [
+        achievements: [
             'Built a 3 step data-driven user authentication flow using React, TypeScript and GraphQL.',
             'Decreased team debug time by 16 hours by integrating a new docker startup flow using open source tools.',
             'Developed a procedure to add and refresh list items while also preserving the previous lists’ order.',
@@ -47,29 +47,13 @@ const experienceList: Experience[] = [
         ],
     },
     {
-        id: 'RSJSD_2021',
-        jobTitle: 'Software Developer Intern',
-        companyName: 'REDspace',
-        companyLink: 'https://www.redspace.com/',
-        timeline: 'May 2021',
-        location: 'Remote',
-        techUsed: [
-            'React',
-            'TypeScript',
-            'CSS',
-            'GraphQL',
-            'C#',
-            'Docker',
-            'Styled Components',
-        ],
-    },
-    {
         id: 'BWAD_2022',
         jobTitle: 'Web Application Developer',
-        companyName: 'Bursity // CO-OP // Early Stage Startup',
+        companyName: 'Bursity',
         timeline: 'May 2020 - August 2020',
         location: 'Remote',
-        details: [
+        wasCoOp: true,
+        achievements: [
             "Implemented the majority of a CMS front-end which displays 100's of personalized scholarships to users within 15 minutes.",
             'Designed a light weight user interface that provided hundreds of personalized scholarships to students within 5 steps or less.',
             'Created a full design prototype using Figma which attracted two interested startup investors after demonstrations.',
