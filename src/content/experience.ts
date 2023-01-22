@@ -67,7 +67,7 @@ const educationList = [
         id: 'NSCC-ITWEBP-2021',
         school: 'Nova Scotia Community College',
         program: 'IT Web Programming',
-        endDate: 'April 2021 - Graduated with Honours',
+        endDate: 'April 2021 // Graduated with Honours',
     },
     {
         id: 'SMU-GS-2017',
