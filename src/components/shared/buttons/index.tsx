@@ -1,7 +1,7 @@
 import { TextLink } from './TextLink';
 import { ToggleBtn } from './ToggleBtn';
-import { Tab } from './Tab';
 import { SubmitBtn } from './SubmitBtn';
 import { ClearBtn } from './ClearBtn';
+import { ContactBtn } from './ContactBtn';
 
-export { TextLink, ToggleBtn, Tab, SubmitBtn, ClearBtn };
+export { TextLink, ToggleBtn, SubmitBtn, ClearBtn, ContactBtn };

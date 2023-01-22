@@ -5,6 +5,7 @@ export interface Experience {
     timeline: string;
     location: string;
     techUsed: string[];
-    details?: string[];
+    achievements: string[];
+    wasCoOp?: true;
     companyLink?: string;
 }

@@ -73,7 +73,9 @@ describe('Form.cy.tsx', () => {
 
     it('Submit button is disabled until form is filled', () => {
         // Scrolls contact form into view so the intersection observer fires.
-        cy.get('#contact_form').scrollIntoView();
+        cy.get(
+            '.HeroSection__HeroSectionStyled-sc-159aeab4-0 > .ContactBtn__ContactBtnStyled-sc-4c6830b2-0'
+        ).click();
 
         // Checks that submit button is disabled.
         getSubmitBtn().should('be.disabled');

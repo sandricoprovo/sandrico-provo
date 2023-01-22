@@ -1,7 +1,8 @@
 import React, { ReactNode } from 'react';
 import styled from 'styled-components';
 
-import { Footer } from '../Footer';
+import RefsContextProvider from '../../contexts/refsContext';
+import { Footer } from '../footer/Footer';
 import { Header } from '../Header';
 
 import { Page } from './Page';
@@ -24,10 +25,12 @@ interface LayoutProps {
 
 export function Layout({ children }: LayoutProps) {
     return (
-        <LayoutStyled>
-            <Header />
-            <Page>{children}</Page>
-            <Footer />
-        </LayoutStyled>
+        <RefsContextProvider>
+            <LayoutStyled>
+                <Header />
+                <Page>{children}</Page>
+                <Footer />
+            </LayoutStyled>
+        </RefsContextProvider>
     );
 }

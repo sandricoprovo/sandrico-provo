@@ -1,8 +1,12 @@
-import React, { ReactNode } from 'react';
+import React from 'react';
 import styled from 'styled-components';
+
+import { MePhoto } from '../MePhoto';
+import { MyStory } from '../MyStory';
 
 const AboutSectionStyled = styled.section`
     width: 100%;
+    min-height: 740px; // Hack to prevent height shift from displacing contact from scroll ref.
     margin-block-end: var(--spg-section);
 
     display: flex;
@@ -10,10 +14,11 @@ const AboutSectionStyled = styled.section`
     gap: 64px;
 `;
 
-interface AboutSectionProps {
-    children: ReactNode | ReactNode[];
-}
-
-export function AboutSection({ children }: AboutSectionProps) {
-    return <AboutSectionStyled>{children}</AboutSectionStyled>;
+export function AboutSection() {
+    return (
+        <AboutSectionStyled>
+            <MePhoto />
+            <MyStory />
+        </AboutSectionStyled>
+    );
 }

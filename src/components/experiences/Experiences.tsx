@@ -1,5 +1,4 @@
 import React from 'react';
-import styled from 'styled-components';
 import { motion } from 'framer-motion';
 
 import { aboutMe } from '../../content/aboutMe';
@@ -8,91 +7,52 @@ import { fadeUp, MOTION_DEFAULTS } from '../shared/motions';
 import { FileIcon, LinkedInIcon } from '../shared/icons';
 import { BodyText, Highlighted, SubHeader } from '../shared/typography';
 
-import { ExperienceRow } from './ExperienceRow';
-
-const ExperiencesListContainer = styled(motion.section)`
-    margin-block-end: var(--spg-section);
-    width: 100%;
-
-    display: flex;
-    flex-direction: column;
-    gap: 40px;
-`;
-
-const IconsContainer = styled(motion.div)`
-    display: flex;
-    align-items: center;
-    gap: 4px;
-
-    @media screen and (hover: hover) {
-        & > a:hover > svg {
-            fill: var(--clr-accent);
-        }
-    }
-`;
-
-const ExperienceList = styled(motion.ul)`
-    width: 100%;
-
-    display: flex;
-    flex-direction: column;
-    gap: 40px;
-`;
-
-const EducationList = styled(motion.div)`
-    display: flex;
-    flex-direction: column;
-    gap: 24px;
-`;
-
-const EducationItem = styled.li`
-    list-style: square;
-    margin-inline-start: 15px;
-`;
+import * as Styled from './ExperienceStyles';
+import { Row } from './Row';
 
 export function Experiences() {
     return (
-        <ExperiencesListContainer>
+        <Styled.Container>
+            <div>
+                <SubHeader>Professional Experience</SubHeader>
+                <Styled.IconsContainer
+                    variants={fadeUp}
+                    transition={{
+                        delay: MOTION_DEFAULTS.DELAY,
+                        duration: MOTION_DEFAULTS.DURATION,
+                        ease: MOTION_DEFAULTS.EASE,
+                    }}
+                    initial="initial"
+                    animate="animate"
+                >
+                    <LinkedInIcon
+                        href={aboutMe.links.linkedIn}
+                        title="LinkedIn"
+                        label="LinkedIn"
+                    />
+                    <FileIcon
+                        href={aboutMe.links.resume}
+                        title="Resume"
+                        label="Resume"
+                    />
+                </Styled.IconsContainer>
+            </div>
             <BodyText shouldMotion>
                 Below you'll find a list of places I've worked professionally
-                and some notable achievements I made while there. You'll also
-                see the technologies I used build out features and solve
-                problems. Further down you'll also find a list of my
-                post-secondary education.
+                and some impactful achievements I made while there. You'll also
+                see the technologies I used while features and solving technical
+                problems. Further down you'll find a list of my post-secondary
+                education.
             </BodyText>
-            <IconsContainer
-                variants={fadeUp}
-                transition={{
-                    delay: MOTION_DEFAULTS.DELAY,
-                    duration: MOTION_DEFAULTS.DURATION,
-                    ease: MOTION_DEFAULTS.EASE,
-                }}
-                initial="initial"
-                animate="animate"
-            >
-                <LinkedInIcon
-                    href={aboutMe.links.linkedIn}
-                    title="LinkedIn"
-                    label="LinkedIn"
-                />
-                <FileIcon
-                    href={aboutMe.links.resume}
-                    title="Resume"
-                    label="Resume"
-                />
-            </IconsContainer>
-            <ExperienceList>
+            <Styled.ExperienceList>
                 {experienceList.length > 0 &&
                     experienceList.map((experience, index) => (
                         <li key={experience.id}>
-                            <ExperienceRow
-                                order={index}
-                                experience={experience}
-                            />
+                            <Row order={index} experience={experience} />
                         </li>
                     ))}
-            </ExperienceList>
-            <EducationList
+            </Styled.ExperienceList>
+            <Styled.EducationList
                 variants={fadeUp}
                 transition={{
                     delay: MOTION_DEFAULTS.DELAY,
@@ -110,13 +70,13 @@ export function Experiences() {
                         educationList.map((education) => {
                             const { endDate, program, school, id } = education;
                             return (
-                                <EducationItem key={id}>
-                                    <BodyText>{`${school} // ${program} // ${endDate}`}</BodyText>
-                                </EducationItem>
+                                <Styled.EducationItem key={id}>
+                                    <BodyText>{`${program} - ${school} // ${endDate}`}</BodyText>
+                                </Styled.EducationItem>
                             );
                         })}
                 </motion.ul>
-            </EducationList>
-        </ExperiencesListContainer>
+            </Styled.EducationList>
+        </Styled.Container>
     );
 }

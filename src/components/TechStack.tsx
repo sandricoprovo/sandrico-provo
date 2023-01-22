@@ -18,7 +18,7 @@ import {
 import { BodyText } from './shared/typography';
 
 const TechStackStyled = styled.section`
-    margin-block-start: 24px;
+    /* margin-block-start: 24px; */
 
     display: flex;
     flex-direction: column;
@@ -56,7 +56,6 @@ export function TechStack() {
                     <li key={index}>{logo({ order: index })}</li>
                 ))}
             </LogoContainer>
-
             <ul>
                 {nonLogoStack.map((tech) => (
                     <li key={tech}>

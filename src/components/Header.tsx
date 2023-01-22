@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import { NavBar } from './Navigation/NavBar';
+import { NavBar } from './navigation/NavBar';
 import { Socials } from './Socials';
 
 const HeaderStyled = styled.header`
