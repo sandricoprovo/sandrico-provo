@@ -11,6 +11,8 @@ import { fadeUp, MOTION_DEFAULTS } from '../shared/motions';
 const ProjectCardStyled = styled(motion.div)`
     display: flex;
     flex-direction: column;
+    justify-content: flex-start;
+
     gap: 20px;
 
     &:hover img {
@@ -20,10 +22,6 @@ const ProjectCardStyled = styled(motion.div)`
 const CardHeader = styled.h3`
     font: var(--font-body);
     color: var(--clr-text-header);
-
-    & ~ p {
-        min-height: 88px;
-    }
 `;
 const ImageContainer = styled.div`
     position: relative;
@@ -43,7 +41,6 @@ const StackContainer = styled.ul`
     display: flex;
     flex-wrap: wrap;
     gap: 12px;
-    min-height: 56px;
 
     li > p {
         font-size: var(--font-75);
@@ -55,12 +52,18 @@ const StackList = styled.li`
     }
 `;
 const BottomRow = styled.div`
+    height: 40px;
+    margin-top: auto;
+
     display: flex;
     justify-content: space-between;
     align-items: center;
     gap: 20px;
 `;
+
 const IconsContainer = styled.div`
+    height: 100%;
+
     display: flex;
     justify-content: space-between;
     align-items: center;
