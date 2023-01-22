@@ -2,7 +2,7 @@ import React, { ReactNode } from 'react';
 import styled from 'styled-components';
 
 import RefsContextProvider from '../../contexts/refsContext';
-import { Footer } from '../Footer';
+import { Footer } from '../footer/Footer';
 import { Header } from '../Header';
 
 import { Page } from './Page';
