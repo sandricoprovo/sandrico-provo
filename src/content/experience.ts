@@ -9,9 +9,11 @@ const experienceList: Experience[] = [
         timeline: 'May 2022 - Present',
         location: 'Remote',
         achievements: [
-            'Developed a UI form renderer that utilizes JSON by designing an intake JSON structure and component mapping system.',
-            'Utilized React and TypeScript to build at least 2 critical user flows including authentication and selecting primary UI elements.',
-            'Optimized load times of a high usage component by a factor of N by loading data in chunks as needed instead of all on load.',
+            'Optimized performance by 50% by iterating on data loading strategies for a high-traffic React component.',
+            'Increased test coverage by 20% by creating unit and end-to-end tests using modern testing tools in React.',
+            'Provided a data-driven form component in under 150ms by developing a form renderer that consumes JSON using React Hooks.',
+            'Reduced type duplication in a TypeScript application by 80% by creating a generic type for reusable components.',
+            'Guided a small dev team through common engineering cycles leading to a successful MVP demo after three months while using new technologies.',
         ],
         techUsed: [
             'React',
@@ -32,9 +34,11 @@ const experienceList: Experience[] = [
         timeline: 'May 2021 - April 2022',
         location: 'Remote',
         achievements: [
-            'Built a 3 step data-driven user authentication flow using React, TypeScript and GraphQL.',
-            'Decreased team debug time by 16 hours by integrating a new docker startup flow using open source tools.',
-            'Developed a procedure to add and refresh list items while also preserving the previous lists’ order.',
+            'Boosted rendering performance by 92% by experimenting with and integrating a virtualized list inside a high-use table component.',
+            'Reduced technical debt by 30% by integrating a state management library into a large React and TypeScript codebase.',
+            'Actioned on user feedback by building drag and drop, duplicating, and reordering functionality into multiple data-drivenReact components.',
+            'Coded a 3-step data-driven user authentication flow with sessions using React, TypeScript and GraphQL.',
+            'Diagnosed and implemented a fix for a blocking full-stack issue that allowed the team to maintain velocity within tight deadlines.',
         ],
         techUsed: [
             'React',
@@ -54,9 +58,9 @@ const experienceList: Experience[] = [
         location: 'Remote',
         wasCoOp: true,
         achievements: [
-            "Implemented the majority of a CMS front-end which displays 100's of personalized scholarships to users within 15 minutes.",
-            'Designed a light weight user interface that provided hundreds of personalized scholarships to students within 5 steps or less.',
-            'Created a full design prototype using Figma which attracted two interested startup investors after demonstrations.',
+            'Produced a design prototype using Figma that attracted two potential investors after demonstrations.',
+            'Worked collaboratively to integrate third-party data sources into a front-end application using WordPress and custom CSS.',
+            'Built a frontend using WordPress and custom CSS that provided hundreds of personalized scholarships to students within five steps or less.',
         ],
         techUsed: ['CSS', 'WordPress', 'Figma'],
     },
