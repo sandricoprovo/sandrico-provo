@@ -6,6 +6,7 @@ const HeroSectionStyled = styled.section`
 
     display: flex;
     flex-direction: column;
+    align-items: flex-start;
     gap: 24px;
 `;
 

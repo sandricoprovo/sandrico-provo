@@ -2,7 +2,7 @@ import React from 'react';
 
 import { HeroSection } from '../src/components/containers/HeroSection';
 import { AboutSection } from '../src/components/containers/AboutSection';
-import { TextLink } from '../src/components/shared/buttons';
+import { ContactBtn } from '../src/components/shared/buttons';
 import {
     Header1,
     BodyText,
@@ -25,16 +25,15 @@ function HomePage() {
                 <BodyText shouldMotion>
                     I'm a <Highlighted accent>Software Developer</Highlighted>{' '}
                     from Nova Scotia, Canada 🇨🇦. My skill set is{' '}
-                    <Highlighted accent>front-end focused</Highlighted>, but I{' '}
+                    <Highlighted accent>specialized in front-end</Highlighted>{' '}
+                    technologies, but I{' '}
                     <Highlighted accent>also bring back-end skills</Highlighted>
                     {'. '} You can see a list of technologies and tools I use
-                    below. If you'd like to get in touch with me, use the{' '}
-                    <TextLink href="#contact_form" testId="CFL-1">
-                        contact form
-                    </TextLink>{' '}
-                    below to get in touch.
+                    below. If you'd like to get in touch, use the say hello
+                    button to go to my contact form.
                 </BodyText>
                 <TechStack />
+                <ContactBtn>Say Hello 👋🏾</ContactBtn>
             </HeroSection>
             <Experiences />
             <Projects />
