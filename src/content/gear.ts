@@ -36,7 +36,7 @@ const gear: Gear = {
             list: [
                 'Visual Studio Code + Material PaleNight Theme',
                 'Dank Mono Font',
-                'iTerm2 / Warp',
+                'Warp',
                 'Things 3',
                 'Notion',
                 'Figma',
@@ -45,6 +45,7 @@ const gear: Gear = {
                 'Fig',
                 'Raycast',
                 'Starship Terminal Prompt',
+                'Linear - Project Management',
             ],
         },
     ],
