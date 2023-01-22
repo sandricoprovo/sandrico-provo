@@ -53,6 +53,30 @@ const EducationItem = styled.li`
 export function Experiences() {
     return (
         <ExperiencesListContainer>
+            <div>
+                <SubHeader>Professional Experience</SubHeader>
+                <IconsContainer
+                    variants={fadeUp}
+                    transition={{
+                        delay: MOTION_DEFAULTS.DELAY,
+                        duration: MOTION_DEFAULTS.DURATION,
+                        ease: MOTION_DEFAULTS.EASE,
+                    }}
+                    initial="initial"
+                    animate="animate"
+                >
+                    <LinkedInIcon
+                        href={aboutMe.links.linkedIn}
+                        title="LinkedIn"
+                        label="LinkedIn"
+                    />
+                    <FileIcon
+                        href={aboutMe.links.resume}
+                        title="Resume"
+                        label="Resume"
+                    />
+                </IconsContainer>
+            </div>
             <BodyText shouldMotion>
                 Below you'll find a list of places I've worked professionally
                 and some notable achievements I made while there. You'll also
@@ -60,27 +84,6 @@ export function Experiences() {
                 problems. Further down you'll also find a list of my
                 post-secondary education.
             </BodyText>
-            <IconsContainer
-                variants={fadeUp}
-                transition={{
-                    delay: MOTION_DEFAULTS.DELAY,
-                    duration: MOTION_DEFAULTS.DURATION,
-                    ease: MOTION_DEFAULTS.EASE,
-                }}
-                initial="initial"
-                animate="animate"
-            >
-                <LinkedInIcon
-                    href={aboutMe.links.linkedIn}
-                    title="LinkedIn"
-                    label="LinkedIn"
-                />
-                <FileIcon
-                    href={aboutMe.links.resume}
-                    title="Resume"
-                    label="Resume"
-                />
-            </IconsContainer>
             <ExperienceList>
                 {experienceList.length > 0 &&
                     experienceList.map((experience, index) => (

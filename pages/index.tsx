@@ -3,7 +3,6 @@ import React from 'react';
 import { HeroSection } from '../src/components/containers/HeroSection';
 import { AboutSection } from '../src/components/containers/AboutSection';
 import { TextLink } from '../src/components/shared/buttons';
-import { ExperienceSection } from '../src/components/experiences/ExperienceSection';
 import {
     Header1,
     BodyText,
@@ -14,6 +13,8 @@ import { MyStory } from '../src/components/MyStory';
 import { ContactForm } from '../src/components/contactForm/ContactForm';
 import { Head } from '../src/components/Head';
 import { TechStack } from '../src/components/TechStack';
+import { Experiences } from '../src/components/experiences/Experiences';
+import { Projects } from '../src/components/projects/Projects';
 
 function HomePage() {
     return (
@@ -35,7 +36,8 @@ function HomePage() {
                 </BodyText>
                 <TechStack />
             </HeroSection>
-            <ExperienceSection />
+            <Experiences />
+            <Projects />
             <AboutSection>
                 <MePhoto />
                 <MyStory />

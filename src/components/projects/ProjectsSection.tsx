@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import { BodyText } from '../shared/typography';
 
 const ProjectsContainer = styled.section`
+    margin-block-start: calc(var(--spg-padding-block) * 0.32);
     margin-block-end: var(--spg-section);
     width: 100%;
 
