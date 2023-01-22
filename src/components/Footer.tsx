@@ -1,8 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
 
+import { useRefsContext } from '../contexts/refsContext';
+
 import { LocalTime } from './LocalTime';
-import { TextLink } from './shared/buttons';
+import { ContactBtn, TextLink } from './shared/buttons';
 import { BodyText, SmallBodyText } from './shared/typography';
 import { Socials } from './Socials';
 
@@ -31,6 +33,11 @@ const FooterStyled = styled.footer`
         }
     }
 
+    /* Contact */
+    & > div:nth-child(2) > button:last-child {
+        margin-block-start: 21px;
+    }
+
     /* Local Time container */
     & > div:last-child {
         display: flex;
@@ -50,6 +57,8 @@ const FooterStyled = styled.footer`
 `;
 
 export function Footer() {
+    const { contactFormRef, scrollToRef } = useRefsContext();
+
     return (
         <FooterStyled>
             <div>
@@ -58,13 +67,14 @@ export function Footer() {
             </div>
             <div>
                 <BodyText>
-                    You can say hello using the{' '}
-                    <TextLink href="#contact_form" testId="CFL-2">
-                        contact form
-                    </TextLink>{' '}
-                    above, or you can find me on these platforms:
+                    You can say hello using the contact button below, or you can
+                    find me on these platforms:
                 </BodyText>
                 <Socials />
+                <ContactBtn clickHandler={() => scrollToRef(contactFormRef)}>
+                    {' '}
+                    Say Hello 👋🏾
+                </ContactBtn>
             </div>
             <div>
                 <div>

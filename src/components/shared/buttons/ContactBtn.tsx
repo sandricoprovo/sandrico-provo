@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import { Children } from '../../../types/children';
 import { fadeUp, MOTION_DEFAULTS } from '../motions';
 
-const ContactBtnStyled = styled(motion.a)`
+const ContactBtnStyled = styled(motion.button)`
     flex-basis: auto;
 
     background-color: var(--clr-accent);
@@ -14,7 +14,6 @@ const ContactBtnStyled = styled(motion.a)`
     border-radius: 5px;
     color: var(--clr-gs-900);
     font-weight: 600;
-    text-decoration: none;
     font-family: var(--font-primary);
     transition: color var(--hover-duration) var(--easing-hover),
         background-color var(--hover-duration) var(--easing-hover);
@@ -36,14 +35,15 @@ const ContactBtnStyled = styled(motion.a)`
 
 interface ContactBtnProps {
     children: Children;
+    clickHandler: () => void;
 }
 
-export function ContactBtn({ children }: ContactBtnProps) {
+export function ContactBtn({ children, clickHandler }: ContactBtnProps) {
     return (
         <ContactBtnStyled
-            href="#contact_form"
             data-test-id="CFL-1"
             type="button"
+            onClick={clickHandler}
             variants={fadeUp}
             transition={{
                 delay: MOTION_DEFAULTS.DELAY,

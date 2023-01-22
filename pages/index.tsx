@@ -15,8 +15,11 @@ import { Head } from '../src/components/Head';
 import { TechStack } from '../src/components/TechStack';
 import { Experiences } from '../src/components/experiences/Experiences';
 import { Projects } from '../src/components/projects/Projects';
+import { useRefsContext } from '../src/contexts/refsContext';
 
 function HomePage() {
+    const { contactFormRef, scrollToRef } = useRefsContext();
+
     return (
         <>
             <Head title="Sandrico Provo - Software Developer" />
@@ -33,7 +36,9 @@ function HomePage() {
                     button to go to my contact form.
                 </BodyText>
                 <TechStack />
-                <ContactBtn>Say Hello 👋🏾</ContactBtn>
+                <ContactBtn clickHandler={() => scrollToRef(contactFormRef)}>
+                    Say Hello 👋🏾
+                </ContactBtn>
             </HeroSection>
             <Experiences />
             <Projects />
@@ -41,7 +46,7 @@ function HomePage() {
                 <MePhoto />
                 <MyStory />
             </AboutSection>
-            <ContactForm />
+            <ContactForm scrollRef={contactFormRef} />
         </>
     );
 }
