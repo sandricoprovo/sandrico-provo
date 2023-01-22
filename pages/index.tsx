@@ -8,14 +8,12 @@ import {
     BodyText,
     Highlighted,
 } from '../src/components/shared/typography';
-import { MePhoto } from '../src/components/MePhoto';
-import { MyStory } from '../src/components/MyStory';
 import { ContactForm } from '../src/components/contactForm/ContactForm';
 import { Head } from '../src/components/Head';
 import { TechStack } from '../src/components/TechStack';
 import { Experiences } from '../src/components/experiences/Experiences';
-import { Projects } from '../src/components/projects/Projects';
 import { useRefsContext } from '../src/contexts/refsContext';
+import { Projects } from '../src/components/projects/Projects';
 
 function HomePage() {
     const { contactFormRef, scrollToRef } = useRefsContext();
@@ -42,10 +40,7 @@ function HomePage() {
             </HeroSection>
             <Experiences />
             <Projects />
-            <AboutSection>
-                <MePhoto />
-                <MyStory />
-            </AboutSection>
+            <AboutSection />
             <ContactForm scrollRef={contactFormRef} />
         </>
     );
