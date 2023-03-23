@@ -23,7 +23,10 @@ export function Footer() {
                     work on these platforms:
                 </BodyText>
                 <Socials />
-                <ContactBtn clickHandler={() => scrollToRef(contactFormRef)}>
+                <ContactBtn
+                    clickHandler={() => scrollToRef(contactFormRef)}
+                    testId="footer-contact-btn"
+                >
                     {' '}
                     Say Hello 👋🏾
                 </ContactBtn>

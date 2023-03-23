@@ -43,9 +43,7 @@ describe('ContactFormLink.cy.tsx', () => {
     });
 
     it('First CF button scrolls to contact form on click', () => {
-        cy.get(
-            '.HeroSection__HeroSectionStyled-sc-159aeab4-0 > .ContactBtn__ContactBtnStyled-sc-4c6830b2-0'
-        )
+        cy.get('[data-test-id="hero-contact-btn"]')
             .click()
             .then(() => {
                 cy.contains('Get In Touch');
@@ -53,9 +51,7 @@ describe('ContactFormLink.cy.tsx', () => {
     });
 
     it('Second CF link scrolls to contact form on click', () => {
-        cy.get(
-            '.FooterStyles__ContactInfo-sc-7bbdd417-3 > .ContactBtn__ContactBtnStyled-sc-4c6830b2-0'
-        )
+        cy.get('[data-test-id="footer-contact-btn"]')
             .click()
             .then(() => {
                 cy.contains('Get In Touch');
