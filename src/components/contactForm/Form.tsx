@@ -110,6 +110,7 @@ export function Form() {
                 <Label fieldName="name">
                     <BodyText>Name</BodyText>
                     <Input
+                        testId="cfi-name"
                         fieldName="name"
                         fieldValue={fields.name}
                         changeHandler={handleChange}
@@ -119,6 +120,7 @@ export function Form() {
                 <Label fieldName="email">
                     <BodyText>Email</BodyText>
                     <Input
+                        testId="cfi-email"
                         fieldName="email"
                         fieldValue={fields.email}
                         changeHandler={handleChange}
@@ -129,6 +131,7 @@ export function Form() {
                 <Label fieldName="subject">
                     <BodyText>Subject</BodyText>
                     <Input
+                        testId="cfi-subject"
                         fieldName="subject"
                         fieldValue={fields.subject}
                         changeHandler={handleChange}
@@ -138,6 +141,7 @@ export function Form() {
                 <Label fieldName="message">
                     <BodyText>Message</BodyText>
                     <TextArea
+                        testId="cfi-message"
                         fieldName="message"
                         fieldValue={fields.message}
                         changeHandler={handleChange}

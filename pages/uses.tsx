@@ -16,7 +16,7 @@ function UsesPage() {
     return (
         <>
             <Head title="Sandrico Provo - /uses" />
-            <HeroSection>
+            <HeroSection testId="uses-hero">
                 <Header1 shouldMotion>/uses</Header1>
                 <BodyText shouldMotion>
                     This page is dedicated to detailing all of the{' '}

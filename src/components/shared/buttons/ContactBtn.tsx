@@ -36,12 +36,17 @@ const ContactBtnStyled = styled(motion.button)`
 interface ContactBtnProps {
     children: Children;
     clickHandler: () => void;
+    testId?: string;
 }
 
-export function ContactBtn({ children, clickHandler }: ContactBtnProps) {
+export function ContactBtn({
+    children,
+    clickHandler,
+    testId = '',
+}: ContactBtnProps) {
     return (
         <ContactBtnStyled
-            data-test-id="CFL-1"
+            data-test-id={testId}
             type="button"
             onClick={clickHandler}
             variants={fadeUp}

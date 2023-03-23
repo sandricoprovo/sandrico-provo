@@ -16,15 +16,18 @@ interface TextAreaProps {
     fieldName: string;
     fieldValue: string;
     changeHandler: (event: ChangeEvent<HTMLTextAreaElement>) => void;
+    testId?: string;
 }
 
 export function TextArea({
     changeHandler,
     fieldName,
     fieldValue,
+    testId = '',
 }: TextAreaProps) {
     return (
         <TextAreaStyled
+            data-test-id={testId}
             onChange={changeHandler}
             name={fieldName}
             value={fieldValue}
