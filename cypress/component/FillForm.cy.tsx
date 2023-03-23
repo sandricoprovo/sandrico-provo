@@ -53,18 +53,10 @@ describe('Form.cy.tsx', () => {
 
     // Fills form inputs with mock content.
     function fillFormInput() {
-        cy.get('[for="name"] > .Input__InputStyled-sc-4f9fb6c8-0').type(
-            mockContent.name
-        );
-        cy.get('[for="email"] > .Input__InputStyled-sc-4f9fb6c8-0').type(
-            mockContent.email
-        );
-        cy.get('[for="subject"] > .Input__InputStyled-sc-4f9fb6c8-0').type(
-            mockContent.subject
-        );
-        cy.get('.TextArea__TextAreaStyled-sc-942561ba-0').type(
-            mockContent.message
-        );
+        cy.get('[data-test-id="cfi-name"]').type(mockContent.name);
+        cy.get('[data-test-id="cfi-email"]').type(mockContent.email);
+        cy.get('[data-test-id="cfi-subject"]').type(mockContent.subject);
+        cy.get('[data-test-id="cfi-message"]').type(mockContent.message);
     }
 
     function getSubmitBtn() {
@@ -73,9 +65,7 @@ describe('Form.cy.tsx', () => {
 
     it('Submit button is disabled until form is filled', () => {
         // Scrolls contact form into view so the intersection observer fires.
-        cy.get(
-            '.HeroSection__HeroSectionStyled-sc-159aeab4-0 > .ContactBtn__ContactBtnStyled-sc-4c6830b2-0'
-        ).click();
+        cy.get('[data-test-id="hero-contact-btn"]').click();
 
         // Checks that submit button is disabled.
         getSubmitBtn().should('be.disabled');

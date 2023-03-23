@@ -21,7 +21,7 @@ function HomePage() {
     return (
         <>
             <Head title="Sandrico Provo - Software Developer" />
-            <HeroSection>
+            <HeroSection testId="homepage-hero">
                 <Header1 shouldMotion>Hey, I'm Sandrico</Header1>
                 <BodyText shouldMotion>
                     I'm a <Highlighted accent>Software Developer</Highlighted>{' '}
@@ -34,7 +34,10 @@ function HomePage() {
                     button to go to my contact form.
                 </BodyText>
                 <TechStack />
-                <ContactBtn clickHandler={() => scrollToRef(contactFormRef)}>
+                <ContactBtn
+                    clickHandler={() => scrollToRef(contactFormRef)}
+                    testId="hero-contact-btn"
+                >
                     Say Hello 👋🏾
                 </ContactBtn>
             </HeroSection>

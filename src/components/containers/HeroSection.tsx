@@ -12,9 +12,11 @@ const HeroSectionStyled = styled.section`
 
 interface BodyTextProps {
     children: ReactNode | ReactNode[];
-    sectionId?: string;
+    testId: string;
 }
 
-export function HeroSection({ children, sectionId = '' }: BodyTextProps) {
-    return <HeroSectionStyled id={sectionId}>{children}</HeroSectionStyled>;
+export function HeroSection({ children, testId = '' }: BodyTextProps) {
+    return (
+        <HeroSectionStyled data-test-id={testId}>{children}</HeroSectionStyled>
+    );
 }

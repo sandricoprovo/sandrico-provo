@@ -14,8 +14,9 @@ const InputStyled = styled.input`
 interface InputProps {
     fieldName: string;
     fieldValue: string;
-    type?: HTMLInputTypeAttribute;
     changeHandler: (event: ChangeEvent<HTMLInputElement>) => void;
+    type?: HTMLInputTypeAttribute;
+    testId?: string;
 }
 
 export function Input({
@@ -23,9 +24,11 @@ export function Input({
     fieldName,
     fieldValue,
     type,
+    testId = '',
 }: InputProps) {
     return (
         <InputStyled
+            data-test-id={testId}
             onChange={changeHandler}
             name={fieldName}
             value={fieldValue}
